@@ -50,6 +50,9 @@ mapping over 48 nominal-corner samples after oscillator startup. The
 remain to be built. The
 [transition budget](../reports/lc-dco-dac-transition.md) encodes the fast path
 as five thermometer MSBs plus two binary LSBs and requires no more than 750 ps
-switch skew. The [drive-settling result](../reports/lc-dco-drive-settling.md)
+switch skew. The
+[registered decoder](../reports/lc-dco-dac-decoder.md) implements those 33
+controls without exposing combinational decoder hazards to the analog switches.
+The [drive-settling result](../reports/lc-dco-drive-settling.md)
 requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
 bypass at the varactor-control node.

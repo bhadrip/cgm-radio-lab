@@ -59,6 +59,8 @@ the high-speed switching path from 12 bits to 7 bits after
 [non-ideality budgeting](reports/lc-dco-dac-nonidealities.md).
 The [transition budget](reports/lc-dco-dac-transition.md) selects five
 thermometer-coded MSBs plus two binary LSBs and sets a 750 ps switch-skew target.
+The [registered DAC decoder](reports/lc-dco-dac-decoder.md) implements that 5+2
+encoding and exhaustively checks all 128 input codes.
 The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
 resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
 
@@ -92,7 +94,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/lc_dco_dac_resolution.json`, `reports/lc_dco_dynamic.json`,
 `reports/lc_dco_segmented_dac.json`, `reports/lc_dco_dac_nonidealities.json`,
 `reports/lc_dco_dac_transition.json`, `reports/lc_dco_drive_settling.json`,
-`reports/yosys-stat.txt`, and the GFSK/DCO synthesis reports.
+`reports/yosys-stat.txt`, `reports/dco-dac-yosys-stat.txt`, and the remaining
+GFSK/DCO synthesis reports.
 
 ## Individual targets
 
@@ -114,6 +117,7 @@ make yosys-stat
 make gfsk-yosys-stat
 make gfsk-tx-yosys-stat
 make dco-yosys-stat
+make dco-dac-yosys-stat
 ```
 
 The individual targets expect Python, Icarus Verilog, cocotb, and Yosys on the

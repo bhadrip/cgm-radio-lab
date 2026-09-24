@@ -4,10 +4,11 @@ ROOT := $(CURDIR)
 GF180_TEMPLATE := third_party/gf180mcu-project-template
 GF180_PDK_ROOT ?= /foss/pdks
 GF180_CONFIGS := wafer_space/librelane-cgm.yaml
+CORE_RTL := $(filter-out rtl/ble_dco_dac_decoder.sv,$(wildcard rtl/*.sv))
 
-.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test lc-dco-test lc-dco-local-calibration lc-dco-dynamic-test lc-dco-drive-settling rf-characterization container-rf-characterization dco-bank-sizing dco-modulation dco-dac-resolution dco-segmented-dac dco-dac-nonidealities dco-dac-transition experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
+.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test lc-dco-test lc-dco-local-calibration lc-dco-dynamic-test lc-dco-drive-settling rf-characterization container-rf-characterization dco-bank-sizing dco-modulation dco-dac-resolution dco-segmented-dac dco-dac-nonidealities dco-dac-transition experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat dco-dac-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
 
-check: python-test rtl-test analog-test dco-bank-sizing dco-modulation dco-dac-resolution dco-segmented-dac dco-dac-nonidealities dco-dac-transition experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys
+check: python-test rtl-test analog-test dco-bank-sizing dco-modulation dco-dac-resolution dco-segmented-dac dco-dac-nonidealities dco-dac-transition experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat dco-dac-yosys-stat wafer-space-yosys
 
 python-test:
 	python3 -m unittest discover -s tests -p 'test_*model.py' -v
@@ -15,6 +16,7 @@ python-test:
 rtl-test:
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_gfsk_modulator COCOTB_TEST_MODULES=test_ble_gfsk_modulator SIM_BUILD=sim_build/gfsk
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_dco_controller COCOTB_TEST_MODULES=test_ble_dco_controller SIM_BUILD=sim_build/dco
+	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_dco_dac_decoder COCOTB_TEST_MODULES=test_ble_dco_dac_decoder SIM_BUILD=sim_build/dco_dac_decoder
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_gfsk_tx COCOTB_TEST_MODULES=test_cgm_gfsk_tx SIM_BUILD=sim_build/gfsk_tx
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_phy_loop COCOTB_TEST_MODULES=test_ble_phy_loop SIM_BUILD=sim_build/phy
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_packet_loop COCOTB_TEST_MODULES=test_cgm_packet_loop SIM_BUILD=sim_build/packet
@@ -86,7 +88,7 @@ experiment:
 
 yosys-stat:
 	@mkdir -p reports
-	yosys -q -p 'read_verilog -sv rtl/*.sv; hierarchy -check -top cgm_chip_core; proc; opt; tee -o reports/yosys-stat.txt stat'
+	yosys -q -p 'read_verilog -sv $(CORE_RTL); hierarchy -check -top cgm_chip_core; proc; opt; tee -o reports/yosys-stat.txt stat'
 	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/yosys-stat.txt
 
 gfsk-yosys-stat:
@@ -96,7 +98,7 @@ gfsk-yosys-stat:
 
 gfsk-tx-yosys-stat:
 	@mkdir -p reports
-	yosys -q -p 'read_verilog -sv rtl/*.sv; hierarchy -check -top cgm_gfsk_tx; proc; opt; tee -o reports/gfsk-tx-yosys-stat.txt stat'
+	yosys -q -p 'read_verilog -sv $(CORE_RTL); hierarchy -check -top cgm_gfsk_tx; proc; opt; tee -o reports/gfsk-tx-yosys-stat.txt stat'
 	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/gfsk-tx-yosys-stat.txt
 
 dco-yosys-stat:
@@ -104,9 +106,14 @@ dco-yosys-stat:
 	yosys -q -p 'read_verilog -sv rtl/ble_dco_controller.sv; hierarchy -check -top ble_dco_controller; proc; opt; tee -o reports/dco-yosys-stat.txt stat'
 	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/dco-yosys-stat.txt
 
+dco-dac-yosys-stat:
+	@mkdir -p reports
+	yosys -q -p 'read_verilog -sv rtl/ble_dco_dac_decoder.sv; hierarchy -check -top ble_dco_dac_decoder; proc; opt; tee -o reports/dco-dac-yosys-stat.txt stat'
+	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/dco-dac-yosys-stat.txt
+
 wafer-space-yosys:
 	@mkdir -p reports
-	yosys -q -p 'read_verilog -sv rtl/*.sv wafer_space/chip_core.sv; hierarchy -check -top chip_core; proc; opt; tee -o reports/wafer-space-yosys-stat.txt stat'
+	yosys -q -p 'read_verilog -sv $(CORE_RTL) wafer_space/chip_core.sv; hierarchy -check -top chip_core; proc; opt; tee -o reports/wafer-space-yosys-stat.txt stat'
 	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/wafer-space-yosys-stat.txt
 
 container-check:
@@ -176,4 +183,4 @@ container-gf180-signoff:
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
-	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_bank.json reports/lc_dco_local_calibration.json reports/lc_dco_local_calibration.csv reports/lc_dco_modulation.json reports/lc_dco_modulation_nominal_ch37.csv reports/lc_dco_dac_resolution.json reports/lc_dco_segmented_dac.json reports/lc_dco_dac_nonidealities.json reports/lc_dco_dac_transition.json reports/lc_dco_drive_settling.json reports/lc_dco_dynamic.json reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/wafer-space-yosys-stat.txt
+	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_bank.json reports/lc_dco_local_calibration.json reports/lc_dco_local_calibration.csv reports/lc_dco_modulation.json reports/lc_dco_modulation_nominal_ch37.csv reports/lc_dco_dac_resolution.json reports/lc_dco_segmented_dac.json reports/lc_dco_dac_nonidealities.json reports/lc_dco_dac_transition.json reports/lc_dco_drive_settling.json reports/lc_dco_dynamic.json reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/dco-dac-yosys-stat.txt reports/wafer-space-yosys-stat.txt

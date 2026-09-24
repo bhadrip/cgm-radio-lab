@@ -1,0 +1,18 @@
+
+5. Printing statistics.
+
+=== ble_dco_dac_decoder ===
+
+        +----------Local Count, excluding submodules.
+        |
+       39 wires
+       76 wire bits
+        7 public wires
+       44 public wire bits
+        7 ports
+       44 port bits
+       65 cells
+       31   $gt
+        1   $mux
+        1   $sdff
+       32   $sdffe
