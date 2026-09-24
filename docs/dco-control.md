@@ -59,6 +59,9 @@ glitch. The [current-steered follow-on](../reports/gf180-fast-dac-steered.md)
 uses a 6+1 split and passes the nominal transition gate. Its
 [sampled PVT sweep](../reports/gf180-fast-dac-steered-pvt.md) retains the pass at
 typical/25 C, fast/-40 C, and slow/125 C.
+The [mismatch sensitivity sweep](../reports/gf180-fast-dac-mismatch.md) requires
+no more than 2.0% one-sigma single-unit current mismatch for the modeled 99.9%
+yield gate; qualified device Monte Carlo remains required.
 The [drive-settling result](../reports/lc-dco-drive-settling.md)
 requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
 bypass at the varactor-control node.

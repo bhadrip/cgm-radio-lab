@@ -6,7 +6,7 @@ GF180_PDK_ROOT ?= /foss/pdks
 GF180_CONFIGS := wafer_space/librelane-cgm.yaml
 CORE_RTL := $(filter-out rtl/ble_dco_dac_decoder.sv,$(wildcard rtl/*.sv))
 
-.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test lc-dco-test gf180-fast-dac-test gf180-fast-dac-steered-test gf180-fast-dac-steered-pvt-test lc-dco-local-calibration lc-dco-dynamic-test lc-dco-drive-settling rf-characterization container-rf-characterization dco-bank-sizing dco-modulation dco-dac-resolution dco-segmented-dac dco-dac-nonidealities dco-dac-transition experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat dco-dac-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
+.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test lc-dco-test gf180-fast-dac-test gf180-fast-dac-steered-test gf180-fast-dac-steered-pvt-test gf180-fast-dac-mismatch-test lc-dco-local-calibration lc-dco-dynamic-test lc-dco-drive-settling rf-characterization container-rf-characterization dco-bank-sizing dco-modulation dco-dac-resolution dco-segmented-dac dco-dac-nonidealities dco-dac-transition experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat dco-dac-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
 
 check: python-test rtl-test analog-test dco-bank-sizing dco-modulation dco-dac-resolution dco-segmented-dac dco-dac-nonidealities dco-dac-transition experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat dco-dac-yosys-stat wafer-space-yosys
 
@@ -23,7 +23,7 @@ rtl-test:
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_chip_core COCOTB_TEST_MODULES=test_cgm_chip_core SIM_BUILD=sim_build/chip_core
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=chip_core COCOTB_TEST_MODULES=test_wafer_space_chip_core SIM_BUILD=sim_build/wafer_space
 
-analog-test: ring-dco-test lc-vco-test lc-dco-test gf180-fast-dac-test gf180-fast-dac-steered-pvt-test
+analog-test: ring-dco-test lc-vco-test lc-dco-test gf180-fast-dac-test gf180-fast-dac-steered-pvt-test gf180-fast-dac-mismatch-test
 
 ring-dco-test:
 	python3 scripts/run_ring_dco_sweep.py
@@ -43,6 +43,9 @@ gf180-fast-dac-steered-test: dco-dac-transition
 gf180-fast-dac-steered-pvt-test: gf180-fast-dac-steered-test
 	PYTHONPATH=$(ROOT) python3 scripts/run_gf180_fast_dac_steered_pvt.py
 
+gf180-fast-dac-mismatch-test: gf180-fast-dac-steered-pvt-test
+	PYTHONPATH=$(ROOT) python3 scripts/run_gf180_fast_dac_mismatch.py
+
 lc-dco-local-calibration:
 	PYTHONPATH=$(ROOT) python3 scripts/run_lc_dco_local_calibration.py
 
@@ -57,7 +60,7 @@ rf-characterization:
 	$(MAKE) dco-segmented-dac
 	$(MAKE) dco-dac-nonidealities
 	$(MAKE) gf180-fast-dac-test
-	$(MAKE) gf180-fast-dac-steered-pvt-test
+	$(MAKE) gf180-fast-dac-mismatch-test
 	$(MAKE) lc-dco-drive-settling
 	$(MAKE) lc-dco-dynamic-test
 
@@ -193,4 +196,4 @@ container-gf180-signoff:
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
-	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_bank.json reports/lc_dco_local_calibration.json reports/lc_dco_local_calibration.csv reports/lc_dco_modulation.json reports/lc_dco_modulation_nominal_ch37.csv reports/lc_dco_dac_resolution.json reports/lc_dco_segmented_dac.json reports/lc_dco_dac_nonidealities.json reports/lc_dco_dac_transition.json reports/gf180_fast_dac.json reports/gf180_fast_dac_steered.json reports/gf180_fast_dac_steered_pvt.json reports/lc_dco_drive_settling.json reports/lc_dco_dynamic.json reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/dco-dac-yosys-stat.txt reports/wafer-space-yosys-stat.txt
+	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_bank.json reports/lc_dco_local_calibration.json reports/lc_dco_local_calibration.csv reports/lc_dco_modulation.json reports/lc_dco_modulation_nominal_ch37.csv reports/lc_dco_dac_resolution.json reports/lc_dco_segmented_dac.json reports/lc_dco_dac_nonidealities.json reports/lc_dco_dac_transition.json reports/gf180_fast_dac.json reports/gf180_fast_dac_steered.json reports/gf180_fast_dac_steered_pvt.json reports/gf180_fast_dac_mismatch.json reports/lc_dco_drive_settling.json reports/lc_dco_dynamic.json reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/dco-dac-yosys-stat.txt reports/wafer-space-yosys-stat.txt

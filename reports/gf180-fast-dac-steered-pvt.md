@@ -24,9 +24,12 @@ Endpoint gain error is removed when calculating INL and remains a calibration
 requirement. The model still assumes ideal complementary gate timing and matched
 devices.
 
-Mismatch Monte Carlo, reference variation and noise, decoder power, post-route
-skew, extracted parasitics, and layout area remain open. Complete-chip power and
-production evidence continue to follow the
+Foundry-qualified mismatch Monte Carlo, reference variation and noise, decoder
+power, post-route skew, extracted parasitics, and layout area remain open. The
+[mismatch sensitivity follow-on](gf180-fast-dac-mismatch.md) converts the
+linearity budget into a maximum assumed unit-current sigma without claiming
+foundry statistical evidence. Complete-chip power and production evidence
+continue to follow the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
 Reproduce with `make gf180-fast-dac-steered-pvt-test`. Machine-readable results

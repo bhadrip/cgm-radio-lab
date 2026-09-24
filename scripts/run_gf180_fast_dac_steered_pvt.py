@@ -17,15 +17,21 @@ CORNERS = (("ff", -40), ("ss", 125))
 
 def main() -> None:
     typical = json.loads(TYPICAL_REPORT.read_text())
+    typical["code_voltages_v"] = [
+        point["output_voltage_v"] for point in typical["codes"]
+    ]
     typical.pop("codes")
     summaries = [typical]
     for corner, temperature_c in CORNERS:
         result = characterize(corner, temperature_c)
+        result["code_voltages_v"] = [
+            point["output_voltage_v"] for point in result["codes"]
+        ]
         result.pop("codes")
         summaries.append(result)
     passed = all(summary["accepted_for_next_stage"] for summary in summaries)
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "purpose": "sampled PVT gate for the 6+1 current-steered fast DAC",
         "corner_count": len(summaries),
         "passed": passed,

@@ -67,6 +67,9 @@ The [current-steered follow-on](reports/gf180-fast-dac-steered.md) moves to a
 6+1 split and passes the nominal carry gate at 20.777 uV.
 The [sampled PVT gate](reports/gf180-fast-dac-steered-pvt.md) retains that pass
 at typical/25 C, fast/-40 C, and slow/125 C.
+The [mismatch sensitivity sweep](reports/gf180-fast-dac-mismatch.md) then bounds
+the assumed single-unit current sigma at 2.0% for a 99.9% modeled-yield target;
+it is explicitly not foundry-qualified Monte Carlo evidence.
 The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
 resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
 
@@ -101,7 +104,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/lc_dco_segmented_dac.json`, `reports/lc_dco_dac_nonidealities.json`,
 `reports/lc_dco_dac_transition.json`, `reports/lc_dco_drive_settling.json`,
 `reports/gf180_fast_dac.json`, `reports/gf180_fast_dac_steered.json`,
-`reports/gf180_fast_dac_steered_pvt.json`, `reports/yosys-stat.txt`,
+`reports/gf180_fast_dac_steered_pvt.json`,
+`reports/gf180_fast_dac_mismatch.json`, `reports/yosys-stat.txt`,
 `reports/dco-dac-yosys-stat.txt`, and the remaining GFSK/DCO synthesis reports.
 
 ## Individual targets
@@ -113,6 +117,7 @@ make analog-test
 make gf180-fast-dac-test
 make gf180-fast-dac-steered-test
 make gf180-fast-dac-steered-pvt-test
+make gf180-fast-dac-mismatch-test
 make lc-dco-local-calibration
 make lc-dco-dynamic-test
 make dco-bank-sizing
