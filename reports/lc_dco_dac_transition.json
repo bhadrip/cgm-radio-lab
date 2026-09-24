@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "method": "arbitrary changed-element order within the switch-skew window",
+  "sample_count": 32256,
+  "transition_count": 32247,
+  "maximum_sample_code_step": 5,
+  "observed_modulation_code_range": {
+    "minimum": 35,
+    "maximum": 99
+  },
+  "switch_skew_target_s": 7.5e-10,
+  "drive_resistance_ohm": 1000,
+  "control_load_f": 1e-11,
+  "drive_time_constant_s": 1e-08,
+  "rc_peak_fraction": 0.07225651367144714,
+  "maximum_tuning_gain_hz_per_v": 130780999.99999775,
+  "frequency_error_limit_hz": 50000,
+  "frequency_error_before_glitch_hz": 45307.14808702469,
+  "frequency_margin_for_glitch_hz": 4692.851912975311,
+  "selected_thermometer_msb_bits": 5,
+  "selected_binary_lsb_bits": 2,
+  "selected_switched_element_count": 33,
+  "passed": true,
+  "summaries": [
+    {
+      "thermometer_msb_bits": 0,
+      "binary_lsb_bits": 7,
+      "switched_element_count": 7,
+      "maximum_glitch_excursion_codes": 63,
+      "maximum_source_glitch_v": 0.007937007874015748,
+      "maximum_node_glitch_v": 0.0005735005179592026,
+      "maximum_glitch_frequency_error_hz": 75002.97123922118,
+      "combined_frequency_error_hz": 120310.11932624587,
+      "maximum_allowed_switch_skew_s": 4.531259807840944e-11,
+      "meets_error_limit": false,
+      "worst_transition": {
+        "corner": "ss",
+        "channel": 38,
+        "previous_code": 63,
+        "next_code": 64,
+        "excursion_codes": 63
+      }
+    },
+    {
+      "thermometer_msb_bits": 1,
+      "binary_lsb_bits": 6,
+      "switched_element_count": 7,
+      "maximum_glitch_excursion_codes": 63,
+      "maximum_source_glitch_v": 0.007937007874015748,
+      "maximum_node_glitch_v": 0.0005735005179592026,
+      "maximum_glitch_frequency_error_hz": 75002.97123922118,
+      "combined_frequency_error_hz": 120310.11932624587,
+      "maximum_allowed_switch_skew_s": 4.531259807840944e-11,
+      "meets_error_limit": false,
+      "worst_transition": {
+        "corner": "ss",
+        "channel": 38,
+        "previous_code": 63,
+        "next_code": 64,
+        "excursion_codes": 63
+      }
+    },
+    {
+      "thermometer_msb_bits": 2,
+      "binary_lsb_bits": 5,
+      "switched_element_count": 8,
+      "maximum_glitch_excursion_codes": 31,
+      "maximum_source_glitch_v": 0.0039055118110236224,
+      "maximum_node_glitch_v": 0.00028219866756722665,
+      "maximum_glitch_frequency_error_hz": 36906.22394310883,
+      "combined_frequency_error_hz": 82213.37203013353,
+      "maximum_allowed_switch_skew_s": 9.230325973753584e-11,
+      "meets_error_limit": false,
+      "worst_transition": {
+        "corner": "typical",
+        "channel": 37,
+        "previous_code": 95,
+        "next_code": 96,
+        "excursion_codes": 31
+      }
+    },
+    {
+      "thermometer_msb_bits": 3,
+      "binary_lsb_bits": 4,
+      "switched_element_count": 11,
+      "maximum_glitch_excursion_codes": 15,
+      "maximum_source_glitch_v": 0.001889763779527559,
+      "maximum_node_glitch_v": 0.0001365477423712387,
+      "maximum_glitch_frequency_error_hz": 17857.85029505266,
+      "combined_frequency_error_hz": 63164.99838207735,
+      "maximum_allowed_switch_skew_s": 1.917083007260681e-10,
+      "meets_error_limit": false,
+      "worst_transition": {
+        "corner": "typical",
+        "channel": 37,
+        "previous_code": 95,
+        "next_code": 96,
+        "excursion_codes": 15
+      }
+    },
+    {
+      "thermometer_msb_bits": 4,
+      "binary_lsb_bits": 3,
+      "switched_element_count": 18,
+      "maximum_glitch_excursion_codes": 7,
+      "maximum_source_glitch_v": 0.0008818897637795275,
+      "maximum_node_glitch_v": 6.372227977324472e-05,
+      "maximum_glitch_frequency_error_hz": 8333.663471024574,
+      "combined_frequency_error_hz": 53640.81155804926,
+      "maximum_allowed_switch_skew_s": 4.154004626708884e-10,
+      "meets_error_limit": false,
+      "worst_transition": {
+        "corner": "typical",
+        "channel": 37,
+        "previous_code": 95,
+        "next_code": 96,
+        "excursion_codes": 7
+      }
+    },
+    {
+      "thermometer_msb_bits": 5,
+      "binary_lsb_bits": 2,
+      "switched_element_count": 33,
+      "maximum_glitch_excursion_codes": 3,
+      "maximum_source_glitch_v": 0.0003779527559055118,
+      "maximum_node_glitch_v": 2.730954847424774e-05,
+      "maximum_glitch_frequency_error_hz": 3571.5700590105325,
+      "combined_frequency_error_hz": 48878.71814603522,
+      "maximum_allowed_switch_skew_s": 9.975535608326709e-10,
+      "meets_error_limit": true,
+      "worst_transition": {
+        "corner": "typical",
+        "channel": 37,
+        "previous_code": 59,
+        "next_code": 60,
+        "excursion_codes": 3
+      }
+    },
+    {
+      "thermometer_msb_bits": 6,
+      "binary_lsb_bits": 1,
+      "switched_element_count": 64,
+      "maximum_glitch_excursion_codes": 1,
+      "maximum_source_glitch_v": 0.00012598425196850394,
+      "maximum_node_glitch_v": 9.103182824749247e-06,
+      "maximum_glitch_frequency_error_hz": 1190.5233530035107,
+      "combined_frequency_error_hz": 46497.6714400282,
+      "maximum_allowed_switch_skew_s": 3.3522601951259547e-09,
+      "meets_error_limit": true,
+      "worst_transition": {
+        "corner": "typical",
+        "channel": 37,
+        "previous_code": 59,
+        "next_code": 60,
+        "excursion_codes": 1
+      }
+    },
+    {
+      "thermometer_msb_bits": 7,
+      "binary_lsb_bits": 0,
+      "switched_element_count": 127,
+      "maximum_glitch_excursion_codes": 0,
+      "maximum_source_glitch_v": 0.0,
+      "maximum_node_glitch_v": 0.0,
+      "maximum_glitch_frequency_error_hz": 0.0,
+      "combined_frequency_error_hz": 45307.14808702469,
+      "maximum_allowed_switch_skew_s": null,
+      "meets_error_limit": true,
+      "worst_transition": null
+    }
+  ]
+}

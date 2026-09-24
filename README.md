@@ -57,6 +57,8 @@ minimum full-scale resolution across all packet samples and sampled corners.
 The [segmented DAC architecture](reports/lc-dco-segmented-dac.md) then reduces
 the high-speed switching path from 12 bits to 7 bits after
 [non-ideality budgeting](reports/lc-dco-dac-nonidealities.md).
+The [transition budget](reports/lc-dco-dac-transition.md) selects five
+thermometer-coded MSBs plus two binary LSBs and sets a 750 ps switch-skew target.
 The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
 resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
 
@@ -89,8 +91,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/lc_dco_local_calibration.json`, `reports/lc_dco_modulation.json`,
 `reports/lc_dco_dac_resolution.json`, `reports/lc_dco_dynamic.json`,
 `reports/lc_dco_segmented_dac.json`, `reports/lc_dco_dac_nonidealities.json`,
-`reports/lc_dco_drive_settling.json`, `reports/yosys-stat.txt`, and the GFSK/DCO
-synthesis reports.
+`reports/lc_dco_dac_transition.json`, `reports/lc_dco_drive_settling.json`,
+`reports/yosys-stat.txt`, and the GFSK/DCO synthesis reports.
 
 ## Individual targets
 
@@ -105,6 +107,7 @@ make dco-modulation
 make dco-dac-resolution
 make dco-segmented-dac
 make dco-dac-nonidealities
+make dco-dac-transition
 make lc-dco-drive-settling
 make experiment
 make yosys-stat

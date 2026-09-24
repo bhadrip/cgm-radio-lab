@@ -2,7 +2,11 @@ import json
 import unittest
 from pathlib import Path
 
-from model.lc_dco_dac import SegmentedVoltageDac, VoltageDac
+from model.lc_dco_dac import (
+    SegmentedDacEncoding,
+    SegmentedVoltageDac,
+    VoltageDac,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -79,6 +83,29 @@ class LcDcoDacModelTest(unittest.TestCase):
         }
         self.assertFalse(summaries[6]["meets_error_limit"])
         self.assertTrue(summaries[7]["meets_error_limit"])
+
+    def test_segmented_encoding_bounds_binary_carry_glitch(self):
+        binary = SegmentedDacEncoding(7, 0)
+        self.assertEqual(sum(binary.transition_events(63, 64)), 1)
+        self.assertEqual(binary.worst_case_glitch_excursion_codes(63, 64), 63)
+        segmented = SegmentedDacEncoding(7, 5)
+        self.assertEqual(segmented.binary_lsb_bits, 2)
+        self.assertEqual(segmented.switched_element_count, 33)
+        self.assertEqual(segmented.worst_case_glitch_excursion_codes(59, 60), 3)
+
+    def test_transition_budget_selects_five_plus_two_segmentation(self):
+        report = json.loads(
+            (ROOT / "reports" / "lc_dco_dac_transition.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["selected_thermometer_msb_bits"], 5)
+        self.assertEqual(report["selected_binary_lsb_bits"], 2)
+        summaries = {
+            summary["thermometer_msb_bits"]: summary
+            for summary in report["summaries"]
+        }
+        self.assertFalse(summaries[4]["meets_error_limit"])
+        self.assertTrue(summaries[5]["meets_error_limit"])
 
 
 if __name__ == "__main__":

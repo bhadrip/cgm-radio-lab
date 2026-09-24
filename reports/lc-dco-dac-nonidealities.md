@@ -39,5 +39,9 @@ area must be included in the complete-report and production evidence required
 by the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
+The follow-on [transition budget](lc-dco-dac-transition.md) selects a
+five-thermometer-MSB/two-binary-LSB encoding and derives its switch-skew target;
+transistor-level glitch validation remains open.
+
 Reproduce the budget with `make dco-dac-nonidealities`. Machine-readable values
 are in `lc_dco_dac_nonidealities.json`.
