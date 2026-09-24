@@ -1,0 +1,17 @@
+project: cgm-radio-lab
+slice: 1
+phy: BLE_LE_1M
+access_address: 0x8E89BED6
+crc_init: 0x555555
+payload_bytes: 8
+advertising_channel: 37
+clock_hz: 16000000
+experiment:
+  seed: 49374
+  packets_per_point: 2000
+  raw_bit_error_rates:
+    - 0.0
+    - 0.0001
+    - 0.001
+    - 0.01
+

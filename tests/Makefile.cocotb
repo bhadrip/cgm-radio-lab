@@ -1,0 +1,15 @@
+SIM ?= icarus
+TOPLEVEL_LANG = verilog
+
+ROOT := $(abspath ..)
+VERILOG_SOURCES := \
+    $(ROOT)/rtl/ble_crc24.sv \
+    $(ROOT)/rtl/ble_whitener.sv \
+    $(ROOT)/rtl/ble_phy_loop.sv
+
+COMPILE_ARGS += -g2012
+TOPLEVEL = ble_phy_loop
+COCOTB_TEST_MODULES = test_ble_phy_loop
+PYTHONPATH := $(ROOT):$(PYTHONPATH)
+
+include $(shell cocotb-config --makefiles)/Makefile.sim
