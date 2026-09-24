@@ -43,4 +43,7 @@ fine-control voltage without switching the coarse bank during the packet.
 The [dynamic validation](../reports/lc-dco-dynamic-validation.md) checks that
 mapping over 48 nominal-corner samples after oscillator startup. The
 [fine-control analysis](../reports/lc-dco-dac-resolution.md) selects a 12-bit,
-0--1.8 V DAC as the minimum modeled resolution; its circuit remains to be built.
+0--1.8 V DAC as the minimum monolithic resolution. The
+[segmented architecture](../reports/lc-dco-segmented-dac.md) replaces it with a
+7-bit slow bias path and a 6-bit fast modulation path; both circuits remain to
+be built.

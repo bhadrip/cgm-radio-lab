@@ -83,7 +83,8 @@ class LcDcoModulationModelTest(unittest.TestCase):
         self.assertEqual(report["corner"], "typical")
         self.assertEqual(report["channel"], 37)
         self.assertEqual(report["measured_samples"], 48)
-        self.assertEqual(report["dac_bits"], 12)
+        self.assertEqual(report["bias_dac_bits"], 7)
+        self.assertEqual(report["modulation_dac_bits"], 6)
         self.assertTrue(report["passed"])
         self.assertLessEqual(
             report["maximum_absolute_frequency_error_hz"],

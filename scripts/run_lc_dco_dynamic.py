@@ -11,14 +11,15 @@ import tempfile
 from pathlib import Path
 
 from model.dco import ble_channel_center_hz
-from model.lc_dco_dac import VoltageDac
-from model.lc_dco_modulation import control_waveform
+from model.lc_dco_dac import SegmentedVoltageDac, VoltageDac
+from model.lc_dco_modulation import control_voltage_for_frequency, control_waveform
 
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATE = ROOT / "analog" / "gf180_lc_dco_dynamic_tb.spice"
 STATIC_SWEEP = ROOT / "reports" / "lc_dco_sweep.json"
 LOCAL_CALIBRATION = ROOT / "reports" / "lc_dco_local_calibration.json"
+SEGMENTED_DAC = ROOT / "reports" / "lc_dco_segmented_dac.json"
 REPORT = ROOT / "reports" / "lc_dco_dynamic.json"
 MODEL_FILE = os.environ.get(
     "GF180_MODEL_FILE",
@@ -31,9 +32,8 @@ DESIGN_FILE = os.environ.get(
 BITS = (0, 0, 0, 0, 1, 0, 1)
 SAMPLE_PERIOD_S = 1 / 16_000_000
 MEASURE_START_SAMPLE = 4 * 16
-MAXIMUM_ERROR_LIMIT_HZ = 50_000
+MAXIMUM_ERROR_LIMIT_HZ = 40_000
 MEAN_ERROR_LIMIT_HZ = 10_000
-DAC_BITS = int(os.environ.get("LC_DCO_DAC_BITS", "12"))
 FREQUENCY = re.compile(r"^freq_(\d+)\s*=\s*([-+0-9.eE]+)", re.MULTILINE)
 SCALAR = re.compile(
     r"^(differential_vpp|supply_current_a|power_w)\s*=\s*([-+0-9.eE]+)",
@@ -88,9 +88,25 @@ def main() -> None:
     calibration, offsets_hz, ideal_voltages = control_waveform(
         static_points, "typical", 37, BITS
     )
-    dac = VoltageDac(DAC_BITS)
-    codes = [dac.code_for_voltage(voltage) for voltage in ideal_voltages]
-    voltages = [dac.voltage_for_code(code) for code in codes]
+    dac_report = json.loads(SEGMENTED_DAC.read_text())
+    dac = SegmentedVoltageDac(
+        VoltageDac(
+            dac_report["selected_bias_bits"],
+            dac_report["bias_range_v"]["minimum"],
+            dac_report["bias_range_v"]["maximum"],
+        ),
+        VoltageDac(
+            dac_report["selected_modulation_bits"],
+            dac_report["modulation_range_v"]["minimum"],
+            dac_report["modulation_range_v"]["maximum"],
+        ),
+    )
+    center_voltage_v = control_voltage_for_frequency(
+        static_points, calibration, ble_channel_center_hz(37)
+    )
+    bias_code, modulation_codes, voltages = dac.quantize_waveform(
+        center_voltage_v, ideal_voltages
+    )
     stop_s = len(voltages) * SAMPLE_PERIOD_S
     netlist = (
         TEMPLATE.read_text()
@@ -126,7 +142,7 @@ def main() -> None:
             "measured_frequency_hz": measured[sample],
             "error_hz": measured[sample] - (center_hz + offsets_hz[sample]),
             "ideal_control_voltage_v": ideal_voltages[sample],
-            "dac_code": codes[sample],
+            "modulation_code": modulation_codes[sample],
             "control_voltage_v": voltages[sample],
         }
         for sample in range(MEASURE_START_SAMPLE, len(voltages))
@@ -145,8 +161,11 @@ def main() -> None:
         "coarse_code": calibration.coarse_code,
         "bits": list(BITS),
         "sample_rate_hz": 16_000_000,
-        "dac_bits": dac.bits,
-        "dac_lsb_v": dac.lsb_v,
+        "bias_dac_bits": dac.bias.bits,
+        "bias_dac_code": bias_code,
+        "bias_dac_voltage_v": dac.bias.voltage_for_code(bias_code),
+        "modulation_dac_bits": dac.modulation.bits,
+        "modulation_dac_lsb_v": dac.modulation.lsb_v,
         "measured_samples": len(samples),
         "mean_frequency_error_hz": mean_error_hz,
         "maximum_absolute_frequency_error_hz": maximum_error_hz,

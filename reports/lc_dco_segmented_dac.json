@@ -1,0 +1,440 @@
+{
+  "schema_version": 1,
+  "bias_range_v": {
+    "minimum": 0.9,
+    "maximum": 1.4
+  },
+  "modulation_range_v": {
+    "minimum": -0.008,
+    "maximum": 0.008
+  },
+  "combined_error_limit_hz": 40000,
+  "minimum_voltage_headroom_v": 0.003,
+  "packet_samples_per_corner_channel": 3584,
+  "corner_channel_combinations": 9,
+  "selected_bias_bits": 7,
+  "selected_modulation_bits": 6,
+  "passed": true,
+  "summaries": [
+    {
+      "bias_bits": 6,
+      "modulation_bits": 4,
+      "bias_lsb_v": 0.007936507936507934,
+      "modulation_lsb_v": 0.0010666666666666667,
+      "maximum_residual_v": 0.007232616151099935,
+      "voltage_headroom_v": 0.0007673838489000648,
+      "saturated": false,
+      "maximum_quantization_error_hz": 65968.76326274872,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 85968.76326274872,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": -111368,
+        "modulation_code": 7,
+        "output_voltage_v": 1.097879365079365,
+        "error_hz": 65968.76326274872
+      }
+    },
+    {
+      "bias_bits": 6,
+      "modulation_bits": 5,
+      "bias_lsb_v": 0.007936507936507934,
+      "modulation_lsb_v": 0.0005161290322580645,
+      "maximum_residual_v": 0.007232616151099935,
+      "voltage_headroom_v": 0.0007673838489000648,
+      "saturated": false,
+      "maximum_quantization_error_hz": 31265.771352767944,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 51265.771352767944,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": 147990,
+        "modulation_code": 18,
+        "output_voltage_v": 1.0997030209933434,
+        "error_hz": 31265.771352767944
+      }
+    },
+    {
+      "bias_bits": 6,
+      "modulation_bits": 6,
+      "bias_lsb_v": 0.007936507936507934,
+      "modulation_lsb_v": 0.00025396825396825396,
+      "maximum_residual_v": 0.007232616151099935,
+      "voltage_headroom_v": 0.0007673838489000648,
+      "saturated": false,
+      "maximum_quantization_error_hz": 15431.280074596405,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 35431.280074596405,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -178140,
+        "modulation_code": 32,
+        "output_voltage_v": 1.2096507936507936,
+        "error_hz": -15431.280074596405
+      }
+    },
+    {
+      "bias_bits": 6,
+      "modulation_bits": 7,
+      "bias_lsb_v": 0.007936507936507934,
+      "modulation_lsb_v": 0.00012598425196850394,
+      "maximum_residual_v": 0.007232616151099935,
+      "voltage_headroom_v": 0.0007673838489000648,
+      "saturated": false,
+      "maximum_quantization_error_hz": 7726.416911125183,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 27726.416911125183,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": -198346,
+        "modulation_code": 49,
+        "output_voltage_v": 1.096585926759155,
+        "error_hz": -7726.416911125183
+      }
+    },
+    {
+      "bias_bits": 7,
+      "modulation_bits": 4,
+      "bias_lsb_v": 0.003937007874015747,
+      "modulation_lsb_v": 0.0010666666666666667,
+      "maximum_residual_v": 0.0044951958143986115,
+      "voltage_headroom_v": 0.0035048041856013887,
+      "saturated": false,
+      "maximum_quantization_error_hz": 65413.80679988861,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 85413.80679988861,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -23522,
+        "modulation_code": 8,
+        "output_voltage_v": 1.2115569553805774,
+        "error_hz": 65413.80679988861
+      }
+    },
+    {
+      "bias_bits": 7,
+      "modulation_bits": 5,
+      "bias_lsb_v": 0.003937007874015747,
+      "modulation_lsb_v": 0.0005161290322580645,
+      "maximum_residual_v": 0.0044951958143986115,
+      "voltage_headroom_v": 0.0035048041856013887,
+      "saturated": false,
+      "maximum_quantization_error_hz": 31360.58748817444,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 51360.58748817444,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -23522,
+        "modulation_code": 16,
+        "output_voltage_v": 1.211281686563373,
+        "error_hz": 31360.58748817444
+      }
+    },
+    {
+      "bias_bits": 7,
+      "modulation_bits": 6,
+      "bias_lsb_v": 0.003937007874015747,
+      "modulation_lsb_v": 0.00025396825396825396,
+      "maximum_residual_v": 0.0044951958143986115,
+      "voltage_headroom_v": 0.0035048041856013887,
+      "saturated": false,
+      "maximum_quantization_error_hz": 15985.634815216064,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 35985.634815216064,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -212716,
+        "modulation_code": 25,
+        "output_voltage_v": 1.2093728283964504,
+        "error_hz": -15985.634815216064
+      }
+    },
+    {
+      "bias_bits": 7,
+      "modulation_bits": 7,
+      "bias_lsb_v": 0.003937007874015747,
+      "modulation_lsb_v": 0.00012598425196850394,
+      "maximum_residual_v": 0.0044951958143986115,
+      "voltage_headroom_v": 0.0035048041856013887,
+      "saturated": false,
+      "maximum_quantization_error_hz": 7724.302043914795,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 27724.302043914795,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -147210,
+        "modulation_code": 56,
+        "output_voltage_v": 1.2100787401574804,
+        "error_hz": 7724.302043914795
+      }
+    },
+    {
+      "bias_bits": 8,
+      "modulation_bits": 4,
+      "bias_lsb_v": 0.0019607843137254897,
+      "modulation_lsb_v": 0.0010666666666666667,
+      "maximum_residual_v": 0.004338125021314698,
+      "voltage_headroom_v": 0.003661874978685302,
+      "saturated": false,
+      "maximum_quantization_error_hz": 66072.59505796432,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 86072.59505796432,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": 238874,
+        "modulation_code": 10,
+        "output_voltage_v": 1.1007058823529412,
+        "error_hz": 66072.59505796432
+      }
+    },
+    {
+      "bias_bits": 8,
+      "modulation_bits": 5,
+      "bias_lsb_v": 0.0019607843137254897,
+      "modulation_lsb_v": 0.0005161290322580645,
+      "maximum_residual_v": 0.004338125021314698,
+      "voltage_headroom_v": 0.003661874978685302,
+      "saturated": false,
+      "maximum_quantization_error_hz": 31044.906099796295,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 51044.906099796295,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": -218898,
+        "modulation_code": 12,
+        "output_voltage_v": 1.0962327640733713,
+        "error_hz": -31044.906099796295
+      }
+    },
+    {
+      "bias_bits": 8,
+      "modulation_bits": 6,
+      "bias_lsb_v": 0.0019607843137254897,
+      "modulation_lsb_v": 0.00025396825396825396,
+      "maximum_residual_v": 0.004338125021314698,
+      "voltage_headroom_v": 0.003661874978685302,
+      "saturated": false,
+      "maximum_quantization_error_hz": 15688.148516178131,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 35688.14851617813,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": -246734,
+        "modulation_code": 24,
+        "output_voltage_v": 1.0961344537815128,
+        "error_hz": -15688.148516178131
+      }
+    },
+    {
+      "bias_bits": 8,
+      "modulation_bits": 7,
+      "bias_lsb_v": 0.0019607843137254897,
+      "modulation_lsb_v": 0.00012598425196850394,
+      "maximum_residual_v": 0.004338125021314698,
+      "voltage_headroom_v": 0.003661874978685302,
+      "saturated": false,
+      "maximum_quantization_error_hz": 7667.515583515167,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 27667.515583515167,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -212716,
+        "modulation_code": 46,
+        "output_voltage_v": 1.2095599814729041,
+        "error_hz": 7667.515583515167
+      }
+    },
+    {
+      "bias_bits": 9,
+      "modulation_bits": 4,
+      "bias_lsb_v": 0.000978473581213307,
+      "modulation_lsb_v": 0.0010666666666666667,
+      "maximum_residual_v": 0.0035427557986695835,
+      "voltage_headroom_v": 0.004457244201330417,
+      "saturated": false,
+      "maximum_quantization_error_hz": 65046.532356739044,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 85046.53235673904,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": 178140,
+        "modulation_code": 8,
+        "output_voltage_v": 1.0991634703196347,
+        "error_hz": -65046.532356739044
+      }
+    },
+    {
+      "bias_bits": 9,
+      "modulation_bits": 5,
+      "bias_lsb_v": 0.000978473581213307,
+      "modulation_lsb_v": 0.0005161290322580645,
+      "maximum_residual_v": 0.0035427557986695835,
+      "voltage_headroom_v": 0.004457244201330417,
+      "saturated": false,
+      "maximum_quantization_error_hz": 31827.316840171814,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 51827.316840171814,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": 238874,
+        "modulation_code": 19,
+        "output_voltage_v": 1.1004365885992047,
+        "error_hz": 31827.316840171814
+      }
+    },
+    {
+      "bias_bits": 9,
+      "modulation_bits": 6,
+      "bias_lsb_v": 0.000978473581213307,
+      "modulation_lsb_v": 0.00025396825396825396,
+      "maximum_residual_v": 0.0035427557986695835,
+      "voltage_headroom_v": 0.004457244201330417,
+      "saturated": false,
+      "maximum_quantization_error_hz": 15697.91870355606,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 35697.91870355606,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": 23546,
+        "modulation_code": 33,
+        "output_voltage_v": 1.211535551206784,
+        "error_hz": 15697.91870355606
+      }
+    },
+    {
+      "bias_bits": 9,
+      "modulation_bits": 7,
+      "bias_lsb_v": 0.000978473581213307,
+      "modulation_lsb_v": 0.00012598425196850394,
+      "maximum_residual_v": 0.0035427557986695835,
+      "voltage_headroom_v": 0.004457244201330417,
+      "saturated": false,
+      "maximum_quantization_error_hz": 7992.089321613312,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 27992.08932161331,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": 249218,
+        "modulation_code": 76,
+        "output_voltage_v": 1.1002049401359077,
+        "error_hz": -7992.089321613312
+      }
+    },
+    {
+      "bias_bits": 10,
+      "modulation_bits": 4,
+      "bias_lsb_v": 0.0004887585532746822,
+      "modulation_lsb_v": 0.0010666666666666667,
+      "maximum_residual_v": 0.0036251125435963205,
+      "voltage_headroom_v": 0.00437488745640368,
+      "saturated": false,
+      "maximum_quantization_error_hz": 67247.66839838028,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 87247.66839838028,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -249646,
+        "modulation_code": 6,
+        "output_voltage_v": 1.2097391984359727,
+        "error_hz": 67247.66839838028
+      }
+    },
+    {
+      "bias_bits": 10,
+      "modulation_bits": 5,
+      "bias_lsb_v": 0.0004887585532746822,
+      "modulation_lsb_v": 0.0005161290322580645,
+      "maximum_residual_v": 0.0036251125435963205,
+      "voltage_headroom_v": 0.00437488745640368,
+      "saturated": false,
+      "maximum_quantization_error_hz": 32250.067278385162,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 52250.06727838516,
+      "meets_limits": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -111010,
+        "modulation_code": 13,
+        "output_voltage_v": 1.2100488758553276,
+        "error_hz": -32250.067278385162
+      }
+    },
+    {
+      "bias_bits": 10,
+      "modulation_bits": 6,
+      "bias_lsb_v": 0.0004887585532746822,
+      "modulation_lsb_v": 0.00025396825396825396,
+      "maximum_residual_v": 0.0036251125435963205,
+      "voltage_headroom_v": 0.00437488745640368,
+      "saturated": false,
+      "maximum_quantization_error_hz": 15233.210524082184,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 35233.210524082184,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": 23546,
+        "modulation_code": 31,
+        "output_voltage_v": 1.0983089885025368,
+        "error_hz": -15233.210524082184
+      }
+    },
+    {
+      "bias_bits": 10,
+      "modulation_bits": 7,
+      "bias_lsb_v": 0.0004887585532746822,
+      "modulation_lsb_v": 0.00012598425196850394,
+      "maximum_residual_v": 0.0036251125435963205,
+      "voltage_headroom_v": 0.00437488745640368,
+      "saturated": false,
+      "maximum_quantization_error_hz": 7839.3646030426025,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 27839.364603042603,
+      "meets_limits": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -218898,
+        "modulation_code": 49,
+        "output_voltage_v": 1.2095124267824293,
+        "error_hz": 7839.3646030426025
+      }
+    }
+  ]
+}
