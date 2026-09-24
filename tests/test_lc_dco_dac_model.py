@@ -175,6 +175,22 @@ class LcDcoDacModelTest(unittest.TestCase):
         self.assertEqual(len(selected["corners"]), 3)
         self.assertLessEqual(selected["worst_combined_frequency_error_hz"], 50_000)
 
+    def test_fast_dac_reference_current_window_is_bracketed(self):
+        report = json.loads(
+            (ROOT / "reports" / "gf180_fast_dac_reference_window.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["selected_minimum_reference_current_scale"], 0.85)
+        self.assertEqual(report["selected_maximum_reference_current_scale"], 1.05)
+        summaries = {
+            summary["reference_current_scale"]: summary
+            for summary in report["summaries"]
+        }
+        self.assertFalse(summaries[0.825]["passed"])
+        self.assertTrue(summaries[0.85]["passed"])
+        self.assertTrue(summaries[1.05]["passed"])
+        self.assertFalse(summaries[1.075]["passed"])
+
 
 if __name__ == "__main__":
     unittest.main()

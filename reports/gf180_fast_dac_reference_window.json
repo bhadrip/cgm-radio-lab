@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "purpose": "fast-DAC reference-current tolerance from packet and carry gates",
+  "minimum_voltage_headroom_v": 0.003,
+  "frequency_error_limit_hz": 50000,
+  "selected_minimum_reference_current_scale": 0.85,
+  "selected_maximum_reference_current_scale": 1.05,
+  "passed": true,
+  "summaries": [
+    {
+      "reference_current_scale": 0.8,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.0026691413264655186,
+      "minimum_used_code": 27,
+      "maximum_used_code": 99,
+      "maximum_quantization_error_hz": 6291.331576824188,
+      "maximum_inl_error_hz": 6308.755259513855,
+      "maximum_three_sigma_noise_error_hz": 9556.43986082077,
+      "maximum_glitch_frequency_error_hz": 3923.4299999965965,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 46079.95669715541,
+      "passed": false,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 2.0000000000131024e-05,
+          "glitch_frequency_error_hz": 2615.6200000170907
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 0.825,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.002864391326465518,
+      "minimum_used_code": 28,
+      "maximum_used_code": 98,
+      "maximum_quantization_error_hz": 6525.9004192352295,
+      "maximum_inl_error_hz": 6505.903861045837,
+      "maximum_three_sigma_noise_error_hz": 9556.43986082077,
+      "maximum_glitch_frequency_error_hz": 3923.4300000256358,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 46511.67414112747,
+      "passed": false,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 3.0000000000196536e-05,
+          "glitch_frequency_error_hz": 3923.4300000256358
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 0.85,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.003059641326465517,
+      "minimum_used_code": 29,
+      "maximum_used_code": 97,
+      "maximum_quantization_error_hz": 6368.608748435974,
+      "maximum_inl_error_hz": 6703.052463054657,
+      "maximum_three_sigma_noise_error_hz": 9556.439860343933,
+      "maximum_glitch_frequency_error_hz": 3923.4299999965965,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 46551.53107183116,
+      "passed": true,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.0000000000131024e-05,
+          "glitch_frequency_error_hz": 2615.6200000170907
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 0.9,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.0034501413264655173,
+      "minimum_used_code": 31,
+      "maximum_used_code": 95,
+      "maximum_quantization_error_hz": 7398.908802986145,
+      "maximum_inl_error_hz": 7097.349666595459,
+      "maximum_three_sigma_noise_error_hz": 9556.43986082077,
+      "maximum_glitch_frequency_error_hz": 2615.6200000170907,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 46668.31833041947,
+      "passed": true,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 2.0000000000131024e-05,
+          "glitch_frequency_error_hz": 2615.6200000170907
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 2.0000000000131024e-05,
+          "glitch_frequency_error_hz": 2615.6200000170907
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 1.0,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.004231141326465515,
+      "minimum_used_code": 34,
+      "maximum_used_code": 92,
+      "maximum_quantization_error_hz": 8175.874369621277,
+      "maximum_inl_error_hz": 7885.944073677063,
+      "maximum_three_sigma_noise_error_hz": 9556.439860343933,
+      "maximum_glitch_frequency_error_hz": 2615.6200000170907,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 48233.87830365937,
+      "passed": true,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.0000000000131024e-05,
+          "glitch_frequency_error_hz": 2615.6200000170907
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 1.05,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.004621641326465515,
+      "minimum_used_code": 36,
+      "maximum_used_code": 91,
+      "maximum_quantization_error_hz": 7897.766074180603,
+      "maximum_inl_error_hz": 8280.241277694702,
+      "maximum_three_sigma_noise_error_hz": 9556.43986082077,
+      "maximum_glitch_frequency_error_hz": 3923.4300000256358,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 49657.87721272171,
+      "passed": true,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 3.0000000000196536e-05,
+          "glitch_frequency_error_hz": 3923.4300000256358
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 1.075,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.004816891326465513,
+      "minimum_used_code": 36,
+      "maximum_used_code": 90,
+      "maximum_quantization_error_hz": 8635.75895023346,
+      "maximum_inl_error_hz": 8477.389879703522,
+      "maximum_three_sigma_noise_error_hz": 9556.43986082077,
+      "maximum_glitch_frequency_error_hz": 3923.4299999965965,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 50593.01869075435,
+      "passed": false,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 1.1,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.005012141326465514,
+      "minimum_used_code": 37,
+      "maximum_used_code": 89,
+      "maximum_quantization_error_hz": 8833.073854923248,
+      "maximum_inl_error_hz": 8674.538481235504,
+      "maximum_three_sigma_noise_error_hz": 9556.43986082077,
+      "maximum_glitch_frequency_error_hz": 3923.4299999965965,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 50987.48219697612,
+      "passed": false,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514
+        }
+      ]
+    },
+    {
+      "reference_current_scale": 1.15,
+      "saturated": false,
+      "minimum_voltage_headroom_v": 0.005402641326465512,
+      "minimum_used_code": 38,
+      "maximum_used_code": 88,
+      "maximum_quantization_error_hz": 8907.91950750351,
+      "maximum_inl_error_hz": 9068.835685253143,
+      "maximum_three_sigma_noise_error_hz": 9556.43986082077,
+      "maximum_glitch_frequency_error_hz": 3923.4299999965965,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_total_frequency_error_hz": 51456.62505357402,
+      "passed": false,
+      "driver_corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "peak_glitch_v": 2.0000000000131024e-05,
+          "glitch_frequency_error_hz": 2615.6200000170907
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Packet mapping scales the measured nominal code-transfer shape with reference current.",
+    "Carry glitches are re-simulated with GF180 transistor drivers at every scale and PVT point.",
+    "No on-chip reference topology or qualified reference-noise model is claimed."
+  ]
+}

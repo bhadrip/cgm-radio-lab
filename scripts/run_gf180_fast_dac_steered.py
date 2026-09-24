@@ -178,6 +178,7 @@ def run(
     stop_time_s: float,
     corner: str,
     temperature_c: int,
+    reference_scale: float = 1.0,
 ) -> dict[str, float]:
     netlist = (
         TEMPLATE.read_text()
@@ -185,6 +186,7 @@ def run(
         .replace("@@MODEL_FILE@@", MODEL_FILE)
         .replace("@@CORNER@@", corner)
         .replace("@@TEMP_C@@", str(temperature_c))
+        .replace("@@REFERENCE_SCALE@@", f"{reference_scale:.12g}")
         .replace("@@CONTROL_SOURCES@@", control_sources)
         .replace("@@DAC_CELLS@@", dac_cells())
         .replace("@@TIME_STEP@@", f"{time_step_s:.12g}")
@@ -208,7 +210,9 @@ def run(
     return values
 
 
-def characterize(corner: str, temperature_c: int) -> dict:
+def characterize(
+    corner: str, temperature_c: int, reference_scale: float = 1.0
+) -> dict:
     sweep = run(
         sweep_controls(),
         sweep_measurements(),
@@ -216,6 +220,7 @@ def characterize(corner: str, temperature_c: int) -> dict:
         (1 << DAC_BITS) * CODE_PERIOD_S,
         corner,
         temperature_c,
+        reference_scale,
     )
     voltages_v = [sweep[f"code_{code:03d}_voltage_v"] for code in range(128)]
     supply_currents_a = [
@@ -235,6 +240,7 @@ def characterize(corner: str, temperature_c: int) -> dict:
         1.5e-6,
         corner,
         temperature_c,
+        reference_scale,
     )
     glitch_v = max(0.0, transition["glitch_below_endpoints_v"])
     transition_budget = json.loads(TRANSITION_BUDGET.read_text())
@@ -254,6 +260,7 @@ def characterize(corner: str, temperature_c: int) -> dict:
         "schema_version": 1,
         "corner": corner,
         "temperature_c": temperature_c,
+        "reference_current_scale": reference_scale,
         "architecture": "continuously steered matched output and dummy loads",
         "dac_bits": DAC_BITS,
         "thermometer_msb_bits": DAC_BITS - BINARY_BITS,

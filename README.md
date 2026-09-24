@@ -73,6 +73,9 @@ it is explicitly not foundry-qualified Monte Carlo evidence.
 The [complementary gate-driver experiment](reports/gf180-fast-dac-gate-driver.md)
 replaces the ideal carry-edge controls with GF180 transistor inverters and
 retains a 47.923 kHz worst-case combined error across sampled PVT.
+The [reference-current sweep](reports/gf180-fast-dac-reference-window.md) then
+requires the fast-DAC reference to remain within 0.85x--1.05x nominal across
+the sampled operating conditions.
 The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
 resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
 
@@ -109,7 +112,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/gf180_fast_dac.json`, `reports/gf180_fast_dac_steered.json`,
 `reports/gf180_fast_dac_steered_pvt.json`,
 `reports/gf180_fast_dac_mismatch.json`,
-`reports/gf180_fast_dac_gate_driver.json`, `reports/yosys-stat.txt`,
+`reports/gf180_fast_dac_gate_driver.json`,
+`reports/gf180_fast_dac_reference_window.json`, `reports/yosys-stat.txt`,
 `reports/dco-dac-yosys-stat.txt`, and the remaining GFSK/DCO synthesis reports.
 
 ## Individual targets
@@ -123,6 +127,7 @@ make gf180-fast-dac-steered-test
 make gf180-fast-dac-steered-pvt-test
 make gf180-fast-dac-mismatch-test
 make gf180-fast-dac-gate-driver-test
+make gf180-fast-dac-reference-window-test
 make lc-dco-local-calibration
 make lc-dco-dynamic-test
 make dco-bank-sizing

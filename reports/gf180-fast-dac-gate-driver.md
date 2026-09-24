@@ -37,6 +37,10 @@ activity, decoder power, routed skew, extracted parasitics, simultaneous noise,
 and foundry mismatch remain open. The reported energy covers the two switching
 driver chains, not the decoder or complete DAC.
 
+The [reference-current follow-on](gf180-fast-dac-reference-window.md) repeats
+the transistor carry check while deriving the allowed current window from the
+complete packet workload.
+
 Complete-chip power and production claims remain governed by the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 

@@ -119,7 +119,13 @@ def measurements() -> str:
     )
 
 
-def characterize(topology: str, scale: float, corner: str, temperature_c: int) -> dict:
+def characterize(
+    topology: str,
+    scale: float,
+    corner: str,
+    temperature_c: int,
+    reference_scale: float = 1.0,
+) -> dict:
     result = run(
         driver_controls(topology, scale),
         measurements(),
@@ -127,6 +133,7 @@ def characterize(topology: str, scale: float, corner: str, temperature_c: int) -
         300e-9,
         corner,
         temperature_c,
+        reference_scale,
     )
     endpoint_minimum_v = min(result["initial_voltage_v"], result["final_voltage_v"])
     endpoint_maximum_v = max(result["initial_voltage_v"], result["final_voltage_v"])
@@ -153,6 +160,7 @@ def characterize(topology: str, scale: float, corner: str, temperature_c: int) -
         "drive_scale": scale,
         "corner": corner,
         "temperature_c": temperature_c,
+        "reference_current_scale": reference_scale,
         "logic_edge_s": LOGIC_EDGE_S,
         "input_element_skew_s": 750e-12,
         "undershoot_v": undershoot_v,
