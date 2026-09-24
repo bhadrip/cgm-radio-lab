@@ -62,6 +62,9 @@ typical/25 C, fast/-40 C, and slow/125 C.
 The [mismatch sensitivity sweep](../reports/gf180-fast-dac-mismatch.md) requires
 no more than 2.0% one-sigma single-unit current mismatch for the modeled 99.9%
 yield gate; qualified device Monte Carlo remains required.
+The [complementary gate-driver experiment](../reports/gf180-fast-dac-gate-driver.md)
+then replaces the two ideal carry-edge controls with GF180 transistor inverter
+chains and passes the sampled PVT transition gate.
 The [drive-settling result](../reports/lc-dco-drive-settling.md)
 requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
 bypass at the varactor-control node.

@@ -155,6 +155,26 @@ class LcDcoDacModelTest(unittest.TestCase):
         self.assertTrue(summaries[0.02]["meets_yield_target"])
         self.assertFalse(summaries[0.0225]["meets_yield_target"])
 
+    def test_transistor_gate_driver_passes_carry_gate_across_pvt(self):
+        report = json.loads(
+            (ROOT / "reports" / "gf180_fast_dac_gate_driver.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(
+            report["selected_topology"],
+            "three_stage_output_two_stage_dummy",
+        )
+        self.assertEqual(report["selected_drive_scale"], 0.5)
+        selected = next(
+            variant
+            for variant in report["variants"]
+            if variant["topology"] == report["selected_topology"]
+            and variant["drive_scale"] == report["selected_drive_scale"]
+        )
+        self.assertTrue(selected["passed_pvt"])
+        self.assertEqual(len(selected["corners"]), 3)
+        self.assertLessEqual(selected["worst_combined_frequency_error_hz"], 50_000)
+
 
 if __name__ == "__main__":
     unittest.main()
