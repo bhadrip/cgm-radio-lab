@@ -1,0 +1,35 @@
+* GF180 common-gate LNA with a diode-referenced NMOS source-current mirror.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ @@CORNER@@
+
+.param VDD_VALUE=1.8
+.temp @@TEMP_C@@
+
+VDD vdd 0 {VDD_VALUE}
+VIN source_drive 0 dc 0 ac 1
+RSOURCE source_drive rf_in 50
+CIN rf_in source 10p
+VGATE gate 0 @@GATE_BIAS_V@@
+@@LNA_DEVICES@@
+IREF vdd bias_gate @@REFERENCE_CURRENT_A@@
+@@BIAS_DEVICES@@
+RLOAD vdd drain @@LOAD_RESISTANCE_OHM@@
+CLOAD drain 0 @@LOAD_CAPACITANCE_F@@
+
+.option reltol=1e-5 numdgt=12
+
+.control
+set wr_singlescale
+set wr_vecnames
+op
+wrdata @@OPERATING_POINT_FILE@@ i(VDD) v(drain) v(source) v(bias_gate)
+ac lin 1 @@FREQUENCY_HZ@@ @@FREQUENCY_HZ@@
+wrdata @@AC_FILE@@ v(drain) v(source) v(rf_in)
+noise v(drain) VIN lin 1 @@FREQUENCY_HZ@@ @@FREQUENCY_HZ@@
+setplot noise1
+wrdata @@NOISE_FILE@@ onoise_spectrum inoise_spectrum
+quit
+.endc
+
+.end
