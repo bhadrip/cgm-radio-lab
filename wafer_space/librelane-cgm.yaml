@@ -123,6 +123,48 @@ PDN_CORE_RING_CONNECT_TO_PAD_LAYERS: [Metal2]
 PDN_CORE_VERTICAL_LAYER: Metal4
 PDN_CORE_HORIZONTAL_LAYER: Metal3
 
+# Wafer.Space template sign-off settings. CUP is intentionally excluded for
+# the default non-CUP pad library; density and antenna run as separate steps.
+KLAYOUT_DRC_OPTIONS:
+  decks: "all,-antenna,-density,-cup"
+  workers: max
+KLAYOUT_DRC_THREADS: 1
+KLAYOUT_DENSITY_OPTIONS:
+  decks: density
+  workers: max
+KLAYOUT_ANTENNA_OPTIONS:
+  decks: antenna
+  workers: max
+KLAYOUT_FILLER_OPTIONS:
+  Metal2_ignore_active: true
+ERROR_ON_MAGIC_DRC: false
+MAGIC_EXT_UNIQUE: notopports
+MAGIC_GDS_FLATGLOB:
+- "*_CDNS_*"
+- "*$$*"
+- "M1_N*"
+- "M1_P*"
+- "M2_M1*"
+- "M3_M2*"
+- "nmos_5p0*"
+- "nmos_1p2*"
+- "pmos_5p0*"
+- "pmos_1p2*"
+- "via1_*"
+- "ypass_gate*"
+- "dcap_103*"
+- "din_*"
+- "mux821_*"
+- "rdummy_*"
+- "pmoscap_*"
+- "xdec_*"
+- "ypredec*"
+- "prexdec_*"
+- "xdec8_*"
+- "xdec16_*"
+- "xdec32_*"
+- "sa_*"
+
 MACROS:
   gf180mcu_ws_ip__qrcode_id:
     gds:
