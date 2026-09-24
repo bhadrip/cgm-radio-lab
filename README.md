@@ -84,6 +84,8 @@ uses a calibrated 7-bit slice bank to cover sampled -20 to 0 dBm levels within
 The [GFSK spectrum screen](reports/gfsk-spectrum.md) integrates the quantized
 complex-envelope power in adjacent 1 MHz bands and records the remaining RF
 effects required before TX spectral compliance can be claimed.
+The [PA harmonic characterization](reports/gf180-pa-harmonics.md) extracts raw
+second- and third-harmonic emissions for later matching-network allocation.
 
 ## Reproducible EDA environment
 

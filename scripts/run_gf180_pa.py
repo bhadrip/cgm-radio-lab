@@ -32,6 +32,7 @@ UNIT_NMOS_WIDTH_UM = 0.44
 POWER_CODES = range(1, 129)
 TARGET_POWER_LEVELS_DBM = (-20.0, -15.0, -10.0, -5.0, 0.0)
 MAXIMUM_LEVEL_ERROR_DB = 1.0
+HARMONICS = (2, 3)
 
 
 def read_waveform(path: Path) -> tuple[list[float], list[float], list[float]]:
@@ -59,7 +60,11 @@ def read_waveform(path: Path) -> tuple[list[float], list[float], list[float]]:
     raise RuntimeError(f"unexpected ngspice waveform columns: {column_count}")
 
 
-def fundamental_rms(times_s: list[float], values: list[float]) -> float:
+def tone_rms(
+    times_s: list[float], values: list[float], harmonic: int = 1
+) -> float:
+    if harmonic < 1:
+        raise ValueError("harmonic must be positive")
     final_time_s = times_s[-1]
     start_time_s = final_time_s - 16.0 / FREQUENCY_HZ
     selected = [
@@ -69,12 +74,17 @@ def fundamental_rms(times_s: list[float], values: list[float]) -> float:
     ]
     duration_s = selected[-1][0] - selected[0][0]
     integral = 0j
+    tone_hz = harmonic * FREQUENCY_HZ
     for (time_a, value_a), (time_b, value_b) in zip(selected, selected[1:]):
-        phasor_a = value_a * cmath.exp(-2j * math.pi * FREQUENCY_HZ * time_a)
-        phasor_b = value_b * cmath.exp(-2j * math.pi * FREQUENCY_HZ * time_b)
+        phasor_a = value_a * cmath.exp(-2j * math.pi * tone_hz * time_a)
+        phasor_b = value_b * cmath.exp(-2j * math.pi * tone_hz * time_b)
         integral += 0.5 * (phasor_a + phasor_b) * (time_b - time_a)
     peak_v = 2.0 * abs(integral) / duration_s
     return peak_v / math.sqrt(2.0)
+
+
+def fundamental_rms(times_s: list[float], values: list[float]) -> float:
+    return tone_rms(times_s, values)
 
 
 def average_supply_power(
@@ -137,6 +147,10 @@ def simulate(width_um: float, corner: str, temperature_c: int) -> dict:
         times_s, output_v, supply_current_a = read_waveform(waveform)
     fundamental_voltage_rms_v = fundamental_rms(times_s, output_v)
     fundamental_power_w = fundamental_voltage_rms_v**2 / LOAD_OHM
+    harmonic_power_w = {
+        harmonic: tone_rms(times_s, output_v, harmonic) ** 2 / LOAD_OHM
+        for harmonic in HARMONICS
+    }
     supply_power_w = average_supply_power(times_s, supply_current_a)
     return {
         "corner": corner,
@@ -148,6 +162,14 @@ def simulate(width_um: float, corner: str, temperature_c: int) -> dict:
         "fundamental_voltage_rms_v": fundamental_voltage_rms_v,
         "fundamental_output_power_w": fundamental_power_w,
         "fundamental_output_power_dbm": 10.0 * math.log10(fundamental_power_w / 1e-3),
+        "second_harmonic_output_power_dbm": 10.0
+        * math.log10(harmonic_power_w[2] / 1e-3),
+        "second_harmonic_dbc": 10.0
+        * math.log10(harmonic_power_w[2] / fundamental_power_w),
+        "third_harmonic_output_power_dbm": 10.0
+        * math.log10(harmonic_power_w[3] / 1e-3),
+        "third_harmonic_dbc": 10.0
+        * math.log10(harmonic_power_w[3] / fundamental_power_w),
         "supply_power_w": supply_power_w,
         "drain_efficiency": fundamental_power_w / supply_power_w,
         "energy_per_224us_burst_j": supply_power_w * CGM_BURST_S,
@@ -183,6 +205,14 @@ def main() -> None:
                         "fundamental_output_power_dbm"
                     ],
                     "level_error_db": error_db,
+                    "second_harmonic_output_power_dbm": selected[
+                        "second_harmonic_output_power_dbm"
+                    ],
+                    "second_harmonic_dbc": selected["second_harmonic_dbc"],
+                    "third_harmonic_output_power_dbm": selected[
+                        "third_harmonic_output_power_dbm"
+                    ],
+                    "third_harmonic_dbc": selected["third_harmonic_dbc"],
                     "supply_power_w": selected["supply_power_w"],
                     "energy_per_224us_burst_j": selected[
                         "energy_per_224us_burst_j"
@@ -206,7 +236,7 @@ def main() -> None:
             }
         )
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "purpose": "broadband GF180 RF output-stage feasibility",
         "frequency_hz": FREQUENCY_HZ,
         "load_ohm": LOAD_OHM,
@@ -217,6 +247,18 @@ def main() -> None:
         "maximum_power_code": max(POWER_CODES),
         "maximum_level_error_db": maximum_level_error_db,
         "level_error_limit_db": MAXIMUM_LEVEL_ERROR_DB,
+        "worst_selected_second_harmonic_dbc": max(
+            point["second_harmonic_dbc"] for point in calibration
+        ),
+        "worst_selected_third_harmonic_dbc": max(
+            point["third_harmonic_dbc"] for point in calibration
+        ),
+        "maximum_selected_second_harmonic_output_power_dbm": max(
+            point["second_harmonic_output_power_dbm"] for point in calibration
+        ),
+        "maximum_selected_third_harmonic_output_power_dbm": max(
+            point["third_harmonic_output_power_dbm"] for point in calibration
+        ),
         "maximum_selected_supply_power_w": max(
             point["supply_power_w"] for point in calibration
         ),
