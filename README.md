@@ -19,6 +19,8 @@ modulator establishes the next digital-to-radio boundary. Neither block
 implements an analog RF front end or direct phone connectivity.
 The project requirements, unresolved product inputs, and review gates are kept
 in [the engineering basis](docs/engineering-basis.md).
+Product targets and production-evidence boundaries also follow the
+[PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
 The first waveform-level modem block is a synthesizable 16-sample/symbol
 [BLE LE 1M GFSK modulator](docs/gfsk-modulator.md). It exposes an integer-Hz
@@ -44,6 +46,8 @@ RF inductor model or PCell, so an EM-qualified passive remains a hard gate.
 The [tuning-bank sizing](reports/lc-dco-bank-sizing.md) replaces the placeholder
 linear DCO assumption with a 4-bit coarse MIM bank and analog MOS-varactor fine
 control. The fine-control voltage resolution is a new circuit requirement.
+The [transistor-level tuning validation](reports/lc-dco-tuning-validation.md)
+then verifies overlapping BLE-band coverage at all three sampled PVT corners.
 
 ## Reproducible EDA environment
 
@@ -64,6 +68,7 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/per_curve.csv`, `reports/ring_dco_sweep.json`,
 `reports/ring_dco_sweep.csv`, `reports/lc_vco_sweep.json`,
 `reports/lc_vco_sweep.csv`, `reports/lc_dco_bank.json`,
+`reports/lc_dco_sweep.json`, `reports/lc_dco_sweep.csv`,
 `reports/yosys-stat.txt`, and the GFSK/DCO synthesis reports.
 
 ## Individual targets

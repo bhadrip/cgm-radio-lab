@@ -5,7 +5,7 @@ GF180_TEMPLATE := third_party/gf180mcu-project-template
 GF180_PDK_ROOT ?= /foss/pdks
 GF180_CONFIGS := wafer_space/librelane-cgm.yaml
 
-.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test dco-bank-sizing experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
+.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test lc-dco-test dco-bank-sizing experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
 
 check: python-test rtl-test analog-test dco-bank-sizing experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys
 
@@ -21,13 +21,16 @@ rtl-test:
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_chip_core COCOTB_TEST_MODULES=test_cgm_chip_core SIM_BUILD=sim_build/chip_core
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=chip_core COCOTB_TEST_MODULES=test_wafer_space_chip_core SIM_BUILD=sim_build/wafer_space
 
-analog-test: ring-dco-test lc-vco-test
+analog-test: ring-dco-test lc-vco-test lc-dco-test
 
 ring-dco-test:
 	python3 scripts/run_ring_dco_sweep.py
 
 lc-vco-test:
 	python3 scripts/run_lc_vco_sweep.py
+
+lc-dco-test:
+	python3 scripts/run_lc_dco_sweep.py
 
 dco-bank-sizing:
 	PYTHONPATH=$(ROOT) python3 scripts/size_lc_dco_bank.py
@@ -127,4 +130,4 @@ container-gf180-signoff:
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
-	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_bank.json reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/wafer-space-yosys-stat.txt
+	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_sweep.json reports/lc_dco_sweep.csv reports/lc_dco_bank.json reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/wafer-space-yosys-stat.txt
