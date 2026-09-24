@@ -61,6 +61,8 @@ The [transition budget](reports/lc-dco-dac-transition.md) selects five
 thermometer-coded MSBs plus two binary LSBs and sets a 750 ps switch-skew target.
 The [registered DAC decoder](reports/lc-dco-dac-decoder.md) implements that 5+2
 encoding and exhaustively checks all 128 input codes.
+The first [GF180 switched-current DAC experiment](reports/gf180-fast-dac.md)
+passes nominal linearity but is rejected for a 150 uV carry glitch.
 The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
 resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
 
@@ -94,8 +96,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/lc_dco_dac_resolution.json`, `reports/lc_dco_dynamic.json`,
 `reports/lc_dco_segmented_dac.json`, `reports/lc_dco_dac_nonidealities.json`,
 `reports/lc_dco_dac_transition.json`, `reports/lc_dco_drive_settling.json`,
-`reports/yosys-stat.txt`, `reports/dco-dac-yosys-stat.txt`, and the remaining
-GFSK/DCO synthesis reports.
+`reports/gf180_fast_dac.json`, `reports/yosys-stat.txt`,
+`reports/dco-dac-yosys-stat.txt`, and the remaining GFSK/DCO synthesis reports.
 
 ## Individual targets
 
@@ -103,6 +105,7 @@ GFSK/DCO synthesis reports.
 make python-test
 make rtl-test
 make analog-test
+make gf180-fast-dac-test
 make lc-dco-local-calibration
 make lc-dco-dynamic-test
 make dco-bank-sizing

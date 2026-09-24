@@ -26,6 +26,9 @@ post-route timing plus transistor-level transient verification. Complete-chip
 power and production evidence continue to follow the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
+The first [switched-current cell experiment](gf180-fast-dac.md) uses these
+controls conceptually but rejects its analog switch topology on measured glitch.
+
 Run the exhaustive test through `make rtl-test` and reproduce the synthesis
 summary with `make dco-dac-yosys-stat`. The latter writes
 `dco-dac-yosys-stat.txt`.
