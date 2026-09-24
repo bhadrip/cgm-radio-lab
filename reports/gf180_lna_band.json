@@ -1,0 +1,778 @@
+{
+  "schema_version": 1,
+  "purpose": "selected GF180 LNA coverage across BLE channel centers",
+  "configuration": {
+    "nmos_width_um": 200.0,
+    "bias_current_a": 0.0014,
+    "load_resistance_ohm": 728.5714285714286
+  },
+  "channel_count": 40,
+  "minimum_frequency_hz": 2402000000.0,
+  "maximum_frequency_hz": 2480000000.0,
+  "gates": {
+    "minimum_intrinsic_voltage_gain_db": 12.0,
+    "maximum_noise_figure_db": 4.0,
+    "minimum_input_return_loss_db": 10.0
+  },
+  "minimum_intrinsic_voltage_gain_db": 12.296965038377346,
+  "maximum_noise_figure_db": 3.143793402200851,
+  "minimum_input_return_loss_db": 10.496927978570037,
+  "passed": true,
+  "summaries": [
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "minimum_intrinsic_voltage_gain_db": 13.850697500534114,
+      "maximum_noise_figure_db": 2.7446673072973966,
+      "minimum_input_return_loss_db": 11.536104657261046,
+      "points": [
+        {
+          "frequency_hz": 2402000000.0,
+          "intrinsic_voltage_gain_db": 14.041693705609628,
+          "input_return_loss_db": 11.536104657261046,
+          "noise_figure_db": 2.7411526985842443
+        },
+        {
+          "frequency_hz": 2404000000.0,
+          "intrinsic_voltage_gain_db": 14.036767211671268,
+          "input_return_loss_db": 11.536742643227331,
+          "noise_figure_db": 2.7412406020824402
+        },
+        {
+          "frequency_hz": 2406000000.0,
+          "intrinsic_voltage_gain_db": 14.031842240711285,
+          "input_return_loss_db": 11.537377042255393,
+          "noise_figure_db": 2.741328714148138
+        },
+        {
+          "frequency_hz": 2408000000.0,
+          "intrinsic_voltage_gain_db": 14.026918805653384,
+          "input_return_loss_db": 11.538007855780709,
+          "noise_figure_db": 2.741416895138335
+        },
+        {
+          "frequency_hz": 2410000000.0,
+          "intrinsic_voltage_gain_db": 14.021996899915345,
+          "input_return_loss_db": 11.538635173526103,
+          "noise_figure_db": 2.741505145050924
+        },
+        {
+          "frequency_hz": 2412000000.0,
+          "intrinsic_voltage_gain_db": 14.01707648781368,
+          "input_return_loss_db": 11.539258908650485,
+          "noise_figure_db": 2.741593603517601
+        },
+        {
+          "frequency_hz": 2414000000.0,
+          "intrinsic_voltage_gain_db": 14.01215761015088,
+          "input_return_loss_db": 11.539879122392032,
+          "noise_figure_db": 2.7416821308996053
+        },
+        {
+          "frequency_hz": 2416000000.0,
+          "intrinsic_voltage_gain_db": 14.007240242942556,
+          "input_return_loss_db": 11.540495814749697,
+          "noise_figure_db": 2.741770727194819
+        },
+        {
+          "frequency_hz": 2418000000.0,
+          "intrinsic_voltage_gain_db": 14.00232445549781,
+          "input_return_loss_db": 11.541108958677091,
+          "noise_figure_db": 2.7418595320306567
+        },
+        {
+          "frequency_hz": 2420000000.0,
+          "intrinsic_voltage_gain_db": 13.99741012620601,
+          "input_return_loss_db": 11.541718555591107,
+          "noise_figure_db": 2.7419484057726096
+        },
+        {
+          "frequency_hz": 2422000000.0,
+          "intrinsic_voltage_gain_db": 13.992497380124027,
+          "input_return_loss_db": 11.542324606914285,
+          "noise_figure_db": 2.7420373484185574
+        },
+        {
+          "frequency_hz": 2424000000.0,
+          "intrinsic_voltage_gain_db": 13.987586124857197,
+          "input_return_loss_db": 11.54292720233264,
+          "noise_figure_db": 2.7421264297789927
+        },
+        {
+          "frequency_hz": 2426000000.0,
+          "intrinsic_voltage_gain_db": 13.982676456396725,
+          "input_return_loss_db": 11.543526255015069,
+          "noise_figure_db": 2.7422156498496375
+        },
+        {
+          "frequency_hz": 2428000000.0,
+          "intrinsic_voltage_gain_db": 13.97776826884008,
+          "input_return_loss_db": 11.544121766400908,
+          "noise_figure_db": 2.742305008626209
+        },
+        {
+          "frequency_hz": 2430000000.0,
+          "intrinsic_voltage_gain_db": 13.972861642815504,
+          "input_return_loss_db": 11.544713767687035,
+          "noise_figure_db": 2.7423944362939494
+        },
+        {
+          "frequency_hz": 2432000000.0,
+          "intrinsic_voltage_gain_db": 13.967956530673664,
+          "input_return_loss_db": 11.545302318780122,
+          "noise_figure_db": 2.742484002660471
+        },
+        {
+          "frequency_hz": 2434000000.0,
+          "intrinsic_voltage_gain_db": 13.963052983838704,
+          "input_return_loss_db": 11.545887332885476,
+          "noise_figure_db": 2.742573707721472
+        },
+        {
+          "frequency_hz": 2436000000.0,
+          "intrinsic_voltage_gain_db": 13.958150954963745,
+          "input_return_loss_db": 11.546468870862746,
+          "noise_figure_db": 2.74266348166434
+        },
+        {
+          "frequency_hz": 2438000000.0,
+          "intrinsic_voltage_gain_db": 13.953250453240397,
+          "input_return_loss_db": 11.54704693326099,
+          "noise_figure_db": 2.7427533942945144
+        },
+        {
+          "frequency_hz": 2440000000.0,
+          "intrinsic_voltage_gain_db": 13.948351502364373,
+          "input_return_loss_db": 11.547621434129054,
+          "noise_figure_db": 2.7428433758008195
+        },
+        {
+          "frequency_hz": 2442000000.0,
+          "intrinsic_voltage_gain_db": 13.943454112081046,
+          "input_return_loss_db": 11.548192521653288,
+          "noise_figure_db": 2.742933495987241
+        },
+        {
+          "frequency_hz": 2444000000.0,
+          "intrinsic_voltage_gain_db": 13.938558234781176,
+          "input_return_loss_db": 11.548760109032123,
+          "noise_figure_db": 2.743023754849448
+        },
+        {
+          "frequency_hz": 2446000000.0,
+          "intrinsic_voltage_gain_db": 13.933663922435402,
+          "input_return_loss_db": 11.549324285918045,
+          "noise_figure_db": 2.7431140825784306
+        },
+        {
+          "frequency_hz": 2448000000.0,
+          "intrinsic_voltage_gain_db": 13.928771127238708,
+          "input_return_loss_db": 11.549884906908638,
+          "noise_figure_db": 2.7432045489759838
+        },
+        {
+          "frequency_hz": 2450000000.0,
+          "intrinsic_voltage_gain_db": 13.923879915158576,
+          "input_return_loss_db": 11.550442090675727,
+          "noise_figure_db": 2.7432951540377672
+        },
+        {
+          "frequency_hz": 2452000000.0,
+          "intrinsic_voltage_gain_db": 13.91899022722854,
+          "input_return_loss_db": 11.550995839181432,
+          "noise_figure_db": 2.7433858279569296
+        },
+        {
+          "frequency_hz": 2454000000.0,
+          "intrinsic_voltage_gain_db": 13.914102068921006,
+          "input_return_loss_db": 11.551546094697,
+          "noise_figure_db": 2.743476640533076
+        },
+        {
+          "frequency_hz": 2456000000.0,
+          "intrinsic_voltage_gain_db": 13.909215482059247,
+          "input_return_loss_db": 11.552092946881514,
+          "noise_figure_db": 2.7435675219608098
+        },
+        {
+          "frequency_hz": 2458000000.0,
+          "intrinsic_voltage_gain_db": 13.904330432026224,
+          "input_return_loss_db": 11.552636338503559,
+          "noise_figure_db": 2.7436585420382653
+        },
+        {
+          "frequency_hz": 2460000000.0,
+          "intrinsic_voltage_gain_db": 13.899446942793732,
+          "input_return_loss_db": 11.553176241770121,
+          "noise_figure_db": 2.743749700761076
+        },
+        {
+          "frequency_hz": 2462000000.0,
+          "intrinsic_voltage_gain_db": 13.894564995397257,
+          "input_return_loss_db": 11.553712775217043,
+          "noise_figure_db": 2.743840998124866
+        },
+        {
+          "frequency_hz": 2464000000.0,
+          "intrinsic_voltage_gain_db": 13.889684600526625,
+          "input_return_loss_db": 11.554245823130078,
+          "noise_figure_db": 2.7439323643271454
+        },
+        {
+          "frequency_hz": 2466000000.0,
+          "intrinsic_voltage_gain_db": 13.884805781972709,
+          "input_return_loss_db": 11.5547754455932,
+          "noise_figure_db": 2.744023799365734
+        },
+        {
+          "frequency_hz": 2468000000.0,
+          "intrinsic_voltage_gain_db": 13.879928476029725,
+          "input_return_loss_db": 11.555301673332853,
+          "noise_figure_db": 2.7441154428317205
+        },
+        {
+          "frequency_hz": 2470000000.0,
+          "intrinsic_voltage_gain_db": 13.87505276769436,
+          "input_return_loss_db": 11.55582447846706,
+          "noise_figure_db": 2.7442071551266976
+        },
+        {
+          "frequency_hz": 2472000000.0,
+          "intrinsic_voltage_gain_db": 13.870178608966675,
+          "input_return_loss_db": 11.556343833013955,
+          "noise_figure_db": 2.7442989362484793
+        },
+        {
+          "frequency_hz": 2474000000.0,
+          "intrinsic_voltage_gain_db": 13.86530597928737,
+          "input_return_loss_db": 11.556859826587944,
+          "noise_figure_db": 2.7443908559892947
+        },
+        {
+          "frequency_hz": 2476000000.0,
+          "intrinsic_voltage_gain_db": 13.860434931551264,
+          "input_return_loss_db": 11.557372343023891,
+          "noise_figure_db": 2.7444829143447325
+        },
+        {
+          "frequency_hz": 2478000000.0,
+          "intrinsic_voltage_gain_db": 13.85556543668962,
+          "input_return_loss_db": 11.557881530665004,
+          "noise_figure_db": 2.7445750415174324
+        },
+        {
+          "frequency_hz": 2480000000.0,
+          "intrinsic_voltage_gain_db": 13.850697500534114,
+          "input_return_loss_db": 11.55838727346401,
+          "noise_figure_db": 2.7446673072973966
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "minimum_intrinsic_voltage_gain_db": 15.654063507228633,
+      "maximum_noise_figure_db": 2.327017761174723,
+      "minimum_input_return_loss_db": 11.971281247325711,
+      "points": [
+        {
+          "frequency_hz": 2402000000.0,
+          "intrinsic_voltage_gain_db": 15.826714218375946,
+          "input_return_loss_db": 11.971281247325711,
+          "noise_figure_db": 2.3244409569817757
+        },
+        {
+          "frequency_hz": 2404000000.0,
+          "intrinsic_voltage_gain_db": 15.822270320971741,
+          "input_return_loss_db": 11.972112056595744,
+          "noise_figure_db": 2.324505071630605
+        },
+        {
+          "frequency_hz": 2406000000.0,
+          "intrinsic_voltage_gain_db": 15.817827288917968,
+          "input_return_loss_db": 11.972939623798826,
+          "noise_figure_db": 2.324569268640721
+        },
+        {
+          "frequency_hz": 2408000000.0,
+          "intrinsic_voltage_gain_db": 15.813385139099562,
+          "input_return_loss_db": 11.973763929262892,
+          "noise_figure_db": 2.3246336308442275
+        },
+        {
+          "frequency_hz": 2410000000.0,
+          "intrinsic_voltage_gain_db": 15.808943874737604,
+          "input_return_loss_db": 11.974585001652947,
+          "noise_figure_db": 2.3246980754041355
+        },
+        {
+          "frequency_hz": 2412000000.0,
+          "intrinsic_voltage_gain_db": 15.804503434368847,
+          "input_return_loss_db": 11.975402833414641,
+          "noise_figure_db": 2.3247626023186045
+        },
+        {
+          "frequency_hz": 2414000000.0,
+          "intrinsic_voltage_gain_db": 15.800063906699613,
+          "input_return_loss_db": 11.976217429080162,
+          "noise_figure_db": 2.3248272115857964
+        },
+        {
+          "frequency_hz": 2416000000.0,
+          "intrinsic_voltage_gain_db": 15.795625253806879,
+          "input_return_loss_db": 11.977028805128473,
+          "noise_figure_db": 2.324891903203872
+        },
+        {
+          "frequency_hz": 2418000000.0,
+          "intrinsic_voltage_gain_db": 15.791187466196481,
+          "input_return_loss_db": 11.977836966014088,
+          "noise_figure_db": 2.3249567600018364
+        },
+        {
+          "frequency_hz": 2420000000.0,
+          "intrinsic_voltage_gain_db": 15.786750591505776,
+          "input_return_loss_db": 11.978641836350041,
+          "noise_figure_db": 2.325021699145754
+        },
+        {
+          "frequency_hz": 2422000000.0,
+          "intrinsic_voltage_gain_db": 15.782314567895408,
+          "input_return_loss_db": 11.979443568442214,
+          "noise_figure_db": 2.325086720633778
+        },
+        {
+          "frequency_hz": 2424000000.0,
+          "intrinsic_voltage_gain_db": 15.777879437221756,
+          "input_return_loss_db": 11.98024209880896,
+          "noise_figure_db": 2.325151907293044
+        },
+        {
+          "frequency_hz": 2426000000.0,
+          "intrinsic_voltage_gain_db": 15.77344522006453,
+          "input_return_loss_db": 11.981037363926333,
+          "noise_figure_db": 2.3252171762914604
+        },
+        {
+          "frequency_hz": 2428000000.0,
+          "intrinsic_voltage_gain_db": 15.769011854831792,
+          "input_return_loss_db": 11.981829436231504,
+          "noise_figure_db": 2.325282527627169
+        },
+        {
+          "frequency_hz": 2430000000.0,
+          "intrinsic_voltage_gain_db": 15.764579413816264,
+          "input_return_loss_db": 11.982618331945702,
+          "noise_figure_db": 2.32534796129831
+        },
+        {
+          "frequency_hz": 2432000000.0,
+          "intrinsic_voltage_gain_db": 15.760147846275366,
+          "input_return_loss_db": 11.983403975715646,
+          "noise_figure_db": 2.325413477303014
+        },
+        {
+          "frequency_hz": 2434000000.0,
+          "intrinsic_voltage_gain_db": 15.755717190136949,
+          "input_return_loss_db": 11.984186519749255,
+          "noise_figure_db": 2.3254791584652867
+        },
+        {
+          "frequency_hz": 2436000000.0,
+          "intrinsic_voltage_gain_db": 15.751287431847047,
+          "input_return_loss_db": 11.984965764339389,
+          "noise_figure_db": 2.325544921956137
+        },
+        {
+          "frequency_hz": 2438000000.0,
+          "intrinsic_voltage_gain_db": 15.746858565538755,
+          "input_return_loss_db": 11.985741906353041,
+          "noise_figure_db": 2.3256108505983044
+        },
+        {
+          "frequency_hz": 2440000000.0,
+          "intrinsic_voltage_gain_db": 15.742430597704333,
+          "input_return_loss_db": 11.986514825784003,
+          "noise_figure_db": 2.325676778740057
+        },
+        {
+          "frequency_hz": 2442000000.0,
+          "intrinsic_voltage_gain_db": 15.738003532960512,
+          "input_return_loss_db": 11.987284527005311,
+          "noise_figure_db": 2.3257428720281097
+        },
+        {
+          "frequency_hz": 2444000000.0,
+          "intrinsic_voltage_gain_db": 15.733577375388721,
+          "input_return_loss_db": 11.988051094037802,
+          "noise_figure_db": 2.325809047635966
+        },
+        {
+          "frequency_hz": 2446000000.0,
+          "intrinsic_voltage_gain_db": 15.729152118525162,
+          "input_return_loss_db": 11.988814519682517,
+          "noise_figure_db": 2.3258753055617456
+        },
+        {
+          "frequency_hz": 2448000000.0,
+          "intrinsic_voltage_gain_db": 15.724727797132541,
+          "input_return_loss_db": 11.9895747402422,
+          "noise_figure_db": 2.3259417286250152
+        },
+        {
+          "frequency_hz": 2450000000.0,
+          "intrinsic_voltage_gain_db": 15.720304368327307,
+          "input_return_loss_db": 11.990331771573537,
+          "noise_figure_db": 2.3260082340011587
+        },
+        {
+          "frequency_hz": 2452000000.0,
+          "intrinsic_voltage_gain_db": 15.71588184852936,
+          "input_return_loss_db": 11.991085674669097,
+          "noise_figure_db": 2.3260748216882847
+        },
+        {
+          "frequency_hz": 2454000000.0,
+          "intrinsic_voltage_gain_db": 15.711460266780401,
+          "input_return_loss_db": 11.991836397224596,
+          "noise_figure_db": 2.326141491684495
+        },
+        {
+          "frequency_hz": 2456000000.0,
+          "intrinsic_voltage_gain_db": 15.707039586373078,
+          "input_return_loss_db": 11.992583943550015,
+          "noise_figure_db": 2.326208243987888
+        },
+        {
+          "frequency_hz": 2458000000.0,
+          "intrinsic_voltage_gain_db": 15.702619800337356,
+          "input_return_loss_db": 11.993328317958145,
+          "noise_figure_db": 2.326275161414843
+        },
+        {
+          "frequency_hz": 2460000000.0,
+          "intrinsic_voltage_gain_db": 15.698200968935328,
+          "input_return_loss_db": 11.9940695929398,
+          "noise_figure_db": 2.3263421611439012
+        },
+        {
+          "frequency_hz": 2462000000.0,
+          "intrinsic_voltage_gain_db": 15.693783017093974,
+          "input_return_loss_db": 11.994807715966152,
+          "noise_figure_db": 2.3264092431731513
+        },
+        {
+          "frequency_hz": 2464000000.0,
+          "intrinsic_voltage_gain_db": 15.689366035153277,
+          "input_return_loss_db": 11.995542679995932,
+          "noise_figure_db": 2.3264764903170434
+        },
+        {
+          "frequency_hz": 2466000000.0,
+          "intrinsic_voltage_gain_db": 15.684949955785616,
+          "input_return_loss_db": 11.996274557559365,
+          "noise_figure_db": 2.3265438197560235
+        },
+        {
+          "frequency_hz": 2468000000.0,
+          "intrinsic_voltage_gain_db": 15.680534828047481,
+          "input_return_loss_db": 11.997003227804406,
+          "noise_figure_db": 2.326611148673099
+        },
+        {
+          "frequency_hz": 2470000000.0,
+          "intrinsic_voltage_gain_db": 15.676120590481688,
+          "input_return_loss_db": 11.9977288314013,
+          "noise_figure_db": 2.326678725511569
+        },
+        {
+          "frequency_hz": 2472000000.0,
+          "intrinsic_voltage_gain_db": 15.671707306487308,
+          "input_return_loss_db": 11.99845129322226,
+          "noise_figure_db": 2.3267463018242953
+        },
+        {
+          "frequency_hz": 2474000000.0,
+          "intrinsic_voltage_gain_db": 15.667294953190147,
+          "input_return_loss_db": 11.999170560495696,
+          "noise_figure_db": 2.326814043237559
+        },
+        {
+          "frequency_hz": 2476000000.0,
+          "intrinsic_voltage_gain_db": 15.662883535464971,
+          "input_return_loss_db": 11.999886785077036,
+          "noise_figure_db": 2.3268817841225142
+        },
+        {
+          "frequency_hz": 2478000000.0,
+          "intrinsic_voltage_gain_db": 15.658473047231523,
+          "input_return_loss_db": 12.00059988072709,
+          "noise_figure_db": 2.3269497729147064
+        },
+        {
+          "frequency_hz": 2480000000.0,
+          "intrinsic_voltage_gain_db": 15.654063507228633,
+          "input_return_loss_db": 12.001309805629951,
+          "noise_figure_db": 2.327017761174723
+        }
+      ],
+      "passed": true
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 85,
+      "minimum_intrinsic_voltage_gain_db": 12.296965038377346,
+      "maximum_noise_figure_db": 3.143793402200851,
+      "minimum_input_return_loss_db": 10.496927978570037,
+      "points": [
+        {
+          "frequency_hz": 2402000000.0,
+          "intrinsic_voltage_gain_db": 12.500430180042365,
+          "input_return_loss_db": 10.496927978570037,
+          "noise_figure_db": 3.1393123577115873
+        },
+        {
+          "frequency_hz": 2404000000.0,
+          "intrinsic_voltage_gain_db": 12.49517440019458,
+          "input_return_loss_db": 10.497135437239704,
+          "noise_figure_db": 3.1394248683711297
+        },
+        {
+          "frequency_hz": 2406000000.0,
+          "intrinsic_voltage_gain_db": 12.489920679429007,
+          "input_return_loss_db": 10.497339925796389,
+          "noise_figure_db": 3.1395374384215935
+        },
+        {
+          "frequency_hz": 2408000000.0,
+          "intrinsic_voltage_gain_db": 12.484668973039494,
+          "input_return_loss_db": 10.497541417839855,
+          "noise_figure_db": 3.139650189555633
+        },
+        {
+          "frequency_hz": 2410000000.0,
+          "intrinsic_voltage_gain_db": 12.479419327974593,
+          "input_return_loss_db": 10.497739977041809,
+          "noise_figure_db": 3.1397630609194778
+        },
+        {
+          "frequency_hz": 2412000000.0,
+          "intrinsic_voltage_gain_db": 12.474171671399121,
+          "input_return_loss_db": 10.497935531496065,
+          "noise_figure_db": 3.1398760525084195
+        },
+        {
+          "frequency_hz": 2414000000.0,
+          "intrinsic_voltage_gain_db": 12.468926070792616,
+          "input_return_loss_db": 10.498128163487825,
+          "noise_figure_db": 3.139989225162868
+        },
+        {
+          "frequency_hz": 2416000000.0,
+          "intrinsic_voltage_gain_db": 12.463682512095309,
+          "input_return_loss_db": 10.498317837407951,
+          "noise_figure_db": 3.140102457187077
+        },
+        {
+          "frequency_hz": 2418000000.0,
+          "intrinsic_voltage_gain_db": 12.458441000281098,
+          "input_return_loss_db": 10.498504580552082,
+          "noise_figure_db": 3.1402158094222363
+        },
+        {
+          "frequency_hz": 2420000000.0,
+          "intrinsic_voltage_gain_db": 12.453201522172929,
+          "input_return_loss_db": 10.498688321137815,
+          "noise_figure_db": 3.1403293427063566
+        },
+        {
+          "frequency_hz": 2422000000.0,
+          "intrinsic_voltage_gain_db": 12.447964032319415,
+          "input_return_loss_db": 10.49886917758198,
+          "noise_figure_db": 3.1404429961903793
+        },
+        {
+          "frequency_hz": 2424000000.0,
+          "intrinsic_voltage_gain_db": 12.44272864946818,
+          "input_return_loss_db": 10.499047078200496,
+          "noise_figure_db": 3.140556709028423
+        },
+        {
+          "frequency_hz": 2426000000.0,
+          "intrinsic_voltage_gain_db": 12.437495262409152,
+          "input_return_loss_db": 10.499222050151118,
+          "noise_figure_db": 3.1406706028988305
+        },
+        {
+          "frequency_hz": 2428000000.0,
+          "intrinsic_voltage_gain_db": 12.432263925070126,
+          "input_return_loss_db": 10.499394139582272,
+          "noise_figure_db": 3.140784616954913
+        },
+        {
+          "frequency_hz": 2430000000.0,
+          "intrinsic_voltage_gain_db": 12.427034605868059,
+          "input_return_loss_db": 10.499563229241279,
+          "noise_figure_db": 3.1408988120306653
+        },
+        {
+          "frequency_hz": 2432000000.0,
+          "intrinsic_voltage_gain_db": 12.421807329129233,
+          "input_return_loss_db": 10.49972947354513,
+          "noise_figure_db": 3.141013066443037
+        },
+        {
+          "frequency_hz": 2434000000.0,
+          "intrinsic_voltage_gain_db": 12.41658211299235,
+          "input_return_loss_db": 10.499892764885972,
+          "noise_figure_db": 3.141127441026812
+        },
+        {
+          "frequency_hz": 2436000000.0,
+          "intrinsic_voltage_gain_db": 12.411358914056683,
+          "input_return_loss_db": 10.500053166273997,
+          "noise_figure_db": 3.1412419966135663
+        },
+        {
+          "frequency_hz": 2438000000.0,
+          "intrinsic_voltage_gain_db": 12.406137767865413,
+          "input_return_loss_db": 10.500210651875301,
+          "noise_figure_db": 3.141356611525039
+        },
+        {
+          "frequency_hz": 2440000000.0,
+          "intrinsic_voltage_gain_db": 12.400918644329408,
+          "input_return_loss_db": 10.500365258288664,
+          "noise_figure_db": 3.141471407428333
+        },
+        {
+          "frequency_hz": 2442000000.0,
+          "intrinsic_voltage_gain_db": 12.395701568226123,
+          "input_return_loss_db": 10.500516940345442,
+          "noise_figure_db": 3.141586323482324
+        },
+        {
+          "frequency_hz": 2444000000.0,
+          "intrinsic_voltage_gain_db": 12.390486540440897,
+          "input_return_loss_db": 10.500665744323577,
+          "noise_figure_db": 3.141701359682223
+        },
+        {
+          "frequency_hz": 2446000000.0,
+          "intrinsic_voltage_gain_db": 12.385273535089283,
+          "input_return_loss_db": 10.50081167079583,
+          "noise_figure_db": 3.141816516023236
+        },
+        {
+          "frequency_hz": 2448000000.0,
+          "intrinsic_voltage_gain_db": 12.380062586535221,
+          "input_return_loss_db": 10.50095471051473,
+          "noise_figure_db": 3.1419317925005625
+        },
+        {
+          "frequency_hz": 2450000000.0,
+          "intrinsic_voltage_gain_db": 12.374853668808903,
+          "input_return_loss_db": 10.501094919615475,
+          "noise_figure_db": 3.142047189109402
+        },
+        {
+          "frequency_hz": 2452000000.0,
+          "intrinsic_voltage_gain_db": 12.36964681921185,
+          "input_return_loss_db": 10.501232207134121,
+          "noise_figure_db": 3.142162705844944
+        },
+        {
+          "frequency_hz": 2454000000.0,
+          "intrinsic_voltage_gain_db": 12.364441990363368,
+          "input_return_loss_db": 10.501366573624615,
+          "noise_figure_db": 3.1422784035314604
+        },
+        {
+          "frequency_hz": 2456000000.0,
+          "intrinsic_voltage_gain_db": 12.359239190042269,
+          "input_return_loss_db": 10.501498147166654,
+          "noise_figure_db": 3.142394160505153
+        },
+        {
+          "frequency_hz": 2458000000.0,
+          "intrinsic_voltage_gain_db": 12.354038454400486,
+          "input_return_loss_db": 10.501626882524848,
+          "noise_figure_db": 3.1425100984185557
+        },
+        {
+          "frequency_hz": 2460000000.0,
+          "intrinsic_voltage_gain_db": 12.34883972380883,
+          "input_return_loss_db": 10.501752698557894,
+          "noise_figure_db": 3.1426261564377533
+        },
+        {
+          "frequency_hz": 2462000000.0,
+          "intrinsic_voltage_gain_db": 12.343643081542673,
+          "input_return_loss_db": 10.501875713386042,
+          "noise_figure_db": 3.142742273732078
+        },
+        {
+          "frequency_hz": 2464000000.0,
+          "intrinsic_voltage_gain_db": 12.338448454936033,
+          "input_return_loss_db": 10.501995855865774,
+          "noise_figure_db": 3.142858571949172
+        },
+        {
+          "frequency_hz": 2466000000.0,
+          "intrinsic_voltage_gain_db": 12.333255880165359,
+          "input_return_loss_db": 10.502113162433105,
+          "noise_figure_db": 3.142974990257543
+        },
+        {
+          "frequency_hz": 2468000000.0,
+          "intrinsic_voltage_gain_db": 12.328065344886703,
+          "input_return_loss_db": 10.502227633665031,
+          "noise_figure_db": 3.1430915286523393
+        },
+        {
+          "frequency_hz": 2470000000.0,
+          "intrinsic_voltage_gain_db": 12.32287683709114,
+          "input_return_loss_db": 10.502339270142553,
+          "noise_figure_db": 3.1432081871287085
+        },
+        {
+          "frequency_hz": 2472000000.0,
+          "intrinsic_voltage_gain_db": 12.317690428247081,
+          "input_return_loss_db": 10.50244810823206,
+          "noise_figure_db": 3.143325026503547
+        },
+        {
+          "frequency_hz": 2474000000.0,
+          "intrinsic_voltage_gain_db": 12.312506009075443,
+          "input_return_loss_db": 10.502554031025843,
+          "noise_figure_db": 3.1434419251276595
+        },
+        {
+          "frequency_hz": 2476000000.0,
+          "intrinsic_voltage_gain_db": 12.307323651152407,
+          "input_return_loss_db": 10.502657238249158,
+          "noise_figure_db": 3.143558943818752
+        },
+        {
+          "frequency_hz": 2478000000.0,
+          "intrinsic_voltage_gain_db": 12.302143308565444,
+          "input_return_loss_db": 10.502757531343685,
+          "noise_figure_db": 3.1436761433912466
+        },
+        {
+          "frequency_hz": 2480000000.0,
+          "intrinsic_voltage_gain_db": 12.296965038377346,
+          "input_return_loss_db": 10.502855074279955,
+          "noise_figure_db": 3.143793402200851
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "The same schematic and ideal-bias limitations as the center-frequency LNA sweep apply.",
+    "Only nominal channel centers are sampled; no off-channel blocker or stability sweep is included.",
+    "Voltage gain is not matched transducer power gain or S21."
+  ]
+}

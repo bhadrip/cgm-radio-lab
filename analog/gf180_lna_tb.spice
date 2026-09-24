@@ -25,9 +25,10 @@ set wr_singlescale
 set wr_vecnames
 op
 wrdata @@OPERATING_POINT_FILE@@ i(VDD) v(drain) v(source)
-ac lin 1 @@FREQUENCY_HZ@@ @@FREQUENCY_HZ@@
+ac lin @@POINT_COUNT@@ @@START_FREQUENCY_HZ@@ @@STOP_FREQUENCY_HZ@@
 wrdata @@AC_FILE@@ v(drain) v(source) v(rf_in)
-noise v(drain) VIN lin 1 @@FREQUENCY_HZ@@ @@FREQUENCY_HZ@@
+noise v(drain) VIN lin @@POINT_COUNT@@ @@START_FREQUENCY_HZ@@ @@STOP_FREQUENCY_HZ@@
+setplot noise1
 wrdata @@NOISE_FILE@@ onoise_spectrum inoise_spectrum
 quit
 .endc

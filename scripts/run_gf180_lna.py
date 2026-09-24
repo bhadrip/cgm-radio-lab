@@ -38,7 +38,7 @@ MINIMUM_INPUT_RETURN_LOSS_DB = 10.0
 MINIMUM_DRAIN_SOURCE_V = 0.5
 
 
-def read_last_row(path: Path) -> list[float]:
+def read_rows(path: Path) -> list[list[float]]:
     rows = []
     for line in path.read_text().splitlines():
         fields = line.split()
@@ -50,7 +50,11 @@ def read_last_row(path: Path) -> list[float]:
             continue
     if not rows:
         raise RuntimeError(f"ngspice produced no data in {path}")
-    return rows[-1]
+    return rows
+
+
+def read_last_row(path: Path) -> list[float]:
+    return read_rows(path)[-1]
 
 
 def lna_device_lines(total_width_um: float) -> str:
@@ -76,7 +80,9 @@ def simulate(configuration: dict, corner: str, temperature_c: int) -> dict:
             .replace("@@MODEL_FILE@@", MODEL_FILE)
             .replace("@@CORNER@@", corner)
             .replace("@@TEMP_C@@", str(temperature_c))
-            .replace("@@FREQUENCY_HZ@@", str(FREQUENCY_HZ))
+            .replace("@@POINT_COUNT@@", "1")
+            .replace("@@START_FREQUENCY_HZ@@", str(FREQUENCY_HZ))
+            .replace("@@STOP_FREQUENCY_HZ@@", str(FREQUENCY_HZ))
             .replace(
                 "@@LNA_DEVICES@@",
                 lna_device_lines(configuration["nmos_width_um"]),
