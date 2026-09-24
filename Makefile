@@ -19,6 +19,7 @@ experiment:
 yosys-stat:
 	@mkdir -p reports
 	yosys -q -p 'read_verilog -sv rtl/*.sv; hierarchy -check -top cgm_packet_loop; proc; opt; tee -o reports/yosys-stat.txt stat'
+	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/yosys-stat.txt
 
 container-check:
 	docker run --rm \
