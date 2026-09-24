@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "circuit": "gf180_three_stage_ring_oscillator",
+  "purpose": "frequency-and-power-feasibility-only",
+  "vdd_v": 1.8,
+  "device_length_um": 0.28,
+  "nmos_width_um": 1.0,
+  "pmos_width_um": 2.0,
+  "ble_band_hz": {
+    "low": 2402000000,
+    "high": 2480000000
+  },
+  "points": [
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 0,
+      "frequency_hz": 2420290000.0,
+      "supply_current_a": 8.42099e-05,
+      "power_w": 0.000151578
+    },
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 1,
+      "frequency_hz": 2099770000.0,
+      "supply_current_a": 8.43374e-05,
+      "power_w": 0.000151807
+    },
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 2,
+      "frequency_hz": 1854720000.0,
+      "supply_current_a": 8.44267e-05,
+      "power_w": 0.000151968
+    },
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 5,
+      "frequency_hz": 1374290000.0,
+      "supply_current_a": 8.45908e-05,
+      "power_w": 0.000152263
+    },
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 10,
+      "frequency_hz": 960039000.0,
+      "supply_current_a": 8.47256e-05,
+      "power_w": 0.000152506
+    },
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 20,
+      "frequency_hz": 598912000.0,
+      "supply_current_a": 8.48447e-05,
+      "power_w": 0.00015272
+    },
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 40,
+      "frequency_hz": 341740000.0,
+      "supply_current_a": 8.486e-05,
+      "power_w": 0.000152748
+    },
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "load_ff": 80,
+      "frequency_hz": 183838000.0,
+      "supply_current_a": 8.50963e-05,
+      "power_w": 0.000153173
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 0,
+      "frequency_hz": 3629500000.0,
+      "supply_current_a": 0.000122095,
+      "power_w": 0.000219771
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 1,
+      "frequency_hz": 3136970000.0,
+      "supply_current_a": 0.000122416,
+      "power_w": 0.000220349
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 2,
+      "frequency_hz": 2763080000.0,
+      "supply_current_a": 0.000122649,
+      "power_w": 0.000220768
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 5,
+      "frequency_hz": 2036440000.0,
+      "supply_current_a": 0.000123095,
+      "power_w": 0.00022157
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 10,
+      "frequency_hz": 1416270000.0,
+      "supply_current_a": 0.00012349,
+      "power_w": 0.000222281
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 20,
+      "frequency_hz": 880182000.0,
+      "supply_current_a": 0.00012383,
+      "power_w": 0.000222895
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 40,
+      "frequency_hz": 500906000.0,
+      "supply_current_a": 0.000124134,
+      "power_w": 0.000223441
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "load_ff": 80,
+      "frequency_hz": 269030000.0,
+      "supply_current_a": 0.000124263,
+      "power_w": 0.000223673
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 0,
+      "frequency_hz": 1582550000.0,
+      "supply_current_a": 5.74675e-05,
+      "power_w": 0.000103441
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 1,
+      "frequency_hz": 1380010000.0,
+      "supply_current_a": 5.75312e-05,
+      "power_w": 0.000103556
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 2,
+      "frequency_hz": 1223700000.0,
+      "supply_current_a": 5.7568e-05,
+      "power_w": 0.000103622
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 5,
+      "frequency_hz": 913615000.0,
+      "supply_current_a": 5.76363e-05,
+      "power_w": 0.000103745
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 10,
+      "frequency_hz": 642381000.0,
+      "supply_current_a": 5.76939e-05,
+      "power_w": 0.000103849
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 20,
+      "frequency_hz": 403012000.0,
+      "supply_current_a": 5.77613e-05,
+      "power_w": 0.00010397
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 40,
+      "frequency_hz": 230885000.0,
+      "supply_current_a": 5.78481e-05,
+      "power_w": 0.000104127
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "load_ff": 80,
+      "frequency_hz": 124510000.0,
+      "supply_current_a": 5.78367e-05,
+      "power_w": 0.000104106
+    }
+  ]
+}

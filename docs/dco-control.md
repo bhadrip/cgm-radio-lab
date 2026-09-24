@@ -18,3 +18,8 @@ channels 37 (2402 MHz), 38 (2426 MHz), and 39 (2480 MHz). It does not claim that
 a transistor-level oscillator meets tuning range, phase noise, modulation
 bandwidth, startup time, or power. Those are measurement gates for the DCO and
 PLL circuit slice.
+
+The first circuit experiment is documented in the
+[GF180 ring-oscillator feasibility result](../reports/ring-dco-feasibility.md).
+It rules out that topology for the BLE LO across the tested PVT corners; it does
+not change this controller interface.
