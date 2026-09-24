@@ -174,11 +174,15 @@ def run(
     measurements: str,
     time_step_s: float,
     stop_time_s: float,
+    corner: str,
+    temperature_c: int,
 ) -> dict[str, float]:
     netlist = (
         TEMPLATE.read_text()
         .replace("@@DESIGN_FILE@@", DESIGN_FILE)
         .replace("@@MODEL_FILE@@", MODEL_FILE)
+        .replace("@@CORNER@@", corner)
+        .replace("@@TEMP_C@@", str(temperature_c))
         .replace("@@CONTROL_SOURCES@@", control_sources)
         .replace("@@DAC_CELLS@@", dac_cells())
         .replace("@@TIME_STEP@@", f"{time_step_s:.12g}")
@@ -202,12 +206,14 @@ def run(
     return values
 
 
-def main() -> None:
+def characterize(corner: str, temperature_c: int) -> dict:
     sweep = run(
         sweep_controls(),
         sweep_measurements(),
         1e-9,
         (1 << DAC_BITS) * CODE_PERIOD_S,
+        corner,
+        temperature_c,
     )
     voltages_v = [sweep[f"code_{code:03d}_voltage_v"] for code in range(128)]
     supply_currents_a = [
@@ -221,7 +227,12 @@ def main() -> None:
         for code, voltage_v in enumerate(voltages_v)
     ]
     transition = run(
-        transition_controls(), transition_measurements(), 10e-12, 1.5e-6
+        transition_controls(),
+        transition_measurements(),
+        10e-12,
+        1.5e-6,
+        corner,
+        temperature_c,
     )
     glitch_v = max(0.0, transition["glitch_below_endpoints_v"])
     transition_budget = json.loads(TRANSITION_BUDGET.read_text())
@@ -239,8 +250,8 @@ def main() -> None:
     )
     report = {
         "schema_version": 1,
-        "corner": "typical",
-        "temperature_c": 25,
+        "corner": corner,
+        "temperature_c": temperature_c,
         "architecture": "continuously steered matched output and dummy loads",
         "dac_bits": DAC_BITS,
         "thermometer_msb_bits": DAC_BITS - BINARY_BITS,
@@ -289,6 +300,11 @@ def main() -> None:
             )
         ],
     }
+    return report
+
+
+def main() -> None:
+    report = characterize("typical", 25)
     REPORT.write_text(json.dumps(report, indent=2) + "\n")
     print(REPORT.read_text(), end="")
     if not report["accepted_for_next_stage"]:

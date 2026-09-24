@@ -2,12 +2,12 @@
 * Every mirror branch steers continuously between matched output and dummy loads.
 
 .include @@DESIGN_FILE@@
-.lib @@MODEL_FILE@@ typical
+.lib @@MODEL_FILE@@ @@CORNER@@
 
 .param VDD_VALUE=1.8
 .param BASE_VOLTAGE=1.192
 .param UNIT_CURRENT=125.984251968n
-.temp 25
+.temp @@TEMP_C@@
 
 VDD vdd 0 {VDD_VALUE}
 VBASE vbase 0 {BASE_VOLTAGE}

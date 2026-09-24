@@ -40,3 +40,6 @@ power and production evidence continue to follow the
 
 Reproduce with `make gf180-fast-dac-steered-test`. Machine-readable results are
 in `gf180_fast_dac_steered.json`.
+
+The follow-on [sampled PVT gate](gf180-fast-dac-steered-pvt.md) retains the
+static and transition pass at typical, fast, and slow conditions.

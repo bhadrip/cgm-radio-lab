@@ -65,6 +65,8 @@ The first [GF180 switched-current DAC experiment](reports/gf180-fast-dac.md)
 passes nominal linearity but is rejected for a 150 uV carry glitch.
 The [current-steered follow-on](reports/gf180-fast-dac-steered.md) moves to a
 6+1 split and passes the nominal carry gate at 20.777 uV.
+The [sampled PVT gate](reports/gf180-fast-dac-steered-pvt.md) retains that pass
+at typical/25 C, fast/-40 C, and slow/125 C.
 The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
 resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
 
@@ -99,8 +101,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/lc_dco_segmented_dac.json`, `reports/lc_dco_dac_nonidealities.json`,
 `reports/lc_dco_dac_transition.json`, `reports/lc_dco_drive_settling.json`,
 `reports/gf180_fast_dac.json`, `reports/gf180_fast_dac_steered.json`,
-`reports/yosys-stat.txt`, `reports/dco-dac-yosys-stat.txt`, and the remaining
-GFSK/DCO synthesis reports.
+`reports/gf180_fast_dac_steered_pvt.json`, `reports/yosys-stat.txt`,
+`reports/dco-dac-yosys-stat.txt`, and the remaining GFSK/DCO synthesis reports.
 
 ## Individual targets
 
@@ -110,6 +112,7 @@ make rtl-test
 make analog-test
 make gf180-fast-dac-test
 make gf180-fast-dac-steered-test
+make gf180-fast-dac-steered-pvt-test
 make lc-dco-local-calibration
 make lc-dco-dynamic-test
 make dco-bank-sizing
