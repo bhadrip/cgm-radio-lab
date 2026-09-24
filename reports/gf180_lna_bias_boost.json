@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "purpose": "strong-input LNA bias-boost selection",
+  "low_input_power_per_tone_dbm": -30.0,
+  "strong_input_power_per_tone_dbm": -10.0,
+  "reference_active_duration_s": 0.000224,
+  "gates": {
+    "maximum_gain_compression_db": 1.0,
+    "minimum_strong_input_gain_db": 10.0,
+    "maximum_noise_figure_db": 4.0,
+    "minimum_input_return_loss_db": 10.0,
+    "minimum_drain_source_voltage_v": 0.5
+  },
+  "selected": {
+    "nmos_width_um": 200.0,
+    "bias_current_a": 0.006,
+    "load_resistance_ohm": 170.0,
+    "maximum_supply_power_w": 0.010800000018,
+    "reference_active_energy_j": 2.4192000040319997e-06,
+    "maximum_gain_compression_db": 0.848058836706274,
+    "minimum_strong_input_gain_db": 11.204496745890374,
+    "maximum_noise_figure_db": 3.4665849608304313,
+    "minimum_input_return_loss_db": 10.078710555415602,
+    "minimum_drain_source_voltage_v": 0.7646701966,
+    "points": [
+      {
+        "corner": "typical",
+        "temperature_c": 25,
+        "supply_power_w": 0.010800000018,
+        "noise_figure_db": 3.0710517715528503,
+        "input_return_loss_db": 11.973435710177496,
+        "drain_source_voltage_v": 0.8517514085000001,
+        "low_input_gain_db": 12.97404962591306,
+        "strong_input_gain_db": 12.385507882341223,
+        "gain_compression_db": 0.5885417435718381,
+        "strong_input_fundamental_to_im3_db": 38.004962016437716
+      },
+      {
+        "corner": "ff",
+        "temperature_c": -40,
+        "supply_power_w": 0.010800000018,
+        "noise_figure_db": 2.7090346007942934,
+        "input_return_loss_db": 10.078710555415602,
+        "drain_source_voltage_v": 0.7646701966,
+        "low_input_gain_db": 14.452310731130462,
+        "strong_input_gain_db": 13.604251894424188,
+        "gain_compression_db": 0.848058836706274,
+        "strong_input_fundamental_to_im3_db": 35.069031706381885
+      },
+      {
+        "corner": "ss",
+        "temperature_c": 85,
+        "supply_power_w": 0.010799999964,
+        "noise_figure_db": 3.4665849608304313,
+        "input_return_loss_db": 13.493494355376217,
+        "drain_source_voltage_v": 0.945380483,
+        "low_input_gain_db": 11.61460171010482,
+        "strong_input_gain_db": 11.204496745890374,
+        "gain_compression_db": 0.41010496421444564,
+        "strong_input_fundamental_to_im3_db": 41.12674714244406
+      }
+    ],
+    "passed": true
+  },
+  "candidate_count": 8,
+  "passing_candidate_count": 1,
+  "accepted_for_next_stage": true,
+  "candidates": [
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.0014,
+      "load_resistance_ohm": 728.5714285714286,
+      "maximum_supply_power_w": 0.002520000018,
+      "reference_active_energy_j": 5.64480004032e-07,
+      "maximum_gain_compression_db": 6.274023499701354,
+      "minimum_strong_input_gain_db": 8.153537277849694,
+      "maximum_noise_figure_db": 3.141471407428333,
+      "minimum_input_return_loss_db": 10.500365258288664,
+      "minimum_drain_source_voltage_v": 0.621838714,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.002520000018,
+          "noise_figure_db": 2.7428433758008195,
+          "input_return_loss_db": 11.547621434129054,
+          "drain_source_voltage_v": 0.675114027,
+          "low_input_gain_db": 13.866395159832127,
+          "strong_input_gain_db": 8.785290569919102,
+          "gain_compression_db": 5.081104589913025,
+          "strong_input_fundamental_to_im3_db": 17.45305121043319
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.002520000018,
+          "noise_figure_db": 2.325676778740057,
+          "input_return_loss_db": 11.986514825784003,
+          "drain_source_voltage_v": 0.621838714,
+          "low_input_gain_db": 15.652363409479815,
+          "strong_input_gain_db": 9.378339909778461,
+          "gain_compression_db": 6.274023499701354,
+          "strong_input_fundamental_to_im3_db": 16.187768798611316
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.002520000018,
+          "noise_figure_db": 3.141471407428333,
+          "input_return_loss_db": 10.500365258288664,
+          "drain_source_voltage_v": 0.734169219,
+          "low_input_gain_db": 12.325220367047297,
+          "strong_input_gain_db": 8.153537277849694,
+          "gain_compression_db": 4.171683089197604,
+          "strong_input_fundamental_to_im3_db": 18.70574852016646
+        }
+      ],
+      "passed": false
+    },
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.002,
+      "load_resistance_ohm": 510.0,
+      "maximum_supply_power_w": 0.0036000000180000003,
+      "reference_active_energy_j": 8.064000040320001e-07,
+      "maximum_gain_compression_db": 4.791566854293478,
+      "minimum_strong_input_gain_db": 10.233423805877003,
+      "maximum_noise_figure_db": 3.0361388477316864,
+      "minimum_input_return_loss_db": 11.914560691110827,
+      "minimum_drain_source_voltage_v": 0.6477895060000001,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.0036000000180000003,
+          "noise_figure_db": 2.631289355660031,
+          "input_return_loss_db": 12.571891775671142,
+          "drain_source_voltage_v": 0.7070483099,
+          "low_input_gain_db": 14.538844168819242,
+          "strong_input_gain_db": 10.880384953042931,
+          "gain_compression_db": 3.658459215776311,
+          "strong_input_fundamental_to_im3_db": 19.964032452275717
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.0036000000180000003,
+          "noise_figure_db": 2.2203246689940923,
+          "input_return_loss_db": 12.21019913314084,
+          "drain_source_voltage_v": 0.6477895060000001,
+          "low_input_gain_db": 16.240203774975114,
+          "strong_input_gain_db": 11.448636920681636,
+          "gain_compression_db": 4.791566854293478,
+          "strong_input_fundamental_to_im3_db": 18.24537828772805
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.0036000000180000003,
+          "noise_figure_db": 3.0361388477316864,
+          "input_return_loss_db": 11.914560691110827,
+          "drain_source_voltage_v": 0.7719980412699999,
+          "low_input_gain_db": 13.040236323186003,
+          "strong_input_gain_db": 10.233423805877003,
+          "gain_compression_db": 2.806812517309,
+          "strong_input_fundamental_to_im3_db": 21.840292688672044
+        }
+      ],
+      "passed": false
+    },
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.003,
+      "load_resistance_ohm": 340.0,
+      "maximum_supply_power_w": 0.005400000018,
+      "reference_active_energy_j": 1.209600004032e-06,
+      "maximum_gain_compression_db": 3.0970917038385632,
+      "minimum_strong_input_gain_db": 11.57295296600751,
+      "maximum_noise_figure_db": 3.047157579945835,
+      "minimum_input_return_loss_db": 11.899182694793438,
+      "minimum_drain_source_voltage_v": 0.6830011155,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.005400000018,
+          "noise_figure_db": 2.6594090228729526,
+          "input_return_loss_db": 13.046397084531907,
+          "drain_source_voltage_v": 0.7506397765,
+          "low_input_gain_db": 14.570698245181275,
+          "strong_input_gain_db": 12.367373923985605,
+          "gain_compression_db": 2.2033243211956695,
+          "strong_input_fundamental_to_im3_db": 24.74559966420059
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.005400000018,
+          "noise_figure_db": 2.259270569676624,
+          "input_return_loss_db": 11.899182694793438,
+          "drain_source_voltage_v": 0.6830011155,
+          "low_input_gain_db": 16.16933521816355,
+          "strong_input_gain_db": 13.072243514324986,
+          "gain_compression_db": 3.0970917038385632,
+          "strong_input_fundamental_to_im3_db": 22.41767384056665
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.005400000018,
+          "noise_figure_db": 3.047157579945835,
+          "input_return_loss_db": 13.614681815838054,
+          "drain_source_voltage_v": 0.8240342543,
+          "low_input_gain_db": 13.131398297139082,
+          "strong_input_gain_db": 11.57295296600751,
+          "gain_compression_db": 1.5584453311315727,
+          "strong_input_fundamental_to_im3_db": 27.311407248262157
+        }
+      ],
+      "passed": false
+    },
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.004,
+      "load_resistance_ohm": 255.0,
+      "maximum_supply_power_w": 0.007200000018000001,
+      "reference_active_energy_j": 1.6128000040320001e-06,
+      "maximum_gain_compression_db": 2.0225924525503256,
+      "minimum_strong_input_gain_db": 11.78664135915189,
+      "maximum_noise_figure_db": 3.1665883341709202,
+      "minimum_input_return_loss_db": 11.31197997615148,
+      "minimum_drain_source_voltage_v": 0.712933504,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.007200000018000001,
+          "noise_figure_db": 2.7629755004636545,
+          "input_return_loss_db": 13.175487814335424,
+          "drain_source_voltage_v": 0.78775886416,
+          "low_input_gain_db": 14.133519387630864,
+          "strong_input_gain_db": 12.732821561630402,
+          "gain_compression_db": 1.4006978260004619,
+          "strong_input_fundamental_to_im3_db": 29.351062996682174
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.007200000018000001,
+          "noise_figure_db": 2.3870786249170566,
+          "input_return_loss_db": 11.31197997615148,
+          "drain_source_voltage_v": 0.712933504,
+          "low_input_gain_db": 15.673561257408345,
+          "strong_input_gain_db": 13.65096880485802,
+          "gain_compression_db": 2.0225924525503256,
+          "strong_input_fundamental_to_im3_db": 26.59722851749858
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.007200000018000001,
+          "noise_figure_db": 3.1665883341709202,
+          "input_return_loss_db": 14.022621574020338,
+          "drain_source_voltage_v": 0.8685480306,
+          "low_input_gain_db": 12.73124643316157,
+          "strong_input_gain_db": 11.78664135915189,
+          "gain_compression_db": 0.9446050740096794,
+          "strong_input_fundamental_to_im3_db": 32.296228318696855
+        }
+      ],
+      "passed": false
+    },
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.005,
+      "load_resistance_ohm": 204.0,
+      "maximum_supply_power_w": 0.009000000018,
+      "reference_active_energy_j": 2.016000004032e-06,
+      "maximum_gain_compression_db": 1.3206772994860057,
+      "minimum_strong_input_gain_db": 11.580505219203634,
+      "maximum_noise_figure_db": 3.312711144702933,
+      "minimum_input_return_loss_db": 10.672050236767458,
+      "minimum_drain_source_voltage_v": 0.7398142732,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.009000000018,
+          "noise_figure_db": 2.9123503041387018,
+          "input_return_loss_db": 12.6021531734673,
+          "drain_source_voltage_v": 0.8210496031,
+          "low_input_gain_db": 13.564723697814687,
+          "strong_input_gain_db": 12.67304938403816,
+          "gain_compression_db": 0.8916743137765266,
+          "strong_input_fundamental_to_im3_db": 33.70524402904336
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.009000000018,
+          "noise_figure_db": 2.5435602095102423,
+          "input_return_loss_db": 10.672050236767458,
+          "drain_source_voltage_v": 0.7398142732,
+          "low_input_gain_db": 15.06888836157858,
+          "strong_input_gain_db": 13.748211062092574,
+          "gain_compression_db": 1.3206772994860057,
+          "strong_input_fundamental_to_im3_db": 30.74179273229491
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.009000000000000001,
+          "noise_figure_db": 3.312711144702933,
+          "input_return_loss_db": 13.894438702149527,
+          "drain_source_voltage_v": 0.908525425,
+          "low_input_gain_db": 12.186646211582815,
+          "strong_input_gain_db": 11.580505219203634,
+          "gain_compression_db": 0.6061409923791814,
+          "strong_input_fundamental_to_im3_db": 36.889689118243474
+        }
+      ],
+      "passed": false
+    },
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.006,
+      "load_resistance_ohm": 170.0,
+      "maximum_supply_power_w": 0.010800000018,
+      "reference_active_energy_j": 2.4192000040319997e-06,
+      "maximum_gain_compression_db": 0.848058836706274,
+      "minimum_strong_input_gain_db": 11.204496745890374,
+      "maximum_noise_figure_db": 3.4665849608304313,
+      "minimum_input_return_loss_db": 10.078710555415602,
+      "minimum_drain_source_voltage_v": 0.7646701966,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.010800000018,
+          "noise_figure_db": 3.0710517715528503,
+          "input_return_loss_db": 11.973435710177496,
+          "drain_source_voltage_v": 0.8517514085000001,
+          "low_input_gain_db": 12.97404962591306,
+          "strong_input_gain_db": 12.385507882341223,
+          "gain_compression_db": 0.5885417435718381,
+          "strong_input_fundamental_to_im3_db": 38.004962016437716
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.010800000018,
+          "noise_figure_db": 2.7090346007942934,
+          "input_return_loss_db": 10.078710555415602,
+          "drain_source_voltage_v": 0.7646701966,
+          "low_input_gain_db": 14.452310731130462,
+          "strong_input_gain_db": 13.604251894424188,
+          "gain_compression_db": 0.848058836706274,
+          "strong_input_fundamental_to_im3_db": 35.069031706381885
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.010799999964,
+          "noise_figure_db": 3.4665849608304313,
+          "input_return_loss_db": 13.493494355376217,
+          "drain_source_voltage_v": 0.945380483,
+          "low_input_gain_db": 11.61460171010482,
+          "strong_input_gain_db": 11.204496745890374,
+          "gain_compression_db": 0.41010496421444564,
+          "strong_input_fundamental_to_im3_db": 41.12674714244406
+        }
+      ],
+      "passed": true
+    },
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.007,
+      "load_resistance_ohm": 145.71428571428572,
+      "maximum_supply_power_w": 0.012600000018000001,
+      "reference_active_energy_j": 2.8224000040320004e-06,
+      "maximum_gain_compression_db": 0.5819565943714622,
+      "minimum_strong_input_gain_db": 10.765431978407706,
+      "maximum_noise_figure_db": 3.620708744608223,
+      "minimum_input_return_loss_db": 9.649092349784148,
+      "minimum_drain_source_voltage_v": 0.78806457407,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.0126,
+          "noise_figure_db": 3.231096777308211,
+          "input_return_loss_db": 11.380931907604596,
+          "drain_source_voltage_v": 0.880553982,
+          "low_input_gain_db": 12.399796412750801,
+          "strong_input_gain_db": 11.994684462486813,
+          "gain_compression_db": 0.40511195026398816,
+          "strong_input_fundamental_to_im3_db": 42.02855031237295
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.012600000018000001,
+          "noise_figure_db": 2.8665913686481534,
+          "input_return_loss_db": 9.649092349784148,
+          "drain_source_voltage_v": 0.78806457407,
+          "low_input_gain_db": 13.856450296953518,
+          "strong_input_gain_db": 13.274493702582056,
+          "gain_compression_db": 0.5819565943714622,
+          "strong_input_fundamental_to_im3_db": 39.599773772754375
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.012599999855999999,
+          "noise_figure_db": 3.620708744608223,
+          "input_return_loss_db": 12.99070705909111,
+          "drain_source_voltage_v": 0.97990781,
+          "low_input_gain_db": 11.057450427457114,
+          "strong_input_gain_db": 10.765431978407706,
+          "gain_compression_db": 0.292018449049408,
+          "strong_input_fundamental_to_im3_db": 44.82940233808348
+        }
+      ],
+      "passed": false
+    },
+    {
+      "nmos_width_um": 200.0,
+      "bias_current_a": 0.008,
+      "load_resistance_ohm": 127.5,
+      "maximum_supply_power_w": 0.014400000017999999,
+      "reference_active_energy_j": 3.2256000040319997e-06,
+      "maximum_gain_compression_db": 0.3950629812811659,
+      "minimum_strong_input_gain_db": 10.313042648048675,
+      "maximum_noise_figure_db": 3.7718015931597195,
+      "minimum_input_return_loss_db": 9.186882826498756,
+      "minimum_drain_source_voltage_v": 0.8103422347000001,
+      "points": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "supply_power_w": 0.014399999981999999,
+          "noise_figure_db": 3.3889444976884047,
+          "input_return_loss_db": 10.850940434319787,
+          "drain_source_voltage_v": 0.907884656,
+          "low_input_gain_db": 11.85513144001308,
+          "strong_input_gain_db": 11.562603689415024,
+          "gain_compression_db": 0.29252775059805636,
+          "strong_input_fundamental_to_im3_db": 45.62976008141419
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "supply_power_w": 0.014400000017999999,
+          "noise_figure_db": 3.0313471700381216,
+          "input_return_loss_db": 9.186882826498756,
+          "drain_source_voltage_v": 0.8103422347000001,
+          "low_input_gain_db": 13.291919922485585,
+          "strong_input_gain_db": 12.896856941204419,
+          "gain_compression_db": 0.3950629812811659,
+          "strong_input_fundamental_to_im3_db": 42.75232917328229
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "supply_power_w": 0.01439999955,
+          "noise_figure_db": 3.7718015931597195,
+          "input_return_loss_db": 12.473589787418772,
+          "drain_source_voltage_v": 1.01260384,
+          "low_input_gain_db": 10.53022710225179,
+          "strong_input_gain_db": 10.313042648048675,
+          "gain_compression_db": 0.21718445420311383,
+          "strong_input_fundamental_to_im3_db": 47.99623472328025
+        }
+      ],
+      "passed": false
+    }
+  ],
+  "limitations": [
+    "The -10 dBm per-tone stress is not the PR11 single-tone maximum-input test.",
+    "Bias switching, settling, control logic, reference generation, and transition energy are not modeled.",
+    "The same ideal-bias, provisional-load, package, matching, mismatch, layout, and measurement limits remain."
+  ]
+}
