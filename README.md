@@ -94,6 +94,8 @@ The [matched PA co-simulation](reports/gf180-pa-match.md) retunes that network
 with GF180 PA transistors across PVT and measures delivered power and harmonics.
 The [receiver noise budget](reports/rx-noise-budget.md) allocates switch, LNA,
 mixer, and baseband gain/noise against the provisional -80 dBm RX target.
+The [first GF180 LNA sweep](reports/gf180-lna-feasibility.md) measures gain,
+noise figure, input match, headroom, and active power across sampled PVT.
 
 ## Reproducible EDA environment
 
@@ -148,6 +150,7 @@ make gf180-fast-dac-reference-window-test
 make gf180-pa-test
 make gf180-pa-load-test
 make gf180-pa-match-test
+make gf180-lna-test
 make pa-match-screen
 make rx-noise-budget
 make gfsk-spectrum
