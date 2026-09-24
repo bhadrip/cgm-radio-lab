@@ -1,0 +1,294 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0)
+
+-- Running command `read_verilog -sv rtl/ble_crc24.sv rtl/ble_whitener.sv rtl/ble_phy_loop.sv; hierarchy -check -top ble_phy_loop; proc; opt; stat' --
+
+1. Executing Verilog-2005 frontend: rtl/ble_crc24.sv
+Parsing SystemVerilog input from `rtl/ble_crc24.sv' to AST representation.
+Generating RTLIL representation for module `\ble_crc24'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: rtl/ble_whitener.sv
+Parsing SystemVerilog input from `rtl/ble_whitener.sv' to AST representation.
+Generating RTLIL representation for module `\ble_whitener'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/ble_phy_loop.sv
+Parsing SystemVerilog input from `rtl/ble_phy_loop.sv' to AST representation.
+Generating RTLIL representation for module `\ble_phy_loop'.
+Successfully finished Verilog frontend.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1. Analyzing design hierarchy..
+Top module:  \ble_phy_loop
+Used module:     \ble_crc24
+Used module:     \ble_whitener
+
+4.2. Analyzing design hierarchy..
+Top module:  \ble_phy_loop
+Used module:     \ble_crc24
+Used module:     \ble_whitener
+Removed 0 unused modules.
+
+5. Executing PROC pass (convert processes to netlists).
+
+5.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$rtl/ble_whitener.sv:19$8 in module ble_whitener.
+Marked 2 switch rules as full_case in process $proc$rtl/ble_crc24.sv:20$4 in module ble_crc24.
+Removed a total of 0 dead cases.
+
+5.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+5.4. Executing PROC_INIT pass (extract init attributes).
+
+5.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~6 debug messages>
+
+5.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ble_whitener.$proc$rtl/ble_whitener.sv:19$8'.
+     1/1: $0\lfsr[6:0]
+Creating decoders for process `\ble_crc24.$proc$rtl/ble_crc24.sv:20$4'.
+     1/1: $0\crc_state[23:0]
+
+5.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ble_whitener.\lfsr' using process `\ble_whitener.$proc$rtl/ble_whitener.sv:19$8'.
+  created $dff cell `$procdff$26' with positive edge clock.
+Creating register for signal `\ble_crc24.\crc_state' using process `\ble_crc24.$proc$rtl/ble_crc24.sv:20$4'.
+  created $dff cell `$procdff$27' with positive edge clock.
+
+5.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 3 empty switches in `\ble_whitener.$proc$rtl/ble_whitener.sv:19$8'.
+Removing empty process `ble_whitener.$proc$rtl/ble_whitener.sv:19$8'.
+Found and cleaned up 3 empty switches in `\ble_crc24.$proc$rtl/ble_crc24.sv:20$4'.
+Removing empty process `ble_crc24.$proc$rtl/ble_crc24.sv:20$4'.
+Cleaned up 6 empty switches.
+
+5.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ble_phy_loop.
+Optimizing module ble_whitener.
+Optimizing module ble_crc24.
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ble_phy_loop.
+Optimizing module ble_whitener.
+Optimizing module ble_crc24.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ble_phy_loop'.
+Computing hashes of 5 cells of `\ble_phy_loop'.
+Finding duplicate cells in `\ble_phy_loop'.
+Finding identical cells in module `\ble_whitener'.
+Computing hashes of 7 cells of `\ble_whitener'.
+Finding duplicate cells in `\ble_whitener'.
+Finding identical cells in module `\ble_crc24'.
+Computing hashes of 7 cells of `\ble_crc24'.
+Finding duplicate cells in `\ble_crc24'.
+Removed a total of 0 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ble_phy_loop..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ble_whitener..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ble_crc24..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~12 debug messages>
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ble_phy_loop.
+  Optimizing cells in module \ble_whitener.
+  Optimizing cells in module \ble_crc24.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ble_phy_loop'.
+Computing hashes of 5 cells of `\ble_phy_loop'.
+Finding duplicate cells in `\ble_phy_loop'.
+Finding identical cells in module `\ble_whitener'.
+Computing hashes of 7 cells of `\ble_whitener'.
+Finding duplicate cells in `\ble_whitener'.
+Finding identical cells in module `\ble_crc24'.
+Computing hashes of 7 cells of `\ble_crc24'.
+Finding duplicate cells in `\ble_crc24'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $procdff$26 ($dff) from module ble_whitener (D = $procmux$10_Y [6], Q = \lfsr [6], rval = 1'1).
+Adding SRST signal on $procdff$26 ($dff) from module ble_whitener (D = $procmux$13_Y [5:0], Q = \lfsr [5:0], rval = 6'000000).
+Adding EN signal on $auto$ff.cc:337:slice$31 ($sdff) from module ble_whitener (D = $procmux$13_Y [5:0], Q = \lfsr [5:0]).
+Adding EN signal on $auto$ff.cc:337:slice$28 ($sdff) from module ble_whitener (D = $xor$rtl/ble_whitener.sv:17$7_Y [6], Q = \lfsr [6]).
+Adding SRST signal on $procdff$27 ($dff) from module ble_crc24 (D = $procmux$21_Y, Q = \crc_state, rval = 24'010101010101010101010101).
+Adding EN signal on $auto$ff.cc:337:slice$36 ($sdff) from module ble_crc24 (D = $procmux$21_Y, Q = \crc_state).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ble_phy_loop..
+Finding unused cells or wires in module \ble_whitener..
+Finding unused cells or wires in module \ble_crc24..
+Removed 2 unused cells and 15 unused wires.
+<suppressed ~5 debug messages>
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ble_phy_loop.
+Optimizing module ble_whitener.
+<suppressed ~1 debug messages>
+Optimizing module ble_crc24.
+<suppressed ~1 debug messages>
+
+6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ble_phy_loop..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \ble_whitener..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ble_crc24..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~10 debug messages>
+
+6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ble_phy_loop.
+  Optimizing cells in module \ble_whitener.
+  Optimizing cells in module \ble_crc24.
+Performed a total of 0 changes.
+
+6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ble_phy_loop'.
+Computing hashes of 5 cells of `\ble_phy_loop'.
+Finding duplicate cells in `\ble_phy_loop'.
+Finding identical cells in module `\ble_whitener'.
+Computing hashes of 9 cells of `\ble_whitener'.
+Finding duplicate cells in `\ble_whitener'.
+Finding identical cells in module `\ble_crc24'.
+Computing hashes of 7 cells of `\ble_crc24'.
+Finding duplicate cells in `\ble_crc24'.
+Removed a total of 0 cells.
+
+6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ble_phy_loop..
+Finding unused cells or wires in module \ble_whitener..
+Finding unused cells or wires in module \ble_crc24..
+
+6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ble_phy_loop.
+Optimizing module ble_whitener.
+Optimizing module ble_crc24.
+
+6.16. Finished fast OPT passes. (There is nothing left to do.)
+
+7. Printing statistics.
+
+=== ble_phy_loop ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       14 wires
+       88 wire bits
+       14 public wires
+       88 public wire bits
+       13 ports
+       87 port bits
+        1 cells
+        1   $xor
+        4 submodules
+        2   ble_crc24
+        2   ble_whitener
+
+=== ble_whitener ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       14 wires
+       49 wire bits
+        9 public wires
+       26 public wire bits
+        7 ports
+       12 port bits
+        9 cells
+        3   $mux
+        1   $reduce_bool
+        1   $reduce_or
+        2   $sdffe
+        2   $xor
+
+=== ble_crc24 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       13 wires
+      151 wire bits
+        9 public wires
+       78 public wire bits
+        7 ports
+       53 port bits
+        7 cells
+        3   $mux
+        1   $reduce_bool
+        1   $sdffe
+        2   $xor
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       33 ble_phy_loop
+        7 ble_crc24
+        9 ble_whitener
+
+        +----------Count including submodules.
+        | 
+       68 wires
+      488 wire bits
+       50 public wires
+      296 public wire bits
+       41 ports
+      217 port bits
+        - memories
+        - memory bits
+        - processes
+       33 cells
+       12   $mux
+        4   $reduce_bool
+        2   $reduce_or
+        6   $sdffe
+        9   $xor
+        4 submodules
+        2   ble_crc24
+        2   ble_whitener
+
+End of script. Logfile hash: 88519a2948, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 36.60 MB peak
+Yosys 0.68 (git sha1 38e001a6f, Release, GNU /usr/bin/c++ 13.3.0)
+Time spent: 36% 4x read_verilog (0 sec), 13% 2x opt_clean (0 sec), ...

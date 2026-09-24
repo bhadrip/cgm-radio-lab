@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "slice": "ble-hard-bit-loop",
+  "git_revision": "c5f1500b48a4175ae7f5627503da7d24bf41230c",
+  "container_image": "docker.io/hpretl/iic-osic-tools:2026.08",
+  "python": "3.12.3",
+  "seed": 49374,
+  "channel": 37,
+  "payload_bytes": 8,
+  "points": [
+    {
+      "requested_raw_ber": 0.0,
+      "measured_raw_ber": 0.0,
+      "packets": 2000,
+      "packet_errors": 0,
+      "packet_error_rate": 0.0,
+      "payload_errors": 0,
+      "payload_error_rate": 0.0,
+      "transmitted_bits": 208000,
+      "flipped_bits": 0
+    },
+    {
+      "requested_raw_ber": 0.0001,
+      "measured_raw_ber": 6.73076923076923e-05,
+      "packets": 2000,
+      "packet_errors": 14,
+      "packet_error_rate": 0.007,
+      "payload_errors": 10,
+      "payload_error_rate": 0.005,
+      "transmitted_bits": 208000,
+      "flipped_bits": 14
+    },
+    {
+      "requested_raw_ber": 0.001,
+      "measured_raw_ber": 0.0009278846153846154,
+      "packets": 2000,
+      "packet_errors": 183,
+      "packet_error_rate": 0.0915,
+      "payload_errors": 152,
+      "payload_error_rate": 0.076,
+      "transmitted_bits": 208000,
+      "flipped_bits": 193
+    },
+    {
+      "requested_raw_ber": 0.01,
+      "measured_raw_ber": 0.01016826923076923,
+      "packets": 2000,
+      "packet_errors": 1311,
+      "packet_error_rate": 0.6555,
+      "payload_errors": 1119,
+      "payload_error_rate": 0.5595,
+      "transmitted_bits": 208000,
+      "flipped_bits": 2115
+    }
+  ]
+}
