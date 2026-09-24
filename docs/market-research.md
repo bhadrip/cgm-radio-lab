@@ -7,7 +7,8 @@ Research date: 2026-09-23
 The strongest product opportunity is not a general-purpose Bluetooth SoC with
 more protocols or maximum radio range. It is a CGM-specific SoC that combines:
 
-- a two-channel electrochemical sensor front end;
+- a single production electrochemical channel, with a second channel as a
+  product-option target;
 - a deliberately small Bluetooth LE 1M subsystem;
 - secure processing, storage, boot, and update;
 - very low sleep and continuous-bias current; and
@@ -144,29 +145,141 @@ fields, status reporting, and optional end-to-end CRC.
 
 ## Recommended competitive specification
 
-The following values are product architecture targets. AFE input range, bias,
-noise, and bandwidth remain provisional until the actual electrode is
-characterized.
+### Product requirement
 
-| Domain | Competitive product target | Stretch target |
-|---|---:|---:|
-| Reporting | Authenticated glucose notification every 60 seconds; advertising only for discovery and recovery | Configurable 30-300 second interval |
-| Wear support | Electronics power budget for at least 15 days | 21 days |
-| Sensor AFE | Two electrochemical channels; two-, three-, and four-electrode support; 16-bit current conversion; 1 pA or finer low-range resolution; self-test and EIS | Continuous AFE and bias current no greater than 2.5 uA |
-| Complete IC average | No greater than 5 uA at 3 V for the defined one-minute workload, excluding electrode reaction current | No greater than 4 uA |
-| Low-power states | No greater than 500 nA with RTC and minimum retained state | No greater than 100 nA shipping mode |
-| Receiver | At least -92 dBm sensitivity with complete Bluetooth blocker compliance; no greater than 2.5 mW | -94 dBm at no greater than 1 mW |
-| Transmitter | Programmable approximately -20 to +4 dBm; no greater than 5 mW at 0 dBm | No greater than 3 mW at 0 dBm |
-| Delivered-report energy | No greater than 15 uJ including startup and normal retries | No greater than 10 uJ |
-| Wake-up | Radio ready within 100 us; PLL lock within 20 us | Radio ready within 50 us |
-| Compute | Small M0+ or RV32-class controller, ROM-based BLE controller, and hardware packet engine | Independently clock- and power-gated domains |
-| Memory | Approximately 512 KB total NVM and 64 KB SRAM | Full compressed 15-day measurement history on-chip |
-| Security | Unique device identity, TRNG, AES-CCM, P-256, protected keys, authenticated pairing, secure boot, signed update, rollback protection, and locked debug | Secure execution isolation and attestation |
-| Package | No larger than 2.5 x 2.5 mm WLCSP with minimal external RF components | AFE, radio, PMU, controller, and memory on one die |
-| Production technology | Qualified 55 or 65 nm RF CMOS with suitable embedded NVM, unless a cost model proves another process superior | Total die no larger than 4 mm2 |
-| Packaged and tested cost | Tracked against a declared annual volume, wafer price, yield, package, and test plan | Less than $0.30 only after supplier quotations support it |
+> Design and validate a single-chip electrochemical CGM sensor SoC integrating
+> a potentiostat/current-measurement AFE, temperature and battery monitoring,
+> low-power processing and storage, and a Bluetooth LE 1M radio. The chip shall
+> acquire one glucose-sensor measurement every 60 seconds, securely deliver CGM
+> records to a phone or insulin-delivery controller, retain measurements during
+> disconnection, operate for at least 15 days from a small primary cell, support
+> a two-year product shelf life, and cost less than $0.30 per packaged-and-tested
+> good unit at a committed annual volume of at least 50 million units.
 
-The -92 dBm receiver target is a deliberate change from the current provisional
+The electrode, glucose-sensitive chemistry, battery, antenna, RF matching
+components, 32 MHz crystal, and mechanical patch are external to the chip and
+to its cost. Clinical accuracy and MARD are system properties; the chip enables
+them but cannot guarantee them independently of the sensor, calibration, and
+algorithm.
+
+The table distinguishes contractual production requirements from
+best-in-business goals. A value in the goal column must not silently become a
+tapeout requirement without power, area, yield, and cost evidence.
+
+| Domain | Production requirement -- shall | Best-in-business goal |
+|---|---|---|
+| CGM workload | Measure and either notify or queue one record every 60 seconds | Configurable 30-300 second interval without a hardware change |
+| Sensor interface | One two- or three-terminal electrochemical channel with working, reference, and counter-electrode support | A second working-electrode or background channel |
+| AFE | Continuously programmable potentiostat, 12-bit-or-better bias DAC, and 16-bit current ADC | Autonomous sensor-integrity or impedance measurement |
+| Provisional AFE range | Programmable 50 nA, 100 nA, 250 nA, 500 nA, 1 uA, and 2 uA full-scale ranges | No greater than 1 pA resolution in the lowest range |
+| Monitoring | On-chip temperature and battery-voltage measurement with programmable alarms | Autonomous temperature compensation and external-temperature input |
+| Bluetooth PHY | LE 1M GFSK on all 40 channels with Core-compliant modulation, timing, blocking, and coexistence behavior | Do not add 2M, coded PHY, mesh, direction finding, channel sounding, or multiprotocol hardware unless a product requirement justifies it |
+| CGM transport | Bluetooth CGM Service and Profile; connected encrypted notifications; advertising only for discovery and recovery | Interoperable phone and pump/controller operation |
+| Link behavior | One active collector at a time, stored-record recovery, and at least two retained bonds | Link-loss detection within 30 seconds and alarm delivery within 60 seconds |
+| TX output | Programmable from approximately -20 to 0 dBm; normal CGM setting from -8 to -4 dBm | 0 dBm without materially increasing delivered-report energy |
+| Receiver | Sensitivity no worse than -92 dBm under Bluetooth LE 1M qualification conditions; tolerate a -10 dBm wanted input | Sensitivity no worse than -94 dBm |
+| Conducted link budget | At least 92 dB at maximum configured TX power | At least 96 dB without an external PA |
+| Report energy | No greater than 15 uJ for a successful encrypted report, including oscillator and PLL startup, processing, and three link-layer packets | No greater than 10 uJ |
+| Continuous AFE current | No greater than 4 uA for one biased and measured sensor | No greater than 3.5 uA |
+| Complete-IC average | No greater than 7 uA at 3 V under the defined one-minute workload | No greater than 5 uA |
+| Retention sleep | No greater than 800 nA with RTC and required state retained | No greater than 500 nA |
+| Shipping mode | No greater than 100 nA | No greater than 50 nA |
+| Supply | Operate from 1.2 to 3.6 V and support 1.5 V silver-oxide and 3 V lithium system architectures | Cold-start at or below 1.1 V |
+| Measurement storage | Retain all 21,600 one-minute records from a 15-day session without a collector | Add timestamped alarm, reset, and connectivity history |
+| Memory | At least 512 KB total ROM/NVM-equivalent capacity, including at least 256 KB writable storage, plus at least 64 KB SRAM | Signed delta update without the cost of two complete firmware images |
+| Security | Unique identity, TRNG, protected per-device keys, secure boot, signed update, anti-rollback, and production debug lock | Isolated root of trust, lifecycle states, and device attestation |
+| BLE security | LE Security Mode 1 Level 4 after authenticated QR, NFC, or other out-of-band commissioning | No unauthenticated Just Works pairing in the production configuration |
+| Clocking | At most one external 32 MHz crystal; no 32 kHz crystal required | Crystal-less option only after frequency and RF validation |
+| Package | WLCSP no larger than 2.5 x 2.5 mm with minimal external RF components | Integrated balun and no more than two RF matching passives |
+| Environment | Silicon operation from -40 C to +85 C; characterized CGM performance over the sensor's specified on-body range | Reliability data suitable for a regulated wearable program |
+| Cost | Less than $0.30 manufacturing cost per good packaged-and-tested unit at mature yield and at least 50 million units/year | Preserve the target at lower committed volume after yield maturity |
+
+The AFE range is a provisional market-derived envelope rather than a substitute
+for sensor data. The current MAX30131 family supports 16-bit conversion,
+50 nA-to-2 uA full-scale ranges, resolution down to 0.8 pA, and approximately
+3.5 uA continuous bias current for one sensor. It therefore provides a useful
+competitive baseline for the custom AFE.
+
+- [ADI MAX30131/MAX30132/MAX30134 data sheet](https://www.analog.com/media/en/technical-documentation/data-sheets/max30131-max30132-max30134.pdf)
+
+### Acceptance workload
+
+Power and energy claims shall use a reproducible workload rather than a
+datasheet sleep-current headline:
+
+1. Operate at 3.0 V and 25 C, followed by characterization across process,
+   supply, and temperature corners.
+2. Continuously bias one electrochemical channel.
+3. Complete one 16-bit current conversion and one temperature measurement
+   every 60 seconds.
+4. Send one authenticated and encrypted CGM notification every 60 seconds at
+   -4 dBm.
+5. Budget three link-layer packets per report, including acknowledgements or
+   normal retries.
+6. Retain the RTC, complete measurement history, bond information, keys, and
+   alarm state.
+7. Include oscillator and PLL startup, CPU work, encryption, receive windows,
+   regulator loss, and flash maintenance in complete-IC average current.
+8. Characterize initial pairing, reconnection, prolonged link loss, alarm
+   delivery, history recovery, and firmware update separately.
+
+The 1 Mbps value is the BLE PHY rate, not an application-throughput
+requirement. A CGM generates only a few bytes per minute. The Bluetooth CGM
+Service permits a minimum six-byte measurement record and provides a Record
+Access Control Point for missed-data recovery. Wake-up, listening, retries,
+storage, and security therefore dominate radio energy, not payload throughput.
+
+### Security and safety basis
+
+CRC protects against accidental transmission errors but is not a security
+control. The production design shall use authenticated key establishment,
+AES-CCM link encryption, protected device keys, signed firmware, and rollback
+prevention. FDA cybersecurity guidance specifically discusses authenticating
+telemetry, including CGM-to-insulin-pump communication. Bluetooth LE Security
+Mode 1 Level 4 provides authenticated LE Secure Connections and 128-bit link
+encryption. A displayless sensor should use a QR code, NFC, or factory-provisioned
+out-of-band secret rather than unauthenticated Just Works pairing.
+
+- [FDA cybersecurity guidance for medical devices](https://www.fda.gov/media/119933/download)
+- [Bluetooth Generic Access Profile security modes](https://www.bluetooth.com/wp-content/uploads/Files/Specification/HTML/Core-54/out/en/host/generic-access-profile.html)
+- [FDA-recognized IEEE 2621.2-2022 connected-diabetes-device security standard](https://www.accessdata.fda.gov/scrIpts/cdrh/cfdocs/cfStandards/detail.cfm?standard__identification_no=43895)
+
+### Cost definition
+
+The $0.30 target means average manufacturing cost per good packaged-and-tested
+unit at mature production yield and a committed volume of at least 50 million
+units per year. It includes fabricated die, yield loss, wafer probe, bumping
+and WLCSP, final test, expected scrap, and retest. It excludes sensor chemistry,
+electrode, battery, antenna, PCB, external crystal/passives, mechanical patch,
+and one-time development, qualification, mask, and tooling costs.
+
+A preliminary internal allocation of $0.15 for the yielded die, $0.07 for WLCSP,
+$0.04 for test, and $0.04 for yield/scrap reserve is a planning guardrail, not
+a public-market fact. The requirement passes only when foundry, OSAT, test, IP,
+and yield quotations close the complete cost model. A $0.30 customer selling
+price is a different and substantially harder requirement because it also must
+fund amortization and supplier margin.
+
+### Sensor-characterization gate
+
+Do not freeze or tape out the production AFE until the selected sensor has been
+characterized across glucose concentration, temperature, process variation,
+and the full wear period for:
+
+- minimum, typical, and maximum sensor current;
+- working-to-reference bias voltage and safe electrode limits;
+- source impedance, electrode capacitance, noise spectrum, and relevant
+  bandwidth;
+- startup, wetting, settling, drift, and aging over at least 15 days;
+- temperature coefficient and calibration model;
+- oxygen, drug, and other interferent response; and
+- the value of a second channel or impedance test for detecting sensor faults.
+
+Those results freeze the ADC ranges, input-referred-noise limit, DAC range,
+sampling/integration time, calibration storage, and sensor self-test. Until
+then, they remain provisional architecture targets.
+
+The -92 dBm receiver requirement is a deliberate change from the current provisional
 -80 dBm goal. Commercial radios achieve approximately -94 to -99 dBm on LE 1M,
 so -80 dBm would look weak in a product even if it were adequate at short range.
 At the same time, a CGM should not spend energy and area chasing sensitivity it
