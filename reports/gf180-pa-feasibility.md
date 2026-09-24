@@ -35,6 +35,10 @@ load mismatch tolerance, antenna efficiency, matching-network loss, package
 parasitics, device stress, routed control power, startup energy, or post-layout
 performance.
 
+The [complex-envelope spectrum follow-on](gfsk-spectrum.md) verifies the
+digital Gaussian shaping against the adjacent-channel screen before PA and
+matching-network distortion are introduced.
+
 The 0.985 uJ number is only a partial allocation against PR11's provisional
 15 uJ complete-report target. Oscillator, drivers, receive activity, retries,
 sensor conversion, computation, storage, and sleep energy still have to share

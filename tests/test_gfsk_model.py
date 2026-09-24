@@ -1,5 +1,7 @@
+import json
 import math
 import unittest
+from pathlib import Path
 
 from model.gfsk import (
     DEVIATION_HZ,
@@ -14,6 +16,9 @@ from model.gfsk import (
     iq_samples,
     symbol_phase_weights,
 )
+
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 class GfskModelTest(unittest.TestCase):
@@ -57,6 +62,23 @@ class GfskModelTest(unittest.TestCase):
             frequency_samples([0, 1], initial_bit=-1)
         with self.assertRaises(ValueError):
             gaussian_taps(span_symbols=3)
+
+    def test_quantized_gfsk_passes_adjacent_channel_screen(self):
+        report = json.loads((ROOT / "reports" / "gfsk_spectrum.json").read_text())
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["sample_count"], 65_536)
+        self.assertGreater(report["worst_margin_db"], 40.0)
+        at_two_mhz = [
+            measurement
+            for measurement in report["measurements"]
+            if abs(measurement["offset_hz"]) == 2_000_000
+        ]
+        self.assertTrue(
+            all(
+                measurement["absolute_power_at_0dbm_tx_dbm"] <= -20.0
+                for measurement in at_two_mhz
+            )
+        )
 
 
 if __name__ == "__main__":

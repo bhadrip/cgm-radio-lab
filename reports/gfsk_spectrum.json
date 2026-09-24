@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "purpose": "BLE LE 1M complex-envelope adjacent-channel screening",
+  "stimulus": "PRBS9",
+  "symbol_count": 4096,
+  "sample_rate_hz": 16000000,
+  "sample_count": 65536,
+  "frequency_bin_hz": 244.140625,
+  "window": "periodic Hann",
+  "integration_bandwidth_hz": 1000000,
+  "maximum_tx_power_dbm": 0.0,
+  "in_band_relative_power_db": -0.05640120083745348,
+  "worst_margin_db": 45.62387321075593,
+  "maximum_absolute_quantization_delta_db": 0.5310651111167317,
+  "passed": true,
+  "measurements": [
+    {
+      "offset_hz": -2000000,
+      "relative_power_db": -65.62732715854308,
+      "absolute_power_at_0dbm_tx_dbm": -65.62732715854308,
+      "limit_dbm": -20.0,
+      "margin_db": 45.62732715854308,
+      "quantization_delta_db": 0.0006026917647687924,
+      "passed": true
+    },
+    {
+      "offset_hz": 2000000,
+      "relative_power_db": -65.62387321075593,
+      "absolute_power_at_0dbm_tx_dbm": -65.62387321075593,
+      "limit_dbm": -20.0,
+      "margin_db": 45.62387321075593,
+      "quantization_delta_db": 0.0005990988511257456,
+      "passed": true
+    },
+    {
+      "offset_hz": -3000000,
+      "relative_power_db": -99.56832521416756,
+      "absolute_power_at_0dbm_tx_dbm": -99.56832521416756,
+      "limit_dbm": -30.0,
+      "margin_db": 69.56832521416756,
+      "quantization_delta_db": -0.04479617361715782,
+      "passed": true
+    },
+    {
+      "offset_hz": 3000000,
+      "relative_power_db": -99.66608834802227,
+      "absolute_power_at_0dbm_tx_dbm": -99.66608834802227,
+      "limit_dbm": -30.0,
+      "margin_db": 69.66608834802227,
+      "quantization_delta_db": -0.04513543688210575,
+      "passed": true
+    },
+    {
+      "offset_hz": -4000000,
+      "relative_power_db": -143.549363837101,
+      "absolute_power_at_0dbm_tx_dbm": -143.549363837101,
+      "limit_dbm": -30.0,
+      "margin_db": 113.549363837101,
+      "quantization_delta_db": -0.5310651111167317,
+      "passed": true
+    },
+    {
+      "offset_hz": 4000000,
+      "relative_power_db": -143.58408065212248,
+      "absolute_power_at_0dbm_tx_dbm": -143.58408065212248,
+      "limit_dbm": -30.0,
+      "margin_db": 113.58408065212248,
+      "quantization_delta_db": -0.5145082146103164,
+      "passed": true
+    }
+  ]
+}
