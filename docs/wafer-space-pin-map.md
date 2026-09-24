@@ -32,3 +32,9 @@ for the smallest slot with:
 git submodule update --init
 make container-gf180-floorplan
 ```
+
+Run the SRAM-free pad-connected PDN, placement, clock tree, and detailed route:
+
+```bash
+make container-gf180-route
+```
