@@ -34,6 +34,11 @@ simulation and evidence ladder for digital, analog, RF, firmware, package, and
 board work, and separates what can be established locally from the foundry,
 qualification-lab, and measured evidence required for production tapeout.
 
+The separate [agentic EDA landscape and PR11 adoption plan](pr11-agentic-eda-landscape.md)
+surveys commercial and open-source agentic engineering systems, then recommends
+a controlled Codex-centered architecture with deterministic tools, independent
+closure checks, and traceable evidence rather than autonomous signoff.
+
 ## Commercial Bluetooth SoCs
 
 The current figures below are vendor-quoted typical values near 3 V. Test

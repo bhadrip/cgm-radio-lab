@@ -380,6 +380,10 @@ errors that no transistor simulation can reveal.
 Codex should orchestrate deterministic tools and maintain evidence; it should
 not be the source of truth for whether a chip is safe or tapeout-ready.
 
+The companion [agentic EDA landscape and PR11 adoption plan](pr11-agentic-eda-landscape.md)
+compares the emerging commercial and open-source systems and translates their
+strongest patterns into a practical, license-conscious PR11 architecture.
+
 Recommended repository structure:
 
 ```text
