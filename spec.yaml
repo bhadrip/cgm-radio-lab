@@ -17,6 +17,16 @@ prototype_advertising_pdu:
   advertiser_address_type: random
   company_identifier: 0xFFFF
   note: laboratory use only
+tapeout_test_interface:
+  type: synchronous_register_bus
+  address_bits: 4
+  data_bits: 8
+  outputs:
+    - packet_out
+    - packet_valid
+    - busy
+    - interrupt
+    - bist_pass
 experiment:
   seed: 49374
   packets_per_point: 2000

@@ -8,7 +8,8 @@ VERILOG_SOURCES := \
     $(ROOT)/rtl/ble_phy_loop.sv \
     $(ROOT)/rtl/cgm_packet_tx.sv \
     $(ROOT)/rtl/cgm_packet_rx.sv \
-    $(ROOT)/rtl/cgm_packet_loop.sv
+    $(ROOT)/rtl/cgm_packet_loop.sv \
+    $(ROOT)/rtl/cgm_chip_core.sv
 
 COMPILE_ARGS += -g2012
 TOPLEVEL ?= ble_phy_loop

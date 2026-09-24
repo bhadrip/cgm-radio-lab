@@ -60,6 +60,11 @@ The advertising payload uses company identifier `0xFFFF` strictly for laboratory
 testing. Production work requires an assigned identifier and a reviewed BLE/CGM
 profile.
 
+`rtl/cgm_chip_core.sv` adds a 16-register pad-facing control bus, direct packet
+observation, an interrupt, and internal TX-to-RX self-test. It is intentionally
+small and synchronous so it can be wrapped by the GF180 wafer.space padframe.
+See [the prototype register map](docs/register-map.md).
+
 The next tapeout-oriented slice will wrap this core in the wafer.space
 GF180MCU project template with SPI registers, packet RAM, BIST, pads, and the
 official precheck flow.
