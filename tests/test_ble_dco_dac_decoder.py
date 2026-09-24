@@ -22,11 +22,11 @@ async def exhaustive_codes_are_registered_and_monotonic(dut):
         dut.code_valid.value = 1
         await RisingEdge(dut.clk)
         await Timer(1, unit="ns")
-        thermometer_count = code >> 2
+        thermometer_count = code >> 1
         expected_thermometer = (1 << thermometer_count) - 1
         assert int(dut.control_valid.value) == 1
         assert int(dut.thermometer_msb.value) == expected_thermometer
-        assert int(dut.binary_lsb.value) == (code & 0b11)
+        assert int(dut.binary_lsb.value) == (code & 0b1)
         assert int(dut.thermometer_msb.value).bit_count() == thermometer_count
 
     held_thermometer = int(dut.thermometer_msb.value)

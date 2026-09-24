@@ -59,8 +59,8 @@ the high-speed switching path from 12 bits to 7 bits after
 [non-ideality budgeting](reports/lc-dco-dac-nonidealities.md).
 The [transition budget](reports/lc-dco-dac-transition.md) selects five
 thermometer-coded MSBs plus two binary LSBs and sets a 750 ps switch-skew target.
-The [registered DAC decoder](reports/lc-dco-dac-decoder.md) implements that 5+2
-encoding and exhaustively checks all 128 input codes.
+The [registered DAC decoder](reports/lc-dco-dac-decoder.md) now implements the
+6+1 encoding selected by transistor validation and checks all 128 input codes.
 The first [GF180 switched-current DAC experiment](reports/gf180-fast-dac.md)
 passes nominal linearity but is rejected for a 150 uV carry glitch.
 The [current-steered follow-on](reports/gf180-fast-dac-steered.md) moves to a
