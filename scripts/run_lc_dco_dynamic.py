@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 import re
 import subprocess
@@ -12,7 +13,11 @@ from pathlib import Path
 
 from model.dco import ble_channel_center_hz
 from model.lc_dco_dac import SegmentedVoltageDac, VoltageDac
-from model.lc_dco_modulation import control_voltage_for_frequency, control_waveform
+from model.lc_dco_modulation import (
+    control_voltage_for_frequency,
+    control_waveform,
+    frequency_for_control_voltage,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +39,11 @@ SAMPLE_PERIOD_S = 1 / 16_000_000
 MEASURE_START_SAMPLE = 4 * 16
 MAXIMUM_ERROR_LIMIT_HZ = 40_000
 MEAN_ERROR_LIMIT_HZ = 10_000
+DEFAULT_DRIVE_RESISTANCE_OHM = float(
+    os.environ.get("LC_DCO_DRIVE_RESISTANCE_OHM", "1000")
+)
+DEFAULT_CONTROL_LOAD_F = float(os.environ.get("LC_DCO_CONTROL_LOAD_F", "10e-12"))
+DEFAULT_MODULATION_TRIM_CODES = int(os.environ.get("LC_DCO_MODULATION_TRIM_CODES", "-1"))
 FREQUENCY = re.compile(r"^freq_(\d+)\s*=\s*([-+0-9.eE]+)", re.MULTILINE)
 SCALAR = re.compile(
     r"^(differential_vpp|supply_current_a|power_w)\s*=\s*([-+0-9.eE]+)",
@@ -82,7 +92,13 @@ def measurements(sample_count: int) -> str:
     return "\n".join(lines)
 
 
-def main() -> None:
+def run_dynamic(
+    drive_resistance_ohm: float = DEFAULT_DRIVE_RESISTANCE_OHM,
+    control_load_f: float = DEFAULT_CONTROL_LOAD_F,
+    modulation_trim_codes: int = DEFAULT_MODULATION_TRIM_CODES,
+) -> dict:
+    if drive_resistance_ohm <= 0 or control_load_f <= 0:
+        raise ValueError("drive resistance and control load must be positive")
     static_points = json.loads(STATIC_SWEEP.read_text())["points"]
     static_points += json.loads(LOCAL_CALIBRATION.read_text())["points"]
     calibration, offsets_hz, ideal_voltages = control_waveform(
@@ -104,15 +120,38 @@ def main() -> None:
     center_voltage_v = control_voltage_for_frequency(
         static_points, calibration, ble_channel_center_hz(37)
     )
-    bias_code, modulation_codes, voltages = dac.quantize_waveform(
+    bias_code, modulation_codes, _ = dac.quantize_waveform(
         center_voltage_v, ideal_voltages
     )
+    modulation_codes = [code + modulation_trim_codes for code in modulation_codes]
+    if any(code < 0 or code > dac.modulation.maximum_code for code in modulation_codes):
+        raise ValueError("modulation trim saturates the fast DAC")
+    bias_voltage_v = dac.bias.voltage_for_code(bias_code)
+    voltages = [
+        bias_voltage_v + dac.modulation.voltage_for_code(code)
+        for code in modulation_codes
+    ]
+    _, center_codes, center_outputs = dac.quantize_waveform(
+        center_voltage_v, [center_voltage_v]
+    )
+    center_code = center_codes[0]
+    adjacent_code = center_code + 1 if center_code < dac.modulation.maximum_code else center_code - 1
+    adjacent_voltage_v = bias_voltage_v + dac.modulation.voltage_for_code(adjacent_code)
+    center_frequency_hz = frequency_for_control_voltage(
+        static_points, calibration, center_outputs[0]
+    )
+    adjacent_frequency_hz = frequency_for_control_voltage(
+        static_points, calibration, adjacent_voltage_v
+    )
+    modeled_code_step_hz = abs(adjacent_frequency_hz - center_frequency_hz)
     stop_s = len(voltages) * SAMPLE_PERIOD_S
     netlist = (
         TEMPLATE.read_text()
         .replace("@@DESIGN_FILE@@", DESIGN_FILE)
         .replace("@@MODEL_FILE@@", MODEL_FILE)
         .replace("@@CONTROL_PWL@@", control_pwl(voltages))
+        .replace("@@DRIVE_RESISTANCE_OHM@@", f"{drive_resistance_ohm:.12g}")
+        .replace("@@CONTROL_LOAD_F@@", f"{control_load_f:.12g}")
         .replace("@@COARSE_CAPS@@", coarse_instances(calibration.coarse_code))
         .replace("@@MEASUREMENTS@@", measurements(len(voltages)))
         .replace("@@STOP_TIME@@", f"{stop_s:.12g}")
@@ -163,9 +202,17 @@ def main() -> None:
         "sample_rate_hz": 16_000_000,
         "bias_dac_bits": dac.bias.bits,
         "bias_dac_code": bias_code,
-        "bias_dac_voltage_v": dac.bias.voltage_for_code(bias_code),
+        "bias_dac_voltage_v": bias_voltage_v,
         "modulation_dac_bits": dac.modulation.bits,
         "modulation_dac_lsb_v": dac.modulation.lsb_v,
+        "modulation_trim_codes": modulation_trim_codes,
+        "modeled_modulation_code_step_hz": modeled_code_step_hz,
+        "drive_resistance_ohm": drive_resistance_ohm,
+        "control_load_f": control_load_f,
+        "drive_time_constant_s": drive_resistance_ohm * control_load_f,
+        "drive_bandwidth_hz": 1 / (
+            2 * math.pi * drive_resistance_ohm * control_load_f
+        ),
         "measured_samples": len(samples),
         "mean_frequency_error_hz": mean_error_hz,
         "maximum_absolute_frequency_error_hz": maximum_error_hz,
@@ -177,12 +224,18 @@ def main() -> None:
         "power_w": scalars["power_w"],
         "samples": samples,
     }
+    return report
+
+
+def main() -> None:
+    report = run_dynamic()
     REPORT.write_text(json.dumps(report, indent=2) + "\n")
     print(REPORT.read_text(), end="")
-    if not passed:
+    if not report["passed"]:
         raise RuntimeError(
-            f"dynamic frequency error failed limits: mean={mean_error_hz} Hz, "
-            f"maximum={maximum_error_hz} Hz"
+            "dynamic frequency error failed limits: "
+            f"mean={report['mean_frequency_error_hz']} Hz, "
+            f"maximum={report['maximum_absolute_frequency_error_hz']} Hz"
         )
 
 

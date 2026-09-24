@@ -46,4 +46,6 @@ mapping over 48 nominal-corner samples after oscillator startup. The
 0--1.8 V DAC as the minimum monolithic resolution. The
 [segmented architecture](../reports/lc-dco-segmented-dac.md) replaces it with a
 7-bit slow bias path and a 6-bit fast modulation path; both circuits remain to
-be built.
+be built. The [drive-settling result](../reports/lc-dco-drive-settling.md)
+requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
+bypass at the varactor-control node.

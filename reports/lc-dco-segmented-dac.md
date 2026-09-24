@@ -22,6 +22,10 @@ The nominal channel-37 transistor bench uses bias code 42 (1.06535 V) and only
 changes the six-bit fast code. Across 48 measured samples, mean error is
 5.246 kHz and worst absolute error is 11.612 kHz.
 
+The follow-on [loaded-drive validation](lc-dco-drive-settling.md) adds finite
+output resistance and RF bypass, then derives a 1 kOhm/10 pF implementation
+target.
+
 ## Boundary
 
 This is an interface architecture, not a transistor DAC. Both summed sources
