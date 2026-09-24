@@ -27,6 +27,13 @@ power conversion in a board smaller than 20 mm in diameter. For a future custom
 chip, the differentiator should be integrating those functions while removing
 the unused multiprotocol and general-purpose features of commercial SoCs.
 
+The companion [local verification and EDA setup report](pr11-local-verification-report.md)
+turns these requirements into an execution approach. It identifies the
+engineering roles, proposes an open-source Apple Silicon toolchain, defines the
+simulation and evidence ladder for digital, analog, RF, firmware, package, and
+board work, and separates what can be established locally from the foundry,
+qualification-lab, and measured evidence required for production tapeout.
+
 ## Commercial Bluetooth SoCs
 
 The current figures below are vendor-quoted typical values near 3 V. Test
