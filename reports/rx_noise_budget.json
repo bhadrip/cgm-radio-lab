@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "purpose": "BLE LE 1M receiver architecture noise budget",
+  "status": "provisional_architecture_allocation",
+  "reference_temperature_c": 25.0,
+  "reference_thermal_noise_density_dbm_hz": -173.8548190364001,
+  "budget_temperature_c": 85.0,
+  "thermal_noise_density_dbm_hz": -173.05851761827125,
+  "noise_bandwidth_hz": 1000000.0,
+  "integrated_thermal_noise_dbm": -113.05851761827125,
+  "required_demodulator_snr_db": 15.0,
+  "project_sensitivity_target_dbm": -80.0,
+  "bluetooth_sensitivity_limit_dbm": -70.0,
+  "maximum_input_level_dbm": -10.0,
+  "required_input_dynamic_range_db": 70.0,
+  "maximum_cascade_nf_for_project_target_db": 18.058517618271253,
+  "stages": [
+    {
+      "name": "RF switch and matching",
+      "gain_db": -1.5,
+      "noise_figure_db": 1.5
+    },
+    {
+      "name": "LNA",
+      "gain_db": 12.0,
+      "noise_figure_db": 4.0
+    },
+    {
+      "name": "mixer",
+      "gain_db": 6.0,
+      "noise_figure_db": 12.0
+    },
+    {
+      "name": "baseband channel",
+      "gain_db": 30.0,
+      "noise_figure_db": 20.0
+    }
+  ],
+  "cascade_noise_figure_db": 8.505163727651206,
+  "total_small_signal_gain_db": 46.5,
+  "predicted_sensitivity_dbm": -89.55335389062004,
+  "project_target_margin_db": 9.553353890620045,
+  "bluetooth_limit_margin_db": 19.553353890620045,
+  "noise_budget_passed": true,
+  "open_gates": [
+    "The 15 dB demodulator SNR allocation needs BER simulation with the implemented detector.",
+    "Gain control is required to span the 70 dB input range without baseband overload.",
+    "Blocker, image, linearity, oscillator phase-noise, and reciprocal-mixing budgets remain open.",
+    "Active current, startup time, duty cycle, and complete-report energy remain open."
+  ]
+}
