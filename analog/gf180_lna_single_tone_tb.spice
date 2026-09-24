@@ -1,0 +1,29 @@
+* Single-tone transient bench for GF180 common-gate LNA gain compression.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ @@CORNER@@
+
+.param VDD_VALUE=1.8
+.temp @@TEMP_C@@
+
+VDD vdd 0 {VDD_VALUE}
+VINPUT source_drive 0 dc 0 sin(0 @@SOURCE_PEAK_V@@ @@FREQUENCY_HZ@@)
+RSOURCE source_drive rf_in 50
+CIN rf_in source 10p
+IBIAS source 0 @@BIAS_CURRENT_A@@
+VGATE gate 0 @@GATE_BIAS_V@@
+@@LNA_DEVICES@@
+RLOAD vdd drain @@LOAD_RESISTANCE_OHM@@
+CLOAD drain 0 @@LOAD_CAPACITANCE_F@@
+
+.option reltol=1e-4 numdgt=12 plotwinsize=0
+
+.control
+set wr_singlescale
+set wr_vecnames
+tran @@STEP_S@@ @@STOP_S@@ @@START_S@@
+wrdata @@TRANSIENT_FILE@@ v(drain) v(source)
+quit
+.endc
+
+.end
