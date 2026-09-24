@@ -32,31 +32,53 @@
         1   ble_crc24
         1   ble_whitener
 
+=== cgm_gfsk_tx ===
+
+        +----------Local Count, excluding submodules.
+        |
+       36 wires
+      165 wire bits
+       26 public wires
+      155 public wire bits
+       17 ports
+      146 port bits
+       17 cells
+        6   $logic_and
+        1   $logic_or
+        2   $mux
+        2   $reduce_or
+        2   $sdff
+        4   $sdffe
+        2 submodules
+        1   ble_gfsk_modulator
+        1   cgm_packet_tx
+
 === cgm_chip_core ===
 
         +----------Local Count, excluding submodules.
         |
-       98 wires
-      339 wire bits
-       30 public wires
-      264 public wire bits
-       12 ports
-       29 port bits
-       87 cells
+      106 wires
+      365 wire bits
+       33 public wires
+      285 public wire bits
+       14 ports
+       49 port bits
+       93 cells
        21   $eq
         1   $le
         8   $logic_and
         2   $logic_not
-        9   $mux
+       10   $mux
         3   $not
         1   $pmux
-       17   $reduce_and
-        4   $reduce_bool
+       18   $reduce_and
+        7   $reduce_bool
         2   $reduce_or
         2   $sdff
-       17   $sdffe
-        1 submodules
-        1   cgm_packet_loop
+       18   $sdffe
+        2 submodules
+        1   cgm_gfsk_tx
+        1   cgm_packet_rx
 
 === ble_whitener ===
 
@@ -111,23 +133,34 @@
         1   ble_crc24
         1   ble_whitener
 
-=== cgm_packet_loop ===
+=== ble_gfsk_modulator ===
 
         +----------Local Count, excluding submodules.
         |
-       28 wires
-      245 wire bits
-       27 public wires
-      244 public wire bits
-       24 ports
-      241 port bits
-        3 cells
-        1   $logic_and
-        1   $logic_not
-        1   $xor
-        2 submodules
-        1   cgm_packet_rx
-        1   cgm_packet_tx
+      102 wires
+     2383 wire bits
+       28 public wires
+      440 public wire bits
+        9 ports
+       27 port bits
+        1 memories
+     2560 memory bits
+       79 cells
+        9   $add
+        1   $eq
+        2   $logic_not
+        1   $logic_or
+        1   $meminit
+        1   $memrd_v2
+       41   $mux
+        2   $ne
+       10   $neg
+        1   $not
+        1   $reduce_and
+        1   $reduce_bool
+        1   $reduce_or
+        4   $sdff
+        3   $sdffe
 
 === ble_crc24 ===
 
@@ -149,49 +182,54 @@
 
         +----------Count including submodules.
         |
-      356 cgm_chip_core
-        3 cgm_packet_loop
-      153   cgm_packet_rx
-        7     ble_crc24
-        9     ble_whitener
+      455 cgm_chip_core
+       17 cgm_gfsk_tx
+       79   ble_gfsk_modulator
        81   cgm_packet_tx
         7     ble_crc24
         9     ble_whitener
+      153 cgm_packet_rx
+        7   ble_crc24
+        9   ble_whitener
 
         +----------Count including submodules.
         |
-      450 wires
-     3451 wire bits
-      162 public wires
-     1155 public wire bits
-       96 ports
-      654 port bits
-        - memories
-        - memory bits
+      568 wires
+     5780 wire bits
+      192 public wires
+     1527 public wire bits
+      100 ports
+      606 port bits
+        1 memories
+     2560 memory bits
         - processes
-      356 cells
-       10   $add
+      455 cells
+       19   $add
         7   $and
-       62   $eq
+       63   $eq
         2   $ge
         1   $le
-       17   $logic_and
-        7   $logic_not
+       22   $logic_and
+        8   $logic_not
+        2   $logic_or
         6   $lt
-       44   $mux
-       13   $ne
-        6   $neg
-       14   $not
+        1   $meminit
+        1   $memrd_v2
+       88   $mux
+       15   $ne
+       16   $neg
+       15   $not
         7   $or
         3   $pmux
-       28   $reduce_and
-       13   $reduce_bool
-       19   $reduce_or
-        4   $sdff
-       37   $sdffe
+       30   $reduce_and
+       17   $reduce_bool
+       22   $reduce_or
+       10   $sdff
+       45   $sdffe
        12   $shift
        19   $shiftx
        16   $sub
-        9   $xor
-        1 submodules
-        1   cgm_packet_loop
+        8   $xor
+        2 submodules
+        1   cgm_gfsk_tx
+        1   cgm_packet_rx

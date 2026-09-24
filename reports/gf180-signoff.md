@@ -9,17 +9,20 @@
 - Illegal overlaps: 0
 - Setup violations: 0
 - Hold violations: 0
-- Worst setup slack: +8.229 ns at `max_ss_125C_4v50`
-- Maximum slew violations: 405
-- Maximum capacitance violations: 84
+- Worst setup slack: +1.197 ns at `max_ss_125C_4v50`
+- Worst hold slack: +0.235 ns at `min_ff_n40C_5v50`
+- Maximum slew violations: 519
+- Maximum capacitance violations: 92
+- Synthesized logic cells: 3,267
+- Synthesized standard-cell area: 73,987 um^2
 
 The KLayout configuration follows the official Wafer.Space template: antenna
 and density use dedicated decks, and CUP checks are excluded for the selected
 non-CUP pad library. Decks run serially because parallel result aggregation was
 nondeterministic in the pinned tool image.
 
-The 16 MHz clock now matches `spec.yaml`, and the pad-facing register read is a
-one-cycle synchronous transaction. This checkpoint produces GDS, passes
-physical verification, and is setup/hold clean. It is not submission-ready:
-maximum slew and capacitance warnings remain, and the prototype still lacks the
-RF, product, package, and qualification work listed in the engineering basis.
+The 16 MHz clock matches `spec.yaml`. This checkpoint includes the packet
+engine and digital GFSK path, produces GDS, passes physical verification, and
+is setup/hold clean. It is not submission-ready: maximum slew and capacitance
+warnings remain, and the prototype still lacks the PLL/DCO, PA, RF, product,
+package, and qualification work listed in the engineering basis.

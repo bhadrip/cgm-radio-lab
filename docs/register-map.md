@@ -15,6 +15,8 @@ rising edge and its result is then available in `read_data` for that cycle.
 | `0xE` | status flags | status flags |
 | `0xF` | battery percentage | battery percentage |
 
-A start command serializes one packet and runs the internal TX-to-RX loopback.
-`interrupt` rises when the receiver completes. `bist_pass` requires matching
-format, CRC, advertiser address, and all CGM fields.
+A start command serializes one packet at 1 Msym/s, runs the internal TX-to-RX
+loopback, and emits the GFSK frequency-control burst. `busy` remains high for
+the complete 224 us waveform. `interrupt` rises after its final sample.
+`bist_pass` requires matching format, CRC, advertiser address, and all CGM
+fields.

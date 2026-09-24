@@ -45,6 +45,7 @@ async def cgm_packet_drives_gapless_one_mbps_gfsk(dut):
     dut.start.value = 0
 
     observed = []
+    observed_bits = []
     started = False
     cycles = 0
     while not int(dut.done.value):
@@ -57,8 +58,12 @@ async def cgm_packet_drives_gapless_one_mbps_gfsk(dut):
         elif started and len(observed) < len(expected):
             raise AssertionError("frequency_valid dropped inside the packet")
         assert cycles <= len(expected) + 4
+        if int(dut.symbol_valid.value):
+            observed_bits.append(int(dut.symbol_bit.value))
 
     assert len(bits) == 224
     assert len(observed) == len(bits) * SAMPLES_PER_SYMBOL
     assert observed == expected
+    assert observed_bits == bits
+    assert int(dut.symbol_last.value) == 1
     assert int(dut.busy.value) == 0

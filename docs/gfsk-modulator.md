@@ -25,6 +25,9 @@ retaining filter history.
 serializer. The serializer advances exactly once every sixteen clocks, so its
 224 whitened on-air bits become 3,584 gapless frequency samples over 224 us.
 `done` is asserted only after the final symbol's last frequency sample.
+The Wafer.Space wrapper exposes the signed frequency word and its valid signal
+on pads when `input[2]` is high, making every modulation sample observable on
+the first digital shuttle.
 
 The implementation is equivalent to a 65-tap sampled Gaussian FIR but uses five
 symbol-history contributions for each of sixteen sample phases. This removes

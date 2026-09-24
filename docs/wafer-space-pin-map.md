@@ -9,7 +9,8 @@ which provides 4 input pads, 38 bidirectional pads, and 4 analog pads.
 |---|---|---|
 | `input[0]` | input | register write enable |
 | `input[1]` | input | register read enable |
-| `input[3:2]` | input | reserved |
+| `input[2]` | input | output mode: 0 legacy/register, 1 GFSK observation |
+| `input[3]` | input | reserved |
 | `bidir[3:0]` | input | register address |
 | `bidir[11:4]` | input | register write data |
 | `bidir[12]` | output | serialized BLE hard bit |
@@ -21,9 +22,22 @@ which provides 4 input pads, 38 bidirectional pads, and 4 analog pads.
 | `bidir[37:25]` | output | reserved, driven low |
 | `analog[3:0]` | analog | reserved for sensor and RF experiments |
 
-The wrapper only integrates the verified digital hard-bit path. It does not yet
-contain the GFSK modem, RF front end, electrochemical analog front end, antenna
-match, or a production BLE link layer.
+With `input[2]` high, the same output pads expose the waveform path:
+
+| Pad | Function in GFSK observation mode |
+|---|---|
+| `bidir[30:12]` | signed 19-bit instantaneous frequency offset, Hz |
+| `bidir[31]` | frequency sample valid |
+| `bidir[32]` | transmitter busy |
+| `bidir[33]` | completion interrupt |
+| `bidir[34]` | loopback BIST pass |
+| `bidir[35]` | accepted packet bit |
+| `bidir[36]` | accepted packet bit valid |
+| `bidir[37]` | reserved, driven low |
+
+The wrapper integrates the packet engine and digital GFSK modem. It does not
+yet contain a PLL/DCO, PA, RF front end, electrochemical analog front end,
+antenna match, or production BLE link layer.
 
 The official template is pinned as a submodule. Run synthesis and floorplanning
 for the smallest slot with:
