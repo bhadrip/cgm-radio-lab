@@ -25,6 +25,7 @@ async def write_register(dut, address, value):
 async def read_register(dut, address):
     dut.bidir_in.value = address
     dut.input_in.value = 0b0010
+    await RisingEdge(dut.clk)
     await Timer(1, unit="ns")
     value = (int(dut.bidir_out.value) >> 17) & 0xFF
     dut.input_in.value = 0

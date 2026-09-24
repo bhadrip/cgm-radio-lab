@@ -32,6 +32,7 @@ async def write_register(dut, address, value):
 async def read_register(dut, address):
     dut.register_address.value = address
     dut.read_enable.value = 1
+    await RisingEdge(dut.clk)
     await Timer(1, unit="ns")
     value = int(dut.read_data.value)
     dut.read_enable.value = 0
@@ -83,4 +84,3 @@ async def register_programmed_packet_and_bist(dut):
     await write_register(dut, 0x0, 0x02)
     await RisingEdge(dut.clk)
     assert int(dut.interrupt.value) == 0
-

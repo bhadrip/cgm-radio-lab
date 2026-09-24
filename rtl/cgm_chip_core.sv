@@ -62,27 +62,32 @@ module cgm_chip_core (
         .rx_battery_percent(rx_battery_percent)
     );
 
-    always @* begin
-        read_data = 8'h00;
-        if (read_enable) begin
+    // Reads are sampled and returned on the following clock edge. Keeping the
+    // pad-facing bus synchronous avoids a long input-pad-to-output-pad path.
+    always_ff @(posedge clk) begin
+        if (reset) begin
+            read_data <= 8'h00;
+        end else if (read_enable) begin
             case (register_address)
-                4'h0: read_data = {5'b00000, bist_pass, interrupt, busy};
-                4'h1: read_data = {2'b00, channel};
-                4'h2: read_data = advertiser_address[7:0];
-                4'h3: read_data = advertiser_address[15:8];
-                4'h4: read_data = advertiser_address[23:16];
-                4'h5: read_data = advertiser_address[31:24];
-                4'h6: read_data = advertiser_address[39:32];
-                4'h7: read_data = advertiser_address[47:40];
-                4'h8: read_data = sample_sequence[7:0];
-                4'h9: read_data = sample_sequence[15:8];
-                4'hA: read_data = glucose_mg_dl[7:0];
-                4'hB: read_data = glucose_mg_dl[15:8];
-                4'hC: read_data = trend_q8_8[7:0];
-                4'hD: read_data = trend_q8_8[15:8];
-                4'hE: read_data = status;
-                4'hF: read_data = battery_percent;
+                4'h0: read_data <= {5'b00000, bist_pass, interrupt, busy};
+                4'h1: read_data <= {2'b00, channel};
+                4'h2: read_data <= advertiser_address[7:0];
+                4'h3: read_data <= advertiser_address[15:8];
+                4'h4: read_data <= advertiser_address[23:16];
+                4'h5: read_data <= advertiser_address[31:24];
+                4'h6: read_data <= advertiser_address[39:32];
+                4'h7: read_data <= advertiser_address[47:40];
+                4'h8: read_data <= sample_sequence[7:0];
+                4'h9: read_data <= sample_sequence[15:8];
+                4'hA: read_data <= glucose_mg_dl[7:0];
+                4'hB: read_data <= glucose_mg_dl[15:8];
+                4'hC: read_data <= trend_q8_8[7:0];
+                4'hD: read_data <= trend_q8_8[15:8];
+                4'hE: read_data <= status;
+                4'hF: read_data <= battery_percent;
             endcase
+        end else begin
+            read_data <= 8'h00;
         end
     end
 

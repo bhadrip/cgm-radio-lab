@@ -93,7 +93,9 @@ VDD_NETS: [VDD]
 GND_NETS: [VSS]
 CLOCK_PORT: clk_PAD
 CLOCK_NET: clk_pad/Y
-CLOCK_PERIOD: 40
+# Match the 16 MHz reference clock declared in spec.yaml. The previous 40 ns
+# constraint accidentally analyzed this low-power test vehicle at 25 MHz.
+CLOCK_PERIOD: 62.5
 
 IGNORE_DISCONNECTED_MODULES:
 - gf180mcu_fd_io__bi_24t
@@ -127,7 +129,8 @@ PDN_CORE_HORIZONTAL_LAYER: Metal3
 # the default non-CUP pad library; density and antenna run as separate steps.
 KLAYOUT_DRC_OPTIONS:
   decks: "all,-antenna,-density,-cup"
-  workers: max
+  # The GF180 deck runner can race while merging parallel deck results.
+  workers: 1
 KLAYOUT_DRC_THREADS: 1
 KLAYOUT_DENSITY_OPTIONS:
   decks: density

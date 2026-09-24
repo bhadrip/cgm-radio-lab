@@ -59,24 +59,24 @@
 
         +----------Local Count, excluding submodules.
         |
-       96 wires
-      337 wire bits
+       98 wires
+      339 wire bits
        30 public wires
       264 public wire bits
        12 ports
        29 port bits
-       85 cells
+       87 cells
        21   $eq
         1   $le
         8   $logic_and
         2   $logic_not
-       10   $mux
-        2   $not
+        9   $mux
+        3   $not
         1   $pmux
        17   $reduce_and
         4   $reduce_bool
-        1   $reduce_or
-        1   $sdff
+        2   $reduce_or
+        2   $sdff
        17   $sdffe
         1 submodules
         1   cgm_packet_loop
@@ -147,7 +147,7 @@
 
         +----------Count including submodules.
         |
-      350 cgm_chip_core
+      352 cgm_chip_core
         3 cgm_packet_loop
       153   cgm_packet_rx
         7     ble_crc24
@@ -158,8 +158,8 @@
 
         +----------Count including submodules.
         |
-      443 wires
-     3444 wire bits
+      445 wires
+     3446 wire bits
       160 public wires
      1153 public wire bits
        95 ports
@@ -167,7 +167,7 @@
         - memories
         - memory bits
         - processes
-      350 cells
+      352 cells
        10   $add
         7   $and
        62   $eq
@@ -176,16 +176,16 @@
        16   $logic_and
         7   $logic_not
         6   $lt
-       45   $mux
+       44   $mux
        13   $ne
         6   $neg
-       13   $not
+       14   $not
         7   $or
         3   $pmux
        27   $reduce_and
        11   $reduce_bool
-       18   $reduce_or
-        4   $sdff
+       19   $reduce_or
+        5   $sdff
        36   $sdffe
        12   $shift
        19   $shiftx

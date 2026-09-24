@@ -1,7 +1,8 @@
 # Prototype register map
 
 The interface is synchronous to `clk`. Assert `write_enable` or `read_enable`
-for one cycle with a stable address and data value.
+for one cycle with a stable address and data value. A read is sampled on the
+rising edge and its result is then available in `read_data` for that cycle.
 
 | Address | Read | Write |
 |---:|---|---|
@@ -17,4 +18,3 @@ for one cycle with a stable address and data value.
 A start command serializes one packet and runs the internal TX-to-RX loopback.
 `interrupt` rises when the receiver completes. `bist_pass` requires matching
 format, CRC, advertiser address, and all CGM fields.
-
