@@ -36,6 +36,11 @@ three-stage ring as the BLE local oscillator: its unloaded slow-corner ceiling
 is 1.583 GHz. See the [ring-oscillator result](reports/ring-dco-feasibility.md).
 This is a useful architecture result, not an RF sign-off claim.
 
+The follow-on [LC-oscillator experiment](reports/lc-vco-feasibility.md) starts
+across the sampled PVT tuning envelope at 1 mA and brackets the BLE band, but it
+depends on an assumed 3 nH, Q=10 tank. The open GF180 distribution contains no
+RF inductor model or PCell, so an EM-qualified passive remains a hard gate.
+
 ## Reproducible EDA environment
 
 The flow is pinned to the ARM64-compatible IIC-OSIC-TOOLS image required by the
@@ -53,8 +58,9 @@ make container-check
 
 Generated measurements are written to `reports/experiment.json`,
 `reports/per_curve.csv`, `reports/ring_dco_sweep.json`,
-`reports/ring_dco_sweep.csv`, `reports/yosys-stat.txt`, and the GFSK/DCO
-synthesis reports.
+`reports/ring_dco_sweep.csv`, `reports/lc_vco_sweep.json`,
+`reports/lc_vco_sweep.csv`, `reports/yosys-stat.txt`, and the GFSK/DCO synthesis
+reports.
 
 ## Individual targets
 

@@ -1,0 +1,49 @@
+* GF180 cross-coupled LC oscillator feasibility bench.
+* The active devices and MIM capacitors use PDK models. The inductor and its
+* loss are assumptions because the open PDK distribution has no RF inductor
+* model or PCell.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ @@CORNER@@
+.lib @@MODEL_FILE@@ @@MIM_CORNER@@
+
+.param VDD_VALUE=1.8
+.param TAIL_CURRENT=@@TAIL_CURRENT@@
+.param TANK_L=3n
+.param TANK_R=4.6
+.param CAP_SIDE=@@CAP_SIDE@@
+.temp @@TEMP_C@@
+
+VDD vdd 0 {VDD_VALUE}
+
+* Two center-tapped 3 nH branches with Q approximately 10 at 2.44 GHz.
+L1 vdd lp {TANK_L}
+R1 lp outp {TANK_R}
+L2 vdd ln {TANK_L}
+R2 ln outn {TANK_R}
+
+* 1.5 fF/um^2 M4-M5 MIM capacitors, including PDK fringe and PVT models.
+XCP outp 0 cap_mim_1f5_m4m5_noshield
++ c_width={CAP_SIDE} c_length={CAP_SIDE}
+XCN outn 0 cap_mim_1f5_m4m5_noshield
++ c_width={CAP_SIDE} c_length={CAP_SIDE}
+
+* Cross-coupled NMOS pair. Instance parameters are recorded in the report.
+XMN1 outp outn tail 0 nfet_03v3 l=0.28u w=40u nf=10
+XMN2 outn outp tail 0 nfet_03v3 l=0.28u w=40u nf=10
+ITAIL tail 0 {TAIL_CURRENT}
+EDIFF diff 0 outp outn 1
+
+.ic v(outp)=0.91 v(outn)=0.89 v(tail)=0.4
+.option method=gear reltol=1e-4
+.tran 2p 100n uic
+
+.measure tran fifty_periods
++ TRIG v(diff) VAL=0 RISE=20
++ TARG v(diff) VAL=0 RISE=70
+.measure tran frequency_hz PARAM='50/fifty_periods'
+.measure tran differential_vpp PP v(diff) FROM=80n TO=100n
+.measure tran supply_current_a AVG i(VDD) FROM=80n TO=100n
+.measure tran power_w PARAM='-supply_current_a*VDD_VALUE'
+
+.end

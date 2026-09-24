@@ -33,3 +33,5 @@ to reject this topology before spending effort on layout.
 
 Reproduce the data with `make analog-test`. Machine-readable results are in
 `ring_dco_sweep.json` and `ring_dco_sweep.csv` in this directory.
+
+The next experiment is the [LC-oscillator feasibility sweep](lc-vco-feasibility.md).
