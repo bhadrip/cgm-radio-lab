@@ -15,7 +15,7 @@ VIN in 0 PULSE(0 {VDD_VALUE} 0 10p 10p 'PERIOD/2-10p' {PERIOD})
 @@PA_DEVICES@@
 
 COUT out rfout 10p
-RLOAD rfout 0 50
+RLOAD rfout 0 @@LOAD_OHM@@
 
 .option method=gear reltol=1e-4 numdgt=12
 .tran 2p 40n

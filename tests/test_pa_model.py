@@ -53,6 +53,20 @@ class PaModelTest(unittest.TestCase):
             report["maximum_selected_energy_per_224us_burst_j"], 1e-6
         )
 
+    def test_pa_real_load_sweep_keeps_calibrated_baseline(self):
+        report = json.loads(
+            (ROOT / "reports" / "gf180_pa_load_sweep.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(
+            report["loads_ohm"],
+            [25.0, 35.0, 50.0, 75.0, 100.0, 150.0, 200.0],
+        )
+        self.assertEqual(len(report["summaries"]), 3)
+        self.assertTrue(
+            all(len(summary["points"]) == 7 for summary in report["summaries"])
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

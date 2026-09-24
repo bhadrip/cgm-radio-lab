@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "purpose": "real-load sensitivity at calibrated maximum PA power",
+  "target_output_power_dbm": 0.0,
+  "loads_ohm": [
+    25.0,
+    35.0,
+    50.0,
+    75.0,
+    100.0,
+    150.0,
+    200.0
+  ],
+  "passed": true,
+  "summaries": [
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "power_code": 94,
+      "baseline_50_ohm_output_power_dbm": -0.037084554535085426,
+      "baseline_50_ohm_drain_efficiency": 0.22552791996010438,
+      "maximum_power_load_ohm": 150.0,
+      "maximum_output_power_dbm": 2.039562332320635,
+      "maximum_efficiency_load_ohm": 200.0,
+      "maximum_drain_efficiency": 0.5128804824009352,
+      "points": [
+        {
+          "load_ohm": 25.0,
+          "fundamental_output_power_dbm": -2.7062959075691535,
+          "supply_power_w": 0.004545801263787433,
+          "drain_efficiency": 0.11796684493152652,
+          "second_harmonic_dbc": -34.88263520940886,
+          "third_harmonic_dbc": -9.055323920965332
+        },
+        {
+          "load_ohm": 35.0,
+          "fundamental_output_power_dbm": -1.368280396543192,
+          "supply_power_w": 0.004491001980435158,
+          "drain_efficiency": 0.16249077639071818,
+          "second_harmonic_dbc": -34.96093879735392,
+          "third_harmonic_dbc": -9.069937091440936
+        },
+        {
+          "load_ohm": 50.0,
+          "fundamental_output_power_dbm": -0.037084554535085426,
+          "supply_power_w": 0.0043963395748669075,
+          "drain_efficiency": 0.22552791996010438,
+          "second_harmonic_dbc": -34.66009598249461,
+          "third_harmonic_dbc": -9.104390362375046
+        },
+        {
+          "load_ohm": 75.0,
+          "fundamental_output_power_dbm": 1.211653698943588,
+          "supply_power_w": 0.004175635683429707,
+          "drain_efficiency": 0.3165503293011925,
+          "second_harmonic_dbc": -33.723951836657356,
+          "third_harmonic_dbc": -9.169476523803247
+        },
+        {
+          "load_ohm": 100.0,
+          "fundamental_output_power_dbm": 1.7759616916181618,
+          "supply_power_w": 0.003908562124210288,
+          "drain_efficiency": 0.38510499348993305,
+          "second_harmonic_dbc": -33.07336832454357,
+          "third_harmonic_dbc": -9.20096120944015
+        },
+        {
+          "load_ohm": 150.0,
+          "fundamental_output_power_dbm": 2.039562332320635,
+          "supply_power_w": 0.0033954861768501006,
+          "drain_efficiency": 0.47103618016468396,
+          "second_harmonic_dbc": -31.719516563202642,
+          "third_harmonic_dbc": -9.257214146270234
+        },
+        {
+          "load_ohm": 200.0,
+          "fundamental_output_power_dbm": 1.8707911658495888,
+          "supply_power_w": 0.0029995972324046924,
+          "drain_efficiency": 0.5128804824009352,
+          "second_harmonic_dbc": -31.00825343741093,
+          "third_harmonic_dbc": -9.273566764369193
+        }
+      ]
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "power_code": 66,
+      "baseline_50_ohm_output_power_dbm": -0.031048429908874006,
+      "baseline_50_ohm_drain_efficiency": 0.22611210885146313,
+      "maximum_power_load_ohm": 150.0,
+      "maximum_output_power_dbm": 1.9656747453886028,
+      "maximum_efficiency_load_ohm": 200.0,
+      "maximum_drain_efficiency": 0.5285137737805091,
+      "points": [
+        {
+          "load_ohm": 25.0,
+          "fundamental_output_power_dbm": -2.6576101357159505,
+          "supply_power_w": 0.004578193013623557,
+          "drain_efficiency": 0.11845267918727043,
+          "second_harmonic_dbc": -36.71950935218398,
+          "third_harmonic_dbc": -9.38900155951776
+        },
+        {
+          "load_ohm": 35.0,
+          "fundamental_output_power_dbm": -1.3328598518049843,
+          "supply_power_w": 0.004510252476881391,
+          "drain_efficiency": 0.16312223420737837,
+          "second_harmonic_dbc": -36.90700151888913,
+          "third_harmonic_dbc": -9.393667587324193
+        },
+        {
+          "load_ohm": 50.0,
+          "fundamental_output_power_dbm": -0.031048429908874006,
+          "supply_power_w": 0.004391079868950384,
+          "drain_efficiency": 0.22611210885146313,
+          "second_harmonic_dbc": -37.15359833565569,
+          "third_harmonic_dbc": -9.403300654705605
+        },
+        {
+          "load_ohm": 75.0,
+          "fundamental_output_power_dbm": 1.163105506027066,
+          "supply_power_w": 0.004135478468837835,
+          "drain_efficiency": 0.31607109904114883,
+          "second_harmonic_dbc": -37.71449739444035,
+          "third_harmonic_dbc": -9.407590885666185
+        },
+        {
+          "load_ohm": 100.0,
+          "fundamental_output_power_dbm": 1.7063877348240533,
+          "supply_power_w": 0.003838270037495535,
+          "drain_efficiency": 0.38592529754884636,
+          "second_harmonic_dbc": -37.57362294270862,
+          "third_harmonic_dbc": -9.413947483755772
+        },
+        {
+          "load_ohm": 150.0,
+          "fundamental_output_power_dbm": 1.9656747453886028,
+          "supply_power_w": 0.00329290753381311,
+          "drain_efficiency": 0.4775160119519707,
+          "second_harmonic_dbc": -37.08859153588433,
+          "third_harmonic_dbc": -9.411964111363512
+        },
+        {
+          "load_ohm": 200.0,
+          "fundamental_output_power_dbm": 1.8037760635579712,
+          "supply_power_w": 0.002866297707123968,
+          "drain_efficiency": 0.5285137737805091,
+          "second_harmonic_dbc": -36.633068673858844,
+          "third_harmonic_dbc": -9.410747285137726
+        }
+      ]
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 125,
+      "power_code": 128,
+      "baseline_50_ohm_output_power_dbm": -0.4437017280848459,
+      "baseline_50_ohm_drain_efficiency": 0.2157412596927535,
+      "maximum_power_load_ohm": 150.0,
+      "maximum_output_power_dbm": 1.7382726599774745,
+      "maximum_efficiency_load_ohm": 200.0,
+      "maximum_drain_efficiency": 0.48000142421547676,
+      "points": [
+        {
+          "load_ohm": 25.0,
+          "fundamental_output_power_dbm": -3.1180715106560557,
+          "supply_power_w": 0.004315657230522306,
+          "drain_efficiency": 0.1130175543785131,
+          "second_harmonic_dbc": -35.67893683437968,
+          "third_harmonic_dbc": -8.492804946342096
+        },
+        {
+          "load_ohm": 35.0,
+          "fundamental_output_power_dbm": -1.7763653963846757,
+          "supply_power_w": 0.004266927089190178,
+          "drain_efficiency": 0.1556855260341053,
+          "second_harmonic_dbc": -35.04653049360614,
+          "third_harmonic_dbc": -8.541821071231418
+        },
+        {
+          "load_ohm": 50.0,
+          "fundamental_output_power_dbm": -0.4437017280848459,
+          "supply_power_w": 0.004185011126627532,
+          "drain_efficiency": 0.2157412596927535,
+          "second_harmonic_dbc": -34.07104107655157,
+          "third_harmonic_dbc": -8.624623110025887
+        },
+        {
+          "load_ohm": 75.0,
+          "fundamental_output_power_dbm": 0.80868397037627,
+          "supply_power_w": 0.003999644741018461,
+          "drain_efficiency": 0.30119445982011583,
+          "second_harmonic_dbc": -32.41955827178407,
+          "third_harmonic_dbc": -8.763689993858126
+        },
+        {
+          "load_ohm": 100.0,
+          "fundamental_output_power_dbm": 1.4025958041614675,
+          "supply_power_w": 0.003775045341546201,
+          "drain_efficiency": 0.3658789365988834,
+          "second_harmonic_dbc": -31.188562960341418,
+          "third_harmonic_dbc": -8.871554160737244
+        },
+        {
+          "load_ohm": 150.0,
+          "fundamental_output_power_dbm": 1.7382726599774745,
+          "supply_power_w": 0.003359004361854281,
+          "drain_efficiency": 0.4442390157004791,
+          "second_harmonic_dbc": -29.735172745134825,
+          "third_harmonic_dbc": -9.018902114155221
+        },
+        {
+          "load_ohm": 200.0,
+          "fundamental_output_power_dbm": 1.6311307575542253,
+          "supply_power_w": 0.0030329870065631016,
+          "drain_efficiency": 0.48000142421547676,
+          "second_harmonic_dbc": -28.93624791824756,
+          "third_harmonic_dbc": -9.093520607758842
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Only real load impedances are tested; this is not complex load-pull.",
+    "The input drive, coupling capacitor, and load are ideal.",
+    "No package, matching network, antenna, or routed bank is included."
+  ]
+}

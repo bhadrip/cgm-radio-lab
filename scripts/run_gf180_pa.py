@@ -104,7 +104,12 @@ def average_supply_power(
     return VDD_V * charge_c / duration_s
 
 
-def simulate(width_um: float, corner: str, temperature_c: int) -> dict:
+def simulate(
+    width_um: float,
+    corner: str,
+    temperature_c: int,
+    load_ohm: float = LOAD_OHM,
+) -> dict:
     parallel_devices = math.ceil(width_um / 14.08)
     device_nmos_width_um = width_um / parallel_devices
     device_pmos_width_um = 2.0 * device_nmos_width_um
@@ -130,6 +135,7 @@ def simulate(width_um: float, corner: str, temperature_c: int) -> dict:
             .replace("@@CORNER@@", corner)
             .replace("@@TEMP_C@@", str(temperature_c))
             .replace("@@PA_DEVICES@@", devices)
+            .replace("@@LOAD_OHM@@", f"{load_ohm:.12g}")
             .replace("@@WAVEFORM_FILE@@", str(waveform))
         )
         path = temporary / "bench.spice"
@@ -146,15 +152,16 @@ def simulate(width_um: float, corner: str, temperature_c: int) -> dict:
             raise RuntimeError(f"GF180 PA simulation failed\n{output[-8000:]}")
         times_s, output_v, supply_current_a = read_waveform(waveform)
     fundamental_voltage_rms_v = fundamental_rms(times_s, output_v)
-    fundamental_power_w = fundamental_voltage_rms_v**2 / LOAD_OHM
+    fundamental_power_w = fundamental_voltage_rms_v**2 / load_ohm
     harmonic_power_w = {
-        harmonic: tone_rms(times_s, output_v, harmonic) ** 2 / LOAD_OHM
+        harmonic: tone_rms(times_s, output_v, harmonic) ** 2 / load_ohm
         for harmonic in HARMONICS
     }
     supply_power_w = average_supply_power(times_s, supply_current_a)
     return {
         "corner": corner,
         "temperature_c": temperature_c,
+        "load_ohm": load_ohm,
         "nmos_width_um": width_um,
         "pmos_width_um": 2.0 * width_um,
         "parallel_device_pairs": parallel_devices,
