@@ -41,6 +41,10 @@ across the sampled PVT tuning envelope at 1 mA and brackets the BLE band, but it
 depends on an assumed 3 nH, Q=10 tank. The open GF180 distribution contains no
 RF inductor model or PCell, so an EM-qualified passive remains a hard gate.
 
+The [tuning-bank sizing](reports/lc-dco-bank-sizing.md) replaces the placeholder
+linear DCO assumption with a 4-bit coarse MIM bank and analog MOS-varactor fine
+control. The fine-control voltage resolution is a new circuit requirement.
+
 ## Reproducible EDA environment
 
 The flow is pinned to the ARM64-compatible IIC-OSIC-TOOLS image required by the
@@ -59,8 +63,8 @@ make container-check
 Generated measurements are written to `reports/experiment.json`,
 `reports/per_curve.csv`, `reports/ring_dco_sweep.json`,
 `reports/ring_dco_sweep.csv`, `reports/lc_vco_sweep.json`,
-`reports/lc_vco_sweep.csv`, `reports/yosys-stat.txt`, and the GFSK/DCO synthesis
-reports.
+`reports/lc_vco_sweep.csv`, `reports/lc_dco_bank.json`,
+`reports/yosys-stat.txt`, and the GFSK/DCO synthesis reports.
 
 ## Individual targets
 
@@ -68,6 +72,7 @@ reports.
 make python-test
 make rtl-test
 make analog-test
+make dco-bank-sizing
 make experiment
 make yosys-stat
 make gfsk-yosys-stat

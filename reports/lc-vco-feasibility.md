@@ -38,3 +38,6 @@ and post-layout extraction.
 
 Reproduce the data with `make lc-vco-test`. Machine-readable results are in
 `lc_vco_sweep.json` and `lc_vco_sweep.csv` in this directory.
+
+The derived coarse/fine interface is documented in
+[the tuning-bank sizing result](lc-dco-bank-sizing.md).

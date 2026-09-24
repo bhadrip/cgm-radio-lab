@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "source": "reports/lc_vco_sweep.json",
+  "target_frequency_hz": 2441000000,
+  "frequency_code_step_hz": 50000,
+  "pdk_minimum_mim_side_um": 5.0,
+  "pdk_minimum_moscap_side_um": 1.0,
+  "mim_corner_scale": {
+    "typical": 1.0,
+    "ff": 0.845,
+    "ss": 1.155
+  },
+  "moscap_corner_scale": {
+    "typical": 1.0,
+    "ff": 0.9,
+    "ss": 1.1
+  },
+  "interpolated_tuning": [
+    {
+      "corner": "typical",
+      "target_frequency_hz": 2480000000,
+      "interpolated_side_um": 28.796570927976973,
+      "mim_capacitance_ff": 1262.6420724255258,
+      "local_gain_hz_per_ff": 920819.1204941464,
+      "capacitance_for_50khz_ff": 0.054299480633251955
+    },
+    {
+      "corner": "typical",
+      "target_frequency_hz": 2441000000,
+      "interpolated_side_um": 29.284650522495465,
+      "mim_capacitance_ff": 1305.053941842403,
+      "local_gain_hz_per_ff": 920819.1204941464,
+      "capacitance_for_50khz_ff": 0.054299480633251955
+    },
+    {
+      "corner": "typical",
+      "target_frequency_hz": 2402000000,
+      "interpolated_side_um": 29.772730117013953,
+      "mim_capacitance_ff": 1348.1661830296011,
+      "local_gain_hz_per_ff": 920819.1204941464,
+      "capacitance_for_50khz_ff": 0.054299480633251955
+    },
+    {
+      "corner": "ff",
+      "target_frequency_hz": 2480000000,
+      "interpolated_side_um": 31.5597918022121,
+      "mim_capacitance_ff": 1277.6355371431853,
+      "local_gain_hz_per_ff": 981552.6847924618,
+      "capacitance_for_50khz_ff": 0.050939700715679805
+    },
+    {
+      "corner": "ff",
+      "target_frequency_hz": 2441000000,
+      "interpolated_side_um": 32.075435908659806,
+      "mim_capacitance_ff": 1319.054917149355,
+      "local_gain_hz_per_ff": 823115.4996726022,
+      "capacitance_for_50khz_ff": 0.060744816517108134
+    },
+    {
+      "corner": "ff",
+      "target_frequency_hz": 2402000000,
+      "interpolated_side_um": 32.644488217698985,
+      "mim_capacitance_ff": 1365.5310545446819,
+      "local_gain_hz_per_ff": 823115.4996726022,
+      "capacitance_for_50khz_ff": 0.060744816517108134
+    },
+    {
+      "corner": "ss",
+      "target_frequency_hz": 2480000000,
+      "interpolated_side_um": 26.520106603494227,
+      "mim_capacitance_ff": 1240.5613389871125,
+      "local_gain_hz_per_ff": 903570.4867389981,
+      "capacitance_for_50khz_ff": 0.055336026058632
+    },
+    {
+      "corner": "ss",
+      "target_frequency_hz": 2441000000,
+      "interpolated_side_um": 26.982055078472015,
+      "mim_capacitance_ff": 1283.3329751524345,
+      "local_gain_hz_per_ff": 903570.4867389981,
+      "capacitance_for_50khz_ff": 0.055336026058632
+    },
+    {
+      "corner": "ss",
+      "target_frequency_hz": 2402000000,
+      "interpolated_side_um": 27.444003553449807,
+      "mim_capacitance_ff": 1326.8292414512814,
+      "local_gain_hz_per_ff": 903570.4867389981,
+      "capacitance_for_50khz_ff": 0.055336026058632
+    }
+  ],
+  "nominal_geometry_capacitance_span_ff": 541.9340009272753,
+  "minimum_mim_unit_ff": 44.33,
+  "minimum_coarse_intervals": 13,
+  "recommended_coarse_codes": 16,
+  "recommended_coarse_bits": 4,
+  "recommended_minimum_mos_varactors": 16,
+  "nmoscap_transition_voltage_v": 0.63,
+  "fine_tuning": {
+    "typical": {
+      "minimum_capacitance_ff_at_0v": 0.3920758188546772,
+      "maximum_capacitance_ff_at_1p8v": 63.727971799411115,
+      "tuning_span_ff": 63.33589598055644,
+      "minimum_mim_unit_ff": 44.33,
+      "overlaps_one_coarse_step": true,
+      "mid_slope_capacitance_ff_per_v": 198.0,
+      "estimated_frequency_gain_hz_per_v": 182322185.85784099,
+      "control_step_v_for_50khz": 0.00027423980117804016
+    },
+    "ff": {
+      "minimum_capacitance_ff_at_0v": 0.3528682369692095,
+      "maximum_capacitance_ff_at_1p8v": 57.355174619470006,
+      "tuning_span_ff": 57.0023063825008,
+      "minimum_mim_unit_ff": 37.45885,
+      "overlaps_one_coarse_step": true,
+      "mid_slope_capacitance_ff_per_v": 178.2,
+      "estimated_frequency_gain_hz_per_v": 146679182.0416577,
+      "control_step_v_for_50khz": 0.0003408800029018414
+    },
+    "ss": {
+      "minimum_capacitance_ff_at_0v": 0.43128340074014493,
+      "maximum_capacitance_ff_at_1p8v": 70.10076897935224,
+      "tuning_span_ff": 69.6694855786121,
+      "minimum_mim_unit_ff": 51.20115,
+      "overlaps_one_coarse_step": true,
+      "mid_slope_capacitance_ff_per_v": 217.8,
+      "estimated_frequency_gain_hz_per_v": 196797652.0117538,
+      "control_step_v_for_50khz": 0.0002540680718945454
+    }
+  },
+  "decision": "replace the single linear DCO code with a calibrated 4-bit coarse MIM bank plus analog MOS-varactor fine control"
+}
