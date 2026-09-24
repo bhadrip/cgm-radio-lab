@@ -1,0 +1,31 @@
+* GF180 single-ended CMOS RF output-stage feasibility bench.
+* The ideal input source and broadband 50 ohm load isolate the active stage.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ @@CORNER@@
+
+.param VDD_VALUE=1.8
+.param FREQUENCY=2.44G
+.param PERIOD='1/FREQUENCY'
+.temp @@TEMP_C@@
+
+VDD vdd 0 {VDD_VALUE}
+VIN in 0 PULSE(0 {VDD_VALUE} 0 10p 10p 'PERIOD/2-10p' {PERIOD})
+
+@@PA_DEVICES@@
+
+COUT out rfout 10p
+RLOAD rfout 0 50
+
+.option method=gear reltol=1e-4 numdgt=12
+.tran 2p 40n
+
+.control
+set wr_singlescale
+set wr_vecnames
+run
+wrdata @@WAVEFORM_FILE@@ time v(rfout) i(VDD)
+quit
+.endc
+
+.end

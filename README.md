@@ -78,6 +78,9 @@ requires the fast-DAC reference to remain within 0.85x--1.05x nominal across
 the sampled operating conditions.
 The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
 resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
+The first [GF180 RF output-stage experiment](reports/gf180-pa-feasibility.md)
+uses a calibrated 7-bit slice bank to cover sampled -20 to 0 dBm levels within
+0.444 dB while bounding the PA-core burst energy below 0.985 uJ.
 
 ## Reproducible EDA environment
 
@@ -113,7 +116,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/gf180_fast_dac_steered_pvt.json`,
 `reports/gf180_fast_dac_mismatch.json`,
 `reports/gf180_fast_dac_gate_driver.json`,
-`reports/gf180_fast_dac_reference_window.json`, `reports/yosys-stat.txt`,
+`reports/gf180_fast_dac_reference_window.json`, `reports/gf180_pa.json`,
+`reports/yosys-stat.txt`,
 `reports/dco-dac-yosys-stat.txt`, and the remaining GFSK/DCO synthesis reports.
 
 ## Individual targets
@@ -128,6 +132,7 @@ make gf180-fast-dac-steered-pvt-test
 make gf180-fast-dac-mismatch-test
 make gf180-fast-dac-gate-driver-test
 make gf180-fast-dac-reference-window-test
+make gf180-pa-test
 make lc-dco-local-calibration
 make lc-dco-dynamic-test
 make dco-bank-sizing
