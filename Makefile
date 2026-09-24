@@ -2,9 +2,9 @@ SHELL := /bin/bash
 EDA_IMAGE := docker.io/hpretl/iic-osic-tools:2026.08
 ROOT := $(CURDIR)
 
-.PHONY: check python-test rtl-test experiment yosys-stat container-check clean
+.PHONY: check python-test rtl-test experiment yosys-stat wafer-space-yosys container-check clean
 
-check: python-test rtl-test experiment yosys-stat
+check: python-test rtl-test experiment yosys-stat wafer-space-yosys
 
 python-test:
 	python3 -m unittest discover -s tests -p 'test_ble_model.py' -v
@@ -13,6 +13,7 @@ rtl-test:
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_phy_loop COCOTB_TEST_MODULES=test_ble_phy_loop SIM_BUILD=sim_build/phy
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_packet_loop COCOTB_TEST_MODULES=test_cgm_packet_loop SIM_BUILD=sim_build/packet
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_chip_core COCOTB_TEST_MODULES=test_cgm_chip_core SIM_BUILD=sim_build/chip_core
+	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=chip_core COCOTB_TEST_MODULES=test_wafer_space_chip_core SIM_BUILD=sim_build/wafer_space
 
 experiment:
 	PYTHONPATH=$(ROOT) EDA_IMAGE=$(EDA_IMAGE) python3 scripts/run_experiment.py
@@ -21,6 +22,11 @@ yosys-stat:
 	@mkdir -p reports
 	yosys -q -p 'read_verilog -sv rtl/*.sv; hierarchy -check -top cgm_chip_core; proc; opt; tee -o reports/yosys-stat.txt stat'
 	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/yosys-stat.txt
+
+wafer-space-yosys:
+	@mkdir -p reports
+	yosys -q -p 'read_verilog -sv rtl/*.sv wafer_space/chip_core.sv; hierarchy -check -top chip_core; proc; opt; tee -o reports/wafer-space-yosys-stat.txt stat'
+	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/wafer-space-yosys-stat.txt
 
 container-check:
 	docker run --rm \
@@ -35,4 +41,4 @@ container-check:
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
-	$(RM) reports/experiment.json reports/per_curve.csv reports/yosys-stat.txt
+	$(RM) reports/experiment.json reports/per_curve.csv reports/yosys-stat.txt reports/wafer-space-yosys-stat.txt

@@ -65,6 +65,7 @@ observation, an interrupt, and internal TX-to-RX self-test. It is intentionally
 small and synchronous so it can be wrapped by the GF180 wafer.space padframe.
 See [the prototype register map](docs/register-map.md).
 
-The next tapeout-oriented slice will wrap this core in the wafer.space
-GF180MCU project template with SPI registers, packet RAM, BIST, pads, and the
-official precheck flow.
+`wafer_space/chip_core.sv` maps that interface onto the smallest `0p5x0p5`
+slot in the official Wafer.Space GF180MCU project template. See
+[the pad map](docs/wafer-space-pin-map.md). A later slice will stage the full
+template and run LibreLane plus the official precheck.
