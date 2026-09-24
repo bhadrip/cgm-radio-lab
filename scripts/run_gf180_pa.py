@@ -104,12 +104,7 @@ def average_supply_power(
     return VDD_V * charge_c / duration_s
 
 
-def simulate(
-    width_um: float,
-    corner: str,
-    temperature_c: int,
-    load_ohm: float = LOAD_OHM,
-) -> dict:
+def pa_device_lines(width_um: float) -> tuple[str, int, int]:
     parallel_devices = math.ceil(width_um / 14.08)
     device_nmos_width_um = width_um / parallel_devices
     device_pmos_width_um = 2.0 * device_nmos_width_um
@@ -124,7 +119,16 @@ def simulate(
             f"XPA_N_{index} out in 0 0 nfet_03v3 l=0.28u "
             f"w={device_nmos_width_um:.12g}u nf={fingers}"
         )
-    devices = "\n".join(device_lines)
+    return "\n".join(device_lines), parallel_devices, fingers
+
+
+def simulate(
+    width_um: float,
+    corner: str,
+    temperature_c: int,
+    load_ohm: float = LOAD_OHM,
+) -> dict:
+    devices, parallel_devices, fingers = pa_device_lines(width_um)
     with tempfile.TemporaryDirectory(prefix="gf180-pa-") as temporary_dir:
         temporary = Path(temporary_dir)
         waveform = temporary / "waveform.txt"

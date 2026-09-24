@@ -1,0 +1,1324 @@
+{
+  "schema_version": 1,
+  "purpose": "GF180 transistor PA and output-match co-simulation",
+  "target_output_power_dbm": 0.0,
+  "load_ohm": 50.0,
+  "inductor_q_at_fundamental": 10.0,
+  "selection_screens": {
+    "maximum_power_error_db": 0.1,
+    "minimum_power_code_headroom": 8,
+    "maximum_energy_per_224us_burst_j": 1e-06
+  },
+  "raw_pa_worst_third_harmonic_dbc": -8.5236560066706,
+  "selected": {
+    "series_inductance_h": 5.5e-09,
+    "shunt_capacitance_f": 7e-13,
+    "inductor_series_resistance_ohm": 8.432034682235004,
+    "maximum_absolute_power_error_db": 0.02416590804180808,
+    "worst_third_harmonic_dbc": -26.421563789086868,
+    "maximum_energy_per_224us_burst_j": 7.54433419110138e-07,
+    "maximum_power_code": 118,
+    "corners": [
+      {
+        "corner": "typical",
+        "temperature_c": 25,
+        "power_code": 80,
+        "fundamental_output_power_dbm": 0.008163127723872515,
+        "second_harmonic_output_power_dbm": -31.14563514770078,
+        "second_harmonic_dbc": -31.153798275424652,
+        "third_harmonic_output_power_dbm": -26.541880999061647,
+        "third_harmonic_dbc": -26.550044126785515,
+        "supply_power_w": 0.0032767652415394,
+        "drain_efficiency": 0.3057531813787521,
+        "energy_per_224us_burst_j": 7.339954141048256e-07
+      },
+      {
+        "corner": "ff",
+        "temperature_c": -40,
+        "power_code": 55,
+        "fundamental_output_power_dbm": -0.02416590804180808,
+        "second_harmonic_output_power_dbm": -32.01146417220166,
+        "second_harmonic_dbc": -31.987298264159854,
+        "third_harmonic_output_power_dbm": -26.624236771081883,
+        "third_harmonic_dbc": -26.600070863040074,
+        "supply_power_w": 0.0031989838709882822,
+        "drain_efficiency": 0.3108646641482438,
+        "energy_per_224us_burst_j": 7.165723871013752e-07
+      },
+      {
+        "corner": "ss",
+        "temperature_c": 125,
+        "power_code": 118,
+        "fundamental_output_power_dbm": -0.012563185977889009,
+        "second_harmonic_output_power_dbm": -32.23844825492689,
+        "second_harmonic_dbc": -32.225885068949,
+        "third_harmonic_output_power_dbm": -26.434126975064753,
+        "third_harmonic_dbc": -26.421563789086868,
+        "supply_power_w": 0.0033680063353131165,
+        "drain_efficiency": 0.29605389667112525,
+        "energy_per_224us_burst_j": 7.54433419110138e-07
+      }
+    ]
+  },
+  "minimum_third_harmonic_improvement_db": 17.89790778241627,
+  "calibration_passed": true,
+  "accepted_for_next_stage": true,
+  "candidates": [
+    {
+      "series_inductance_h": 4.5e-09,
+      "shunt_capacitance_f": 5e-13,
+      "inductor_series_resistance_ohm": 6.898937467283186,
+      "maximum_absolute_power_error_db": 0.03119235451706636,
+      "worst_third_harmonic_dbc": -22.41926893720832,
+      "maximum_energy_per_224us_burst_j": 7.061179609845376e-07,
+      "maximum_power_code": 106,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 74,
+          "fundamental_output_power_dbm": 0.03119235451706636,
+          "second_harmonic_output_power_dbm": -27.646858235319133,
+          "second_harmonic_dbc": -27.678050589836197,
+          "third_harmonic_output_power_dbm": -22.526085052828893,
+          "third_harmonic_dbc": -22.55727740734596,
+          "supply_power_w": 0.003146459159498984,
+          "drain_efficiency": 0.32010844845272446,
+          "energy_per_224us_burst_j": 7.048068517277724e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 52,
+          "fundamental_output_power_dbm": 0.00883407462632569,
+          "second_harmonic_output_power_dbm": -27.698897899598833,
+          "second_harmonic_dbc": -27.707731974225158,
+          "third_harmonic_output_power_dbm": -22.410434862581994,
+          "third_harmonic_dbc": -22.41926893720832,
+          "supply_power_w": 0.0031523123258238284,
+          "drain_efficiency": 0.3178733854742357,
+          "energy_per_224us_burst_j": 7.061179609845376e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 106,
+          "fundamental_output_power_dbm": 0.01306797369539417,
+          "second_harmonic_output_power_dbm": -29.592979521263626,
+          "second_harmonic_dbc": -29.60604749495902,
+          "third_harmonic_output_power_dbm": -22.64906069475915,
+          "third_harmonic_dbc": -22.662128668454542,
+          "supply_power_w": 0.0031136276498205753,
+          "drain_efficiency": 0.3221366382141411,
+          "energy_per_224us_burst_j": 6.974525935598088e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 4.5e-09,
+      "shunt_capacitance_f": 6e-13,
+      "inductor_series_resistance_ohm": 6.898937467283186,
+      "maximum_absolute_power_error_db": 0.03251204132231232,
+      "worst_third_harmonic_dbc": -23.90595457451223,
+      "maximum_energy_per_224us_burst_j": 7.194886978987219e-07,
+      "maximum_power_code": 108,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 75,
+          "fundamental_output_power_dbm": 0.03251204132231232,
+          "second_harmonic_output_power_dbm": -29.432817317696014,
+          "second_harmonic_dbc": -29.465329359018323,
+          "third_harmonic_output_power_dbm": -23.876183526200307,
+          "third_harmonic_dbc": -23.90869556752262,
+          "supply_power_w": 0.0032120031156192943,
+          "drain_efficiency": 0.3136716339803968,
+          "energy_per_224us_burst_j": 7.194886978987219e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 52,
+          "fundamental_output_power_dbm": -0.027665045741621902,
+          "second_harmonic_output_power_dbm": -29.891681805331686,
+          "second_harmonic_dbc": -29.864016759590065,
+          "third_harmonic_output_power_dbm": -23.93361962025385,
+          "third_harmonic_dbc": -23.90595457451223,
+          "supply_power_w": 0.0031771962897251156,
+          "drain_efficiency": 0.3127443328487507,
+          "energy_per_224us_burst_j": 7.116919688984259e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 108,
+          "fundamental_output_power_dbm": -0.004984043410401275,
+          "second_harmonic_output_power_dbm": -30.987042002332007,
+          "second_harmonic_dbc": -30.982057958921608,
+          "third_harmonic_output_power_dbm": -23.972800064201497,
+          "third_harmonic_dbc": -23.96781602079109,
+          "supply_power_w": 0.0032019434062718457,
+          "drain_efficiency": 0.31195212192060906,
+          "energy_per_224us_burst_j": 7.172353230048934e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 4.5e-09,
+      "shunt_capacitance_f": 7e-13,
+      "inductor_series_resistance_ohm": 6.898937467283186,
+      "maximum_absolute_power_error_db": 0.02928871318137493,
+      "worst_third_harmonic_dbc": -24.986687711934547,
+      "maximum_energy_per_224us_burst_j": 7.580497105916592e-07,
+      "maximum_power_code": 113,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 78,
+          "fundamental_output_power_dbm": 0.02928871318137493,
+          "second_harmonic_output_power_dbm": -30.395478663593018,
+          "second_harmonic_dbc": -30.424767376774394,
+          "third_harmonic_output_power_dbm": -24.974807271112155,
+          "third_harmonic_dbc": -25.00409598429353,
+          "supply_power_w": 0.0033646739676689227,
+          "drain_efficiency": 0.29921673746692184,
+          "energy_per_224us_burst_j": 7.536869687578387e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 54,
+          "fundamental_output_power_dbm": -0.004466308123735112,
+          "second_harmonic_output_power_dbm": -31.10541663113974,
+          "second_harmonic_dbc": -31.100950323016004,
+          "third_harmonic_output_power_dbm": -25.05166148651576,
+          "third_harmonic_dbc": -25.047195178392023,
+          "supply_power_w": 0.003316786431368668,
+          "drain_efficiency": 0.30118674923690747,
+          "energy_per_224us_burst_j": 7.429601606265816e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 113,
+          "fundamental_output_power_dbm": -0.021436148550747807,
+          "second_harmonic_output_power_dbm": -31.632678446187814,
+          "second_harmonic_dbc": -31.61124229763707,
+          "third_harmonic_output_power_dbm": -25.008123860485295,
+          "third_harmonic_dbc": -24.986687711934547,
+          "supply_power_w": 0.003384150493712764,
+          "drain_efficiency": 0.29404020523216196,
+          "energy_per_224us_burst_j": 7.580497105916592e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 4.5e-09,
+      "shunt_capacitance_f": 8e-13,
+      "inductor_series_resistance_ohm": 6.898937467283186,
+      "maximum_absolute_power_error_db": 0.032657754901024,
+      "worst_third_harmonic_dbc": -25.742920457098563,
+      "maximum_energy_per_224us_burst_j": 8.255037889210584e-07,
+      "maximum_power_code": 122,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 83,
+          "fundamental_output_power_dbm": 0.032657754901024,
+          "second_harmonic_output_power_dbm": -30.715736381081214,
+          "second_harmonic_dbc": -30.748394135982235,
+          "third_harmonic_output_power_dbm": -25.84842476492331,
+          "third_harmonic_dbc": -25.881082519824336,
+          "supply_power_w": 0.0036065904872808756,
+          "drain_efficiency": 0.27936303654525557,
+          "energy_per_224us_burst_j": 8.078762691509161e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 57,
+          "fundamental_output_power_dbm": -0.01562545759510694,
+          "second_harmonic_output_power_dbm": -31.684211055923583,
+          "second_harmonic_dbc": -31.66858559832848,
+          "third_harmonic_output_power_dbm": -26.009599499933785,
+          "third_harmonic_dbc": -25.993974042338678,
+          "supply_power_w": 0.003525392284018609,
+          "drain_efficiency": 0.282637644216578,
+          "energy_per_224us_burst_j": 7.896878716201684e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 122,
+          "fundamental_output_power_dbm": 0.021090086303307342,
+          "second_harmonic_output_power_dbm": -31.682555133366442,
+          "second_harmonic_dbc": -31.703645219669745,
+          "third_harmonic_output_power_dbm": -25.721830370795256,
+          "third_harmonic_dbc": -25.742920457098563,
+          "supply_power_w": 0.003685284771969011,
+          "drain_efficiency": 0.2726703753774332,
+          "energy_per_224us_burst_j": 8.255037889210584e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 4.5e-09,
+      "shunt_capacitance_f": 9e-13,
+      "inductor_series_resistance_ohm": 6.898937467283186,
+      "maximum_absolute_power_error_db": 0.17295777364916837,
+      "worst_third_harmonic_dbc": -26.421045119416494,
+      "maximum_energy_per_224us_burst_j": 8.802811073188489e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 89,
+          "fundamental_output_power_dbm": -0.005434259461965747,
+          "second_harmonic_output_power_dbm": -30.728758557106907,
+          "second_harmonic_dbc": -30.72332429764494,
+          "third_harmonic_output_power_dbm": -26.594967751943898,
+          "third_harmonic_dbc": -26.589533492481934,
+          "supply_power_w": 0.0039014124391979596,
+          "drain_efficiency": 0.25599690204824044,
+          "energy_per_224us_burst_j": 8.739163863803429e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 61,
+          "fundamental_output_power_dbm": -0.03897704164390988,
+          "second_harmonic_output_power_dbm": -31.857902769589646,
+          "second_harmonic_dbc": -31.818925727945736,
+          "third_harmonic_output_power_dbm": -26.759725520273705,
+          "third_harmonic_dbc": -26.720748478629794,
+          "supply_power_w": 0.00380170611216184,
+          "drain_efficiency": 0.2606896294767919,
+          "energy_per_224us_burst_j": 8.515821691242521e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -0.17295777364916837,
+          "second_harmonic_output_power_dbm": -31.862577289035446,
+          "second_harmonic_dbc": -31.689619515386276,
+          "third_harmonic_output_power_dbm": -26.594002893065664,
+          "third_harmonic_dbc": -26.421045119416494,
+          "supply_power_w": 0.003929826371959147,
+          "drain_efficiency": 0.24452927480660436,
+          "energy_per_224us_burst_j": 8.802811073188489e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5e-09,
+      "shunt_capacitance_f": 5e-13,
+      "inductor_series_resistance_ohm": 7.665486074759096,
+      "maximum_absolute_power_error_db": 0.030680090041903155,
+      "worst_third_harmonic_dbc": -23.37177364322983,
+      "maximum_energy_per_224us_burst_j": 6.731090712552821e-07,
+      "maximum_power_code": 104,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 72,
+          "fundamental_output_power_dbm": -0.030680090041903155,
+          "second_harmonic_output_power_dbm": -28.613471211406953,
+          "second_harmonic_dbc": -28.582791121365048,
+          "third_harmonic_output_power_dbm": -23.54889420544299,
+          "third_harmonic_dbc": -23.518214115401086,
+          "supply_power_w": 0.002984552206927048,
+          "drain_efficiency": 0.3327000076514381,
+          "energy_per_224us_burst_j": 6.685396943516588e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 51,
+          "fundamental_output_power_dbm": -0.007302122873240855,
+          "second_harmonic_output_power_dbm": -28.599363165639865,
+          "second_harmonic_dbc": -28.592061042766623,
+          "third_harmonic_output_power_dbm": -23.37907576610307,
+          "third_harmonic_dbc": -23.37177364322983,
+          "supply_power_w": 0.003004951210961081,
+          "drain_efficiency": 0.3322250401775454,
+          "energy_per_224us_burst_j": 6.731090712552821e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 104,
+          "fundamental_output_power_dbm": -0.016286612777483014,
+          "second_harmonic_output_power_dbm": -30.48166404165814,
+          "second_harmonic_dbc": -30.465377428880657,
+          "third_harmonic_output_power_dbm": -23.613421817562163,
+          "third_harmonic_dbc": -23.59713520478468,
+          "supply_power_w": 0.0029727072027865347,
+          "drain_efficiency": 0.3351345503676374,
+          "energy_per_224us_burst_j": 6.658864134241837e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5e-09,
+      "shunt_capacitance_f": 6e-13,
+      "inductor_series_resistance_ohm": 7.665486074759096,
+      "maximum_absolute_power_error_db": 0.02549325104781419,
+      "worst_third_harmonic_dbc": -24.775148852875507,
+      "maximum_energy_per_224us_burst_j": 6.982921108612262e-07,
+      "maximum_power_code": 108,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 74,
+          "fundamental_output_power_dbm": 0.003195038058772489,
+          "second_harmonic_output_power_dbm": -30.196022749703015,
+          "second_harmonic_dbc": -30.19921778776179,
+          "third_harmonic_output_power_dbm": -24.81734101791458,
+          "third_harmonic_dbc": -24.82053605597335,
+          "supply_power_w": 0.0030890198879737077,
+          "drain_efficiency": 0.32396552682585056,
+          "energy_per_224us_burst_j": 6.919404549061105e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 52,
+          "fundamental_output_power_dbm": 0.02549325104781419,
+          "second_harmonic_output_power_dbm": -30.547552486862823,
+          "second_harmonic_dbc": -30.57304573791064,
+          "third_harmonic_output_power_dbm": -24.74965560182769,
+          "third_harmonic_dbc": -24.775148852875507,
+          "supply_power_w": 0.0030819180580847665,
+          "drain_efficiency": 0.326383531767891,
+          "energy_per_224us_burst_j": 6.903496450109877e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 108,
+          "fundamental_output_power_dbm": 0.014148505409204457,
+          "second_harmonic_output_power_dbm": -31.6098463102876,
+          "second_harmonic_dbc": -31.623994815696804,
+          "third_harmonic_output_power_dbm": -24.804270637641235,
+          "third_harmonic_dbc": -24.818419143050438,
+          "supply_power_w": 0.0031173754949161882,
+          "drain_efficiency": 0.32182941318526953,
+          "energy_per_224us_burst_j": 6.982921108612262e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5e-09,
+      "shunt_capacitance_f": 7e-13,
+      "inductor_series_resistance_ohm": 7.665486074759096,
+      "maximum_absolute_power_error_db": 0.01518496357946939,
+      "worst_third_harmonic_dbc": -25.790976244601374,
+      "maximum_energy_per_224us_burst_j": 7.529557988252529e-07,
+      "maximum_power_code": 115,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 78,
+          "fundamental_output_power_dbm": 0.0021231696756294728,
+          "second_harmonic_output_power_dbm": -30.921782777882893,
+          "second_harmonic_dbc": -30.92390594755852,
+          "third_harmonic_output_power_dbm": -25.871425339423766,
+          "third_harmonic_dbc": -25.873548509099397,
+          "supply_power_w": 0.003286835424414999,
+          "drain_efficiency": 0.30439278765618133,
+          "energy_per_224us_burst_j": 7.362511350689597e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 54,
+          "fundamental_output_power_dbm": -0.01518496357946939,
+          "second_harmonic_output_power_dbm": -31.664816310988417,
+          "second_harmonic_dbc": -31.649631347408945,
+          "third_harmonic_output_power_dbm": -25.94401940401105,
+          "third_harmonic_dbc": -25.92883444043158,
+          "supply_power_w": 0.003233423542190664,
+          "drain_efficiency": 0.3081902588518619,
+          "energy_per_224us_burst_j": 7.242868734507087e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 115,
+          "fundamental_output_power_dbm": 0.013743094245666075,
+          "second_harmonic_output_power_dbm": -31.984760671629523,
+          "second_harmonic_dbc": -31.998503765875192,
+          "third_harmonic_output_power_dbm": -25.777233150355706,
+          "third_harmonic_dbc": -25.790976244601374,
+          "supply_power_w": 0.0033614098161841646,
+          "drain_efficiency": 0.2984371235447843,
+          "energy_per_224us_burst_j": 7.529557988252529e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5e-09,
+      "shunt_capacitance_f": 8e-13,
+      "inductor_series_resistance_ohm": 7.665486074759096,
+      "maximum_absolute_power_error_db": 0.012038662266661223,
+      "worst_third_harmonic_dbc": -26.506988324099098,
+      "maximum_energy_per_224us_burst_j": 8.294515878880005e-07,
+      "maximum_power_code": 125,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 84,
+          "fundamental_output_power_dbm": -0.012038662266661223,
+          "second_harmonic_output_power_dbm": -31.02846303368476,
+          "second_harmonic_dbc": -31.016424371418097,
+          "third_harmonic_output_power_dbm": -26.750662046595437,
+          "third_harmonic_dbc": -26.738623384328776,
+          "supply_power_w": 0.0035764981626453004,
+          "drain_efficiency": 0.2788291196245567,
+          "energy_per_224us_burst_j": 8.011355884325473e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 58,
+          "fundamental_output_power_dbm": -0.010517021165244621,
+          "second_harmonic_output_power_dbm": -32.02038991358242,
+          "second_harmonic_dbc": -32.00987289241718,
+          "third_harmonic_output_power_dbm": -26.80469853149098,
+          "third_harmonic_dbc": -26.794181510325735,
+          "supply_power_w": 0.0035015984754904255,
+          "drain_efficiency": 0.28489311471777196,
+          "energy_per_224us_burst_j": 7.843580585098553e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 125,
+          "fundamental_output_power_dbm": 0.005672541612269075,
+          "second_harmonic_output_power_dbm": -31.946745562098783,
+          "second_harmonic_dbc": -31.95241810371105,
+          "third_harmonic_output_power_dbm": -26.501315782486827,
+          "third_harmonic_dbc": -26.506988324099098,
+          "supply_power_w": 0.0037029088745000023,
+          "drain_efficiency": 0.27041092241231035,
+          "energy_per_224us_burst_j": 8.294515878880005e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5e-09,
+      "shunt_capacitance_f": 9e-13,
+      "inductor_series_resistance_ohm": 7.665486074759096,
+      "maximum_absolute_power_error_db": 0.38759704099576453,
+      "worst_third_harmonic_dbc": -27.22755972723419,
+      "maximum_energy_per_224us_burst_j": 8.85888018763006e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 92,
+          "fundamental_output_power_dbm": -0.011280110444127741,
+          "second_harmonic_output_power_dbm": -30.911619996278393,
+          "second_harmonic_dbc": -30.900339885834267,
+          "third_harmonic_output_power_dbm": -27.308158553885654,
+          "third_harmonic_dbc": -27.29687844344153,
+          "supply_power_w": 0.003954857226620563,
+          "drain_efficiency": 0.2521977334715171,
+          "energy_per_224us_burst_j": 8.85888018763006e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 63,
+          "fundamental_output_power_dbm": -0.028396491428734273,
+          "second_harmonic_output_power_dbm": -32.038926138574666,
+          "second_harmonic_dbc": -32.01052964714593,
+          "third_harmonic_output_power_dbm": -27.493187960488772,
+          "third_harmonic_dbc": -27.464791469060042,
+          "supply_power_w": 0.003840110283595397,
+          "drain_efficiency": 0.2587120479734009,
+          "energy_per_224us_burst_j": 8.601847035253689e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -0.38759704099576453,
+          "second_harmonic_output_power_dbm": -32.35372045499603,
+          "second_harmonic_dbc": -31.966123414000265,
+          "third_harmonic_output_power_dbm": -27.61515676822995,
+          "third_harmonic_dbc": -27.22755972723419,
+          "supply_power_w": 0.003896840668979383,
+          "drain_efficiency": 0.23470786711018843,
+          "energy_per_224us_burst_j": 8.728923098513818e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5.5e-09,
+      "shunt_capacitance_f": 5e-13,
+      "inductor_series_resistance_ohm": 8.432034682235004,
+      "maximum_absolute_power_error_db": 0.018680254624835177,
+      "worst_third_harmonic_dbc": -24.100060114006624,
+      "maximum_energy_per_224us_burst_j": 6.494318515500017e-07,
+      "maximum_power_code": 104,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 72,
+          "fundamental_output_power_dbm": -0.00722712472753211,
+          "second_harmonic_output_power_dbm": -29.342402585035877,
+          "second_harmonic_dbc": -29.335175460308346,
+          "third_harmonic_output_power_dbm": -24.251923393220068,
+          "third_harmonic_dbc": -24.244696268492536,
+          "supply_power_w": 0.0028841922308742215,
+          "drain_efficiency": 0.34614103255849055,
+          "energy_per_224us_burst_j": 6.460590597158256e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 51,
+          "fundamental_output_power_dbm": 0.018680254624835177,
+          "second_harmonic_output_power_dbm": -29.343606557907197,
+          "second_harmonic_dbc": -29.362286812532034,
+          "third_harmonic_output_power_dbm": -24.08137985938179,
+          "third_harmonic_dbc": -24.100060114006624,
+          "supply_power_w": 0.0028992493372767933,
+          "drain_efficiency": 0.34640364955342606,
+          "energy_per_224us_burst_j": 6.494318515500017e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 104,
+          "fundamental_output_power_dbm": -0.010295805155947954,
+          "second_harmonic_output_power_dbm": -31.17090624524762,
+          "second_harmonic_dbc": -31.160610440091673,
+          "third_harmonic_output_power_dbm": -24.352582887577192,
+          "third_harmonic_dbc": -24.342287082421244,
+          "supply_power_w": 0.0028777879978193243,
+          "drain_efficiency": 0.3466662978269898,
+          "energy_per_224us_burst_j": 6.446245115115286e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5.5e-09,
+      "shunt_capacitance_f": 6e-13,
+      "inductor_series_resistance_ohm": 8.432034682235004,
+      "maximum_absolute_power_error_db": 0.030107483618649986,
+      "worst_third_harmonic_dbc": -25.47082865415046,
+      "maximum_energy_per_224us_burst_j": 6.852163381691806e-07,
+      "maximum_power_code": 109,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 75,
+          "fundamental_output_power_dbm": 0.030107483618649986,
+          "second_harmonic_output_power_dbm": -30.668051857231326,
+          "second_harmonic_dbc": -30.698159340849976,
+          "third_harmonic_output_power_dbm": -25.467078614937748,
+          "third_harmonic_dbc": -25.497186098556398,
+          "supply_power_w": 0.0030313743153236672,
+          "drain_efficiency": 0.33217824161133713,
+          "energy_per_224us_burst_j": 6.790278466325014e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 52,
+          "fundamental_output_power_dbm": -0.0015791596728975297,
+          "second_harmonic_output_power_dbm": -31.17561894587734,
+          "second_harmonic_dbc": -31.174039786204442,
+          "third_harmonic_output_power_dbm": -25.472407813823356,
+          "third_harmonic_dbc": -25.47082865415046,
+          "supply_power_w": 0.0029893083874328033,
+          "drain_efficiency": 0.33440392277698666,
+          "energy_per_224us_burst_j": 6.696050787849479e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 109,
+          "fundamental_output_power_dbm": -0.006600906527845668,
+          "second_harmonic_output_power_dbm": -32.05643392311709,
+          "second_harmonic_dbc": -32.04983301658925,
+          "third_harmonic_output_power_dbm": -25.54732250321766,
+          "third_harmonic_dbc": -25.540721596689814,
+          "supply_power_w": 0.003059001509683842,
+          "drain_efficiency": 0.32640756679186356,
+          "energy_per_224us_burst_j": 6.852163381691806e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5.5e-09,
+      "shunt_capacitance_f": 7e-13,
+      "inductor_series_resistance_ohm": 8.432034682235004,
+      "maximum_absolute_power_error_db": 0.02416590804180808,
+      "worst_third_harmonic_dbc": -26.421563789086868,
+      "maximum_energy_per_224us_burst_j": 7.54433419110138e-07,
+      "maximum_power_code": 118,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 80,
+          "fundamental_output_power_dbm": 0.008163127723872515,
+          "second_harmonic_output_power_dbm": -31.14563514770078,
+          "second_harmonic_dbc": -31.153798275424652,
+          "third_harmonic_output_power_dbm": -26.541880999061647,
+          "third_harmonic_dbc": -26.550044126785515,
+          "supply_power_w": 0.0032767652415394,
+          "drain_efficiency": 0.3057531813787521,
+          "energy_per_224us_burst_j": 7.339954141048256e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 55,
+          "fundamental_output_power_dbm": -0.02416590804180808,
+          "second_harmonic_output_power_dbm": -32.01146417220166,
+          "second_harmonic_dbc": -31.987298264159854,
+          "third_harmonic_output_power_dbm": -26.624236771081883,
+          "third_harmonic_dbc": -26.600070863040074,
+          "supply_power_w": 0.0031989838709882822,
+          "drain_efficiency": 0.3108646641482438,
+          "energy_per_224us_burst_j": 7.165723871013752e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 118,
+          "fundamental_output_power_dbm": -0.012563185977889009,
+          "second_harmonic_output_power_dbm": -32.23844825492689,
+          "second_harmonic_dbc": -32.225885068949,
+          "third_harmonic_output_power_dbm": -26.434126975064753,
+          "third_harmonic_dbc": -26.421563789086868,
+          "supply_power_w": 0.0033680063353131165,
+          "drain_efficiency": 0.29605389667112525,
+          "energy_per_224us_burst_j": 7.54433419110138e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5.5e-09,
+      "shunt_capacitance_f": 8e-13,
+      "inductor_series_resistance_ohm": 8.432034682235004,
+      "maximum_absolute_power_error_db": 0.1123318163197795,
+      "worst_third_harmonic_dbc": -27.139633101546877,
+      "maximum_energy_per_224us_burst_j": 8.36043433712994e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 88,
+          "fundamental_output_power_dbm": 0.018621508982470957,
+          "second_harmonic_output_power_dbm": -31.072851120386996,
+          "second_harmonic_dbc": -31.091472629369466,
+          "third_harmonic_output_power_dbm": -27.262936502222725,
+          "third_harmonic_dbc": -27.2815580112052,
+          "supply_power_w": 0.0036478014355000405,
+          "drain_efficiency": 0.2753156892600263,
+          "energy_per_224us_burst_j": 8.171075215520091e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 60,
+          "fundamental_output_power_dbm": -0.02225785984713154,
+          "second_harmonic_output_power_dbm": -32.17918493167184,
+          "second_harmonic_dbc": -32.15692707182471,
+          "third_harmonic_output_power_dbm": -27.43142435387025,
+          "third_harmonic_dbc": -27.409166494023115,
+          "supply_power_w": 0.0035280645292651877,
+          "drain_efficiency": 0.28199258852548564,
+          "energy_per_224us_burst_j": 7.90286454555402e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -0.1123318163197795,
+          "second_harmonic_output_power_dbm": -32.19352506363645,
+          "second_harmonic_dbc": -32.08119324731667,
+          "third_harmonic_output_power_dbm": -27.251964917866655,
+          "third_harmonic_dbc": -27.139633101546877,
+          "supply_power_w": 0.003732336757647295,
+          "drain_efficiency": 0.2610874499092661,
+          "energy_per_224us_burst_j": 8.36043433712994e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 5.5e-09,
+      "shunt_capacitance_f": 9e-13,
+      "inductor_series_resistance_ohm": 8.432034682235004,
+      "maximum_absolute_power_error_db": 0.6873764060277545,
+      "worst_third_harmonic_dbc": -27.87993388021974,
+      "maximum_energy_per_224us_burst_j": 9.139570772987164e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 97,
+          "fundamental_output_power_dbm": -0.011534515842547036,
+          "second_harmonic_output_power_dbm": -30.970724239896576,
+          "second_harmonic_dbc": -30.959189724054028,
+          "third_harmonic_output_power_dbm": -27.891468396062287,
+          "third_harmonic_dbc": -27.87993388021974,
+          "supply_power_w": 0.004080165523654984,
+          "drain_efficiency": 0.24443802527880504,
+          "energy_per_224us_burst_j": 9.139570772987164e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 67,
+          "fundamental_output_power_dbm": 0.005049861403443426,
+          "second_harmonic_output_power_dbm": -32.80025326198152,
+          "second_harmonic_dbc": -32.80530312338496,
+          "third_harmonic_output_power_dbm": -28.118161205401904,
+          "third_harmonic_dbc": -28.12321106680535,
+          "supply_power_w": 0.003937835266013937,
+          "drain_efficiency": 0.2542420853616919,
+          "energy_per_224us_burst_j": 8.820750995871219e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -0.6873764060277545,
+          "second_harmonic_output_power_dbm": -32.775828652706124,
+          "second_harmonic_dbc": -32.08845224667837,
+          "third_harmonic_output_power_dbm": -28.62517163516353,
+          "third_harmonic_dbc": -27.937795229135777,
+          "supply_power_w": 0.003879992290126324,
+          "drain_efficiency": 0.22000446593486134,
+          "energy_per_224us_burst_j": 8.691182729882966e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6e-09,
+      "shunt_capacitance_f": 5e-13,
+      "inductor_series_resistance_ohm": 9.198583289710914,
+      "maximum_absolute_power_error_db": 0.020344156386333693,
+      "worst_third_harmonic_dbc": -24.69603097811355,
+      "maximum_energy_per_224us_burst_j": 6.328478067679771e-07,
+      "maximum_power_code": 106,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 73,
+          "fundamental_output_power_dbm": 0.007975132564851634,
+          "second_harmonic_output_power_dbm": -29.918319717579287,
+          "second_harmonic_dbc": -29.92629485014414,
+          "third_harmonic_output_power_dbm": -24.76722468527029,
+          "third_harmonic_dbc": -24.77519981783514,
+          "supply_power_w": 0.0028126557167321925,
+          "drain_efficiency": 0.35618935630293597,
+          "energy_per_224us_burst_j": 6.300348805480112e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 51,
+          "fundamental_output_power_dbm": -0.020344156386333693,
+          "second_harmonic_output_power_dbm": -30.06299741012895,
+          "second_harmonic_dbc": -30.042653253742614,
+          "third_harmonic_output_power_dbm": -24.716375134499884,
+          "third_harmonic_dbc": -24.69603097811355,
+          "supply_power_w": 0.0027952671539240295,
+          "drain_efficiency": 0.356075639582633,
+          "energy_per_224us_burst_j": 6.261398424789825e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 106,
+          "fundamental_output_power_dbm": 0.0087095660294478,
+          "second_harmonic_output_power_dbm": -31.638738797979407,
+          "second_harmonic_dbc": -31.647448364008856,
+          "third_harmonic_output_power_dbm": -24.862676120911644,
+          "third_harmonic_dbc": -24.87138568694109,
+          "supply_power_w": 0.0028252134230713263,
+          "drain_efficiency": 0.3546661132823277,
+          "energy_per_224us_burst_j": 6.328478067679771e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6e-09,
+      "shunt_capacitance_f": 6e-13,
+      "inductor_series_resistance_ohm": 9.198583289710914,
+      "maximum_absolute_power_error_db": 0.02689030050705482,
+      "worst_third_harmonic_dbc": -26.001609316149867,
+      "maximum_energy_per_224us_burst_j": 6.879661419184835e-07,
+      "maximum_power_code": 113,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 77,
+          "fundamental_output_power_dbm": 0.02689030050705482,
+          "second_harmonic_output_power_dbm": -30.96383138648867,
+          "second_harmonic_dbc": -30.990721686995727,
+          "third_harmonic_output_power_dbm": -26.004255216955364,
+          "third_harmonic_dbc": -26.03114551746242,
+          "supply_power_w": 0.0030051085007968947,
+          "drain_efficiency": 0.3348334772497244,
+          "energy_per_224us_burst_j": 6.731443041785044e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 53,
+          "fundamental_output_power_dbm": -0.018056210899726886,
+          "second_harmonic_output_power_dbm": -31.594931734032055,
+          "second_harmonic_dbc": -31.576875523132326,
+          "third_harmonic_output_power_dbm": -26.04317971738403,
+          "third_harmonic_dbc": -26.025123506484302,
+          "supply_power_w": 0.0029401121081977038,
+          "drain_efficiency": 0.33871192593498534,
+          "energy_per_224us_burst_j": 6.585851122362856e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 113,
+          "fundamental_output_power_dbm": 0.0065724910735321575,
+          "second_harmonic_output_power_dbm": -32.26175132056489,
+          "second_harmonic_dbc": -32.268323811638425,
+          "third_harmonic_output_power_dbm": -25.995036825076333,
+          "third_harmonic_dbc": -26.001609316149867,
+          "supply_power_w": 0.0030712774192789443,
+          "drain_efficiency": 0.32609054181676683,
+          "energy_per_224us_burst_j": 6.879661419184835e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6e-09,
+      "shunt_capacitance_f": 7e-13,
+      "inductor_series_resistance_ohm": 9.198583289710914,
+      "maximum_absolute_power_error_db": 0.03373505421150628,
+      "worst_third_harmonic_dbc": -26.8186832344637,
+      "maximum_energy_per_224us_burst_j": 7.769377010407261e-07,
+      "maximum_power_code": 125,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 84,
+          "fundamental_output_power_dbm": 0.025424717135039302,
+          "second_harmonic_output_power_dbm": -31.20871429521536,
+          "second_harmonic_dbc": -31.234139012350397,
+          "third_harmonic_output_power_dbm": -26.916592633415934,
+          "third_harmonic_dbc": -26.942017350550977,
+          "supply_power_w": 0.0033317133768870594,
+          "drain_efficiency": 0.3019081515531746,
+          "energy_per_224us_burst_j": 7.463037964227013e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 58,
+          "fundamental_output_power_dbm": 0.03373505421150628,
+          "second_harmonic_output_power_dbm": -32.03484770264586,
+          "second_harmonic_dbc": -32.06858275685737,
+          "third_harmonic_output_power_dbm": -26.968672519807875,
+          "third_harmonic_dbc": -27.00240757401938,
+          "supply_power_w": 0.00324817336894869,
+          "drain_efficiency": 0.3102660838318046,
+          "energy_per_224us_burst_j": 7.275908346445065e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 125,
+          "fundamental_output_power_dbm": 0.009985259510220392,
+          "second_harmonic_output_power_dbm": -32.20311583792589,
+          "second_harmonic_dbc": -32.213101097436116,
+          "third_harmonic_output_power_dbm": -26.80869797495348,
+          "third_harmonic_dbc": -26.8186832344637,
+          "supply_power_w": 0.0034684718796460985,
+          "drain_efficiency": 0.2889750503724645,
+          "energy_per_224us_burst_j": 7.769377010407261e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6e-09,
+      "shunt_capacitance_f": 8e-13,
+      "inductor_series_resistance_ohm": 9.198583289710914,
+      "maximum_absolute_power_error_db": 0.4189823642982097,
+      "worst_third_harmonic_dbc": -27.712726792851985,
+      "maximum_energy_per_224us_burst_j": 8.40937721823472e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 93,
+          "fundamental_output_power_dbm": -0.008512938056481196,
+          "second_harmonic_output_power_dbm": -31.0035226773299,
+          "second_harmonic_dbc": -30.995009739273417,
+          "third_harmonic_output_power_dbm": -27.72123973090846,
+          "third_harmonic_dbc": -27.712726792851985,
+          "supply_power_w": 0.0037541862581405,
+          "drain_efficiency": 0.2658476897091583,
+          "energy_per_224us_burst_j": 8.40937721823472e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 64,
+          "fundamental_output_power_dbm": 0.01558810440415519,
+          "second_harmonic_output_power_dbm": -31.955476725698762,
+          "second_harmonic_dbc": -31.971064830102915,
+          "third_harmonic_output_power_dbm": -27.855643359546743,
+          "third_harmonic_dbc": -27.871231463950895,
+          "supply_power_w": 0.0036374596431171195,
+          "drain_efficiency": 0.27590567081898787,
+          "energy_per_224us_burst_j": 8.147909600582347e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -0.4189823642982097,
+          "second_harmonic_output_power_dbm": -32.61356705308076,
+          "second_harmonic_dbc": -32.19458468878255,
+          "third_harmonic_output_power_dbm": -28.176222095102943,
+          "third_harmonic_dbc": -27.757239730804738,
+          "supply_power_w": 0.0037109656275432948,
+          "drain_efficiency": 0.24468921733348822,
+          "energy_per_224us_burst_j": 8.31256300569698e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6e-09,
+      "shunt_capacitance_f": 9e-13,
+      "inductor_series_resistance_ohm": 9.198583289710914,
+      "maximum_absolute_power_error_db": 1.0533841143658849,
+      "worst_third_harmonic_dbc": -28.111545479681425,
+      "maximum_energy_per_224us_burst_j": 9.62693249029457e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 105,
+          "fundamental_output_power_dbm": 0.0182202773300904,
+          "second_harmonic_output_power_dbm": -30.84573223640865,
+          "second_harmonic_dbc": -30.86395251373874,
+          "third_harmonic_output_power_dbm": -28.093325202351338,
+          "third_harmonic_dbc": -28.111545479681425,
+          "supply_power_w": 0.004297737718881504,
+          "drain_efficiency": 0.23365878806108828,
+          "energy_per_224us_burst_j": 9.62693249029457e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 71,
+          "fundamental_output_power_dbm": -0.006268980616228903,
+          "second_harmonic_output_power_dbm": -31.97605897181227,
+          "second_harmonic_dbc": -31.969789991196045,
+          "third_harmonic_output_power_dbm": -28.428716026387303,
+          "third_harmonic_dbc": -28.422447045771072,
+          "supply_power_w": 0.004108780718001919,
+          "drain_efficiency": 0.24303014050335447,
+          "energy_per_224us_burst_j": 9.203668808324297e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -1.0533841143658849,
+          "second_harmonic_output_power_dbm": -33.2147312822878,
+          "second_harmonic_dbc": -32.16134716792191,
+          "third_harmonic_output_power_dbm": -29.57186242775037,
+          "third_harmonic_dbc": -28.518478313384485,
+          "supply_power_w": 0.003878274426461667,
+          "drain_efficiency": 0.20231265621345082,
+          "energy_per_224us_burst_j": 8.687334715274133e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6.5e-09,
+      "shunt_capacitance_f": 5e-13,
+      "inductor_series_resistance_ohm": 9.965131897186824,
+      "maximum_absolute_power_error_db": 0.031426785540584805,
+      "worst_third_harmonic_dbc": -25.015677120639594,
+      "maximum_energy_per_224us_burst_j": 6.268174872528435e-07,
+      "maximum_power_code": 109,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 75,
+          "fundamental_output_power_dbm": 0.0021713997624394736,
+          "second_harmonic_output_power_dbm": -30.338762269443038,
+          "second_harmonic_dbc": -30.340933669205477,
+          "third_harmonic_output_power_dbm": -25.16910239158512,
+          "third_harmonic_dbc": -25.17127379134756,
+          "supply_power_w": 0.0027689085316320136,
+          "drain_efficiency": 0.3613337518575093,
+          "energy_per_224us_burst_j": 6.20235511085571e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 53,
+          "fundamental_output_power_dbm": 0.031426785540584805,
+          "second_harmonic_output_power_dbm": -30.438926205006084,
+          "second_harmonic_dbc": -30.47035299054667,
+          "third_harmonic_output_power_dbm": -24.984250335099006,
+          "third_harmonic_dbc": -25.015677120639594,
+          "supply_power_w": 0.0027634711764557996,
+          "drain_efficiency": 0.3644917806810377,
+          "energy_per_224us_burst_j": 6.190175435260991e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 109,
+          "fundamental_output_power_dbm": -0.014796541700063615,
+          "second_harmonic_output_power_dbm": -31.996632624694005,
+          "second_harmonic_dbc": -31.981836082993944,
+          "third_harmonic_output_power_dbm": -25.261902885762304,
+          "third_harmonic_dbc": -25.24710634406224,
+          "supply_power_w": 0.0027982923538073367,
+          "drain_efficiency": 0.3561453349751272,
+          "energy_per_224us_burst_j": 6.268174872528435e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6.5e-09,
+      "shunt_capacitance_f": 6e-13,
+      "inductor_series_resistance_ohm": 9.965131897186824,
+      "maximum_absolute_power_error_db": 0.030153206227983814,
+      "worst_third_harmonic_dbc": -26.292140797488173,
+      "maximum_energy_per_224us_burst_j": 7.011286835273646e-07,
+      "maximum_power_code": 119,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 80,
+          "fundamental_output_power_dbm": -0.010732298025292705,
+          "second_harmonic_output_power_dbm": -31.196730011730324,
+          "second_harmonic_dbc": -31.18599771370503,
+          "third_harmonic_output_power_dbm": -26.31884447346122,
+          "third_harmonic_dbc": -26.308112175435923,
+          "supply_power_w": 0.0030138640903878914,
+          "drain_efficiency": 0.330981032338222,
+          "energy_per_224us_burst_j": 6.751055562468877e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 56,
+          "fundamental_output_power_dbm": 0.030153206227983814,
+          "second_harmonic_output_power_dbm": -31.677663704804203,
+          "second_harmonic_dbc": -31.707816911032186,
+          "third_harmonic_output_power_dbm": -26.26198759126019,
+          "third_harmonic_dbc": -26.292140797488173,
+          "supply_power_w": 0.0029673455812067725,
+          "drain_efficiency": 0.3393494837346366,
+          "energy_per_224us_burst_j": 6.646854101903171e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 119,
+          "fundamental_output_power_dbm": -0.006598314694044211,
+          "second_harmonic_output_power_dbm": -32.30715123580945,
+          "second_harmonic_dbc": -32.300552921115404,
+          "third_harmonic_output_power_dbm": -26.316108138833645,
+          "third_harmonic_dbc": -26.309509824139603,
+          "supply_power_w": 0.0031300387657471635,
+          "drain_efficiency": 0.3189998304176838,
+          "energy_per_224us_burst_j": 7.011286835273646e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6.5e-09,
+      "shunt_capacitance_f": 7e-13,
+      "inductor_series_resistance_ohm": 9.965131897186824,
+      "maximum_absolute_power_error_db": 0.1909764756662835,
+      "worst_third_harmonic_dbc": -27.170981292257306,
+      "maximum_energy_per_224us_burst_j": 7.839583314932798e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 89,
+          "fundamental_output_power_dbm": -0.008684959112739398,
+          "second_harmonic_output_power_dbm": -31.23170160278437,
+          "second_harmonic_dbc": -31.223016643671627,
+          "third_harmonic_output_power_dbm": -27.179666251370044,
+          "third_harmonic_dbc": -27.170981292257306,
+          "supply_power_w": 0.003419010245341727,
+          "drain_efficiency": 0.29189798827317825,
+          "energy_per_224us_burst_j": 7.658582949565469e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 61,
+          "fundamental_output_power_dbm": -0.012668889512422562,
+          "second_harmonic_output_power_dbm": -31.99683800968996,
+          "second_harmonic_dbc": -31.984169120177537,
+          "third_harmonic_output_power_dbm": -27.400228798722207,
+          "third_harmonic_dbc": -27.387559909209784,
+          "supply_power_w": 0.003299083609515534,
+          "drain_efficiency": 0.30223154338061775,
+          "energy_per_224us_burst_j": 7.389947285314796e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -0.1909764756662835,
+          "second_harmonic_output_power_dbm": -32.42827493883921,
+          "second_harmonic_dbc": -32.23729846317292,
+          "third_harmonic_output_power_dbm": -27.449016482512558,
+          "third_harmonic_dbc": -27.258040006846276,
+          "supply_power_w": 0.0034998139798807135,
+          "drain_efficiency": 0.27343706943324037,
+          "energy_per_224us_burst_j": 7.839583314932798e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6.5e-09,
+      "shunt_capacitance_f": 8e-13,
+      "inductor_series_resistance_ohm": 9.965131897186824,
+      "maximum_absolute_power_error_db": 0.778231772341885,
+      "worst_third_harmonic_dbc": -27.88706996117932,
+      "maximum_energy_per_224us_burst_j": 8.844136143000866e-07,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 101,
+          "fundamental_output_power_dbm": 0.006740459062003034,
+          "second_harmonic_output_power_dbm": -30.90821826875946,
+          "second_harmonic_dbc": -30.914958727821464,
+          "third_harmonic_output_power_dbm": -27.88032950211732,
+          "third_harmonic_dbc": -27.88706996117932,
+          "supply_power_w": 0.0039482750638396725,
+          "drain_efficiency": 0.2536685608047634,
+          "energy_per_224us_burst_j": 8.844136143000866e-07
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 69,
+          "fundamental_output_power_dbm": 0.02931544058516912,
+          "second_harmonic_output_power_dbm": -32.00041917967038,
+          "second_harmonic_dbc": -32.029734620255546,
+          "third_harmonic_output_power_dbm": -27.97678913799421,
+          "third_harmonic_dbc": -28.006104578579382,
+          "supply_power_w": 0.0037935160611493727,
+          "drain_efficiency": 0.26539309360827756,
+          "energy_per_224us_burst_j": 8.497475976974595e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -0.778231772341885,
+          "second_harmonic_output_power_dbm": -33.014340661544445,
+          "second_harmonic_dbc": -32.23610888920256,
+          "third_harmonic_output_power_dbm": -29.074818794519977,
+          "third_harmonic_dbc": -28.29658702217809,
+          "supply_power_w": 0.0037059158966397036,
+          "drain_efficiency": 0.22556996060796045,
+          "energy_per_224us_burst_j": 8.301251608472936e-07
+        }
+      ]
+    },
+    {
+      "series_inductance_h": 6.5e-09,
+      "shunt_capacitance_f": 9e-13,
+      "inductor_series_resistance_ohm": 9.965131897186824,
+      "maximum_absolute_power_error_db": 1.469621305408185,
+      "worst_third_harmonic_dbc": -28.286253860153035,
+      "maximum_energy_per_224us_burst_j": 1.017022221338728e-06,
+      "maximum_power_code": 128,
+      "corners": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "power_code": 114,
+          "fundamental_output_power_dbm": -0.016009012252383395,
+          "second_harmonic_output_power_dbm": -30.63061624107014,
+          "second_harmonic_dbc": -30.614607228817754,
+          "third_harmonic_output_power_dbm": -28.302262872405418,
+          "third_harmonic_dbc": -28.286253860153035,
+          "supply_power_w": 0.004540277773833607,
+          "drain_efficiency": 0.21944044485158815,
+          "energy_per_224us_burst_j": 1.017022221338728e-06
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "power_code": 77,
+          "fundamental_output_power_dbm": -0.026139865925343016,
+          "second_harmonic_output_power_dbm": -31.65229386057371,
+          "second_harmonic_dbc": -31.626153994648366,
+          "third_harmonic_output_power_dbm": -28.717494565244163,
+          "third_harmonic_dbc": -28.69135469931882,
+          "supply_power_w": 0.0043145003543215215,
+          "drain_efficiency": 0.23038569226085873,
+          "energy_per_224us_burst_j": 9.664480793680208e-07
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 125,
+          "power_code": 128,
+          "fundamental_output_power_dbm": -1.469621305408185,
+          "second_harmonic_output_power_dbm": -33.60791826487057,
+          "second_harmonic_dbc": -32.13829695946239,
+          "third_harmonic_output_power_dbm": -30.497263702308054,
+          "third_harmonic_dbc": -29.027642396899864,
+          "supply_power_w": 0.003888284682304481,
+          "drain_efficiency": 0.18334953589990777,
+          "energy_per_224us_burst_j": 8.709757688362037e-07
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The input driver and disabled PA slices are not modeled.",
+    "The inductor is ideal except for fixed series resistance set by Q at 2.44 GHz.",
+    "No passive PVT, self-resonance, package, antenna, stability, mismatch, or modulation is modeled.",
+    "This is not regulatory, Bluetooth qualification, or tapeout signoff evidence."
+  ]
+}
