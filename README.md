@@ -22,7 +22,9 @@ in [the engineering basis](docs/engineering-basis.md).
 
 The first waveform-level modem block is a synthesizable 16-sample/symbol
 [BLE LE 1M GFSK modulator](docs/gfsk-modulator.md). It exposes an integer-Hz
-frequency-control stream for a later direct-modulation synthesizer.
+frequency-control stream for a later direct-modulation synthesizer. The
+`cgm_gfsk_tx` integration paces the complete 224-bit CGM advertising packet at
+1 Msym/s and produces a gapless 224 us modulation burst.
 
 ## Reproducible EDA environment
 
@@ -40,7 +42,7 @@ make container-check
 ```
 
 Generated measurements are written to `reports/experiment.json`,
-`reports/per_curve.csv`, and `reports/yosys-stat.txt`.
+`reports/per_curve.csv`, `reports/yosys-stat.txt`, and the GFSK synthesis reports.
 
 ## Individual targets
 
@@ -49,6 +51,8 @@ make python-test
 make rtl-test
 make experiment
 make yosys-stat
+make gfsk-yosys-stat
+make gfsk-tx-yosys-stat
 ```
 
 The individual targets expect Python, Icarus Verilog, cocotb, and Yosys on the

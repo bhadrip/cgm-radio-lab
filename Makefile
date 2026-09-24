@@ -5,15 +5,16 @@ GF180_TEMPLATE := third_party/gf180mcu-project-template
 GF180_PDK_ROOT ?= /foss/pdks
 GF180_CONFIGS := wafer_space/librelane-cgm.yaml
 
-.PHONY: check python-test rtl-test experiment yosys-stat gfsk-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
+.PHONY: check python-test rtl-test experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
 
-check: python-test rtl-test experiment yosys-stat gfsk-yosys-stat wafer-space-yosys
+check: python-test rtl-test experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat wafer-space-yosys
 
 python-test:
 	python3 -m unittest discover -s tests -p 'test_*model.py' -v
 
 rtl-test:
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_gfsk_modulator COCOTB_TEST_MODULES=test_ble_gfsk_modulator SIM_BUILD=sim_build/gfsk
+	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_gfsk_tx COCOTB_TEST_MODULES=test_cgm_gfsk_tx SIM_BUILD=sim_build/gfsk_tx
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_phy_loop COCOTB_TEST_MODULES=test_ble_phy_loop SIM_BUILD=sim_build/phy
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_packet_loop COCOTB_TEST_MODULES=test_cgm_packet_loop SIM_BUILD=sim_build/packet
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_chip_core COCOTB_TEST_MODULES=test_cgm_chip_core SIM_BUILD=sim_build/chip_core
@@ -31,6 +32,11 @@ gfsk-yosys-stat:
 	@mkdir -p reports
 	yosys -q -p 'read_verilog -sv rtl/ble_gfsk_modulator.sv; hierarchy -check -top ble_gfsk_modulator; proc; opt; tee -o reports/gfsk-yosys-stat.txt stat'
 	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/gfsk-yosys-stat.txt
+
+gfsk-tx-yosys-stat:
+	@mkdir -p reports
+	yosys -q -p 'read_verilog -sv rtl/*.sv; hierarchy -check -top cgm_gfsk_tx; proc; opt; tee -o reports/gfsk-tx-yosys-stat.txt stat'
+	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/gfsk-tx-yosys-stat.txt
 
 wafer-space-yosys:
 	@mkdir -p reports
@@ -104,4 +110,4 @@ container-gf180-signoff:
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
-	$(RM) reports/experiment.json reports/per_curve.csv reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/wafer-space-yosys-stat.txt
+	$(RM) reports/experiment.json reports/per_curve.csv reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/wafer-space-yosys-stat.txt

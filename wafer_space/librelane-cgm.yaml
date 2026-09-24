@@ -11,6 +11,7 @@ VERILOG_FILES:
 - dir::../rtl/ble_gfsk_modulator.sv
 - dir::../rtl/ble_phy_loop.sv
 - dir::../rtl/cgm_packet_tx.sv
+- dir::../rtl/cgm_gfsk_tx.sv
 - dir::../rtl/cgm_packet_rx.sv
 - dir::../rtl/cgm_packet_loop.sv
 - dir::../rtl/cgm_chip_core.sv

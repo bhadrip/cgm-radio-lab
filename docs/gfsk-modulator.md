@@ -16,9 +16,15 @@ signed instantaneous frequency offset in integer hertz.
 | Causal group delay | 2 symbols |
 
 The `bit_valid`/`bit_ready` handshake occurs once per symbol. `sample_valid`
-qualifies each frequency word. Continuous input produces sixteen samples per
+qualifies each frequency word, while `sample_first` and `sample_last` mark its
+position within the symbol. Continuous input produces sixteen samples per
 symbol without gaps; stalled input pauses after the current symbol while
 retaining filter history.
+
+`rtl/cgm_gfsk_tx.sv` connects that handshake to the CGM advertising packet
+serializer. The serializer advances exactly once every sixteen clocks, so its
+224 whitened on-air bits become 3,584 gapless frequency samples over 224 us.
+`done` is asserted only after the final symbol's last frequency sample.
 
 The implementation is equivalent to a 65-tap sampled Gaussian FIR but uses five
 symbol-history contributions for each of sixteen sample phases. This removes

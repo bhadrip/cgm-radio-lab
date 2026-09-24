@@ -35,6 +35,8 @@ async def send_symbol(dut, bit):
             await RisingEdge(dut.clk)
         await Timer(1, unit="ns")
         assert int(dut.sample_valid.value) == 1
+        assert int(dut.sample_first.value) == int(index == 0)
+        assert int(dut.sample_last.value) == int(index == SAMPLES_PER_SYMBOL - 1)
         samples.append(signed_word(dut.frequency_offset_hz.value, 19))
     return samples
 
@@ -79,6 +81,11 @@ async def back_to_back_symbols_have_no_sample_gap(dut):
         await Timer(1, unit="ns")
         if int(dut.sample_valid.value):
             started = True
+            sample_index = len(observed) % SAMPLES_PER_SYMBOL
+            assert int(dut.sample_first.value) == int(sample_index == 0)
+            assert int(dut.sample_last.value) == int(
+                sample_index == SAMPLES_PER_SYMBOL - 1
+            )
             observed.append(signed_word(dut.frequency_offset_hz.value, 19))
         elif started:
             raise AssertionError("sample_valid dropped between adjacent symbols")

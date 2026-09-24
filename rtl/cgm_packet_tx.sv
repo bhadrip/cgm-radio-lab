@@ -13,6 +13,7 @@ module cgm_packet_tx (
     input  logic [15:0] trend_q8_8,
     input  logic [7:0]  status,
     input  logic [7:0]  battery_percent,
+    input  logic        tx_ready,
     output logic        busy,
     output logic        tx_valid,
     output logic        tx_bit,
@@ -39,6 +40,7 @@ module cgm_packet_tx (
     logic [7:0] body_byte_index;
     logic [2:0] body_bit_index;
     logic [4:0] crc_bit_index;
+    logic accepted_bit;
 
     function automatic logic octet_bit(
         input logic [7:0] octet,
@@ -77,13 +79,14 @@ module cgm_packet_tx (
     endfunction
 
     assign accepted_start = start && !busy;
+    assign accepted_bit = busy && tx_ready;
     assign tx_valid = busy;
     assign tx_last = busy && (bit_index == PACKET_BITS - 1);
     assign body_byte_index = (bit_index - BODY_START) >> 3;
     assign body_bit_index = (bit_index - BODY_START) & 3'h7;
     assign crc_bit_index = bit_index - CRC_START;
-    assign whiten_valid = busy && (bit_index >= BODY_START);
-    assign crc_valid = busy && (bit_index >= BODY_START) && (bit_index < CRC_START);
+    assign whiten_valid = accepted_bit && (bit_index >= BODY_START);
+    assign crc_valid = accepted_bit && (bit_index >= BODY_START) && (bit_index < CRC_START);
 
     always @* begin
         raw_bit = 1'b0;
@@ -130,7 +133,7 @@ module cgm_packet_tx (
             if (accepted_start) begin
                 busy <= 1'b1;
                 bit_index <= 9'd0;
-            end else if (busy) begin
+            end else if (accepted_bit) begin
                 if (bit_index == PACKET_BITS - 1) begin
                     busy <= 1'b0;
                     bit_index <= 9'd0;
