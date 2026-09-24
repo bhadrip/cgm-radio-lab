@@ -47,5 +47,9 @@ The follow-on [registered decoder](lc-dco-dac-decoder.md) removes combinational
 decode hazards from the analog boundary. Physical output skew and the transistor
 DAC transient remain open.
 
+The [current-steered transistor experiment](gf180-fast-dac-steered.md) supersedes
+the minimum-element 5+2 selection with a 6+1 implementation candidate after
+measured switch charge leaves insufficient 5+2 margin.
+
 Reproduce with `make dco-dac-transition`. Machine-readable results are in
 `lc_dco_dac_transition.json`.

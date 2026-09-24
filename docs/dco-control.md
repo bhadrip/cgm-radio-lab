@@ -55,7 +55,9 @@ switch skew. The
 controls without exposing combinational decoder hazards to the analog switches.
 The first [GF180 fast-DAC cell](../reports/gf180-fast-dac.md) passes nominal
 static linearity but is rejected because switch charge produces a 150 uV carry
-glitch.
+glitch. The [current-steered follow-on](../reports/gf180-fast-dac-steered.md)
+uses a 6+1 split and passes the nominal transition gate; the RTL decoder still
+needs the corresponding 6+1 update.
 The [drive-settling result](../reports/lc-dco-drive-settling.md)
 requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
 bypass at the varactor-control node.

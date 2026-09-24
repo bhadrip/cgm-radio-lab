@@ -28,6 +28,8 @@ power and production evidence continue to follow the
 
 The first [switched-current cell experiment](gf180-fast-dac.md) uses these
 controls conceptually but rejects its analog switch topology on measured glitch.
+The [current-steered follow-on](gf180-fast-dac-steered.md) passes only after
+moving to a 6+1 split, so this 5+2 decoder is now a superseded prototype.
 
 Run the exhaustive test through `make rtl-test` and reproduce the synthesis
 summary with `make dco-dac-yosys-stat`. The latter writes
