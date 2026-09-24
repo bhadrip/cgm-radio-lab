@@ -21,6 +21,9 @@ class LcDcoModulationModelTest(unittest.TestCase):
         cls.points = json.loads(
             (ROOT / "reports" / "lc_dco_sweep.json").read_text()
         )["points"]
+        cls.points += json.loads(
+            (ROOT / "reports" / "lc_dco_local_calibration.json").read_text()
+        )["points"]
         cls.measurement = CgmMeasurement(0x1234, 123, -256, 0x03, 91)
 
     def test_every_advertising_channel_has_fixed_code_margin(self):
@@ -57,6 +60,32 @@ class LcDcoModulationModelTest(unittest.TestCase):
                         self.points, calibration, control_v
                     )
                     self.assertAlmostEqual(realized_hz, requested_hz, places=5)
+
+    def test_local_calibration_converges_within_fifty_kilohertz(self):
+        grouped = {}
+        for point in json.loads(
+            (ROOT / "reports" / "lc_dco_local_calibration.json").read_text()
+        )["points"]:
+            key = (point["corner"], point["channel"], point["target_frequency_hz"])
+            grouped[key] = point
+        self.assertEqual(len(grouped), 27)
+        report = json.loads(
+            (ROOT / "reports" / "lc_dco_local_calibration.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertLessEqual(
+            max(abs(point["calibration_error_hz"]) for point in grouped.values()),
+            50_000,
+        )
+
+    def test_dynamic_typical_channel_37_tracks_within_ten_kilohertz(self):
+        report = json.loads((ROOT / "reports" / "lc_dco_dynamic.json").read_text())
+        self.assertEqual(report["corner"], "typical")
+        self.assertEqual(report["channel"], 37)
+        self.assertEqual(report["measured_samples"], 48)
+        self.assertTrue(report["passed"])
+        self.assertLessEqual(report["maximum_absolute_frequency_error_hz"], 10_000)
+        self.assertLessEqual(abs(report["mean_frequency_error_hz"]), 1_000)
 
 
 if __name__ == "__main__":

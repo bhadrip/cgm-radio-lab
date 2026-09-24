@@ -39,14 +39,14 @@ EDIFF diff 0 outp outn 1
 
 .ic v(outp)=0.91 v(outn)=0.89 v(tail)=0.4
 .option method=gear reltol=1e-4
-.tran 2p 100n uic
+.tran 5p 500n uic
 
 .measure tran fifty_periods
-+ TRIG v(diff) VAL=0 RISE=20
-+ TARG v(diff) VAL=0 RISE=70
++ TRIG v(diff) VAL=0 RISE=1 TD=400n
++ TARG v(diff) VAL=0 RISE=51 TD=400n
 .measure tran frequency_hz PARAM='50/fifty_periods'
-.measure tran differential_vpp PP v(diff) FROM=80n TO=100n
-.measure tran supply_current_a AVG i(VDD) FROM=80n TO=100n
+.measure tran differential_vpp PP v(diff) FROM=400n TO=500n
+.measure tran supply_current_a AVG i(VDD) FROM=400n TO=500n
 .measure tran power_w PARAM='-supply_current_a*VDD_VALUE'
 
 .end

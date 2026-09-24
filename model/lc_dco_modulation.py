@@ -21,18 +21,37 @@ class ChannelCalibration:
 
 
 def _code_points(
-    points: Iterable[Mapping[str, object]], corner: str, coarse_code: int
+    points: Iterable[Mapping[str, object]],
+    corner: str,
+    coarse_code: int,
+    channel: int | None = None,
+    prefer_local: bool = False,
 ) -> list[Mapping[str, object]]:
-    return sorted(
-        (
-            point
-            for point in points
-            if point["corner"] == corner
-            and point["coarse_code"] == coarse_code
-            and point["sustained_oscillation"]
-        ),
-        key=lambda point: float(point["frequency_hz"]),
-    )
+    matching = [
+        point
+        for point in points
+        if point["corner"] == corner
+        and point["coarse_code"] == coarse_code
+        and point["sustained_oscillation"]
+    ]
+    if prefer_local and channel is not None:
+        local = [point for point in matching if point.get("channel") == channel]
+        if local:
+            broad = [point for point in matching if point.get("channel") is None]
+            local_min = min(float(point["frequency_hz"]) for point in local)
+            local_max = max(float(point["frequency_hz"]) for point in local)
+            below = [
+                point for point in broad if float(point["frequency_hz"]) < local_min
+            ]
+            above = [
+                point for point in broad if float(point["frequency_hz"]) > local_max
+            ]
+            matching = [*local]
+            if below:
+                matching.append(max(below, key=lambda point: float(point["frequency_hz"])))
+            if above:
+                matching.append(min(above, key=lambda point: float(point["frequency_hz"])))
+    return sorted(matching, key=lambda point: float(point["frequency_hz"]))
 
 
 def calibrate_channel(
@@ -81,7 +100,13 @@ def control_voltage_for_frequency(
     target_frequency_hz: float,
 ) -> float:
     """Piecewise-linearly invert the measured static tuning curve."""
-    curve = _code_points(points, calibration.corner, calibration.coarse_code)
+    curve = _code_points(
+        points,
+        calibration.corner,
+        calibration.coarse_code,
+        calibration.channel,
+        prefer_local=True,
+    )
     frequencies = [float(point["frequency_hz"]) for point in curve]
     if not frequencies[0] <= target_frequency_hz <= frequencies[-1]:
         raise ValueError("target frequency is outside the calibrated code range")
@@ -109,7 +134,13 @@ def frequency_for_control_voltage(
 ) -> float:
     """Piecewise-linearly evaluate the measured static tuning curve."""
     curve = sorted(
-        _code_points(points, calibration.corner, calibration.coarse_code),
+        _code_points(
+            points,
+            calibration.corner,
+            calibration.coarse_code,
+            calibration.channel,
+            prefer_local=True,
+        ),
         key=lambda point: float(point["control_voltage_v"]),
     )
     voltages = [float(point["control_voltage_v"]) for point in curve]

@@ -40,3 +40,5 @@ BLE band at typical, fast, and slow corners under the assumed tank model.
 The [GFSK drive mapping](../reports/lc-dco-gfsk-drive.md) selects one calibrated
 coarse code before each burst and maps the modulator frequency stream onto the
 fine-control voltage without switching the coarse bank during the packet.
+The [dynamic validation](../reports/lc-dco-dynamic-validation.md) checks that
+mapping over 48 nominal-corner samples after oscillator startup.

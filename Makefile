@@ -5,7 +5,7 @@ GF180_TEMPLATE := third_party/gf180mcu-project-template
 GF180_PDK_ROOT ?= /foss/pdks
 GF180_CONFIGS := wafer_space/librelane-cgm.yaml
 
-.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test lc-dco-test dco-bank-sizing dco-modulation experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
+.PHONY: check python-test rtl-test analog-test ring-dco-test lc-vco-test lc-dco-test lc-dco-local-calibration lc-dco-dynamic-test rf-characterization container-rf-characterization dco-bank-sizing dco-modulation experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
 
 check: python-test rtl-test analog-test dco-bank-sizing dco-modulation experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys
 
@@ -31,6 +31,29 @@ lc-vco-test:
 
 lc-dco-test:
 	python3 scripts/run_lc_dco_sweep.py
+
+lc-dco-local-calibration:
+	PYTHONPATH=$(ROOT) python3 scripts/run_lc_dco_local_calibration.py
+
+lc-dco-dynamic-test:
+	PYTHONPATH=$(ROOT) python3 scripts/run_lc_dco_dynamic.py
+
+rf-characterization:
+	$(MAKE) lc-dco-test
+	$(MAKE) lc-dco-local-calibration
+	$(MAKE) dco-modulation
+	$(MAKE) lc-dco-dynamic-test
+
+container-rf-characterization:
+	docker run --rm \
+		--user $$(id -u):$$(id -g) \
+		--entrypoint /bin/bash \
+		-e HOME=/tmp \
+		-e LC_DCO_JOBS=2 \
+		-v '$(ROOT):/foss/designs/cgm-radio-lab' \
+		-w /foss/designs/cgm-radio-lab \
+		$(EDA_IMAGE) \
+		-lc 'make rf-characterization'
 
 dco-bank-sizing:
 	PYTHONPATH=$(ROOT) python3 scripts/size_lc_dco_bank.py
@@ -133,4 +156,4 @@ container-gf180-signoff:
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
-	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_sweep.json reports/lc_dco_sweep.csv reports/lc_dco_bank.json reports/lc_dco_modulation.json reports/lc_dco_modulation_nominal_ch37.csv reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/wafer-space-yosys-stat.txt
+	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/lc_vco_sweep.json reports/lc_vco_sweep.csv reports/lc_dco_sweep.json reports/lc_dco_sweep.csv reports/lc_dco_bank.json reports/lc_dco_local_calibration.json reports/lc_dco_local_calibration.csv reports/lc_dco_modulation.json reports/lc_dco_modulation_nominal_ch37.csv reports/lc_dco_dynamic.json reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/wafer-space-yosys-stat.txt
