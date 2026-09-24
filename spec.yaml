@@ -14,6 +14,10 @@ gfsk_modulator:
   modulation_index: 0.5
   frequency_deviation_hz: 250000
   filter_span_symbols: 4
+dco_control:
+  code_bits: 12
+  nominal_gain_hz_per_lsb: 50000
+  calibration: per_channel
 cgm_payload:
   sequence: uint16
   glucose_mg_dl: uint16

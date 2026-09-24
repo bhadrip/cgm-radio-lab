@@ -1,0 +1,27 @@
+
+5. Printing statistics.
+
+=== ble_dco_controller ===
+
+        +----------Local Count, excluding submodules.
+        |
+       71 wires
+     1063 wire bits
+       15 public wires
+      221 public wire bits
+        8 ports
+       48 port bits
+       66 cells
+        8   $add
+       12   $eq
+        6   $ge
+        1   $gt
+        6   $le
+        1   $lt
+       19   $mux
+        1   $not
+        1   $pmux
+        1   $reduce_or
+        2   $sdff
+        2   $sdffe
+        6   $sub

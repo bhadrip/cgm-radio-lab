@@ -26,6 +26,11 @@ frequency-control stream for a later direct-modulation synthesizer. The
 `cgm_gfsk_tx` integration paces the complete 224-bit CGM advertising packet at
 1 Msym/s and produces a gapless 224 us modulation burst.
 
+The next analog boundary is the calibrated
+[DCO tuning-code controller](docs/dco-control.md), which noise-shapes those
+frequency requests into a 12-bit oscillator code without claiming an RF circuit
+that has not yet been simulated and measured.
+
 ## Reproducible EDA environment
 
 The flow is pinned to the ARM64-compatible IIC-OSIC-TOOLS image required by the
@@ -42,7 +47,8 @@ make container-check
 ```
 
 Generated measurements are written to `reports/experiment.json`,
-`reports/per_curve.csv`, `reports/yosys-stat.txt`, and the GFSK synthesis reports.
+`reports/per_curve.csv`, `reports/yosys-stat.txt`, and the GFSK/DCO synthesis
+reports.
 
 ## Individual targets
 
@@ -53,6 +59,7 @@ make experiment
 make yosys-stat
 make gfsk-yosys-stat
 make gfsk-tx-yosys-stat
+make dco-yosys-stat
 ```
 
 The individual targets expect Python, Icarus Verilog, cocotb, and Yosys on the

@@ -1,36 +1,5 @@
 
-13. Printing statistics.
-
-=== cgm_packet_tx ===
-
-        +----------Local Count, excluding submodules.
-        |
-      103 wires
-      801 wire bits
-       36 public wires
-      214 public wire bits
-       16 ports
-      127 port bits
-       81 cells
-        5   $add
-       20   $eq
-        1   $ge
-        5   $logic_and
-        2   $logic_not
-        3   $lt
-        9   $mux
-        1   $not
-        1   $pmux
-        1   $reduce_and
-        2   $reduce_bool
-        7   $reduce_or
-        1   $sdff
-        2   $sdffe
-       13   $shiftx
-        8   $sub
-        2 submodules
-        1   ble_crc24
-        1   ble_whitener
+14. Printing statistics.
 
 === cgm_gfsk_tx ===
 
@@ -161,6 +130,37 @@
         1   $reduce_or
         4   $sdff
         3   $sdffe
+
+=== cgm_packet_tx ===
+
+        +----------Local Count, excluding submodules.
+        |
+      103 wires
+      801 wire bits
+       36 public wires
+      214 public wire bits
+       16 ports
+      127 port bits
+       81 cells
+        5   $add
+       20   $eq
+        1   $ge
+        5   $logic_and
+        2   $logic_not
+        3   $lt
+        9   $mux
+        1   $not
+        1   $pmux
+        1   $reduce_and
+        2   $reduce_bool
+        7   $reduce_or
+        1   $sdff
+        2   $sdffe
+       13   $shiftx
+        8   $sub
+        2 submodules
+        1   ble_crc24
+        1   ble_whitener
 
 === ble_crc24 ===
 
