@@ -103,7 +103,97 @@ class LoopResult:
     transmitted_bits: int
     flipped_bits: int
     crc_passed: bool
+    format_passed: bool
     payload_recovered: bool
+
+
+@dataclass(frozen=True)
+class CgmMeasurement:
+    """Eight-byte CGM manufacturer payload used by the prototype packet engine."""
+
+    sequence: int
+    glucose_mg_dl: int
+    trend_q8_8: int
+    status: int
+    battery_percent: int
+
+    def encode(self) -> bytes:
+        if not 0 <= self.sequence <= 0xFFFF:
+            raise ValueError("sequence must fit in 16 bits")
+        if not 0 <= self.glucose_mg_dl <= 0xFFFF:
+            raise ValueError("glucose value must fit in 16 bits")
+        if not -0x8000 <= self.trend_q8_8 <= 0x7FFF:
+            raise ValueError("trend must fit in a signed Q8.8 value")
+        if not 0 <= self.status <= 0xFF:
+            raise ValueError("status must fit in eight bits")
+        if not 0 <= self.battery_percent <= 100:
+            raise ValueError("battery percentage must be in the range 0..100")
+        return b"".join(
+            (
+                self.sequence.to_bytes(2, "little"),
+                self.glucose_mg_dl.to_bytes(2, "little"),
+                self.trend_q8_8.to_bytes(2, "little", signed=True),
+                bytes((self.status, self.battery_percent)),
+            )
+        )
+
+
+def build_cgm_advertising_pdu(measurement: CgmMeasurement, address: int) -> bytes:
+    """Build a test-only ADV_NONCONN_IND PDU with manufacturer-specific CGM data.
+
+    Company identifier 0xFFFF is deliberately reserved for laboratory use. A
+    production device must use an assigned identifier and an approved profile.
+    """
+
+    if not 0 <= address < (1 << 48):
+        raise ValueError("advertiser address must fit in 48 bits")
+    ad_structure = bytes((0x0B, 0xFF, 0xFF, 0xFF)) + measurement.encode()
+    adv_payload = address.to_bytes(6, "little") + ad_structure
+    header = bytes((0x42, len(adv_payload)))  # Random TxAdd + ADV_NONCONN_IND.
+    return header + adv_payload
+
+
+def build_cgm_air_packet_bits(
+    measurement: CgmMeasurement,
+    address: int,
+    channel: int,
+) -> list[int]:
+    """Return preamble, access address, and whitened PDU+CRC hard bits."""
+
+    preamble = bytes_to_lsb_bits(bytes((0xAA,)))
+    access_address = [(ADV_ACCESS_ADDRESS >> bit) & 1 for bit in range(32)]
+    pdu_crc = add_crc(build_cgm_advertising_pdu(measurement, address))
+    return preamble + access_address + whiten_bits(pdu_crc, channel)
+
+
+def run_cgm_air_loop(
+    measurement: CgmMeasurement,
+    address: int,
+    channel: int,
+    error_mask: Sequence[int],
+) -> LoopResult:
+    expected = build_cgm_air_packet_bits(measurement, address, channel)
+    if len(error_mask) != len(expected):
+        raise ValueError("error mask length must match encoded packet")
+    impaired = [bit ^ int(flip) for bit, flip in zip(expected, error_mask)]
+
+    expected_prefix = expected[:40]
+    recovered = dewhiten_bits(impaired[40:], channel)
+    recovered_pdu = lsb_bits_to_bytes(recovered[:-24])
+    expected_pdu = build_cgm_advertising_pdu(measurement, address)
+    fixed_format_ok = (
+        impaired[:40] == expected_prefix
+        and len(recovered_pdu) == 20
+        and recovered_pdu[:2] == bytes((0x42, 18))
+        and recovered_pdu[8:12] == bytes((0x0B, 0xFF, 0xFF, 0xFF))
+    )
+    return LoopResult(
+        transmitted_bits=len(expected),
+        flipped_bits=sum(error_mask),
+        crc_passed=crc_ok(recovered),
+        format_passed=fixed_format_ok,
+        payload_recovered=recovered_pdu == expected_pdu,
+    )
 
 
 def run_hard_bit_loop(
@@ -122,5 +212,6 @@ def run_hard_bit_loop(
         transmitted_bits=len(packet),
         flipped_bits=sum(error_mask),
         crc_passed=crc_ok(recovered),
+        format_passed=True,
         payload_recovered=recovered_pdu == build_test_pdu(payload),
     )

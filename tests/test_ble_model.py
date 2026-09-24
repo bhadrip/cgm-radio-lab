@@ -2,7 +2,10 @@ import random
 import unittest
 
 from model.ble import (
+    CgmMeasurement,
     add_crc,
+    build_cgm_advertising_pdu,
+    build_cgm_air_packet_bits,
     build_test_pdu,
     bytes_to_lsb_bits,
     crc24,
@@ -10,6 +13,7 @@ from model.ble import (
     crc_ok,
     dewhiten_bits,
     run_hard_bit_loop,
+    run_cgm_air_loop,
     whiten_bits,
 )
 
@@ -45,6 +49,30 @@ class BleModelTest(unittest.TestCase):
             result = run_hard_bit_loop(payload, rng.randrange(40), [0] * packet_length)
             self.assertTrue(result.payload_recovered)
             self.assertTrue(result.crc_passed)
+
+    def test_cgm_packet_shape(self):
+        measurement = CgmMeasurement(7, 123, -256, 0x03, 91)
+        pdu = build_cgm_advertising_pdu(measurement, 0xC0DEC0FFEE01)
+        self.assertEqual(len(pdu), 20)
+        self.assertEqual(pdu[:2], bytes((0x42, 18)))
+        self.assertEqual(pdu[2:8], bytes.fromhex("01eeffc0dec0"))
+        self.assertEqual(pdu[8:12], bytes((0x0B, 0xFF, 0xFF, 0xFF)))
+        self.assertEqual(len(build_cgm_air_packet_bits(measurement, 0xC0DEC0FFEE01, 37)), 224)
+
+    def test_cgm_air_loop_checks_crc_and_format(self):
+        measurement = CgmMeasurement(7, 123, -256, 0x03, 91)
+        address = 0xC0DEC0FFEE01
+        packet_length = len(build_cgm_air_packet_bits(measurement, address, 37))
+        clean = run_cgm_air_loop(measurement, address, 37, [0] * packet_length)
+        self.assertTrue(clean.crc_passed)
+        self.assertTrue(clean.format_passed)
+        self.assertTrue(clean.payload_recovered)
+
+        preamble_error = [0] * packet_length
+        preamble_error[3] = 1
+        corrupted = run_cgm_air_loop(measurement, address, 37, preamble_error)
+        self.assertTrue(corrupted.crc_passed)
+        self.assertFalse(corrupted.format_passed)
 
 
 if __name__ == "__main__":
