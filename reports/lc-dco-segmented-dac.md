@@ -1,8 +1,15 @@
 # Segmented LC-DCO control DAC
 
+## Implementation update
+
+This ideal-only sizing selected six fast bits. The subsequent
+[non-ideality budget](lc-dco-dac-nonidealities.md) shows that six bits fails once
+INL and control noise are included, so the implementation candidate uses seven
+slow bias bits plus seven fast modulation bits.
+
 ## Result
 
-Split the fine-control source into a 7-bit slow bias DAC and a 6-bit fast
+The ideal-only split uses a 7-bit slow bias DAC and a 6-bit fast
 modulation DAC. The bias DAC spans 0.9--1.4 V and is programmed once before a
 burst. Only the modulation DAC, spanning +/-8 mV, switches at 16 MHz.
 
@@ -24,7 +31,8 @@ changes the six-bit fast code. Across 48 measured samples, mean error is
 
 The follow-on [loaded-drive validation](lc-dco-drive-settling.md) adds finite
 output resistance and RF bypass, then derives a 1 kOhm/10 pF implementation
-target.
+target. It is rerun with the seven-bit implementation candidate in the
+non-ideality slice.
 
 ## Boundary
 

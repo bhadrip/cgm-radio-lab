@@ -12,16 +12,16 @@ The nominal transistor bench exposes two separate effects:
 
 | Output resistance | Bypass | Carrier pull | Mean-removed tracking error | Result |
 |---:|---:|---:|---:|:---:|
-| 100 Ohm | 5 pF | 43.371 kHz | 14.385 kHz | Fail pull |
-| 100 Ohm | 10 pF | 24.621 kHz | 15.635 kHz | Pass |
-| 1 kOhm | 5 pF | 44.621 kHz | 15.635 kHz | Fail pull |
-| 1 kOhm | 10 pF | 24.204 kHz | 15.214 kHz | Pass |
-| 2.5 kOhm | 10 pF | 24.412 kHz | 25.422 kHz | Pass |
-| 5 kOhm | 10 pF | 28.996 kHz | 42.456 kHz | Fail tracking |
+| 100 Ohm | 5 pF | 37.954 kHz | 9.056 kHz | Fail pull |
+| 100 Ohm | 10 pF | 19.204 kHz | 12.164 kHz | Pass |
+| 1 kOhm | 5 pF | 39.204 kHz | 12.164 kHz | Fail pull |
+| 1 kOhm | 10 pF | 19.620 kHz | 13.170 kHz | Pass |
+| 2.5 kOhm | 10 pF | 24.204 kHz | 27.664 kHz | Pass |
+| 5 kOhm | 10 pF | 24.204 kHz | 43.328 kHz | Fail tracking |
 
-At the recommended 1 kOhm/10 pF point, one negative fast-DAC trim code removes
-most static pull. The calibrated run measures 2.954 kHz mean error and
-21.010 kHz worst absolute error over 48 consecutive 16 MHz samples.
+At the recommended 1 kOhm/10 pF point, two negative fast-DAC trim codes remove
+most static pull. The calibrated seven-bit run measures -2.671 kHz mean error
+and 16.454 kHz worst absolute error over 48 consecutive 16 MHz samples.
 
 ## Interpretation and boundary
 

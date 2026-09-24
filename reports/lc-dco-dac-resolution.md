@@ -34,4 +34,6 @@ with `make lc-dco-dynamic-test`. Machine-readable results are in
 `lc_dco_dac_resolution.json` and `lc_dco_dynamic.json`.
 
 The follow-on [segmented architecture](lc-dco-segmented-dac.md) keeps the broad
-range in a slow bias path and reduces the 16 MHz modulation path to six bits.
+range in a slow bias path. Six fast bits satisfy ideal quantization, but the
+[non-ideality budget](lc-dco-dac-nonidealities.md) requires seven bits for INL
+and control-noise margin.
