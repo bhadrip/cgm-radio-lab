@@ -39,3 +39,8 @@ frequency error, PA behavior, or regulatory emissions.
 constant envelope, nominal modulation index, at least 185 kHz deviation for a
 settled `1010` pattern, and exact agreement between every RTL frequency word and
 the quantized model.
+
+The [LC-DCO drive mapping](../reports/lc-dco-gfsk-drive.md) converts the full
+3,584-sample packet waveform into calibrated fine-control voltage for all three
+advertising channels and the sampled PVT corners. It defines the DAC/bias drive
+requirement; dynamic RF response remains a separate circuit gate.

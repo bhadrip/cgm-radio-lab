@@ -36,3 +36,7 @@ calibrated 4-bit coarse MIM code and analog MOS-varactor fine control.
 The [transistor-level tuning validation](../reports/lc-dco-tuning-validation.md)
 confirms that adjacent coarse codes overlap and the sampled envelope covers the
 BLE band at typical, fast, and slow corners under the assumed tank model.
+
+The [GFSK drive mapping](../reports/lc-dco-gfsk-drive.md) selects one calibrated
+coarse code before each burst and maps the modulator frequency stream onto the
+fine-control voltage without switching the coarse bank during the packet.

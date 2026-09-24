@@ -48,6 +48,8 @@ linear DCO assumption with a 4-bit coarse MIM bank and analog MOS-varactor fine
 control. The fine-control voltage resolution is a new circuit requirement.
 The [transistor-level tuning validation](reports/lc-dco-tuning-validation.md)
 then verifies overlapping BLE-band coverage at all three sampled PVT corners.
+The [GFSK drive mapping](reports/lc-dco-gfsk-drive.md) holds the coarse bank
+fixed for each burst and maps all 3,584 packet samples onto fine-control voltage.
 
 ## Reproducible EDA environment
 
@@ -69,7 +71,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/ring_dco_sweep.csv`, `reports/lc_vco_sweep.json`,
 `reports/lc_vco_sweep.csv`, `reports/lc_dco_bank.json`,
 `reports/lc_dco_sweep.json`, `reports/lc_dco_sweep.csv`,
-`reports/yosys-stat.txt`, and the GFSK/DCO synthesis reports.
+`reports/lc_dco_modulation.json`, `reports/yosys-stat.txt`, and the GFSK/DCO
+synthesis reports.
 
 ## Individual targets
 
@@ -78,6 +81,7 @@ make python-test
 make rtl-test
 make analog-test
 make dco-bank-sizing
+make dco-modulation
 make experiment
 make yosys-stat
 make gfsk-yosys-stat

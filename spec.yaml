@@ -18,6 +18,11 @@ dco_control:
   code_bits: 12
   nominal_gain_hz_per_lsb: 50000
   calibration: per_channel
+  physical_tuning_candidate:
+    coarse_mim_code_bits: 4
+    fine_control: analog_voltage
+    minimum_mos_varactors: 16
+    coarse_switching_during_packet: false
 cgm_payload:
   sequence: uint16
   glucose_mg_dl: uint16
