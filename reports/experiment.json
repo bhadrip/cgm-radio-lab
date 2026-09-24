@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "slice": "cgm-advertising-packet-loop",
-  "git_revision": "3f189bfcb0fb1ceb3b0ee8209d4672e59608915d",
+  "git_revision": "5ab69f02da7ceb07d9d4c487736e7a4778360e99",
   "container_image": "docker.io/hpretl/iic-osic-tools:2026.08",
   "python": "3.12.3",
   "seed": 49374,
