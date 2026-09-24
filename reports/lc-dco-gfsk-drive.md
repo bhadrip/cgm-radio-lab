@@ -28,9 +28,11 @@ request through that mapping.
 
 The nominal channel-37 mapping is exercised dynamically in
 [the transistor-level validation](lc-dco-dynamic-validation.md). The ideal
-voltage source still has no quantization, noise, or power cost; phase noise,
-fractional spurs, and the transmitted spectrum are not measured. Those checks
-are required by the verification ladder in the
+fine source is quantized by the
+[DAC-resolution analysis](lc-dco-dac-resolution.md), which selects 12 bits over
+0--1.8 V. DAC non-idealities and power, phase noise, fractional spurs, and the
+transmitted spectrum are not measured. Those checks are required by the
+verification ladder in the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
 Reproduce the local calibration with `make lc-dco-local-calibration`, then the

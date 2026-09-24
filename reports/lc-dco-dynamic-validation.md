@@ -3,10 +3,11 @@
 ## Result
 
 The settled, locally calibrated LC-DCO follows 48 consecutive 16 MHz Gaussian
-control samples at the nominal corner on advertising channel 37. Mean frequency
-error is -171 Hz and worst absolute error is 6.454 kHz, below the 10 kHz test
-limit. Differential output is 1.096 V peak-to-peak and oscillator-core power is
-1.800 mW.
+control samples at the nominal corner on advertising channel 37 when driven by
+a quantized 12-bit, 0--1.8 V control. Mean frequency error is -1.421 kHz and
+worst absolute error is 23.484 kHz, below the 10 kHz mean and 50 kHz peak test
+limits. Differential output is 1.096 V peak-to-peak and oscillator-core power
+is 1.800 mW.
 
 The measured sequence is the final three symbols of `0000101`; the first four
 symbols provide startup time. It exercises both steady -250 kHz deviation and a
@@ -22,6 +23,12 @@ measured after 4 us. At 1.03007 V, moving the static measurement window to
 bench. The full PVT sweep and local calibration were regenerated with the
 settled window before the passing run.
 
+With ideal voltage resolution, the corrected bench reached -171 Hz mean and
+6.454 kHz worst error. Applying the selected 12-bit quantization raises the
+worst error to 23.484 kHz; the
+[DAC-resolution analysis](lc-dco-dac-resolution.md) covers all packet samples,
+advertising channels, and sampled corners.
+
 This failure is retained because it shows that a dense lookup table cannot
 repair inconsistent measurement conditions.
 
@@ -34,10 +41,10 @@ from the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
 This is not RF sign-off. It covers one corner, channel, short bit sequence, and
-an ideal voltage source under the assumed 3 nH, Q=10 tank. It does not establish
-phase noise, modulation spectrum, DAC resolution/noise/power, PVT dynamic
-tracking, pulling, Monte Carlo yield, extracted behavior, or an EM-qualified
-inductor.
+an ideal quantized voltage source under the assumed 3 nH, Q=10 tank. It does not
+establish phase noise, modulation spectrum, DAC DNL/INL/noise/power/settling,
+PVT dynamic tracking, pulling, Monte Carlo yield, extracted behavior, or an
+EM-qualified inductor.
 
 Reproduce the dynamic run with `make lc-dco-dynamic-test`. Machine-readable
 samples and summary metrics are in `lc_dco_dynamic.json`.
