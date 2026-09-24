@@ -1,41 +1,5 @@
 
-11. Printing statistics.
-
-=== cgm_packet_rx ===
-
-        +----------Local Count, excluding submodules.
-        |
-      167 wires
-     1666 wire bits
-       33 public wires
-      225 public wire bits
-       16 ports
-      127 port bits
-      153 cells
-        5   $add
-        7   $and
-       21   $eq
-        1   $ge
-        3   $logic_and
-        2   $logic_not
-        3   $lt
-       14   $mux
-       13   $ne
-        6   $neg
-       10   $not
-        7   $or
-        1   $pmux
-       10   $reduce_and
-        3   $reduce_bool
-        8   $reduce_or
-        1   $sdff
-       12   $sdffe
-       12   $shift
-        6   $shiftx
-        8   $sub
-        2 submodules
-        1   ble_crc24
-        1   ble_whitener
+12. Printing statistics.
 
 === cgm_packet_loop ===
 
@@ -122,6 +86,42 @@
         2   $sdff
         1   $sdffe
        13   $shiftx
+        8   $sub
+        2 submodules
+        1   ble_crc24
+        1   ble_whitener
+
+=== cgm_packet_rx ===
+
+        +----------Local Count, excluding submodules.
+        |
+      167 wires
+     1666 wire bits
+       33 public wires
+      225 public wire bits
+       16 ports
+      127 port bits
+      153 cells
+        5   $add
+        7   $and
+       21   $eq
+        1   $ge
+        3   $logic_and
+        2   $logic_not
+        3   $lt
+       14   $mux
+       13   $ne
+        6   $neg
+       10   $not
+        7   $or
+        1   $pmux
+       10   $reduce_and
+        3   $reduce_bool
+        8   $reduce_or
+        1   $sdff
+       12   $sdffe
+       12   $shift
+        6   $shiftx
         8   $sub
         2 submodules
         1   ble_crc24

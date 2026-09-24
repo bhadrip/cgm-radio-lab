@@ -6,6 +6,14 @@ crc_init: 0x555555
 payload_bytes: 8
 advertising_channel: 37
 clock_hz: 16000000
+gfsk_modulator:
+  symbol_rate_hz: 1000000
+  sample_rate_hz: 16000000
+  samples_per_symbol: 16
+  bt: 0.5
+  modulation_index: 0.5
+  frequency_deviation_hz: 250000
+  filter_span_symbols: 4
 cgm_payload:
   sequence: uint16
   glucose_mg_dl: uint16
