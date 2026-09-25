@@ -18,15 +18,21 @@
   "bias_dac_voltage_v": 1.0653543307086615,
   "modulation_dac_bits": 6,
   "modulation_dac_lsb_v": 0.00025396825396825396,
+  "modulation_trim_codes": -1,
+  "modeled_modulation_code_step_hz": 23789.641254901886,
+  "drive_resistance_ohm": 1000.0,
+  "control_load_f": 1e-11,
+  "drive_time_constant_s": 1e-08,
+  "drive_bandwidth_hz": 15915494.309189538,
   "measured_samples": 48,
-  "mean_frequency_error_hz": 5245.5,
-  "maximum_absolute_frequency_error_hz": 11612.0,
+  "mean_frequency_error_hz": 2953.8333333333335,
+  "maximum_absolute_frequency_error_hz": 21010.0,
   "mean_frequency_error_limit_hz": 10000,
   "maximum_absolute_frequency_error_limit_hz": 40000,
   "passed": true,
-  "differential_vpp": 1.09589,
+  "differential_vpp": 1.0959,
   "supply_current_a": 0.00100002,
-  "power_w": 0.00180003,
+  "power_w": 0.00180004,
   "samples": [
     {
       "sample": 64,
@@ -35,8 +41,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 65,
@@ -45,8 +51,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 66,
@@ -55,8 +61,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 67,
@@ -65,8 +71,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 68,
@@ -75,8 +81,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 69,
@@ -85,8 +91,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 70,
@@ -95,8 +101,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 71,
@@ -105,8 +111,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 72,
@@ -115,8 +121,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 73,
@@ -125,8 +131,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 74,
@@ -135,8 +141,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 75,
@@ -145,8 +151,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 76,
@@ -155,8 +161,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9998.0,
       "ideal_control_voltage_v": 1.064621165403583,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 77,
@@ -165,8 +171,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9996.0,
       "ideal_control_voltage_v": 1.0646211868914794,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 78,
@@ -175,8 +181,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9992.0,
       "ideal_control_voltage_v": 1.0646212298672721,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 79,
@@ -185,8 +191,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9976.0,
       "ideal_control_voltage_v": 1.064621401770443,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 80,
@@ -195,8 +201,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9938.0,
       "ideal_control_voltage_v": 1.0646218100404736,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 81,
@@ -205,8 +211,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9848.0,
       "ideal_control_voltage_v": 1.0646227769958094,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 82,
@@ -215,8 +221,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9646.0,
       "ideal_control_voltage_v": 1.064624947273341,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 83,
@@ -225,8 +231,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 9218.0,
       "ideal_control_voltage_v": 1.0646295456831598,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 84,
@@ -235,8 +241,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 8360.0,
       "ideal_control_voltage_v": 1.0646387639906942,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 85,
@@ -245,8 +251,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 6734.0,
       "ideal_control_voltage_v": 1.0646562336504275,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 86,
@@ -255,8 +261,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": 3818.0,
       "ideal_control_voltage_v": 1.0646875630033068,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 87,
@@ -265,8 +271,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": -1126.0,
       "ideal_control_voltage_v": 1.0647406810830857,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 88,
@@ -275,8 +281,8 @@
       "measured_frequency_hz": 2401760000.0,
       "error_hz": -9060.0,
       "ideal_control_voltage_v": 1.0648259235679087,
-      "modulation_code": 29,
-      "control_voltage_v": 1.064719410073741
+      "modulation_code": 28,
+      "control_voltage_v": 1.0644654418197725
     },
     {
       "sample": 89,
@@ -285,108 +291,108 @@
       "measured_frequency_hz": 2401780000.0,
       "error_hz": -1102.0,
       "ideal_control_voltage_v": 1.0649553021918363,
-      "modulation_code": 30,
-      "control_voltage_v": 1.064973378327709
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 90,
       "time_s": 5.6249999999999995e-06,
       "requested_frequency_hz": 2401798388,
-      "measured_frequency_hz": 2401810000.0,
-      "error_hz": 11612.0,
+      "measured_frequency_hz": 2401800000.0,
+      "error_hz": 1612.0,
       "ideal_control_voltage_v": 1.0651410220799953,
-      "modulation_code": 31,
-      "control_voltage_v": 1.0652273465816773
+      "modulation_code": 30,
+      "control_voltage_v": 1.064973378327709
     },
     {
       "sample": 91,
       "time_s": 5.687499999999999e-06,
       "requested_frequency_hz": 2401821860,
-      "measured_frequency_hz": 2401830000.0,
-      "error_hz": 8140.0,
+      "measured_frequency_hz": 2401820000.0,
+      "error_hz": -1860.0,
       "ideal_control_voltage_v": 1.065393204031567,
-      "modulation_code": 32,
-      "control_voltage_v": 1.0654813148356457
+      "modulation_code": 31,
+      "control_voltage_v": 1.0652273465816773
     },
     {
       "sample": 92,
       "time_s": 5.75e-06,
       "requested_frequency_hz": 2401852008,
-      "measured_frequency_hz": 2401860000.0,
-      "error_hz": 7992.0,
+      "measured_frequency_hz": 2401850000.0,
+      "error_hz": -2008.0,
       "ideal_control_voltage_v": 1.0657171125811575,
-      "modulation_code": 33,
-      "control_voltage_v": 1.0657352830896138
+      "modulation_code": 32,
+      "control_voltage_v": 1.0654813148356457
     },
     {
       "sample": 93,
       "time_s": 5.8125e-06,
       "requested_frequency_hz": 2401888632,
-      "measured_frequency_hz": 2401880000.0,
-      "error_hz": -8632.0,
+      "measured_frequency_hz": 2401870000.0,
+      "error_hz": -18632.0,
       "ideal_control_voltage_v": 1.0661105989391313,
-      "modulation_code": 34,
-      "control_voltage_v": 1.065989251343582
+      "modulation_code": 33,
+      "control_voltage_v": 1.0657352830896138
     },
     {
       "sample": 94,
       "time_s": 5.875e-06,
       "requested_frequency_hz": 2401930716,
-      "measured_frequency_hz": 2401930000.0,
-      "error_hz": -716.0,
+      "measured_frequency_hz": 2401920000.0,
+      "error_hz": -10716.0,
       "ideal_control_voltage_v": 1.0665454897596525,
-      "modulation_code": 36,
-      "control_voltage_v": 1.0664971878515186
+      "modulation_code": 35,
+      "control_voltage_v": 1.0662432195975504
     },
     {
       "sample": 95,
       "time_s": 5.9374999999999995e-06,
       "requested_frequency_hz": 2401976454,
-      "measured_frequency_hz": 2401980000.0,
-      "error_hz": 3546.0,
+      "measured_frequency_hz": 2401970000.0,
+      "error_hz": -6454.0,
       "ideal_control_voltage_v": 1.0669632380735599,
-      "modulation_code": 38,
-      "control_voltage_v": 1.0670051243594552
+      "modulation_code": 37,
+      "control_voltage_v": 1.0667511561054868
     },
     {
       "sample": 96,
       "time_s": 6e-06,
       "requested_frequency_hz": 2402023460,
-      "measured_frequency_hz": 2402030000.0,
-      "error_hz": 6540.0,
+      "measured_frequency_hz": 2402020000.0,
+      "error_hz": -3460.0,
       "ideal_control_voltage_v": 1.067438008944728,
-      "modulation_code": 40,
-      "control_voltage_v": 1.0675130608673917
+      "modulation_code": 39,
+      "control_voltage_v": 1.0672590926134233
     },
     {
       "sample": 97,
       "time_s": 6.0625e-06,
       "requested_frequency_hz": 2402069124,
-      "measured_frequency_hz": 2402080000.0,
-      "error_hz": 10876.0,
+      "measured_frequency_hz": 2402070000.0,
+      "error_hz": 876.0,
       "ideal_control_voltage_v": 1.0679254986981452,
-      "modulation_code": 42,
-      "control_voltage_v": 1.068020997375328
+      "modulation_code": 41,
+      "control_voltage_v": 1.06776702912136
     },
     {
       "sample": 98,
       "time_s": 6.125e-06,
       "requested_frequency_hz": 2402111010,
-      "measured_frequency_hz": 2402100000.0,
-      "error_hz": -11010.0,
+      "measured_frequency_hz": 2402090000.0,
+      "error_hz": -21010.0,
       "ideal_control_voltage_v": 1.068372656104672,
-      "modulation_code": 43,
-      "control_voltage_v": 1.0682749656292965
+      "modulation_code": 42,
+      "control_voltage_v": 1.068020997375328
     },
     {
       "sample": 99,
       "time_s": 6.1875e-06,
       "requested_frequency_hz": 2402147208,
-      "measured_frequency_hz": 2402150000.0,
-      "error_hz": 2792.0,
+      "measured_frequency_hz": 2402140000.0,
+      "error_hz": -7208.0,
       "ideal_control_voltage_v": 1.0687590908036513,
-      "modulation_code": 45,
-      "control_voltage_v": 1.0687829021372328
+      "modulation_code": 44,
+      "control_voltage_v": 1.0685289338832646
     },
     {
       "sample": 100,
@@ -395,18 +401,18 @@
       "measured_frequency_hz": 2402170000.0,
       "error_hz": -6500.0,
       "ideal_control_voltage_v": 1.0690717999368218,
-      "modulation_code": 46,
-      "control_voltage_v": 1.0690368703912012
+      "modulation_code": 45,
+      "control_voltage_v": 1.0687829021372328
     },
     {
       "sample": 101,
       "time_s": 6.3125e-06,
       "requested_frequency_hz": 2402198346,
-      "measured_frequency_hz": 2402200000.0,
-      "error_hz": 1654.0,
+      "measured_frequency_hz": 2402190000.0,
+      "error_hz": -8346.0,
       "ideal_control_voltage_v": 1.0693050186901758,
-      "modulation_code": 47,
-      "control_voltage_v": 1.0692908386451694
+      "modulation_code": 46,
+      "control_voltage_v": 1.0690368703912012
     },
     {
       "sample": 102,
@@ -415,8 +421,8 @@
       "measured_frequency_hz": 2402220000.0,
       "error_hz": 7284.0,
       "ideal_control_voltage_v": 1.0694584267962681,
-      "modulation_code": 48,
-      "control_voltage_v": 1.0695448068991378
+      "modulation_code": 47,
+      "control_voltage_v": 1.0692908386451694
     },
     {
       "sample": 103,
@@ -425,8 +431,8 @@
       "measured_frequency_hz": 2402220000.0,
       "error_hz": 186.0,
       "ideal_control_voltage_v": 1.0695342020737244,
-      "modulation_code": 48,
-      "control_voltage_v": 1.0695448068991378
+      "modulation_code": 47,
+      "control_voltage_v": 1.0692908386451694
     },
     {
       "sample": 104,
@@ -435,8 +441,8 @@
       "measured_frequency_hz": 2402220000.0,
       "error_hz": 186.0,
       "ideal_control_voltage_v": 1.0695342020737244,
-      "modulation_code": 48,
-      "control_voltage_v": 1.0695448068991378
+      "modulation_code": 47,
+      "control_voltage_v": 1.0692908386451694
     },
     {
       "sample": 105,
@@ -445,8 +451,8 @@
       "measured_frequency_hz": 2402220000.0,
       "error_hz": 7284.0,
       "ideal_control_voltage_v": 1.0694584267962681,
-      "modulation_code": 48,
-      "control_voltage_v": 1.0695448068991378
+      "modulation_code": 47,
+      "control_voltage_v": 1.0692908386451694
     },
     {
       "sample": 106,
@@ -455,8 +461,8 @@
       "measured_frequency_hz": 2402200000.0,
       "error_hz": 1654.0,
       "ideal_control_voltage_v": 1.0693050186901758,
-      "modulation_code": 47,
-      "control_voltage_v": 1.0692908386451694
+      "modulation_code": 46,
+      "control_voltage_v": 1.0690368703912012
     },
     {
       "sample": 107,
@@ -465,8 +471,8 @@
       "measured_frequency_hz": 2402170000.0,
       "error_hz": -6500.0,
       "ideal_control_voltage_v": 1.0690717999368218,
-      "modulation_code": 46,
-      "control_voltage_v": 1.0690368703912012
+      "modulation_code": 45,
+      "control_voltage_v": 1.0687829021372328
     },
     {
       "sample": 108,
@@ -475,8 +481,8 @@
       "measured_frequency_hz": 2402150000.0,
       "error_hz": 2790.0,
       "ideal_control_voltage_v": 1.0687591121548143,
-      "modulation_code": 45,
-      "control_voltage_v": 1.0687829021372328
+      "modulation_code": 44,
+      "control_voltage_v": 1.0685289338832646
     },
     {
       "sample": 109,
@@ -485,8 +491,8 @@
       "measured_frequency_hz": 2402100000.0,
       "error_hz": -11014.0,
       "ideal_control_voltage_v": 1.068372698806998,
-      "modulation_code": 43,
-      "control_voltage_v": 1.0682749656292965
+      "modulation_code": 42,
+      "control_voltage_v": 1.068020997375328
     },
     {
       "sample": 110,
@@ -495,8 +501,8 @@
       "measured_frequency_hz": 2402080000.0,
       "error_hz": 10868.0,
       "ideal_control_voltage_v": 1.0679255841027973,
-      "modulation_code": 42,
-      "control_voltage_v": 1.068020997375328
+      "modulation_code": 41,
+      "control_voltage_v": 1.06776702912136
     },
     {
       "sample": 111,
@@ -505,8 +511,8 @@
       "measured_frequency_hz": 2402030000.0,
       "error_hz": 6516.0,
       "ideal_control_voltage_v": 1.067438265158684,
-      "modulation_code": 40,
-      "control_voltage_v": 1.0675130608673917
+      "modulation_code": 39,
+      "control_voltage_v": 1.0672590926134233
     }
   ]
 }

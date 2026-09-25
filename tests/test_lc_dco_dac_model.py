@@ -55,6 +55,19 @@ class LcDcoDacModelTest(unittest.TestCase):
         self.assertEqual(report["selected_bias_bits"], 7)
         self.assertEqual(report["selected_modulation_bits"], 6)
 
+    def test_loaded_driver_boundary_is_measured(self):
+        report = json.loads(
+            (ROOT / "reports" / "lc_dco_drive_settling.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["recommended_trim_codes"], -1)
+        by_pair = {
+            (summary["drive_resistance_ohm"], summary["control_load_f"]): summary
+            for summary in report["summaries"]
+        }
+        self.assertTrue(by_pair[(2_500, 10e-12)]["passed"])
+        self.assertFalse(by_pair[(5_000, 10e-12)]["passed"])
+
 
 if __name__ == "__main__":
     unittest.main()

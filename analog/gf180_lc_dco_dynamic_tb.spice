@@ -13,7 +13,9 @@
 .temp 25
 
 VDD vdd 0 {VDD_VALUE}
-VCTRL vctrl 0 PWL(@@CONTROL_PWL@@)
+VCTRL vdrive 0 PWL(@@CONTROL_PWL@@)
+RDRIVE vdrive vctrl @@DRIVE_RESISTANCE_OHM@@
+CLOAD vctrl 0 @@CONTROL_LOAD_F@@
 
 L1 vdd lp {TANK_L}
 R1 lp outp {TANK_R}

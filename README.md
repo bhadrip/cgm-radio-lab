@@ -56,6 +56,8 @@ The [fine-control DAC analysis](reports/lc-dco-dac-resolution.md) selects the
 minimum full-scale resolution across all packet samples and sampled corners.
 The [segmented DAC architecture](reports/lc-dco-segmented-dac.md) then reduces
 the high-speed switching path from 12 bits to 6 bits.
+The [control-drive sweep](reports/lc-dco-drive-settling.md) adds explicit output
+resistance and RF bypass and derives a 1 kOhm/10 pF implementation target.
 
 ## Reproducible EDA environment
 
@@ -85,8 +87,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/lc_dco_sweep.json`, `reports/lc_dco_sweep.csv`,
 `reports/lc_dco_local_calibration.json`, `reports/lc_dco_modulation.json`,
 `reports/lc_dco_dac_resolution.json`, `reports/lc_dco_dynamic.json`,
-`reports/lc_dco_segmented_dac.json`, `reports/yosys-stat.txt`, and the GFSK/DCO
-synthesis reports.
+`reports/lc_dco_segmented_dac.json`, `reports/lc_dco_drive_settling.json`,
+`reports/yosys-stat.txt`, and the GFSK/DCO synthesis reports.
 
 ## Individual targets
 
@@ -100,6 +102,7 @@ make dco-bank-sizing
 make dco-modulation
 make dco-dac-resolution
 make dco-segmented-dac
+make lc-dco-drive-settling
 make experiment
 make yosys-stat
 make gfsk-yosys-stat
