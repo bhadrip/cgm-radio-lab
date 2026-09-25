@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "purpose": "transistor complementary-driver gate for the 6+1 fast DAC",
+  "frequency_error_limit_hz": 50000,
+  "selected_topology": "three_stage_output_two_stage_dummy",
+  "selected_drive_scale": 0.5,
+  "passed": true,
+  "variants": [
+    {
+      "topology": "one_stage_output_two_stage_dummy",
+      "drive_scale": 0.5,
+      "passed_typical": false,
+      "passed_pvt": null,
+      "worst_combined_frequency_error_hz": 50538.38808702983,
+      "worst_peak_glitch_v": 4.0000000000040004e-05,
+      "worst_excess_transition_energy_j": 9.381599999999958e-15,
+      "corners": [
+        {
+          "topology": "one_stage_output_two_stage_dummy",
+          "drive_scale": 0.5,
+          "corner": "typical",
+          "temperature_c": 25,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 4.0000000000040004e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 4.0000000000040004e-05,
+          "glitch_frequency_error_hz": 5231.240000005142,
+          "combined_frequency_error_hz": 50538.38808702983,
+          "excess_transition_energy_j": 9.381599999999958e-15,
+          "passed": false
+        }
+      ]
+    },
+    {
+      "topology": "one_stage_output_two_stage_dummy",
+      "drive_scale": 1.0,
+      "passed_typical": true,
+      "passed_pvt": null,
+      "worst_combined_frequency_error_hz": 49230.578087021284,
+      "worst_peak_glitch_v": 2.999999999997449e-05,
+      "worst_excess_transition_energy_j": 1.587599999999999e-14,
+      "corners": [
+        {
+          "topology": "one_stage_output_two_stage_dummy",
+          "drive_scale": 1.0,
+          "corner": "typical",
+          "temperature_c": 25,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 2.999999999997449e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965,
+          "combined_frequency_error_hz": 49230.578087021284,
+          "excess_transition_energy_j": 1.587599999999999e-14,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "topology": "one_stage_output_two_stage_dummy",
+      "drive_scale": 2.0,
+      "passed_typical": true,
+      "passed_pvt": null,
+      "worst_combined_frequency_error_hz": 49230.578087021284,
+      "worst_peak_glitch_v": 2.999999999997449e-05,
+      "worst_excess_transition_energy_j": 2.869379999999998e-14,
+      "corners": [
+        {
+          "topology": "one_stage_output_two_stage_dummy",
+          "drive_scale": 2.0,
+          "corner": "typical",
+          "temperature_c": 25,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 2.999999999997449e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 2.999999999997449e-05,
+          "glitch_frequency_error_hz": 3923.4299999965965,
+          "combined_frequency_error_hz": 49230.578087021284,
+          "excess_transition_energy_j": 2.869379999999998e-14,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "topology": "three_stage_output_two_stage_dummy",
+      "drive_scale": 0.5,
+      "passed_typical": true,
+      "passed_pvt": true,
+      "worst_combined_frequency_error_hz": 47922.76808704178,
+      "worst_peak_glitch_v": 2.0000000000131024e-05,
+      "worst_excess_transition_energy_j": 1.461599999999997e-14,
+      "corners": [
+        {
+          "topology": "three_stage_output_two_stage_dummy",
+          "drive_scale": 0.5,
+          "corner": "typical",
+          "temperature_c": 25,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 1.999999999990898e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514,
+          "combined_frequency_error_hz": 47922.76808701274,
+          "excess_transition_energy_j": 1.4241600000000003e-14,
+          "passed": true
+        },
+        {
+          "topology": "three_stage_output_two_stage_dummy",
+          "drive_scale": 0.5,
+          "corner": "ff",
+          "temperature_c": -40,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 2.0000000000131024e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 2.0000000000131024e-05,
+          "glitch_frequency_error_hz": 2615.6200000170907,
+          "combined_frequency_error_hz": 47922.76808704178,
+          "excess_transition_energy_j": 1.4112000000000026e-14,
+          "passed": true
+        },
+        {
+          "topology": "three_stage_output_two_stage_dummy",
+          "drive_scale": 0.5,
+          "corner": "ss",
+          "temperature_c": 125,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 1.999999999990898e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514,
+          "combined_frequency_error_hz": 47922.76808701274,
+          "excess_transition_energy_j": 1.461599999999997e-14,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "topology": "three_stage_output_two_stage_dummy",
+      "drive_scale": 1.0,
+      "passed_typical": true,
+      "passed_pvt": null,
+      "worst_combined_frequency_error_hz": 47922.76808701274,
+      "worst_peak_glitch_v": 1.999999999990898e-05,
+      "worst_excess_transition_energy_j": 2.5587e-14,
+      "corners": [
+        {
+          "topology": "three_stage_output_two_stage_dummy",
+          "drive_scale": 1.0,
+          "corner": "typical",
+          "temperature_c": 25,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 1.999999999990898e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514,
+          "combined_frequency_error_hz": 47922.76808701274,
+          "excess_transition_energy_j": 2.5587e-14,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "topology": "three_stage_output_two_stage_dummy",
+      "drive_scale": 2.0,
+      "passed_typical": true,
+      "passed_pvt": null,
+      "worst_combined_frequency_error_hz": 47922.76808701274,
+      "worst_peak_glitch_v": 1.999999999990898e-05,
+      "worst_excess_transition_energy_j": 4.81158e-14,
+      "corners": [
+        {
+          "topology": "three_stage_output_two_stage_dummy",
+          "drive_scale": 2.0,
+          "corner": "typical",
+          "temperature_c": 25,
+          "logic_edge_s": 1e-10,
+          "input_element_skew_s": 7.5e-10,
+          "undershoot_v": 1.999999999990898e-05,
+          "overshoot_v": 0.0,
+          "peak_glitch_v": 1.999999999990898e-05,
+          "glitch_frequency_error_hz": 2615.6199999880514,
+          "combined_frequency_error_hz": 47922.76808701274,
+          "excess_transition_energy_j": 4.81158e-14,
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

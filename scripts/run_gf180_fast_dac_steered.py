@@ -33,7 +33,9 @@ CHARGE_COMPENSATION_WIDTH_RATIO = 0.5
 BINARY_BITS = 1
 MEASURE = re.compile(
     r"^(code_\d+_(?:voltage_v|supply_current_a)|initial_voltage_v|"
-    r"final_voltage_v|minimum_transition_voltage_v|glitch_below_endpoints_v)"
+    r"final_voltage_v|minimum_transition_voltage_v|maximum_transition_voltage_v|"
+    r"initial_supply_current_a|final_supply_current_a|"
+    r"transition_supply_current_a|glitch_below_endpoints_v)"
     r"\s*=\s*([-+0-9.eE]+)",
     re.MULTILINE,
 )

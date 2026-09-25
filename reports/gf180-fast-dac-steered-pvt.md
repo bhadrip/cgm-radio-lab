@@ -22,7 +22,8 @@ The ideal 125.984 nA reference current is held constant across this sweep, so
 this is a device/switch PVT result rather than a reference-generator PVT result.
 Endpoint gain error is removed when calculating INL and remains a calibration
 requirement. The model still assumes ideal complementary gate timing and matched
-devices.
+devices; the [gate-driver follow-on](gf180-fast-dac-gate-driver.md) replaces the
+ideal complementary edges for the two cells involved in the carry transition.
 
 Foundry-qualified mismatch Monte Carlo, reference variation and noise, decoder
 power, post-route skew, extracted parasitics, and layout area remain open. The
