@@ -39,9 +39,13 @@ after the prior quantization, INL, noise, and calibration bound.
 This is a topology and timing requirement, not transistor-level glitch proof.
 It does not model decoder hazards, charge injection, clock feedthrough, element
 mismatch, reference movement, extracted parasitics, power, or area. The next
-circuit slice must build the DAC switches and decoder, measure their transient
-waveform, and include their energy in the complete-report budget required by the
+circuit slice must build the DAC switches, measure their transient waveform,
+and include their energy in the complete-report budget required by the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
+
+The follow-on [registered decoder](lc-dco-dac-decoder.md) removes combinational
+decode hazards from the analog boundary. Physical output skew and the transistor
+DAC transient remain open.
 
 Reproduce with `make dco-dac-transition`. Machine-readable results are in
 `lc_dco_dac_transition.json`.
