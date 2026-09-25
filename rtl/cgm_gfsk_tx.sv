@@ -15,6 +15,9 @@ module cgm_gfsk_tx (
     input  logic [7:0]         status,
     input  logic [7:0]         battery_percent,
     output logic               busy,
+    output logic               symbol_valid,
+    output logic               symbol_bit,
+    output logic               symbol_last,
     output logic               frequency_valid,
     output logic signed [18:0] frequency_offset_hz,
     output logic               done
@@ -66,11 +69,20 @@ module cgm_gfsk_tx (
         if (reset) begin
             final_symbol_pending <= 1'b0;
             final_symbol_active <= 1'b0;
+            symbol_valid <= 1'b0;
+            symbol_bit <= 1'b0;
+            symbol_last <= 1'b0;
             done <= 1'b0;
         end else begin
             done <= 1'b0;
+            symbol_valid <= 1'b0;
             if (packet_valid && bit_ready && packet_last) begin
                 final_symbol_pending <= 1'b1;
+            end
+            if (packet_valid && bit_ready) begin
+                symbol_valid <= 1'b1;
+                symbol_bit <= packet_bit;
+                symbol_last <= packet_last;
             end
             if (final_symbol_pending && frequency_valid && frequency_first) begin
                 final_symbol_pending <= 1'b0;

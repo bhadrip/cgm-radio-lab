@@ -11,6 +11,8 @@ module cgm_chip_core (
     output logic [7:0] read_data,
     output logic       packet_out,
     output logic       packet_valid,
+    output logic       frequency_valid,
+    output logic signed [18:0] frequency_offset_hz,
     output logic       busy,
     output logic       interrupt,
     output logic       bist_pass
@@ -24,7 +26,7 @@ module cgm_chip_core (
     logic [7:0] battery_percent;
     logic start_pulse;
 
-    logic tx_last;
+    logic gfsk_done;
     logic rx_done;
     logic rx_crc_ok;
     logic rx_format_ok;
@@ -34,8 +36,9 @@ module cgm_chip_core (
     logic [15:0] rx_trend_q8_8;
     logic [7:0] rx_status;
     logic [7:0] rx_battery_percent;
+    logic bist_result;
 
-    cgm_packet_loop packet_engine (
+    cgm_gfsk_tx transmitter (
         .clk(clk),
         .reset(reset),
         .start(start_pulse),
@@ -46,20 +49,32 @@ module cgm_chip_core (
         .trend_q8_8(trend_q8_8),
         .status(status),
         .battery_percent(battery_percent),
-        .inject_error(1'b0),
-        .tx_busy(busy),
-        .tx_valid(packet_valid),
-        .tx_bit(packet_out),
-        .tx_last(tx_last),
-        .rx_done(rx_done),
-        .rx_crc_ok(rx_crc_ok),
-        .rx_format_ok(rx_format_ok),
-        .rx_advertiser_address(rx_advertiser_address),
-        .rx_sample_sequence(rx_sample_sequence),
-        .rx_glucose_mg_dl(rx_glucose_mg_dl),
-        .rx_trend_q8_8(rx_trend_q8_8),
-        .rx_status(rx_status),
-        .rx_battery_percent(rx_battery_percent)
+        .busy(busy),
+        .symbol_valid(packet_valid),
+        .symbol_bit(packet_out),
+        .symbol_last(),
+        .frequency_valid(frequency_valid),
+        .frequency_offset_hz(frequency_offset_hz),
+        .done(gfsk_done)
+    );
+
+    cgm_packet_rx receiver (
+        .clk(clk),
+        .reset(reset),
+        .packet_start(start_pulse),
+        .channel(channel),
+        .rx_valid(packet_valid),
+        .rx_bit(packet_out),
+        .active(),
+        .done(rx_done),
+        .crc_ok(rx_crc_ok),
+        .format_ok(rx_format_ok),
+        .advertiser_address(rx_advertiser_address),
+        .sample_sequence(rx_sample_sequence),
+        .glucose_mg_dl(rx_glucose_mg_dl),
+        .trend_q8_8(rx_trend_q8_8),
+        .status(rx_status),
+        .battery_percent(rx_battery_percent)
     );
 
     // Reads are sampled and returned on the following clock edge. Keeping the
@@ -103,6 +118,7 @@ module cgm_chip_core (
             start_pulse <= 1'b0;
             interrupt <= 1'b0;
             bist_pass <= 1'b0;
+            bist_result <= 1'b0;
         end else begin
             start_pulse <= 1'b0;
 
@@ -113,6 +129,7 @@ module cgm_chip_core (
                             start_pulse <= 1'b1;
                             interrupt <= 1'b0;
                             bist_pass <= 1'b0;
+                            bist_result <= 1'b0;
                         end
                         if (write_data[1]) begin
                             interrupt <= 1'b0;
@@ -137,15 +154,19 @@ module cgm_chip_core (
             end
 
             if (rx_done) begin
+                bist_result <= rx_crc_ok
+                            && rx_format_ok
+                            && (rx_advertiser_address == advertiser_address)
+                            && (rx_sample_sequence == sample_sequence)
+                            && (rx_glucose_mg_dl == glucose_mg_dl)
+                            && (rx_trend_q8_8 == trend_q8_8)
+                            && (rx_status == status)
+                            && (rx_battery_percent == battery_percent);
+            end
+
+            if (gfsk_done) begin
                 interrupt <= 1'b1;
-                bist_pass <= rx_crc_ok
-                          && rx_format_ok
-                          && (rx_advertiser_address == advertiser_address)
-                          && (rx_sample_sequence == sample_sequence)
-                          && (rx_glucose_mg_dl == glucose_mg_dl)
-                          && (rx_trend_q8_8 == trend_q8_8)
-                          && (rx_status == status)
-                          && (rx_battery_percent == battery_percent);
+                bist_pass <= bist_result;
             end
         end
     end

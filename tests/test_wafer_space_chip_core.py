@@ -2,6 +2,9 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, Timer
 
+from model.ble import CgmMeasurement, build_cgm_air_packet_bits
+from model.gfsk import frequency_words
+
 
 NUM_BIDIR_PADS = 38
 
@@ -34,7 +37,7 @@ async def read_register(dut, address):
 
 @cocotb.test()
 async def smallest_slot_pin_map_runs_packet_bist(dut):
-    cocotb.start_soon(Clock(dut.clk, 40, unit="ns").start())
+    cocotb.start_soon(Clock(dut.clk, 62.5, unit="ns").start())
     await reset_dut(dut)
 
     input_mask = (1 << 12) - 1
@@ -54,7 +57,7 @@ async def smallest_slot_pin_map_runs_packet_bist(dut):
             packet_bits.append((pins >> 12) & 1)
         await RisingEdge(dut.clk)
 
-    for _ in range(4):
+    for _ in range(32):
         await RisingEdge(dut.clk)
         if (int(dut.bidir_out.value) >> 15) & 1:
             break
@@ -64,3 +67,37 @@ async def smallest_slot_pin_map_runs_packet_bist(dut):
     assert (pins >> 15) & 1
     assert (pins >> 16) & 1
     assert await read_register(dut, 0x0) == 0b00000110
+
+
+@cocotb.test()
+async def gfsk_observation_mode_exposes_complete_frequency_burst(dut):
+    cocotb.start_soon(Clock(dut.clk, 62.5, unit="ns").start())
+    await reset_dut(dut)
+
+    measurement = CgmMeasurement(0, 100, 0, 0, 100)
+    bits = build_cgm_air_packet_bits(measurement, 0xC0DEC0FFEE01, 37)
+    expected = frequency_words(bits)
+
+    dut.input_in.value = 0b0101
+    dut.bidir_in.value = 0x10
+    await RisingEdge(dut.clk)
+    dut.input_in.value = 0b0100
+
+    observed = []
+    observed_bits = []
+    cycles = 0
+    while not ((int(dut.bidir_out.value) >> 33) & 1):
+        await RisingEdge(dut.clk)
+        await Timer(1, unit="ns")
+        cycles += 1
+        pins = int(dut.bidir_out.value)
+        if (pins >> 31) & 1:
+            raw = (pins >> 12) & ((1 << 19) - 1)
+            observed.append(raw - (1 << 19) if raw & (1 << 18) else raw)
+        if (pins >> 36) & 1:
+            observed_bits.append((pins >> 35) & 1)
+        assert cycles <= len(expected) + 32
+
+    assert observed == expected
+    assert observed_bits == bits
+    assert (int(dut.bidir_out.value) >> 34) & 1

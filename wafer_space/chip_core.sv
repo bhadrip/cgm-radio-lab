@@ -31,6 +31,8 @@ module chip_core #(
     wire [7:0] read_data;
     wire packet_out;
     wire packet_valid;
+    wire frequency_valid;
+    wire signed [18:0] frequency_offset_hz;
     wire busy;
     wire interrupt;
     wire bist_pass;
@@ -46,7 +48,7 @@ module chip_core #(
     assign bidir_pu = '0;
     assign bidir_pd = '0;
 
-    assign bidir_out = {
+    wire [NUM_BIDIR_PADS-1:0] legacy_bidir_out = {
         {(NUM_BIDIR_PADS-25){1'b0}},
         read_data,
         bist_pass,
@@ -56,6 +58,18 @@ module chip_core #(
         packet_out,
         12'b0
     };
+    wire [NUM_BIDIR_PADS-1:0] gfsk_bidir_out = {
+        1'b0,
+        packet_valid,
+        packet_out,
+        bist_pass,
+        interrupt,
+        busy,
+        frequency_valid,
+        frequency_offset_hz,
+        12'b0
+    };
+    assign bidir_out = input_in[2] ? gfsk_bidir_out : legacy_bidir_out;
 
     cgm_chip_core core (
         .clk(clk),
@@ -67,12 +81,14 @@ module chip_core #(
         .read_data(read_data),
         .packet_out(packet_out),
         .packet_valid(packet_valid),
+        .frequency_valid(frequency_valid),
+        .frequency_offset_hz(frequency_offset_hz),
         .busy(busy),
         .interrupt(interrupt),
         .bist_pass(bist_pass)
     );
 
-    wire _unused = &{input_in[NUM_INPUT_PADS-1:2],
+    wire _unused = &{input_in[NUM_INPUT_PADS-1:3],
                      bidir_in[NUM_BIDIR_PADS-1:12], analog};
 endmodule
 

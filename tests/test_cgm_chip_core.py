@@ -3,11 +3,17 @@ from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, Timer
 
 from model.ble import CgmMeasurement, build_cgm_air_packet_bits
+from model.gfsk import frequency_words
 
 
 ADDRESS = 0xD1A2B3C4D5E6
 MEASUREMENT = CgmMeasurement(0xA725, 142, -192, 0x09, 76)
 CHANNEL = 38
+
+
+def signed_word(value, width):
+    raw = int(value)
+    return raw - (1 << width) if raw & (1 << (width - 1)) else raw
 
 
 async def reset_dut(dut):
@@ -41,7 +47,7 @@ async def read_register(dut, address):
 
 @cocotb.test()
 async def register_programmed_packet_and_bist(dut):
-    cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
+    cocotb.start_soon(Clock(dut.clk, 62.5, unit="ns").start())
     await reset_dut(dut)
 
     await write_register(dut, 0x1, CHANNEL)
@@ -65,18 +71,17 @@ async def register_programmed_packet_and_bist(dut):
     await write_register(dut, 0x0, 0x01)
     expected = build_cgm_air_packet_bits(MEASUREMENT, ADDRESS, CHANNEL)
     observed = []
-    while len(observed) < len(expected):
+    observed_frequency = []
+    while not int(dut.interrupt.value):
+        await RisingEdge(dut.clk)
         await Timer(1, unit="ns")
         if int(dut.packet_valid.value):
             observed.append(int(dut.packet_out.value))
-        await RisingEdge(dut.clk)
-
-    for _ in range(4):
-        await RisingEdge(dut.clk)
-        if int(dut.interrupt.value):
-            break
+        if int(dut.frequency_valid.value):
+            observed_frequency.append(signed_word(dut.frequency_offset_hz.value, 19))
 
     assert observed == expected
+    assert observed_frequency == frequency_words(expected)
     assert int(dut.interrupt.value) == 1
     assert int(dut.bist_pass.value) == 1
     assert await read_register(dut, 0x0) == 0b00000110

@@ -71,9 +71,9 @@ testing. Production work requires an assigned identifier and a reviewed BLE/CGM
 profile.
 
 `rtl/cgm_chip_core.sv` adds a 16-register pad-facing control bus, direct packet
-observation, an interrupt, and internal TX-to-RX self-test. It is intentionally
-small and synchronous so it can be wrapped by the GF180 wafer.space padframe.
-See [the prototype register map](docs/register-map.md).
+and modulation observation, an interrupt, and internal TX-to-RX self-test. It
+is synchronous so it can be wrapped by the GF180 wafer.space padframe. See
+[the prototype register map](docs/register-map.md).
 
 `wafer_space/chip_core.sv` maps that interface onto the smallest `0p5x0p5`
 slot in the official Wafer.Space GF180MCU project template. See
