@@ -5,7 +5,7 @@ GF180_TEMPLATE := third_party/gf180mcu-project-template
 GF180_PDK_ROOT ?= /foss/pdks
 GF180_CONFIGS := wafer_space/librelane-cgm.yaml
 
-.PHONY: check python-test rtl-test experiment yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route clean
+.PHONY: check python-test rtl-test experiment yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
 
 check: python-test rtl-test experiment yosys-stat wafer-space-yosys
 
@@ -77,6 +77,24 @@ container-gf180-route:
 		-w /foss/designs/cgm-radio-lab \
 		$(EDA_IMAGE) \
 		-lc 'make gf180-route'
+
+gf180-signoff:
+	$(MAKE) -C $(GF180_TEMPLATE) SLOT=0p5x0p5 defines
+	librelane $(GF180_CONFIGS) \
+		--manual-pdk --pdk-root $(GF180_PDK_ROOT) --pdk gf180mcuD \
+		--scl gf180mcu_fd_sc_mcu7t5v0 --pad gf180mcu_fd_io \
+		--run-tag cgm-signoff --overwrite \
+		--condensed --hide-progress-bar
+
+container-gf180-signoff:
+	docker run --rm \
+		--user $$(id -u):$$(id -g) \
+		--entrypoint /bin/bash \
+		-e HOME=/tmp \
+		-v '$(ROOT):/foss/designs/cgm-radio-lab' \
+		-w /foss/designs/cgm-radio-lab \
+		$(EDA_IMAGE) \
+		-lc 'make gf180-signoff'
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean

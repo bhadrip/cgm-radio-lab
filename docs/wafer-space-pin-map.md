@@ -38,3 +38,9 @@ Run the SRAM-free pad-connected PDN, placement, clock tree, and detailed route:
 ```bash
 make container-gf180-route
 ```
+
+Run stream-out, extracted timing, DRC, density, antenna, and LVS:
+
+```bash
+make container-gf180-signoff
+```
