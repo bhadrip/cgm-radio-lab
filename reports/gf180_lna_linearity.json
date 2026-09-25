@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "purpose": "selected GF180 LNA two-tone linearity screen",
+  "configuration": {
+    "nmos_width_um": 200.0,
+    "bias_current_a": 0.0014,
+    "load_resistance_ohm": 728.5714285714286
+  },
+  "tone_frequencies_hz": [
+    2430000000.0,
+    2450000000.0
+  ],
+  "im3_frequencies_hz": [
+    2410000000.0,
+    2470000000.0
+  ],
+  "input_powers_per_tone_dbm": [
+    -30.0,
+    -25.0,
+    -20.0,
+    -15.0,
+    -10.0,
+    -5.0,
+    0.0
+  ],
+  "minimum_uncompressed_iip3_estimate_dbm": -0.06966344877641717,
+  "summaries": [
+    {
+      "corner": "typical",
+      "temperature_c": 25,
+      "low_level_intrinsic_voltage_gain_db": 13.866395159832127,
+      "two_tone_1db_compression_bracket_per_tone_dbm": [
+        -20.0,
+        -15.0
+      ],
+      "minimum_uncompressed_iip3_estimate_dbm": 0.008725197950127495,
+      "points": [
+        {
+          "input_power_per_tone_dbm": -30.0,
+          "source_peak_v": 0.02,
+          "source_node_fundamental_peak_v": 0.010973213380948445,
+          "output_fundamental_peak_v": 0.05415687325172111,
+          "output_im3_peak_v": 2.8194325584684445e-05,
+          "intrinsic_voltage_gain_db": 13.866395159832127,
+          "fundamental_to_im3_db": 65.66983743566566,
+          "iip3_estimate_dbm": 2.834918717832828
+        },
+        {
+          "input_power_per_tone_dbm": -25.0,
+          "source_peak_v": 0.03556558820077846,
+          "source_node_fundamental_peak_v": 0.019602553636472824,
+          "output_fundamental_peak_v": 0.09572528702710234,
+          "output_im3_peak_v": 0.0002473089309727511,
+          "intrinsic_voltage_gain_db": 13.774280527690452,
+          "fundamental_to_im3_db": 51.7557375415072,
+          "iip3_estimate_dbm": 0.8778687707536008
+        },
+        {
+          "input_power_per_tone_dbm": -20.0,
+          "source_peak_v": 0.06324555320336758,
+          "source_node_fundamental_peak_v": 0.035394228632656746,
+          "output_fundamental_peak_v": 0.16682677371968327,
+          "output_im3_peak_v": 0.0016649194666582758,
+          "intrinsic_voltage_gain_db": 13.466665981599322,
+          "fundamental_to_im3_db": 40.017450395900255,
+          "iip3_estimate_dbm": 0.008725197950127495
+        },
+        {
+          "input_power_per_tone_dbm": -15.0,
+          "source_peak_v": 0.11246826503806982,
+          "source_node_fundamental_peak_v": 0.06644705309374575,
+          "output_fundamental_peak_v": 0.27341633314827685,
+          "output_im3_peak_v": 0.011647646295665054,
+          "intrinsic_voltage_gain_db": 12.286974593965475,
+          "fundamental_to_im3_db": 27.41172561278365,
+          "iip3_estimate_dbm": -1.2941371936081758
+        },
+        {
+          "input_power_per_tone_dbm": -10.0,
+          "source_peak_v": 0.2,
+          "source_node_fundamental_peak_v": 0.13504873842206355,
+          "output_fundamental_peak_v": 0.3713257441038614,
+          "output_im3_peak_v": 0.04978545716623465,
+          "intrinsic_voltage_gain_db": 8.785290569919102,
+          "fundamental_to_im3_db": 17.45305121043319,
+          "iip3_estimate_dbm": -1.2734743947834044
+        },
+        {
+          "input_power_per_tone_dbm": -5.0,
+          "source_peak_v": 0.35565588200778453,
+          "source_node_fundamental_peak_v": 0.27428002280737035,
+          "output_fundamental_peak_v": 0.4336672436561842,
+          "output_im3_peak_v": 0.08749607672945593,
+          "intrinsic_voltage_gain_db": 3.9792488551974503,
+          "fundamental_to_im3_db": 13.903360794126094,
+          "iip3_estimate_dbm": 1.951680397063047
+        },
+        {
+          "input_power_per_tone_dbm": 0.0,
+          "source_peak_v": 0.6324555320336759,
+          "source_node_fundamental_peak_v": 0.5316713872924448,
+          "output_fundamental_peak_v": 0.48508743351705325,
+          "output_im3_peak_v": 0.09941799266290732,
+          "intrinsic_voltage_gain_db": -0.7964652922286191,
+          "fundamental_to_im3_db": 13.76710068017301,
+          "iip3_estimate_dbm": 6.883550340086505
+        }
+      ]
+    },
+    {
+      "corner": "ff",
+      "temperature_c": -40,
+      "low_level_intrinsic_voltage_gain_db": 15.652363409479815,
+      "two_tone_1db_compression_bracket_per_tone_dbm": [
+        -20.0,
+        -15.0
+      ],
+      "minimum_uncompressed_iip3_estimate_dbm": -0.06966344877641717,
+      "points": [
+        {
+          "input_power_per_tone_dbm": -30.0,
+          "source_peak_v": 0.02,
+          "source_node_fundamental_peak_v": 0.010197834547597366,
+          "output_fundamental_peak_v": 0.06181959165750517,
+          "output_im3_peak_v": 4.37501251024662e-05,
+          "intrinsic_voltage_gain_db": 15.652363409479815,
+          "fundamental_to_im3_db": 63.00293665674738,
+          "iip3_estimate_dbm": 1.50146832837369
+        },
+        {
+          "input_power_per_tone_dbm": -25.0,
+          "source_peak_v": 0.03556558820077846,
+          "source_node_fundamental_peak_v": 0.018251124460185158,
+          "output_fundamental_peak_v": 0.10915164934505617,
+          "output_im3_peak_v": 0.00035074916629471446,
+          "intrinsic_voltage_gain_db": 15.534813516753667,
+          "fundamental_to_im3_db": 49.860673102447166,
+          "iip3_estimate_dbm": -0.06966344877641717
+        },
+        {
+          "input_power_per_tone_dbm": -20.0,
+          "source_peak_v": 0.06324555320336758,
+          "source_node_fundamental_peak_v": 0.03316995506493558,
+          "output_fundamental_peak_v": 0.18934144536204514,
+          "output_im3_peak_v": 0.0023651284850188764,
+          "intrinsic_voltage_gain_db": 15.130016097030772,
+          "fundamental_to_im3_db": 38.06781898762924,
+          "iip3_estimate_dbm": -0.9660905061853811
+        },
+        {
+          "input_power_per_tone_dbm": -15.0,
+          "source_peak_v": 0.11246826503806982,
+          "source_node_fundamental_peak_v": 0.06378001879456417,
+          "output_fundamental_peak_v": 0.30255067991597473,
+          "output_im3_peak_v": 0.01705215874751864,
+          "intrinsic_voltage_gain_db": 13.522269807334368,
+          "fundamental_to_im3_db": 24.98037532361812,
+          "iip3_estimate_dbm": -2.5098123381909403
+        },
+        {
+          "input_power_per_tone_dbm": -10.0,
+          "source_peak_v": 0.2,
+          "source_node_fundamental_peak_v": 0.13368046067975223,
+          "output_fundamental_peak_v": 0.39353641862521654,
+          "output_im3_peak_v": 0.061037465115255374,
+          "intrinsic_voltage_gain_db": 9.378339909778461,
+          "fundamental_to_im3_db": 16.187768798611316,
+          "iip3_estimate_dbm": -1.906115600694342
+        },
+        {
+          "input_power_per_tone_dbm": -5.0,
+          "source_peak_v": 0.35565588200778453,
+          "source_node_fundamental_peak_v": 0.2740995235534972,
+          "output_fundamental_peak_v": 0.4522302619097856,
+          "output_im3_peak_v": 0.09672567053797768,
+          "intrinsic_voltage_gain_db": 4.349026800867993,
+          "fundamental_to_im3_db": 13.396357431784214,
+          "iip3_estimate_dbm": 1.698178715892107
+        },
+        {
+          "input_power_per_tone_dbm": 0.0,
+          "source_peak_v": 0.6324555320336759,
+          "source_node_fundamental_peak_v": 0.5325679191996019,
+          "output_fundamental_peak_v": 0.5041566261328204,
+          "output_im3_peak_v": 0.1066003750976769,
+          "intrinsic_voltage_gain_db": -0.47619044767915,
+          "fundamental_to_im3_db": 13.496134932796199,
+          "iip3_estimate_dbm": 6.7480674663980995
+        }
+      ]
+    },
+    {
+      "corner": "ss",
+      "temperature_c": 85,
+      "low_level_intrinsic_voltage_gain_db": 12.325220367047297,
+      "two_tone_1db_compression_bracket_per_tone_dbm": [
+        -20.0,
+        -15.0
+      ],
+      "minimum_uncompressed_iip3_estimate_dbm": 0.9576438070184032,
+      "points": [
+        {
+          "input_power_per_tone_dbm": -30.0,
+          "source_peak_v": 0.02,
+          "source_node_fundamental_peak_v": 0.011625594512142644,
+          "output_fundamental_peak_v": 0.0480480967690461,
+          "output_im3_peak_v": 2.082252489375807e-05,
+          "intrinsic_voltage_gain_db": 12.325220367047297,
+          "fundamental_to_im3_db": 67.26285599122649,
+          "iip3_estimate_dbm": 3.631427995613244
+        },
+        {
+          "input_power_per_tone_dbm": -25.0,
+          "source_peak_v": 0.03556558820077846,
+          "source_node_fundamental_peak_v": 0.020742911135962914,
+          "output_fundamental_peak_v": 0.08499828160904663,
+          "output_im3_peak_v": 0.00017747806038441216,
+          "intrinsic_voltage_gain_db": 12.250808779296127,
+          "fundamental_to_im3_db": 53.605309440019646,
+          "iip3_estimate_dbm": 1.8026547200098229
+        },
+        {
+          "input_power_per_tone_dbm": -20.0,
+          "source_peak_v": 0.06324555320336758,
+          "source_node_fundamental_peak_v": 0.037303752750404595,
+          "output_fundamental_peak_v": 0.14865500116192665,
+          "output_im3_peak_v": 0.0011923812657531532,
+          "intrinsic_voltage_gain_db": 12.00854001391532,
+          "fundamental_to_im3_db": 41.91528761403681,
+          "iip3_estimate_dbm": 0.9576438070184032
+        },
+        {
+          "input_power_per_tone_dbm": -15.0,
+          "source_peak_v": 0.11246826503806982,
+          "source_node_fundamental_peak_v": 0.06900870413549963,
+          "output_fundamental_peak_v": 0.247775608281415,
+          "output_im3_peak_v": 0.008283664885318766,
+          "intrinsic_voltage_gain_db": 11.103093576184225,
+          "fundamental_to_im3_db": 29.516720594901884,
+          "iip3_estimate_dbm": -0.2416397025490582
+        },
+        {
+          "input_power_per_tone_dbm": -10.0,
+          "source_peak_v": 0.2,
+          "source_node_fundamental_peak_v": 0.13675713489159955,
+          "output_fundamental_peak_v": 0.349644625941293,
+          "output_im3_peak_v": 0.040582559259181486,
+          "intrinsic_voltage_gain_db": 8.153537277849694,
+          "fundamental_to_im3_db": 18.70574852016646,
+          "iip3_estimate_dbm": -0.6471257399167705
+        },
+        {
+          "input_power_per_tone_dbm": -5.0,
+          "source_peak_v": 0.35565588200778453,
+          "source_node_fundamental_peak_v": 0.2749730680075162,
+          "output_fundamental_peak_v": 0.4161300838440373,
+          "output_im3_peak_v": 0.07924459070797507,
+          "intrinsic_voltage_gain_db": 3.598779092564999,
+          "fundamental_to_im3_db": 14.405189746060145,
+          "iip3_estimate_dbm": 2.2025948730300726
+        },
+        {
+          "input_power_per_tone_dbm": 0.0,
+          "source_peak_v": 0.6324555320336759,
+          "source_node_fundamental_peak_v": 0.5314082001837684,
+          "output_fundamental_peak_v": 0.4671572775204401,
+          "output_im3_peak_v": 0.0935446236513729,
+          "intrinsic_voltage_gain_db": -1.11930265867141,
+          "fundamental_to_im3_db": 13.968885734699178,
+          "iip3_estimate_dbm": 6.984442867349589
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "IIP3 is a finite-level two-tone estimate, not a small-signal extrapolation or measurement.",
+    "The ideal source-bias sink and provisional high-impedance mixer load remain in the bench.",
+    "Package, matching, blocker response, mismatch, extracted layout, and measured RF remain open."
+  ]
+}

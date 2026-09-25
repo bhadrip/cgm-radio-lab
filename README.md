@@ -98,6 +98,8 @@ The [first GF180 LNA sweep](reports/gf180-lna-feasibility.md) measures gain,
 noise figure, input match, headroom, and active power across sampled PVT.
 The [BLE-band LNA sweep](reports/gf180-lna-band.md) checks the selected device
 at all 40 channel centers from 2.402 to 2.480 GHz across the same PVT samples.
+The [LNA two-tone screen](reports/gf180-lna-linearity.md) brackets compression
+and estimates finite-level IM3 across sampled PVT.
 
 ## Reproducible EDA environment
 
@@ -154,6 +156,7 @@ make gf180-pa-load-test
 make gf180-pa-match-test
 make gf180-lna-test
 make gf180-lna-band-test
+make gf180-lna-linearity-test
 make pa-match-screen
 make rx-noise-budget
 make gfsk-spectrum
