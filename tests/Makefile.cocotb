@@ -8,6 +8,7 @@ VERILOG_SOURCES := \
     $(ROOT)/rtl/ble_gfsk_modulator.sv \
     $(ROOT)/rtl/ble_phy_loop.sv \
     $(ROOT)/rtl/cgm_packet_tx.sv \
+    $(ROOT)/rtl/cgm_gfsk_tx.sv \
     $(ROOT)/rtl/cgm_packet_rx.sv \
     $(ROOT)/rtl/cgm_packet_loop.sv \
     $(ROOT)/rtl/cgm_chip_core.sv \

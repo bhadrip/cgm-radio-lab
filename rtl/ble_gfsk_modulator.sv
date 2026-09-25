@@ -11,6 +11,8 @@ module ble_gfsk_modulator (
     input  logic               bit_in,
     output logic               bit_ready,
     output logic               sample_valid,
+    output logic               sample_first,
+    output logic               sample_last,
     output logic signed [18:0] frequency_offset_hz
 );
     localparam logic [3:0] LAST_PHASE = 4'd15;
@@ -66,9 +68,13 @@ module ble_gfsk_modulator (
             sample_phase <= 4'd0;
             active <= 1'b0;
             sample_valid <= 1'b0;
+            sample_first <= 1'b0;
+            sample_last <= 1'b0;
             frequency_offset_hz <= '0;
         end else begin
             sample_valid <= 1'b0;
+            sample_first <= 1'b0;
+            sample_last <= 1'b0;
 
             if (!active) begin
                 if (bit_valid) begin
@@ -76,11 +82,14 @@ module ble_gfsk_modulator (
                     frequency_offset_hz <= shaped_frequency(next_history, 4'd0);
                     sample_phase <= 4'd1;
                     sample_valid <= 1'b1;
+                    sample_first <= 1'b1;
                     active <= 1'b1;
                 end
             end else begin
                 frequency_offset_hz <= shaped_frequency(symbol_history, sample_phase);
                 sample_valid <= 1'b1;
+                sample_first <= sample_phase == 4'd0;
+                sample_last <= sample_phase == LAST_PHASE;
                 if (sample_phase == LAST_PHASE) begin
                     if (bit_valid) begin
                         symbol_history <= next_history;

@@ -45,6 +45,7 @@ module cgm_packet_loop (
         .trend_q8_8(trend_q8_8),
         .status(status),
         .battery_percent(battery_percent),
+        .tx_ready(1'b1),
         .busy(tx_busy),
         .tx_valid(tx_valid),
         .tx_bit(tx_bit),
@@ -73,4 +74,3 @@ module cgm_packet_loop (
 endmodule
 
 `default_nettype wire
-

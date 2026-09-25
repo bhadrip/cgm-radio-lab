@@ -1,23 +1,36 @@
 
-12. Printing statistics.
+13. Printing statistics.
 
-=== cgm_packet_loop ===
+=== cgm_packet_tx ===
 
         +----------Local Count, excluding submodules.
         |
-       28 wires
-      245 wire bits
-       27 public wires
-      244 public wire bits
-       24 ports
-      241 port bits
-        3 cells
-        1   $logic_and
-        1   $logic_not
-        1   $xor
+      103 wires
+      801 wire bits
+       36 public wires
+      214 public wire bits
+       16 ports
+      127 port bits
+       81 cells
+        5   $add
+       20   $eq
+        1   $ge
+        5   $logic_and
+        2   $logic_not
+        3   $lt
+        9   $mux
+        1   $not
+        1   $pmux
+        1   $reduce_and
+        2   $reduce_bool
+        7   $reduce_or
+        1   $sdff
+        2   $sdffe
+       13   $shiftx
+        8   $sub
         2 submodules
-        1   cgm_packet_rx
-        1   cgm_packet_tx
+        1   ble_crc24
+        1   ble_whitener
 
 === cgm_chip_core ===
 
@@ -62,35 +75,6 @@
         2   $sdffe
         2   $xor
 
-=== cgm_packet_tx ===
-
-        +----------Local Count, excluding submodules.
-        |
-       98 wires
-      796 wire bits
-       34 public wires
-      212 public wire bits
-       15 ports
-      126 port bits
-       77 cells
-        5   $add
-       20   $eq
-        1   $ge
-        4   $logic_and
-        2   $logic_not
-        3   $lt
-        9   $mux
-        1   $not
-        1   $pmux
-        7   $reduce_or
-        2   $sdff
-        1   $sdffe
-       13   $shiftx
-        8   $sub
-        2 submodules
-        1   ble_crc24
-        1   ble_whitener
-
 === cgm_packet_rx ===
 
         +----------Local Count, excluding submodules.
@@ -127,6 +111,24 @@
         1   ble_crc24
         1   ble_whitener
 
+=== cgm_packet_loop ===
+
+        +----------Local Count, excluding submodules.
+        |
+       28 wires
+      245 wire bits
+       27 public wires
+      244 public wire bits
+       24 ports
+      241 port bits
+        3 cells
+        1   $logic_and
+        1   $logic_not
+        1   $xor
+        2 submodules
+        1   cgm_packet_rx
+        1   cgm_packet_tx
+
 === ble_crc24 ===
 
         +----------Local Count, excluding submodules.
@@ -147,33 +149,33 @@
 
         +----------Count including submodules.
         |
-      352 cgm_chip_core
+      356 cgm_chip_core
         3 cgm_packet_loop
       153   cgm_packet_rx
         7     ble_crc24
         9     ble_whitener
-       77   cgm_packet_tx
+       81   cgm_packet_tx
         7     ble_crc24
         9     ble_whitener
 
         +----------Count including submodules.
         |
-      445 wires
-     3446 wire bits
-      160 public wires
-     1153 public wire bits
-       95 ports
-      653 port bits
+      450 wires
+     3451 wire bits
+      162 public wires
+     1155 public wire bits
+       96 ports
+      654 port bits
         - memories
         - memory bits
         - processes
-      352 cells
+      356 cells
        10   $add
         7   $and
        62   $eq
         2   $ge
         1   $le
-       16   $logic_and
+       17   $logic_and
         7   $logic_not
         6   $lt
        44   $mux
@@ -182,11 +184,11 @@
        14   $not
         7   $or
         3   $pmux
-       27   $reduce_and
-       11   $reduce_bool
+       28   $reduce_and
+       13   $reduce_bool
        19   $reduce_or
-        5   $sdff
-       36   $sdffe
+        4   $sdff
+       37   $sdffe
        12   $shift
        19   $shiftx
        16   $sub

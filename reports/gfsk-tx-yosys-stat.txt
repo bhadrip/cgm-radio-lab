@@ -1,0 +1,164 @@
+
+13. Printing statistics.
+
+=== cgm_packet_tx ===
+
+        +----------Local Count, excluding submodules.
+        |
+      103 wires
+      801 wire bits
+       36 public wires
+      214 public wire bits
+       16 ports
+      127 port bits
+       81 cells
+        5   $add
+       20   $eq
+        1   $ge
+        5   $logic_and
+        2   $logic_not
+        3   $lt
+        9   $mux
+        1   $not
+        1   $pmux
+        1   $reduce_and
+        2   $reduce_bool
+        7   $reduce_or
+        1   $sdff
+        2   $sdffe
+       13   $shiftx
+        8   $sub
+        2 submodules
+        1   ble_crc24
+        1   ble_whitener
+
+=== ble_whitener ===
+
+        +----------Local Count, excluding submodules.
+        |
+       14 wires
+       49 wire bits
+        9 public wires
+       26 public wire bits
+        7 ports
+       12 port bits
+        9 cells
+        3   $mux
+        1   $reduce_bool
+        1   $reduce_or
+        2   $sdffe
+        2   $xor
+
+=== cgm_gfsk_tx ===
+
+        +----------Local Count, excluding submodules.
+        |
+       32 wires
+      161 wire bits
+       23 public wires
+      152 public wire bits
+       14 ports
+      143 port bits
+       13 cells
+        6   $logic_and
+        1   $logic_or
+        1   $mux
+        2   $reduce_or
+        1   $sdff
+        2   $sdffe
+        2 submodules
+        1   ble_gfsk_modulator
+        1   cgm_packet_tx
+
+=== ble_gfsk_modulator ===
+
+        +----------Local Count, excluding submodules.
+        |
+      102 wires
+     2383 wire bits
+       28 public wires
+      440 public wire bits
+        9 ports
+       27 port bits
+        1 memories
+     2560 memory bits
+       79 cells
+        9   $add
+        1   $eq
+        2   $logic_not
+        1   $logic_or
+        1   $meminit
+        1   $memrd_v2
+       41   $mux
+        2   $ne
+       10   $neg
+        1   $not
+        1   $reduce_and
+        1   $reduce_bool
+        1   $reduce_or
+        4   $sdff
+        3   $sdffe
+
+=== ble_crc24 ===
+
+        +----------Local Count, excluding submodules.
+        |
+       13 wires
+      151 wire bits
+        9 public wires
+       78 public wire bits
+        7 ports
+       53 port bits
+        7 cells
+        3   $mux
+        1   $reduce_bool
+        1   $sdffe
+        2   $xor
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        |
+      189 cgm_gfsk_tx
+       79 ble_gfsk_modulator
+       81 cgm_packet_tx
+        7   ble_crc24
+        9   ble_whitener
+
+        +----------Count including submodules.
+        |
+      264 wires
+     3545 wire bits
+      105 public wires
+      910 public wire bits
+       53 ports
+      362 port bits
+        1 memories
+     2560 memory bits
+        - processes
+      189 cells
+       14   $add
+       21   $eq
+        1   $ge
+       11   $logic_and
+        4   $logic_not
+        2   $logic_or
+        3   $lt
+        1   $meminit
+        1   $memrd_v2
+       57   $mux
+        2   $ne
+       10   $neg
+        2   $not
+        1   $pmux
+        2   $reduce_and
+        5   $reduce_bool
+       11   $reduce_or
+        6   $sdff
+       10   $sdffe
+       13   $shiftx
+        8   $sub
+        4   $xor
+        2 submodules
+        1   ble_gfsk_modulator
+        1   cgm_packet_tx

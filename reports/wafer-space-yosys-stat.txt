@@ -1,41 +1,5 @@
 
-13. Printing statistics.
-
-=== cgm_packet_rx ===
-
-        +----------Local Count, excluding submodules.
-        |
-      167 wires
-     1666 wire bits
-       33 public wires
-      225 public wire bits
-       16 ports
-      127 port bits
-      153 cells
-        5   $add
-        7   $and
-       21   $eq
-        1   $ge
-        3   $logic_and
-        2   $logic_not
-        3   $lt
-       14   $mux
-       13   $ne
-        6   $neg
-       10   $not
-        7   $or
-        1   $pmux
-       10   $reduce_and
-        3   $reduce_bool
-        8   $reduce_or
-        1   $sdff
-       12   $sdffe
-       12   $shift
-        6   $shiftx
-        8   $sub
-        2 submodules
-        1   ble_crc24
-        1   ble_whitener
+14. Printing statistics.
 
 === cgm_packet_loop ===
 
@@ -54,6 +18,21 @@
         2 submodules
         1   cgm_packet_rx
         1   cgm_packet_tx
+
+=== chip_core ===
+
+        +----------Local Count, excluding submodules.
+        |
+       21 wires
+      336 wire bits
+       20 public wires
+      335 public wire bits
+       14 ports
+      322 port bits
+        1 cells
+        1   $not
+        1 submodules
+        1   cgm_chip_core
 
 === cgm_chip_core ===
 
@@ -98,45 +77,68 @@
         2   $sdffe
         2   $xor
 
-=== chip_core ===
-
-        +----------Local Count, excluding submodules.
-        |
-       21 wires
-      336 wire bits
-       20 public wires
-      335 public wire bits
-       14 ports
-      322 port bits
-        1 cells
-        1   $not
-        1 submodules
-        1   cgm_chip_core
-
 === cgm_packet_tx ===
 
         +----------Local Count, excluding submodules.
         |
-       98 wires
-      796 wire bits
-       34 public wires
-      212 public wire bits
-       15 ports
-      126 port bits
-       77 cells
+      103 wires
+      801 wire bits
+       36 public wires
+      214 public wire bits
+       16 ports
+      127 port bits
+       81 cells
         5   $add
        20   $eq
         1   $ge
-        4   $logic_and
+        5   $logic_and
         2   $logic_not
         3   $lt
         9   $mux
         1   $not
         1   $pmux
+        1   $reduce_and
+        2   $reduce_bool
         7   $reduce_or
-        2   $sdff
-        1   $sdffe
+        1   $sdff
+        2   $sdffe
        13   $shiftx
+        8   $sub
+        2 submodules
+        1   ble_crc24
+        1   ble_whitener
+
+=== cgm_packet_rx ===
+
+        +----------Local Count, excluding submodules.
+        |
+      167 wires
+     1666 wire bits
+       33 public wires
+      225 public wire bits
+       16 ports
+      127 port bits
+      153 cells
+        5   $add
+        7   $and
+       21   $eq
+        1   $ge
+        3   $logic_and
+        2   $logic_not
+        3   $lt
+       14   $mux
+       13   $ne
+        6   $neg
+       10   $not
+        7   $or
+        1   $pmux
+       10   $reduce_and
+        3   $reduce_bool
+        8   $reduce_or
+        1   $sdff
+       12   $sdffe
+       12   $shift
+        6   $shiftx
         8   $sub
         2 submodules
         1   ble_crc24
@@ -162,34 +164,34 @@
 
         +----------Count including submodules.
         |
-      353 chip_core
+      357 chip_core
        87 cgm_chip_core
         3   cgm_packet_loop
       153     cgm_packet_rx
         7       ble_crc24
         9       ble_whitener
-       77     cgm_packet_tx
+       81     cgm_packet_tx
         7       ble_crc24
         9       ble_whitener
 
         +----------Count including submodules.
         |
-      466 wires
-     3782 wire bits
-      180 public wires
-     1488 public wire bits
-      109 ports
-      975 port bits
+      471 wires
+     3787 wire bits
+      182 public wires
+     1490 public wire bits
+      110 ports
+      976 port bits
         - memories
         - memory bits
         - processes
-      353 cells
+      357 cells
        10   $add
         7   $and
        62   $eq
         2   $ge
         1   $le
-       16   $logic_and
+       17   $logic_and
         7   $logic_not
         6   $lt
        44   $mux
@@ -198,11 +200,11 @@
        15   $not
         7   $or
         3   $pmux
-       27   $reduce_and
-       11   $reduce_bool
+       28   $reduce_and
+       13   $reduce_bool
        19   $reduce_or
-        5   $sdff
-       36   $sdffe
+        4   $sdff
+       37   $sdffe
        12   $shift
        19   $shiftx
        16   $sub
