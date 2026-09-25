@@ -65,6 +65,9 @@ yield gate; qualified device Monte Carlo remains required.
 The [complementary gate-driver experiment](../reports/gf180-fast-dac-gate-driver.md)
 then replaces the two ideal carry-edge controls with GF180 transistor inverter
 chains and passes the sampled PVT transition gate.
+The [reference-current sweep](../reports/gf180-fast-dac-reference-window.md)
+sets a 0.85x--1.05x allowed window after combining packet headroom,
+quantization, INL, noise, calibration, and transistor carry error.
 The [drive-settling result](../reports/lc-dco-drive-settling.md)
 requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
 bypass at the varactor-control node.
