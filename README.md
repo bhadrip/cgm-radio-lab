@@ -88,6 +88,8 @@ The [PA harmonic characterization](reports/gf180-pa-harmonics.md) extracts raw
 second- and third-harmonic emissions for later matching-network allocation.
 The [PA real-load screen](reports/gf180-pa-load-sweep.md) checks calibrated
 maximum-power codes from 25 to 200 ohms before a matching topology is selected.
+The [first PA match screen](reports/pa-match-screen.md) sizes a 150-to-50-ohm
+low-pass candidate and sweeps loss and harmonic rejection versus inductor Q.
 
 ## Reproducible EDA environment
 
@@ -141,6 +143,7 @@ make gf180-fast-dac-gate-driver-test
 make gf180-fast-dac-reference-window-test
 make gf180-pa-test
 make gf180-pa-load-test
+make pa-match-screen
 make gfsk-spectrum
 make lc-dco-local-calibration
 make lc-dco-dynamic-test

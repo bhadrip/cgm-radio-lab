@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "purpose": "linear first-pass PA output-network screen",
+  "status": "candidate_only",
+  "frequency_hz": 2440000000.0,
+  "source_resistance_ohm": 150.0,
+  "load_resistance_ohm": 50.0,
+  "topology": "shunt capacitor at PA, then series inductor to 50 ohms",
+  "series_inductance_h": 4.61227620982124e-09,
+  "shunt_capacitance_f": 6.149701613094987e-13,
+  "ideal_input_resistance_ohm": 150.0,
+  "ideal_input_reactance_ohm": 0.0,
+  "screening_inductor_q": 10.0,
+  "screening_result": {
+    "inductor_q": 10.0,
+    "fundamental_insertion_loss_db": 0.5934426776754009,
+    "second_harmonic_rejection_relative_to_fundamental_db": 6.058318269761776,
+    "third_harmonic_rejection_relative_to_fundamental_db": 13.240036796390187,
+    "input_resistance_ohm": 142.45269616497964,
+    "input_reactance_ohm": -17.81703979015966,
+    "inductor_series_resistance_ohm": 7.0710678118654755
+  },
+  "q_sweep": [
+    {
+      "inductor_q": 5.0,
+      "fundamental_insertion_loss_db": 1.1489198806290284,
+      "second_harmonic_rejection_relative_to_fundamental_db": 6.151931498840945,
+      "third_harmonic_rejection_relative_to_fundamental_db": 13.097381939043965,
+      "input_resistance_ohm": 134.52093533870084,
+      "input_reactance_ohm": -31.917670958620963,
+      "inductor_series_resistance_ohm": 14.142135623730951
+    },
+    {
+      "inductor_q": 8.0,
+      "fundamental_insertion_loss_db": 0.7356776709907542,
+      "second_harmonic_rejection_relative_to_fundamental_db": 6.077509832216547,
+      "third_harmonic_rejection_relative_to_fundamental_db": 13.19536730260442,
+      "input_resistance_ohm": 140.47871399382456,
+      "input_reactance_ohm": -21.654546697289632,
+      "inductor_series_resistance_ohm": 8.838834764831844
+    },
+    {
+      "inductor_q": 10.0,
+      "fundamental_insertion_loss_db": 0.5934426776754009,
+      "second_harmonic_rejection_relative_to_fundamental_db": 6.058318269761776,
+      "third_harmonic_rejection_relative_to_fundamental_db": 13.240036796390187,
+      "input_resistance_ohm": 142.45269616497964,
+      "input_reactance_ohm": -17.81703979015966,
+      "inductor_series_resistance_ohm": 7.0710678118654755
+    },
+    {
+      "inductor_q": 15.0,
+      "fundamental_insertion_loss_db": 0.4000987428789906,
+      "second_harmonic_rejection_relative_to_fundamental_db": 6.038167545916446,
+      "third_harmonic_rejection_relative_to_fundamental_db": 13.310042050576982,
+      "input_resistance_ohm": 145.048809865856,
+      "input_reactance_ohm": -12.337801077853085,
+      "inductor_series_resistance_ohm": 4.714045207910317
+    },
+    {
+      "inductor_q": 20.0,
+      "fundamental_insertion_loss_db": 0.3017885476971907,
+      "second_harmonic_rejection_relative_to_fundamental_db": 6.030716628644681,
+      "third_harmonic_rejection_relative_to_fundamental_db": 13.349795551583007,
+      "input_resistance_ohm": 146.32335863722446,
+      "input_reactance_ohm": -9.432779784503374,
+      "inductor_series_resistance_ohm": 3.5355339059327378
+    },
+    {
+      "inductor_q": 30.0,
+      "fundamental_insertion_loss_db": 0.2023528898521736,
+      "second_harmonic_rejection_relative_to_fundamental_db": 6.02520328795095,
+      "third_harmonic_rejection_relative_to_fundamental_db": 13.392880144793121,
+      "input_resistance_ohm": 147.5766616580091,
+      "input_reactance_ohm": -6.411326161071666,
+      "inductor_series_resistance_ohm": 2.3570226039551585
+    }
+  ],
+  "limitations": [
+    "The nonlinear PA is replaced by a 150 ohm Thevenin source.",
+    "Only inductor loss is modeled; capacitor and interconnect are ideal.",
+    "No device stress, stability, package, antenna, or modulation is modeled.",
+    "The component values are not tapeout-ready layout values."
+  ]
+}
