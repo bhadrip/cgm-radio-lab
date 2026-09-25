@@ -47,6 +47,9 @@ mapping over 48 nominal-corner samples after oscillator startup. The
 [segmented architecture](../reports/lc-dco-segmented-dac.md) replaces it with a
 7-bit slow bias path and a 7-bit fast modulation path after the
 [non-ideality budget](../reports/lc-dco-dac-nonidealities.md); both circuits
-remain to be built. The [drive-settling result](../reports/lc-dco-drive-settling.md)
+remain to be built. The
+[transition budget](../reports/lc-dco-dac-transition.md) encodes the fast path
+as five thermometer MSBs plus two binary LSBs and requires no more than 750 ps
+switch skew. The [drive-settling result](../reports/lc-dco-drive-settling.md)
 requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
 bypass at the varactor-control node.

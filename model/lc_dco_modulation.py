@@ -161,6 +161,36 @@ def frequency_for_control_voltage(
     return low_frequency + fraction * (high_frequency - low_frequency)
 
 
+def maximum_tuning_gain_hz_per_v(
+    points: Sequence[Mapping[str, object]], calibration: ChannelCalibration
+) -> float:
+    """Return the largest local |df/dV| in one measured calibration curve."""
+    curve = sorted(
+        _code_points(
+            points,
+            calibration.corner,
+            calibration.coarse_code,
+            calibration.channel,
+            prefer_local=True,
+        ),
+        key=lambda point: float(point["control_voltage_v"]),
+    )
+    slopes = []
+    for low, high in zip(curve, curve[1:]):
+        voltage_delta_v = float(high["control_voltage_v"]) - float(
+            low["control_voltage_v"]
+        )
+        if voltage_delta_v == 0:
+            continue
+        frequency_delta_hz = float(high["frequency_hz"]) - float(
+            low["frequency_hz"]
+        )
+        slopes.append(abs(frequency_delta_hz / voltage_delta_v))
+    if not slopes:
+        raise ValueError("calibration curve has no distinct voltage points")
+    return max(slopes)
+
+
 def control_waveform(
     points: Sequence[Mapping[str, object]],
     corner: str,

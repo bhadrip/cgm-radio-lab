@@ -32,10 +32,13 @@ separated from mean-removed tracking because the pre-burst frequency calibration
 can correct a constant offset, while it cannot correct modulation distortion.
 
 The resistor and capacitor are ideal. Capacitor density, Q, self-resonance,
-routing inductance, DAC output impedance versus frequency, code glitches,
-reference noise, and device noise remain unmodeled. A 10 pF on-chip bypass also
-has area and leakage costs that must be included in the physical implementation.
-Complete-report power and production evidence continue to follow the
+routing inductance, DAC output impedance versus frequency, reference noise, and
+device noise remain unmodeled. The
+[transition budget](lc-dco-dac-transition.md) bounds code-ordering glitch and
+sets a switch-skew target, but charge injection and decoder hazards remain open.
+A 10 pF on-chip bypass also has area and leakage costs that must be included in
+the physical implementation. Complete-report power and production evidence
+continue to follow the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
 Reproduce the sweep with `make lc-dco-drive-settling`. Machine-readable results

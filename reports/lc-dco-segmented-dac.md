@@ -5,7 +5,9 @@
 This ideal-only sizing selected six fast bits. The subsequent
 [non-ideality budget](lc-dco-dac-nonidealities.md) shows that six bits fails once
 INL and control noise are included, so the implementation candidate uses seven
-slow bias bits plus seven fast modulation bits.
+slow bias bits plus seven fast modulation bits. The follow-on
+[transition budget](lc-dco-dac-transition.md) divides the fast path into five
+thermometer-coded MSBs and two binary LSBs.
 
 ## Result
 

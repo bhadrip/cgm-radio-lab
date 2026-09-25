@@ -49,9 +49,11 @@ from the
 
 This is not RF sign-off. It covers one corner, channel, short bit sequence, and
 ideal summed voltage sources under the assumed 3 nH, Q=10 tank. It does not
-establish phase noise, modulation spectrum, DAC DNL/INL/noise/power or glitch
-behavior, PVT dynamic tracking, capacitor self-resonance, Monte Carlo yield,
-extracted behavior, or an EM-qualified inductor.
+establish phase noise, modulation spectrum, DAC circuit DNL/INL/noise/power, PVT
+dynamic tracking, capacitor self-resonance, Monte Carlo yield, extracted
+behavior, or an EM-qualified inductor. The
+[transition budget](lc-dco-dac-transition.md) bounds code-ordering glitch but
+does not replace a transistor DAC transient.
 
 Reproduce the dynamic run with `make lc-dco-dynamic-test`. Machine-readable
 samples and summary metrics are in `lc_dco_dynamic.json`.
