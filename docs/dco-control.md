@@ -48,16 +48,15 @@ mapping over 48 nominal-corner samples after oscillator startup. The
 7-bit slow bias path and a 7-bit fast modulation path after the
 [non-ideality budget](../reports/lc-dco-dac-nonidealities.md); both circuits
 remain to be built. The
-[transition budget](../reports/lc-dco-dac-transition.md) encodes the fast path
-as five thermometer MSBs plus two binary LSBs and requires no more than 750 ps
-switch skew. The
-[registered decoder](../reports/lc-dco-dac-decoder.md) implements those 33
+[transition budget](../reports/lc-dco-dac-transition.md) initially selects five
+thermometer MSBs plus two binary LSBs and requires no more than 750 ps switch
+skew; transistor validation below moves the candidate to 6+1. The
+[registered decoder](../reports/lc-dco-dac-decoder.md) implements the updated 64
 controls without exposing combinational decoder hazards to the analog switches.
 The first [GF180 fast-DAC cell](../reports/gf180-fast-dac.md) passes nominal
 static linearity but is rejected because switch charge produces a 150 uV carry
 glitch. The [current-steered follow-on](../reports/gf180-fast-dac-steered.md)
-uses a 6+1 split and passes the nominal transition gate; the RTL decoder still
-needs the corresponding 6+1 update.
+uses a 6+1 split and passes the nominal transition gate.
 The [drive-settling result](../reports/lc-dco-drive-settling.md)
 requires no more than 1 kOhm output resistance with a nominal 10 pF local RF
 bypass at the varactor-control node.

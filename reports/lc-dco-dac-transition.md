@@ -43,9 +43,9 @@ circuit slice must build the DAC switches, measure their transient waveform,
 and include their energy in the complete-report budget required by the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
-The follow-on [registered decoder](lc-dco-dac-decoder.md) removes combinational
-decode hazards from the analog boundary. Physical output skew and the transistor
-DAC transient remain open.
+The follow-on [registered decoder](lc-dco-dac-decoder.md) implements the current
+6+1 candidate and removes combinational decode hazards from the analog boundary.
+Physical output skew remains open.
 
 The [current-steered transistor experiment](gf180-fast-dac-steered.md) supersedes
 the minimum-element 5+2 selection with a 6+1 implementation candidate after

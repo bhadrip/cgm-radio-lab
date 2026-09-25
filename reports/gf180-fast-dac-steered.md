@@ -33,7 +33,8 @@ gain error still needs reference-current trim.
 
 The result does not establish PVT, mismatch yield, noise, reference quality,
 decoder power, post-route skew, extracted glitch, or layout area. The current
-5+2 registered decoder must be revised to 6+1 before integration. Complete-chip
+[registered decoder](lc-dco-dac-decoder.md) implements the selected 6+1 split,
+but complementary analog gate generation is not yet integrated. Complete-chip
 power and production evidence continue to follow the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
