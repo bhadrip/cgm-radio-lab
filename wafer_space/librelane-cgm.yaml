@@ -9,6 +9,7 @@ VERILOG_FILES:
 - dir::../rtl/ble_crc24.sv
 - dir::../rtl/ble_whitener.sv
 - dir::../rtl/ble_gfsk_modulator.sv
+- dir::../rtl/ble_dco_controller.sv
 - dir::../rtl/ble_phy_loop.sv
 - dir::../rtl/cgm_packet_tx.sv
 - dir::../rtl/cgm_gfsk_tx.sv
