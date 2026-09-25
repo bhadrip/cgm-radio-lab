@@ -1,0 +1,211 @@
+
+12. Printing statistics.
+
+=== cgm_packet_tx ===
+
+        +----------Local Count, excluding submodules.
+        |
+       98 wires
+      796 wire bits
+       34 public wires
+      212 public wire bits
+       15 ports
+      126 port bits
+       77 cells
+        5   $add
+       20   $eq
+        1   $ge
+        4   $logic_and
+        2   $logic_not
+        3   $lt
+        9   $mux
+        1   $not
+        1   $pmux
+        7   $reduce_or
+        2   $sdff
+        1   $sdffe
+       13   $shiftx
+        8   $sub
+        2 submodules
+        1   ble_crc24
+        1   ble_whitener
+
+=== cgm_packet_rx ===
+
+        +----------Local Count, excluding submodules.
+        |
+      167 wires
+     1666 wire bits
+       33 public wires
+      225 public wire bits
+       16 ports
+      127 port bits
+      153 cells
+        5   $add
+        7   $and
+       21   $eq
+        1   $ge
+        3   $logic_and
+        2   $logic_not
+        3   $lt
+       14   $mux
+       13   $ne
+        6   $neg
+       10   $not
+        7   $or
+        1   $pmux
+       10   $reduce_and
+        3   $reduce_bool
+        8   $reduce_or
+        1   $sdff
+       12   $sdffe
+       12   $shift
+        6   $shiftx
+        8   $sub
+        2 submodules
+        1   ble_crc24
+        1   ble_whitener
+
+=== cgm_packet_loop ===
+
+        +----------Local Count, excluding submodules.
+        |
+       28 wires
+      245 wire bits
+       27 public wires
+      244 public wire bits
+       24 ports
+      241 port bits
+        3 cells
+        1   $logic_and
+        1   $logic_not
+        1   $xor
+        2 submodules
+        1   cgm_packet_rx
+        1   cgm_packet_tx
+
+=== cgm_chip_core ===
+
+        +----------Local Count, excluding submodules.
+        |
+       96 wires
+      337 wire bits
+       30 public wires
+      264 public wire bits
+       12 ports
+       29 port bits
+       85 cells
+       21   $eq
+        1   $le
+        8   $logic_and
+        2   $logic_not
+       10   $mux
+        2   $not
+        1   $pmux
+       17   $reduce_and
+        4   $reduce_bool
+        1   $reduce_or
+        1   $sdff
+       17   $sdffe
+        1 submodules
+        1   cgm_packet_loop
+
+=== ble_whitener ===
+
+        +----------Local Count, excluding submodules.
+        |
+       14 wires
+       49 wire bits
+        9 public wires
+       26 public wire bits
+        7 ports
+       12 port bits
+        9 cells
+        3   $mux
+        1   $reduce_bool
+        1   $reduce_or
+        2   $sdffe
+        2   $xor
+
+=== chip_core ===
+
+        +----------Local Count, excluding submodules.
+        |
+       21 wires
+      336 wire bits
+       20 public wires
+      335 public wire bits
+       14 ports
+      322 port bits
+        1 cells
+        1   $not
+        1 submodules
+        1   cgm_chip_core
+
+=== ble_crc24 ===
+
+        +----------Local Count, excluding submodules.
+        |
+       13 wires
+      151 wire bits
+        9 public wires
+       78 public wire bits
+        7 ports
+       53 port bits
+        7 cells
+        3   $mux
+        1   $reduce_bool
+        1   $sdffe
+        2   $xor
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        |
+      351 chip_core
+       85 cgm_chip_core
+        3   cgm_packet_loop
+      153     cgm_packet_rx
+        7       ble_crc24
+        9       ble_whitener
+       77     cgm_packet_tx
+        7       ble_crc24
+        9       ble_whitener
+
+        +----------Count including submodules.
+        |
+      464 wires
+     3780 wire bits
+      180 public wires
+     1488 public wire bits
+      109 ports
+      975 port bits
+        - memories
+        - memory bits
+        - processes
+      351 cells
+       10   $add
+        7   $and
+       62   $eq
+        2   $ge
+        1   $le
+       16   $logic_and
+        7   $logic_not
+        6   $lt
+       45   $mux
+       13   $ne
+        6   $neg
+       14   $not
+        7   $or
+        3   $pmux
+       27   $reduce_and
+       11   $reduce_bool
+       18   $reduce_or
+        4   $sdff
+       36   $sdffe
+       12   $shift
+       19   $shiftx
+       16   $sub
+        9   $xor
+        1 submodules
+        1   cgm_chip_core
