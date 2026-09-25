@@ -1,0 +1,34 @@
+* GF180 PA with a first low-pass output-match candidate.
+* The shunt capacitor is at the PA drain; the lossy series inductor feeds 50 ohms.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ @@CORNER@@
+
+.param VDD_VALUE=1.8
+.param FREQUENCY=2.44G
+.param PERIOD='1/FREQUENCY'
+.temp @@TEMP_C@@
+
+VDD vdd 0 {VDD_VALUE}
+VIN in 0 PULSE(0 {VDD_VALUE} 0 10p 10p 'PERIOD/2-10p' {PERIOD})
+
+@@PA_DEVICES@@
+
+CSHUNT out 0 @@SHUNT_CAPACITANCE_F@@
+RLOSS out match_l @@INDUCTOR_RESISTANCE_OHM@@
+LMATCH match_l block_in @@SERIES_INDUCTANCE_H@@
+CBLOCK block_in rfout 10p
+RLOAD rfout 0 50
+
+.option method=gear reltol=1e-4 numdgt=12
+.tran 2p 40n
+
+.control
+set wr_singlescale
+set wr_vecnames
+run
+wrdata @@WAVEFORM_FILE@@ time v(rfout) i(VDD)
+quit
+.endc
+
+.end
