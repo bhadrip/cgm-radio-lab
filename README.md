@@ -86,6 +86,8 @@ complex-envelope power in adjacent 1 MHz bands and records the remaining RF
 effects required before TX spectral compliance can be claimed.
 The [PA harmonic characterization](reports/gf180-pa-harmonics.md) extracts raw
 second- and third-harmonic emissions for later matching-network allocation.
+The [PA real-load screen](reports/gf180-pa-load-sweep.md) checks calibrated
+maximum-power codes from 25 to 200 ohms before a matching topology is selected.
 
 ## Reproducible EDA environment
 
@@ -138,6 +140,7 @@ make gf180-fast-dac-mismatch-test
 make gf180-fast-dac-gate-driver-test
 make gf180-fast-dac-reference-window-test
 make gf180-pa-test
+make gf180-pa-load-test
 make gfsk-spectrum
 make lc-dco-local-calibration
 make lc-dco-dynamic-test
