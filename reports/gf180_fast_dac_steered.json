@@ -1,0 +1,812 @@
+{
+  "schema_version": 1,
+  "corner": "typical",
+  "temperature_c": 25,
+  "architecture": "continuously steered matched output and dummy loads",
+  "dac_bits": 7,
+  "thermometer_msb_bits": 6,
+  "binary_lsb_bits": 1,
+  "unit_current_target_a": 1.2598425196850394e-07,
+  "switch_width_per_weight_um": 0.22,
+  "charge_compensation_width_ratio": 0.5,
+  "output_resistance_ohm": 1000,
+  "control_load_f": 1e-11,
+  "target_output_range_v": 0.016,
+  "minimum_output_voltage_v": 1.192,
+  "maximum_output_voltage_v": 1.20766,
+  "output_range_v": 0.015660000000000007,
+  "range_gain_error_fraction": -0.021249999999999547,
+  "measured_lsb_v": 0.0001233070866141733,
+  "maximum_absolute_inl_lsb": 0.06704980842879232,
+  "minimum_dnl_lsb": -0.026819923372475518,
+  "maximum_dnl_lsb": 0.05427841634888586,
+  "monotonic": true,
+  "static_linearity_passed": true,
+  "minimum_supply_current_a": 1.5786e-05,
+  "maximum_supply_current_a": 1.57908e-05,
+  "maximum_static_power_w": 2.8423440000000002e-05,
+  "transition": {
+    "previous_code": 63,
+    "next_code": 64,
+    "switch_skew_s": 7.5e-10,
+    "initial_voltage_v": 1.19977,
+    "final_voltage_v": 1.19989,
+    "minimum_transition_voltage_v": 1.19975,
+    "glitch_below_endpoints_v": 2.0777e-05,
+    "glitch_frequency_error_hz": 2717.2368369999535,
+    "combined_frequency_error_hz": 48024.38492402464
+  },
+  "frequency_error_limit_hz": 50000,
+  "transition_passed": true,
+  "accepted_for_next_stage": true,
+  "codes": [
+    {
+      "code": 0,
+      "output_voltage_v": 1.192,
+      "supply_current_a": 1.57864e-05,
+      "inl_lsb": 0.0
+    },
+    {
+      "code": 1,
+      "output_voltage_v": 1.19213,
+      "supply_current_a": 1.5787e-05,
+      "inl_lsb": 0.054278416346603096
+    },
+    {
+      "code": 2,
+      "output_voltage_v": 1.19225,
+      "supply_current_a": 1.57871e-05,
+      "inl_lsb": 0.027458492977247062
+    },
+    {
+      "code": 3,
+      "output_voltage_v": 1.19237,
+      "supply_current_a": 1.57873e-05,
+      "inl_lsb": 0.0006385696042895359
+    },
+    {
+      "code": 4,
+      "output_voltage_v": 1.19249,
+      "supply_current_a": 1.57874e-05,
+      "inl_lsb": -0.026181353766867244
+    },
+    {
+      "code": 5,
+      "output_voltage_v": 1.19262,
+      "supply_current_a": 1.57875e-05,
+      "inl_lsb": 0.028097062579735852
+    },
+    {
+      "code": 6,
+      "output_voltage_v": 1.19274,
+      "supply_current_a": 1.57876e-05,
+      "inl_lsb": 0.0012771392085790718
+    },
+    {
+      "code": 7,
+      "output_voltage_v": 1.19287,
+      "supply_current_a": 1.57877e-05,
+      "inl_lsb": 0.05555555555698292
+    },
+    {
+      "code": 8,
+      "output_voltage_v": 1.19299,
+      "supply_current_a": 1.57879e-05,
+      "inl_lsb": 0.02873563218402539
+    },
+    {
+      "code": 9,
+      "output_voltage_v": 1.19311,
+      "supply_current_a": 1.5788e-05,
+      "inl_lsb": 0.0019157088110678627
+    },
+    {
+      "code": 10,
+      "output_voltage_v": 1.19323,
+      "supply_current_a": 1.57881e-05,
+      "inl_lsb": -0.024904214558288174
+    },
+    {
+      "code": 11,
+      "output_voltage_v": 1.19336,
+      "supply_current_a": 1.57882e-05,
+      "inl_lsb": 0.029374201788314926
+    },
+    {
+      "code": 12,
+      "output_voltage_v": 1.19348,
+      "supply_current_a": 1.57883e-05,
+      "inl_lsb": 0.0025542784171581436
+    },
+    {
+      "code": 13,
+      "output_voltage_v": 1.19361,
+      "supply_current_a": 1.57884e-05,
+      "inl_lsb": 0.056832694763761245
+    },
+    {
+      "code": 14,
+      "output_voltage_v": 1.19373,
+      "supply_current_a": 1.57885e-05,
+      "inl_lsb": 0.03001277139260446
+    },
+    {
+      "code": 15,
+      "output_voltage_v": 1.19385,
+      "supply_current_a": 1.57886e-05,
+      "inl_lsb": 0.0031928480214476794
+    },
+    {
+      "code": 16,
+      "output_voltage_v": 1.19397,
+      "supply_current_a": 1.57887e-05,
+      "inl_lsb": -0.023627075351509846
+    },
+    {
+      "code": 17,
+      "output_voltage_v": 1.1941,
+      "supply_current_a": 1.57888e-05,
+      "inl_lsb": 0.030651340996893997
+    },
+    {
+      "code": 18,
+      "output_voltage_v": 1.19422,
+      "supply_current_a": 1.57889e-05,
+      "inl_lsb": 0.0038314176257372152
+    },
+    {
+      "code": 19,
+      "output_voltage_v": 1.19435,
+      "supply_current_a": 1.57889e-05,
+      "inl_lsb": 0.05810983397234031
+    },
+    {
+      "code": 20,
+      "output_voltage_v": 1.19447,
+      "supply_current_a": 1.5789e-05,
+      "inl_lsb": 0.03128991059938279
+    },
+    {
+      "code": 21,
+      "output_voltage_v": 1.19459,
+      "supply_current_a": 1.57891e-05,
+      "inl_lsb": 0.004469987230026751
+    },
+    {
+      "code": 22,
+      "output_voltage_v": 1.19471,
+      "supply_current_a": 1.57892e-05,
+      "inl_lsb": -0.022349936142930776
+    },
+    {
+      "code": 23,
+      "output_voltage_v": 1.19484,
+      "supply_current_a": 1.57893e-05,
+      "inl_lsb": 0.031928480203672324
+    },
+    {
+      "code": 24,
+      "output_voltage_v": 1.19496,
+      "supply_current_a": 1.57894e-05,
+      "inl_lsb": 0.005108556832515542
+    },
+    {
+      "code": 25,
+      "output_voltage_v": 1.19509,
+      "supply_current_a": 1.57894e-05,
+      "inl_lsb": 0.059386973180919386
+    },
+    {
+      "code": 26,
+      "output_voltage_v": 1.19521,
+      "supply_current_a": 1.57895e-05,
+      "inl_lsb": 0.032567049809762605
+    },
+    {
+      "code": 27,
+      "output_voltage_v": 1.19533,
+      "supply_current_a": 1.57896e-05,
+      "inl_lsb": 0.005747126436805078
+    },
+    {
+      "code": 28,
+      "output_voltage_v": 1.19545,
+      "supply_current_a": 1.57897e-05,
+      "inl_lsb": -0.02107279693615245
+    },
+    {
+      "code": 29,
+      "output_voltage_v": 1.19558,
+      "supply_current_a": 1.57897e-05,
+      "inl_lsb": 0.03320561941405214
+    },
+    {
+      "code": 30,
+      "output_voltage_v": 1.1957,
+      "supply_current_a": 1.57898e-05,
+      "inl_lsb": 0.0063856960410946136
+    },
+    {
+      "code": 31,
+      "output_voltage_v": 1.19583,
+      "supply_current_a": 1.57899e-05,
+      "inl_lsb": 0.06066411238769771
+    },
+    {
+      "code": 32,
+      "output_voltage_v": 1.19595,
+      "supply_current_a": 1.57899e-05,
+      "inl_lsb": 0.03384418901834168
+    },
+    {
+      "code": 33,
+      "output_voltage_v": 1.19607,
+      "supply_current_a": 1.579e-05,
+      "inl_lsb": 0.00702426564538415
+    },
+    {
+      "code": 34,
+      "output_voltage_v": 1.19619,
+      "supply_current_a": 1.579e-05,
+      "inl_lsb": -0.01979565772577263
+    },
+    {
+      "code": 35,
+      "output_voltage_v": 1.19632,
+      "supply_current_a": 1.57901e-05,
+      "inl_lsb": 0.034482758620830466
+    },
+    {
+      "code": 36,
+      "output_voltage_v": 1.19644,
+      "supply_current_a": 1.57901e-05,
+      "inl_lsb": 0.007662835249673685
+    },
+    {
+      "code": 37,
+      "output_voltage_v": 1.19657,
+      "supply_current_a": 1.57902e-05,
+      "inl_lsb": 0.06194125159627679
+    },
+    {
+      "code": 38,
+      "output_voltage_v": 1.19669,
+      "supply_current_a": 1.57902e-05,
+      "inl_lsb": 0.035121328225120006
+    },
+    {
+      "code": 39,
+      "output_voltage_v": 1.19681,
+      "supply_current_a": 1.57903e-05,
+      "inl_lsb": 0.008301404852162476
+    },
+    {
+      "code": 40,
+      "output_voltage_v": 1.19693,
+      "supply_current_a": 1.57903e-05,
+      "inl_lsb": -0.01851851851719356
+    },
+    {
+      "code": 41,
+      "output_voltage_v": 1.19706,
+      "supply_current_a": 1.57904e-05,
+      "inl_lsb": 0.03575989782940954
+    },
+    {
+      "code": 42,
+      "output_voltage_v": 1.19718,
+      "supply_current_a": 1.57904e-05,
+      "inl_lsb": 0.008939974456452011
+    },
+    {
+      "code": 43,
+      "output_voltage_v": 1.19731,
+      "supply_current_a": 1.57904e-05,
+      "inl_lsb": 0.0632183908066566
+    },
+    {
+      "code": 44,
+      "output_voltage_v": 1.19743,
+      "supply_current_a": 1.57905e-05,
+      "inl_lsb": 0.036398467433699074
+    },
+    {
+      "code": 45,
+      "output_voltage_v": 1.19755,
+      "supply_current_a": 1.57905e-05,
+      "inl_lsb": 0.009578544060741549
+    },
+    {
+      "code": 46,
+      "output_voltage_v": 1.19767,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": -0.017241379310415233
+    },
+    {
+      "code": 47,
+      "output_voltage_v": 1.1978,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": 0.037037037037988614
+    },
+    {
+      "code": 48,
+      "output_voltage_v": 1.19792,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": 0.01021711366683183
+    },
+    {
+      "code": 49,
+      "output_voltage_v": 1.19805,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": 0.06449553001343493
+    },
+    {
+      "code": 50,
+      "output_voltage_v": 1.19817,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.0376756066404774
+    },
+    {
+      "code": 51,
+      "output_voltage_v": 1.19829,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.010855683271121365
+    },
+    {
+      "code": 52,
+      "output_voltage_v": 1.19841,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": -0.015964240101836162
+    },
+    {
+      "code": 53,
+      "output_voltage_v": 1.19854,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.038314176244766934
+    },
+    {
+      "code": 54,
+      "output_voltage_v": 1.19866,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.011494252873610156
+    },
+    {
+      "code": 55,
+      "output_voltage_v": 1.19879,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.065772669222014
+    },
+    {
+      "code": 56,
+      "output_voltage_v": 1.19891,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": 0.038952745849056475
+    },
+    {
+      "code": 57,
+      "output_voltage_v": 1.19903,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": 0.012132822477899692
+    },
+    {
+      "code": 58,
+      "output_voltage_v": 1.19915,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": -0.01468710089325709
+    },
+    {
+      "code": 59,
+      "output_voltage_v": 1.19928,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": 0.03959131545334601
+    },
+    {
+      "code": 60,
+      "output_voltage_v": 1.1994,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": 0.012771392082189227
+    },
+    {
+      "code": 61,
+      "output_voltage_v": 1.19953,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": 0.06704980842879232
+    },
+    {
+      "code": 62,
+      "output_voltage_v": 1.19965,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": 0.04022988505943629
+    },
+    {
+      "code": 63,
+      "output_voltage_v": 1.19977,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": 0.013409961686478762
+    },
+    {
+      "code": 64,
+      "output_voltage_v": 1.19989,
+      "supply_current_a": 1.57908e-05,
+      "inl_lsb": -0.013409961686478762
+    },
+    {
+      "code": 65,
+      "output_voltage_v": 1.20002,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.04086845466192508
+    },
+    {
+      "code": 66,
+      "output_voltage_v": 1.20014,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.0140485312907683
+    },
+    {
+      "code": 67,
+      "output_voltage_v": 1.20026,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": -0.012771392080388482
+    },
+    {
+      "code": 68,
+      "output_voltage_v": 1.20039,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.041507024266214616
+    },
+    {
+      "code": 69,
+      "output_voltage_v": 1.20051,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": 0.01468710089325709
+    },
+    {
+      "code": 70,
+      "output_voltage_v": 1.20063,
+      "supply_current_a": 1.57907e-05,
+      "inl_lsb": -0.012132822476098946
+    },
+    {
+      "code": 71,
+      "output_voltage_v": 1.20076,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": 0.04214559387050415
+    },
+    {
+      "code": 72,
+      "output_voltage_v": 1.20088,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": 0.015325670497546627
+    },
+    {
+      "code": 73,
+      "output_voltage_v": 1.201,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": -0.011494252871809411
+    },
+    {
+      "code": 74,
+      "output_voltage_v": 1.20113,
+      "supply_current_a": 1.57906e-05,
+      "inl_lsb": 0.04278416347479369
+    },
+    {
+      "code": 75,
+      "output_voltage_v": 1.20125,
+      "supply_current_a": 1.57905e-05,
+      "inl_lsb": 0.015964240101836162
+    },
+    {
+      "code": 76,
+      "output_voltage_v": 1.20137,
+      "supply_current_a": 1.57905e-05,
+      "inl_lsb": -0.01085568326932062
+    },
+    {
+      "code": 77,
+      "output_voltage_v": 1.2015,
+      "supply_current_a": 1.57905e-05,
+      "inl_lsb": 0.043422733079083224
+    },
+    {
+      "code": 78,
+      "output_voltage_v": 1.20162,
+      "supply_current_a": 1.57904e-05,
+      "inl_lsb": 0.0166028097061257
+    },
+    {
+      "code": 79,
+      "output_voltage_v": 1.20174,
+      "supply_current_a": 1.57904e-05,
+      "inl_lsb": -0.010217113665031084
+    },
+    {
+      "code": 80,
+      "output_voltage_v": 1.20187,
+      "supply_current_a": 1.57904e-05,
+      "inl_lsb": 0.04406130268157202
+    },
+    {
+      "code": 81,
+      "output_voltage_v": 1.20199,
+      "supply_current_a": 1.57903e-05,
+      "inl_lsb": 0.017241379310415233
+    },
+    {
+      "code": 82,
+      "output_voltage_v": 1.20211,
+      "supply_current_a": 1.57903e-05,
+      "inl_lsb": -0.009578544060741549
+    },
+    {
+      "code": 83,
+      "output_voltage_v": 1.20224,
+      "supply_current_a": 1.57902e-05,
+      "inl_lsb": 0.04469987228586155
+    },
+    {
+      "code": 84,
+      "output_voltage_v": 1.20236,
+      "supply_current_a": 1.57902e-05,
+      "inl_lsb": 0.01787994891470477
+    },
+    {
+      "code": 85,
+      "output_voltage_v": 1.20248,
+      "supply_current_a": 1.57901e-05,
+      "inl_lsb": -0.008939974456452011
+    },
+    {
+      "code": 86,
+      "output_voltage_v": 1.20261,
+      "supply_current_a": 1.57901e-05,
+      "inl_lsb": 0.045338441890151085
+    },
+    {
+      "code": 87,
+      "output_voltage_v": 1.20273,
+      "supply_current_a": 1.579e-05,
+      "inl_lsb": 0.018518518518994307
+    },
+    {
+      "code": 88,
+      "output_voltage_v": 1.20285,
+      "supply_current_a": 1.579e-05,
+      "inl_lsb": -0.008301404852162476
+    },
+    {
+      "code": 89,
+      "output_voltage_v": 1.20298,
+      "supply_current_a": 1.57899e-05,
+      "inl_lsb": 0.045977011494440626
+    },
+    {
+      "code": 90,
+      "output_voltage_v": 1.2031,
+      "supply_current_a": 1.57898e-05,
+      "inl_lsb": 0.01915708812328384
+    },
+    {
+      "code": 91,
+      "output_voltage_v": 1.20322,
+      "supply_current_a": 1.57898e-05,
+      "inl_lsb": -0.007662835249673685
+    },
+    {
+      "code": 92,
+      "output_voltage_v": 1.20334,
+      "supply_current_a": 1.57897e-05,
+      "inl_lsb": -0.034482758619029726
+    },
+    {
+      "code": 93,
+      "output_voltage_v": 1.20347,
+      "supply_current_a": 1.57896e-05,
+      "inl_lsb": 0.019795657727573378
+    },
+    {
+      "code": 94,
+      "output_voltage_v": 1.20359,
+      "supply_current_a": 1.57896e-05,
+      "inl_lsb": -0.00702426564538415
+    },
+    {
+      "code": 95,
+      "output_voltage_v": 1.20372,
+      "supply_current_a": 1.57895e-05,
+      "inl_lsb": 0.04725415070121895
+    },
+    {
+      "code": 96,
+      "output_voltage_v": 1.20384,
+      "supply_current_a": 1.57894e-05,
+      "inl_lsb": 0.02043422733186291
+    },
+    {
+      "code": 97,
+      "output_voltage_v": 1.20396,
+      "supply_current_a": 1.57893e-05,
+      "inl_lsb": -0.0063856960410946136
+    },
+    {
+      "code": 98,
+      "output_voltage_v": 1.20408,
+      "supply_current_a": 1.57893e-05,
+      "inl_lsb": -0.0332056194122514
+    },
+    {
+      "code": 99,
+      "output_voltage_v": 1.20421,
+      "supply_current_a": 1.57892e-05,
+      "inl_lsb": 0.02107279693615245
+    },
+    {
+      "code": 100,
+      "output_voltage_v": 1.20433,
+      "supply_current_a": 1.57891e-05,
+      "inl_lsb": -0.005747126436805078
+    },
+    {
+      "code": 101,
+      "output_voltage_v": 1.20446,
+      "supply_current_a": 1.5789e-05,
+      "inl_lsb": 0.04853128991159877
+    },
+    {
+      "code": 102,
+      "output_voltage_v": 1.20458,
+      "supply_current_a": 1.57889e-05,
+      "inl_lsb": 0.02171136653864124
+    },
+    {
+      "code": 103,
+      "output_voltage_v": 1.2047,
+      "supply_current_a": 1.57888e-05,
+      "inl_lsb": -0.0051085568307147975
+    },
+    {
+      "code": 104,
+      "output_voltage_v": 1.20482,
+      "supply_current_a": 1.57887e-05,
+      "inl_lsb": -0.031928480203672324
+    },
+    {
+      "code": 105,
+      "output_voltage_v": 1.20495,
+      "supply_current_a": 1.57886e-05,
+      "inl_lsb": 0.022349936142930776
+    },
+    {
+      "code": 106,
+      "output_voltage_v": 1.20507,
+      "supply_current_a": 1.57885e-05,
+      "inl_lsb": -0.004469987228226006
+    },
+    {
+      "code": 107,
+      "output_voltage_v": 1.2052,
+      "supply_current_a": 1.57884e-05,
+      "inl_lsb": 0.04980842912017784
+    },
+    {
+      "code": 108,
+      "output_voltage_v": 1.20532,
+      "supply_current_a": 1.57883e-05,
+      "inl_lsb": 0.022988505747220313
+    },
+    {
+      "code": 109,
+      "output_voltage_v": 1.20544,
+      "supply_current_a": 1.57882e-05,
+      "inl_lsb": -0.0038314176239364704
+    },
+    {
+      "code": 110,
+      "output_voltage_v": 1.20556,
+      "supply_current_a": 1.57881e-05,
+      "inl_lsb": -0.030651340996893997
+    },
+    {
+      "code": 111,
+      "output_voltage_v": 1.20569,
+      "supply_current_a": 1.5788e-05,
+      "inl_lsb": 0.023627075351509846
+    },
+    {
+      "code": 112,
+      "output_voltage_v": 1.20581,
+      "supply_current_a": 1.57879e-05,
+      "inl_lsb": -0.0031928480196469346
+    },
+    {
+      "code": 113,
+      "output_voltage_v": 1.20593,
+      "supply_current_a": 1.57878e-05,
+      "inl_lsb": -0.03001277139260446
+    },
+    {
+      "code": 114,
+      "output_voltage_v": 1.20606,
+      "supply_current_a": 1.57877e-05,
+      "inl_lsb": 0.024265644955799383
+    },
+    {
+      "code": 115,
+      "output_voltage_v": 1.20618,
+      "supply_current_a": 1.57876e-05,
+      "inl_lsb": -0.0025542784153573988
+    },
+    {
+      "code": 116,
+      "output_voltage_v": 1.2063,
+      "supply_current_a": 1.57875e-05,
+      "inl_lsb": -0.029374201788314926
+    },
+    {
+      "code": 117,
+      "output_voltage_v": 1.20643,
+      "supply_current_a": 1.57873e-05,
+      "inl_lsb": 0.024904214558288174
+    },
+    {
+      "code": 118,
+      "output_voltage_v": 1.20655,
+      "supply_current_a": 1.57872e-05,
+      "inl_lsb": -0.0019157088110678627
+    },
+    {
+      "code": 119,
+      "output_voltage_v": 1.20667,
+      "supply_current_a": 1.57871e-05,
+      "inl_lsb": -0.02873563218402539
+    },
+    {
+      "code": 120,
+      "output_voltage_v": 1.2068,
+      "supply_current_a": 1.5787e-05,
+      "inl_lsb": 0.025542784164378454
+    },
+    {
+      "code": 121,
+      "output_voltage_v": 1.20692,
+      "supply_current_a": 1.57868e-05,
+      "inl_lsb": -0.0012771392085790718
+    },
+    {
+      "code": 122,
+      "output_voltage_v": 1.20704,
+      "supply_current_a": 1.57867e-05,
+      "inl_lsb": -0.028097062579735852
+    },
+    {
+      "code": 123,
+      "output_voltage_v": 1.20717,
+      "supply_current_a": 1.57866e-05,
+      "inl_lsb": 0.02618135376866799
+    },
+    {
+      "code": 124,
+      "output_voltage_v": 1.20729,
+      "supply_current_a": 1.57864e-05,
+      "inl_lsb": -0.0006385696042895359
+    },
+    {
+      "code": 125,
+      "output_voltage_v": 1.20741,
+      "supply_current_a": 1.57863e-05,
+      "inl_lsb": -0.02745849297544632
+    },
+    {
+      "code": 126,
+      "output_voltage_v": 1.20754,
+      "supply_current_a": 1.57862e-05,
+      "inl_lsb": 0.026819923372957525
+    },
+    {
+      "code": 127,
+      "output_voltage_v": 1.20766,
+      "supply_current_a": 1.5786e-05,
+      "inl_lsb": 0.0
+    }
+  ]
+}

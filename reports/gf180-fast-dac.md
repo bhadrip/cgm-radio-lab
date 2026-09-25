@@ -41,5 +41,8 @@ same 63 to 64 transient before broader PVT work. Complete-chip power and
 production evidence remain governed by the
 [PR11 local verification report](https://github.com/bhadrip/cgm-radio-lab/blob/e58d49ba81c756ac0118f7782ccf35791c83b7d8/docs/pr11-local-verification-report.md).
 
+The [current-steered follow-on](gf180-fast-dac-steered.md) implements that next
+experiment and advances a 6+1 candidate to broader verification.
+
 Reproduce with `make gf180-fast-dac-test`. Machine-readable code and transition
 measurements are in `gf180_fast_dac.json`.

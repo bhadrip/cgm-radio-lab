@@ -119,6 +119,16 @@ class LcDcoDacModelTest(unittest.TestCase):
             report["frequency_error_limit_hz"],
         )
 
+    def test_steered_six_plus_one_fast_dac_passes_nominal_gate(self):
+        report = json.loads(
+            (ROOT / "reports" / "gf180_fast_dac_steered.json").read_text()
+        )
+        self.assertTrue(report["static_linearity_passed"])
+        self.assertTrue(report["transition_passed"])
+        self.assertTrue(report["accepted_for_next_stage"])
+        self.assertEqual(report["thermometer_msb_bits"], 6)
+        self.assertEqual(report["binary_lsb_bits"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()
