@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "purpose": "PR11 maximum-input single-tone LNA schematic screen",
+  "frequency_hz": 2440000000.0,
+  "input_powers_dbm": [
+    -30.0,
+    -25.0,
+    -20.0,
+    -15.0,
+    -10.0,
+    -5.0
+  ],
+  "pr11_maximum_input_dbm": -10.0,
+  "maximum_gain_compression_db": 1.0,
+  "accepted_mode": "bias_boost",
+  "accepted_for_next_stage": true,
+  "modes": [
+    {
+      "name": "normal",
+      "configuration": {
+        "nmos_width_um": 200.0,
+        "bias_current_a": 0.0014,
+        "load_resistance_ohm": 728.5714285714286
+      },
+      "maximum_input_gain_compression_db": 2.288590706301104,
+      "passed": false,
+      "summaries": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "reference_gain_db": 13.893457690552493,
+          "maximum_input_gain_compression_db": 1.6935250956291927,
+          "points": [
+            {
+              "input_power_dbm": -30.0,
+              "source_peak_v": 0.02,
+              "source_node_peak_v": 0.010958071933234979,
+              "output_peak_v": 0.05425091051489471,
+              "intrinsic_voltage_gain_db": 13.893457690552493,
+              "gain_compression_db": 0.0
+            },
+            {
+              "input_power_dbm": -25.0,
+              "source_peak_v": 0.03556558820077846,
+              "source_node_peak_v": 0.019515465558616815,
+              "output_peak_v": 0.09626582114046044,
+              "intrinsic_voltage_gain_db": 13.861864069241491,
+              "gain_compression_db": 0.03159362131100174
+            },
+            {
+              "input_power_dbm": -20.0,
+              "source_peak_v": 0.06324555320336758,
+              "source_node_peak_v": 0.034871488178536796,
+              "output_peak_v": 0.17012485007923742,
+              "intrinsic_voltage_gain_db": 13.765945474701205,
+              "gain_compression_db": 0.12751221585128825
+            },
+            {
+              "input_power_dbm": -15.0,
+              "source_peak_v": 0.11246826503806982,
+              "source_node_peak_v": 0.0630141524903174,
+              "output_peak_v": 0.29620899240352777,
+              "intrinsic_voltage_gain_db": 13.443202784939896,
+              "gain_compression_db": 0.4502549056125975
+            },
+            {
+              "input_power_dbm": -10.0,
+              "source_peak_v": 0.2,
+              "source_node_peak_v": 0.11865127947399552,
+              "output_peak_v": 0.48335816092222383,
+              "intrinsic_voltage_gain_db": 12.1999325949233,
+              "gain_compression_db": 1.6935250956291927
+            },
+            {
+              "input_power_dbm": -5.0,
+              "source_peak_v": 0.35565588200778453,
+              "source_node_peak_v": 0.2442765776463019,
+              "output_peak_v": 0.6342952337706141,
+              "intrinsic_voltage_gain_db": 8.28819242393717,
+              "gain_compression_db": 5.605265266615323
+            }
+          ]
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "reference_gain_db": 15.686952744750577,
+          "maximum_input_gain_compression_db": 2.288590706301104,
+          "points": [
+            {
+              "input_power_dbm": -30.0,
+              "source_peak_v": 0.02,
+              "source_node_peak_v": 0.010178159094936922,
+              "output_peak_v": 0.061946514075859285,
+              "intrinsic_voltage_gain_db": 15.686952744750577,
+              "gain_compression_db": 0.0
+            },
+            {
+              "input_power_dbm": -25.0,
+              "source_peak_v": 0.03556558820077846,
+              "source_node_peak_v": 0.018137034198840527,
+              "output_peak_v": 0.10988893306053006,
+              "intrinsic_voltage_gain_db": 15.647753696629781,
+              "gain_compression_db": 0.03919904812079622
+            },
+            {
+              "input_power_dbm": -20.0,
+              "source_peak_v": 0.06324555320336758,
+              "source_node_peak_v": 0.03247162060025095,
+              "output_peak_v": 0.19397617912922424,
+              "intrinsic_voltage_gain_db": 15.52488872967288,
+              "gain_compression_db": 0.1620640150776982
+            },
+            {
+              "input_power_dbm": -15.0,
+              "source_peak_v": 0.11246826503806982,
+              "source_node_peak_v": 0.05907906951586794,
+              "output_peak_v": 0.3361043457034626,
+              "intrinsic_voltage_gain_db": 15.10080962265721,
+              "gain_compression_db": 0.5861431220933682
+            },
+            {
+              "input_power_dbm": -10.0,
+              "source_peak_v": 0.2,
+              "source_node_peak_v": 0.11409946920321624,
+              "output_peak_v": 0.5335826824199852,
+              "intrinsic_voltage_gain_db": 13.398362038449473,
+              "gain_compression_db": 2.288590706301104
+            },
+            {
+              "input_power_dbm": -5.0,
+              "source_peak_v": 0.35565588200778453,
+              "source_node_peak_v": 0.24269881748460304,
+              "output_peak_v": 0.6662394545890185,
+              "intrinsic_voltage_gain_db": 8.771253753282856,
+              "gain_compression_db": 6.915698991467721
+            }
+          ]
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "reference_gain_db": 12.346940047794902,
+          "maximum_input_gain_compression_db": 1.3114855429226928,
+          "points": [
+            {
+              "input_power_dbm": -30.0,
+              "source_peak_v": 0.02,
+              "source_node_peak_v": 0.011613778044278295,
+              "output_peak_v": 0.048119435532568255,
+              "intrinsic_voltage_gain_db": 12.346940047794902,
+              "gain_compression_db": 0.0
+            },
+            {
+              "input_power_dbm": -25.0,
+              "source_peak_v": 0.03556558820077846,
+              "source_node_peak_v": 0.020675287114339455,
+              "output_peak_v": 0.08540475489572154,
+              "intrinsic_voltage_gain_db": 12.32061002786169,
+              "gain_compression_db": 0.026330019933212157
+            },
+            {
+              "input_power_dbm": -20.0,
+              "source_peak_v": 0.06324555320336758,
+              "source_node_peak_v": 0.036896875439795605,
+              "output_peak_v": 0.15106661945520905,
+              "intrinsic_voltage_gain_db": 12.243578412984448,
+              "gain_compression_db": 0.10336163481045446
+            },
+            {
+              "input_power_dbm": -15.0,
+              "source_peak_v": 0.11246826503806982,
+              "source_node_peak_v": 0.06639547796805141,
+              "output_peak_v": 0.26399982425616386,
+              "intrinsic_voltage_gain_db": 11.989302722206288,
+              "gain_compression_db": 0.3576373255886143
+            },
+            {
+              "input_power_dbm": -10.0,
+              "source_peak_v": 0.2,
+              "source_node_peak_v": 0.12308744269513543,
+              "output_peak_v": 0.4385170400316045,
+              "intrinsic_voltage_gain_db": 11.03545450487221,
+              "gain_compression_db": 1.3114855429226928
+            },
+            {
+              "input_power_dbm": -5.0,
+              "source_peak_v": 0.35565588200778453,
+              "source_node_peak_v": 0.24658196436083177,
+              "output_peak_v": 0.6018411658456622,
+              "intrinsic_voltage_gain_db": 7.75041164183607,
+              "gain_compression_db": 4.596528405958832
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "bias_boost",
+      "configuration": {
+        "nmos_width_um": 200.0,
+        "bias_current_a": 0.006,
+        "load_resistance_ohm": 170.0
+      },
+      "maximum_input_gain_compression_db": 0.15481469099477607,
+      "passed": true,
+      "summaries": [
+        {
+          "corner": "typical",
+          "temperature_c": 25,
+          "reference_gain_db": 12.976641697562261,
+          "maximum_input_gain_compression_db": 0.14400087140335316,
+          "points": [
+            {
+              "input_power_dbm": -30.0,
+              "source_peak_v": 0.02,
+              "source_node_peak_v": 0.008030595704471875,
+              "output_peak_v": 0.03577501685456964,
+              "intrinsic_voltage_gain_db": 12.976641697562261,
+              "gain_compression_db": 0.0
+            },
+            {
+              "input_power_dbm": -25.0,
+              "source_peak_v": 0.03556558820077846,
+              "source_node_peak_v": 0.014283317919530253,
+              "output_peak_v": 0.06359695743895678,
+              "intrinsic_voltage_gain_db": 12.972144721224247,
+              "gain_compression_db": 0.004496976338014491
+            },
+            {
+              "input_power_dbm": -20.0,
+              "source_peak_v": 0.06324555320336758,
+              "source_node_peak_v": 0.02541491240071385,
+              "output_peak_v": 0.11303398501302486,
+              "intrinsic_voltage_gain_db": 12.962408435859007,
+              "gain_compression_db": 0.014233261703253675
+            },
+            {
+              "input_power_dbm": -15.0,
+              "source_peak_v": 0.11246826503806982,
+              "source_node_peak_v": 0.045283228695228446,
+              "output_peak_v": 0.20072207343148182,
+              "intrinsic_voltage_gain_db": 12.933155000831995,
+              "gain_compression_db": 0.04348669673026606
+            },
+            {
+              "input_power_dbm": -10.0,
+              "source_peak_v": 0.2,
+              "source_node_peak_v": 0.08106248058684376,
+              "output_peak_v": 0.35518280340041364,
+              "intrinsic_voltage_gain_db": 12.832640826158908,
+              "gain_compression_db": 0.14400087140335316
+            },
+            {
+              "input_power_dbm": -5.0,
+              "source_peak_v": 0.35565588200778453,
+              "source_node_peak_v": 0.14842213075589378,
+              "output_peak_v": 0.6164971796297729,
+              "intrinsic_voltage_gain_db": 12.368648641210973,
+              "gain_compression_db": 0.6079930563512885
+            }
+          ]
+        },
+        {
+          "corner": "ff",
+          "temperature_c": -40,
+          "reference_gain_db": 14.455387903352994,
+          "maximum_input_gain_compression_db": 0.15481469099477607,
+          "points": [
+            {
+              "input_power_dbm": -30.0,
+              "source_peak_v": 0.02,
+              "source_node_peak_v": 0.007276770212549719,
+              "output_peak_v": 0.038433333641646784,
+              "intrinsic_voltage_gain_db": 14.455387903352994,
+              "gain_compression_db": 0.0
+            },
+            {
+              "input_power_dbm": -25.0,
+              "source_peak_v": 0.03556558820077846,
+              "source_node_peak_v": 0.012943284184385515,
+              "output_peak_v": 0.0683242957805432,
+              "intrinsic_voltage_gain_db": 14.450613548116987,
+              "gain_compression_db": 0.004774355236007111
+            },
+            {
+              "input_power_dbm": -20.0,
+              "source_peak_v": 0.06324555320336758,
+              "source_node_peak_v": 0.023037902971178872,
+              "output_peak_v": 0.12145113150141777,
+              "intrinsic_voltage_gain_db": 14.439172408925675,
+              "gain_compression_db": 0.0162154944273194
+            },
+            {
+              "input_power_dbm": -15.0,
+              "source_peak_v": 0.11246826503806982,
+              "source_node_peak_v": 0.04108219021383383,
+              "output_peak_v": 0.21570927742139162,
+              "intrinsic_voltage_gain_db": 14.40430469927249,
+              "gain_compression_db": 0.05108320408050382
+            },
+            {
+              "input_power_dbm": -10.0,
+              "source_peak_v": 0.2,
+              "source_node_peak_v": 0.07362328725750872,
+              "output_peak_v": 0.3819828505106193,
+              "intrinsic_voltage_gain_db": 14.300573212358218,
+              "gain_compression_db": 0.15481469099477607
+            },
+            {
+              "input_power_dbm": -5.0,
+              "source_peak_v": 0.35565588200778453,
+              "source_node_peak_v": 0.13766407632989916,
+              "output_peak_v": 0.657153120312645,
+              "intrinsic_voltage_gain_db": 13.57691898390746,
+              "gain_compression_db": 0.8784689194455346
+            }
+          ]
+        },
+        {
+          "corner": "ss",
+          "temperature_c": 85,
+          "reference_gain_db": 11.616715534799567,
+          "maximum_input_gain_compression_db": 0.11241254556869151,
+          "points": [
+            {
+              "input_power_dbm": -30.0,
+              "source_peak_v": 0.02,
+              "source_node_peak_v": 0.008729207406145755,
+              "output_peak_v": 0.03325145006255832,
+              "intrinsic_voltage_gain_db": 11.616715534799567,
+              "gain_compression_db": 0.0
+            },
+            {
+              "input_power_dbm": -25.0,
+              "source_peak_v": 0.03556558820077846,
+              "source_node_peak_v": 0.015525059763218956,
+              "output_peak_v": 0.059108908411742316,
+              "intrinsic_voltage_gain_db": 11.612393169511508,
+              "gain_compression_db": 0.004322365288059515
+            },
+            {
+              "input_power_dbm": -20.0,
+              "source_peak_v": 0.06324555320336758,
+              "source_node_peak_v": 0.027620254039833363,
+              "output_peak_v": 0.10506150907928456,
+              "intrinsic_voltage_gain_db": 11.604319317862732,
+              "gain_compression_db": 0.012396216936835458
+            },
+            {
+              "input_power_dbm": -15.0,
+              "source_peak_v": 0.11246826503806982,
+              "source_node_peak_v": 0.04918725721941733,
+              "output_peak_v": 0.18660030890990342,
+              "intrinsic_voltage_gain_db": 11.581195045409842,
+              "gain_compression_db": 0.035520489389725185
+            },
+            {
+              "input_power_dbm": -10.0,
+              "source_peak_v": 0.2,
+              "source_node_peak_v": 0.08789071818221715,
+              "output_peak_v": 0.330489877945286,
+              "intrinsic_voltage_gain_db": 11.504302989230876,
+              "gain_compression_db": 0.11241254556869151
+            },
+            {
+              "input_power_dbm": -5.0,
+              "source_peak_v": 0.35565588200778453,
+              "source_node_peak_v": 0.1592653321144322,
+              "output_peak_v": 0.5776347661172755,
+              "intrinsic_voltage_gain_db": 11.190641453398612,
+              "gain_compression_db": 0.42607408140095515
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "This is a schematic single-tone compression screen, not a Bluetooth qualification or measurement.",
+    "Bias switching, blocker combinations, desensitization, package, layout, and mismatch remain open.",
+    "The same ideal-bias and provisional high-impedance mixer-load limitations apply."
+  ]
+}

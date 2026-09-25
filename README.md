@@ -102,6 +102,8 @@ The [LNA two-tone screen](reports/gf180-lna-linearity.md) brackets compression
 and estimates finite-level IM3 across sampled PVT.
 The [LNA bias-boost sweep](reports/gf180-lna-bias-boost.md) selects a temporary
 strong-input state and exposes its active-power cost.
+The [LNA single-tone screen](reports/gf180-lna-single-tone.md) checks normal and
+boosted modes at PR11's provisional -10 dBm maximum input.
 
 ## Reproducible EDA environment
 
@@ -160,6 +162,7 @@ make gf180-lna-test
 make gf180-lna-band-test
 make gf180-lna-linearity-test
 make gf180-lna-bias-boost-test
+make gf180-lna-single-tone-test
 make pa-match-screen
 make rx-noise-budget
 make gfsk-spectrum
