@@ -92,6 +92,8 @@ The [first PA match screen](reports/pa-match-screen.md) sizes a 150-to-50-ohm
 low-pass candidate and sweeps loss and harmonic rejection versus inductor Q.
 The [matched PA co-simulation](reports/gf180-pa-match.md) retunes that network
 with GF180 PA transistors across PVT and measures delivered power and harmonics.
+The [receiver noise budget](reports/rx-noise-budget.md) allocates switch, LNA,
+mixer, and baseband gain/noise against the provisional -80 dBm RX target.
 
 ## Reproducible EDA environment
 
@@ -147,6 +149,7 @@ make gf180-pa-test
 make gf180-pa-load-test
 make gf180-pa-match-test
 make pa-match-screen
+make rx-noise-budget
 make gfsk-spectrum
 make lc-dco-local-calibration
 make lc-dco-dynamic-test
