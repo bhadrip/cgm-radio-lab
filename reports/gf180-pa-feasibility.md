@@ -30,14 +30,17 @@ run; disabled-slice capacitance and the code-gating circuit are follow-up work.
 This is an early active-device and energy feasibility result, not an RF PA
 signoff result. The input is an ideal 2.44 GHz square wave, the coupling
 capacitor is an ideal 10 pF element, and the load is an ideal broadband 50 ohms.
-It does not establish GFSK spectral compliance, harmonic emissions, stability,
-load mismatch tolerance, antenna efficiency, matching-network loss, package
-parasitics, device stress, routed control power, startup energy, or post-layout
-performance.
+It does not establish GFSK spectral compliance, regulatory harmonic compliance,
+stability, load mismatch tolerance, antenna efficiency, matching-network loss,
+package parasitics, device stress, routed control power, startup energy, or
+post-layout performance.
 
 The [complex-envelope spectrum follow-on](gfsk-spectrum.md) verifies the
 digital Gaussian shaping against the adjacent-channel screen before PA and
 matching-network distortion are introduced.
+The [harmonic follow-on](gf180-pa-harmonics.md) measures raw second- and
+third-harmonic output into the same broadband load so a later output network can
+be sized from evidence.
 
 The 0.985 uJ number is only a partial allocation against PR11's provisional
 15 uJ complete-report target. Oscillator, drivers, receive activity, retries,
