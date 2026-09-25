@@ -10,14 +10,16 @@ python-test:
 	python3 -m unittest discover -s tests -p 'test_ble_model.py' -v
 
 rtl-test:
-	$(MAKE) -C tests -f Makefile.cocotb
+	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=ble_phy_loop COCOTB_TEST_MODULES=test_ble_phy_loop SIM_BUILD=sim_build/phy
+	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_packet_loop COCOTB_TEST_MODULES=test_cgm_packet_loop SIM_BUILD=sim_build/packet
 
 experiment:
 	PYTHONPATH=$(ROOT) EDA_IMAGE=$(EDA_IMAGE) python3 scripts/run_experiment.py
 
 yosys-stat:
 	@mkdir -p reports
-	yosys -p 'read_verilog -sv rtl/ble_crc24.sv rtl/ble_whitener.sv rtl/ble_phy_loop.sv; hierarchy -check -top ble_phy_loop; proc; opt; stat' | tee reports/yosys-stat.txt
+	yosys -q -p 'read_verilog -sv rtl/*.sv; hierarchy -check -top cgm_packet_loop; proc; opt; tee -o reports/yosys-stat.txt stat'
+	perl -0pi -e 's/[ \t]+$$//mg; s/\n+\z/\n/' reports/yosys-stat.txt
 
 container-check:
 	docker run --rm \

@@ -2,15 +2,15 @@
 
 The first vertical slice of a local, reproducible BLE LE 1M design loop.
 
-This repository currently validates the portable digital PHY primitives that a
+This repository validates the portable digital packet and PHY primitives that a
 future CGM radio can reuse across process technologies:
 
-1. build a small BLE advertising-channel PDU in Python;
-2. append the BLE 24-bit CRC;
-3. whiten it in synthesizable SystemVerilog;
-4. inject deterministic channel bit errors;
-5. dewhiten it in synthesizable SystemVerilog;
-6. verify the recovered PDU and CRC;
+1. encode sequence, glucose, trend, status, and battery into an eight-byte CGM payload;
+2. wrap it in a test-only BLE manufacturer-specific advertising PDU;
+3. serialize the preamble, advertising access address, PDU, and BLE CRC in SystemVerilog;
+4. whiten PDU+CRC and inject deterministic channel bit errors;
+5. dewhiten, parse, and validate the complete packet in SystemVerilog;
+6. verify recovered CGM fields, fixed packet structure, and CRC;
 7. sweep raw bit-error rates and save packet-error measurements; and
 8. synthesize the RTL with Yosys and save a structural report.
 
@@ -51,12 +51,15 @@ container.
 
 ## Current interface
 
-`rtl/ble_phy_loop.sv` accepts one unwhitened bit per valid clock cycle. The TX
-whitener produces the channel bit, `inject_error` models a hard-decision channel
-error, and the RX whitener recovers the bit. Independent TX and RX CRC engines
-make corruption observable. Channel numbers use the BLE range 0 through 39.
+`rtl/cgm_packet_loop.sv` is the current integration point. Its transmitter emits
+a fixed 224-bit legacy advertising packet. `inject_error` models a hard-decision
+channel error, and the receiver recovers the CGM fields and independently checks
+the fixed format and CRC. Channel numbers use the BLE range 0 through 39.
+
+The advertising payload uses company identifier `0xFFFF` strictly for laboratory
+testing. Production work requires an assigned identifier and a reviewed BLE/CGM
+profile.
 
 The next tapeout-oriented slice will wrap this core in the wafer.space
 GF180MCU project template with SPI registers, packet RAM, BIST, pads, and the
 official precheck flow.
-

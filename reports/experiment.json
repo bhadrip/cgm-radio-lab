@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "slice": "ble-hard-bit-loop",
-  "git_revision": "c5f1500b48a4175ae7f5627503da7d24bf41230c",
+  "slice": "cgm-advertising-packet-loop",
+  "git_revision": "d99d082482783543ecb71d74a43a0618cc2ef9c2",
   "container_image": "docker.io/hpretl/iic-osic-tools:2026.08",
   "python": "3.12.3",
   "seed": 49374,
@@ -14,43 +14,47 @@
       "packets": 2000,
       "packet_errors": 0,
       "packet_error_rate": 0.0,
+      "format_errors": 0,
       "payload_errors": 0,
       "payload_error_rate": 0.0,
-      "transmitted_bits": 208000,
+      "transmitted_bits": 448000,
       "flipped_bits": 0
     },
     {
       "requested_raw_ber": 0.0001,
-      "measured_raw_ber": 6.73076923076923e-05,
+      "measured_raw_ber": 8.705357142857143e-05,
       "packets": 2000,
-      "packet_errors": 14,
-      "packet_error_rate": 0.007,
-      "payload_errors": 10,
-      "payload_error_rate": 0.005,
-      "transmitted_bits": 208000,
-      "flipped_bits": 14
+      "packet_errors": 39,
+      "packet_error_rate": 0.0195,
+      "format_errors": 17,
+      "payload_errors": 27,
+      "payload_error_rate": 0.0135,
+      "transmitted_bits": 448000,
+      "flipped_bits": 39
     },
     {
       "requested_raw_ber": 0.001,
-      "measured_raw_ber": 0.0009278846153846154,
+      "measured_raw_ber": 0.0009040178571428571,
       "packets": 2000,
-      "packet_errors": 183,
-      "packet_error_rate": 0.0915,
-      "payload_errors": 152,
-      "payload_error_rate": 0.076,
-      "transmitted_bits": 208000,
-      "flipped_bits": 193
+      "packet_errors": 364,
+      "packet_error_rate": 0.182,
+      "format_errors": 147,
+      "payload_errors": 265,
+      "payload_error_rate": 0.1325,
+      "transmitted_bits": 448000,
+      "flipped_bits": 405
     },
     {
       "requested_raw_ber": 0.01,
-      "measured_raw_ber": 0.01016826923076923,
+      "measured_raw_ber": 0.009948660714285714,
       "packets": 2000,
-      "packet_errors": 1311,
-      "packet_error_rate": 0.6555,
-      "payload_errors": 1119,
-      "payload_error_rate": 0.5595,
-      "transmitted_bits": 208000,
-      "flipped_bits": 2115
+      "packet_errors": 1777,
+      "packet_error_rate": 0.8885,
+      "format_errors": 1179,
+      "payload_errors": 1583,
+      "payload_error_rate": 0.7915,
+      "transmitted_bits": 448000,
+      "flipped_bits": 4457
     }
   ]
 }

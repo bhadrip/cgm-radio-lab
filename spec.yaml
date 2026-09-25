@@ -6,6 +6,17 @@ crc_init: 0x555555
 payload_bytes: 8
 advertising_channel: 37
 clock_hz: 16000000
+cgm_payload:
+  sequence: uint16
+  glucose_mg_dl: uint16
+  trend_mg_dl_per_min: int16_q8_8
+  status: uint8
+  battery_percent: uint8
+prototype_advertising_pdu:
+  type: ADV_NONCONN_IND
+  advertiser_address_type: random
+  company_identifier: 0xFFFF
+  note: laboratory use only
 experiment:
   seed: 49374
   packets_per_point: 2000
@@ -14,4 +25,3 @@ experiment:
     - 0.0001
     - 0.001
     - 0.01
-
