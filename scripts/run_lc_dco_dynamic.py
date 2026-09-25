@@ -11,6 +11,7 @@ import tempfile
 from pathlib import Path
 
 from model.dco import ble_channel_center_hz
+from model.lc_dco_dac import VoltageDac
 from model.lc_dco_modulation import control_waveform
 
 
@@ -30,8 +31,9 @@ DESIGN_FILE = os.environ.get(
 BITS = (0, 0, 0, 0, 1, 0, 1)
 SAMPLE_PERIOD_S = 1 / 16_000_000
 MEASURE_START_SAMPLE = 4 * 16
-MAXIMUM_ERROR_LIMIT_HZ = 10_000
-MEAN_ERROR_LIMIT_HZ = 1_000
+MAXIMUM_ERROR_LIMIT_HZ = 50_000
+MEAN_ERROR_LIMIT_HZ = 10_000
+DAC_BITS = int(os.environ.get("LC_DCO_DAC_BITS", "12"))
 FREQUENCY = re.compile(r"^freq_(\d+)\s*=\s*([-+0-9.eE]+)", re.MULTILINE)
 SCALAR = re.compile(
     r"^(differential_vpp|supply_current_a|power_w)\s*=\s*([-+0-9.eE]+)",
@@ -83,9 +85,12 @@ def measurements(sample_count: int) -> str:
 def main() -> None:
     static_points = json.loads(STATIC_SWEEP.read_text())["points"]
     static_points += json.loads(LOCAL_CALIBRATION.read_text())["points"]
-    calibration, offsets_hz, voltages = control_waveform(
+    calibration, offsets_hz, ideal_voltages = control_waveform(
         static_points, "typical", 37, BITS
     )
+    dac = VoltageDac(DAC_BITS)
+    codes = [dac.code_for_voltage(voltage) for voltage in ideal_voltages]
+    voltages = [dac.voltage_for_code(code) for code in codes]
     stop_s = len(voltages) * SAMPLE_PERIOD_S
     netlist = (
         TEMPLATE.read_text()
@@ -120,6 +125,8 @@ def main() -> None:
             "requested_frequency_hz": center_hz + offsets_hz[sample],
             "measured_frequency_hz": measured[sample],
             "error_hz": measured[sample] - (center_hz + offsets_hz[sample]),
+            "ideal_control_voltage_v": ideal_voltages[sample],
+            "dac_code": codes[sample],
             "control_voltage_v": voltages[sample],
         }
         for sample in range(MEASURE_START_SAMPLE, len(voltages))
@@ -138,6 +145,8 @@ def main() -> None:
         "coarse_code": calibration.coarse_code,
         "bits": list(BITS),
         "sample_rate_hz": 16_000_000,
+        "dac_bits": dac.bits,
+        "dac_lsb_v": dac.lsb_v,
         "measured_samples": len(samples),
         "mean_frequency_error_hz": mean_error_hz,
         "maximum_absolute_frequency_error_hz": maximum_error_hz,

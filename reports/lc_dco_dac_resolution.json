@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "dac_range_v": {
+    "minimum": 0.0,
+    "maximum": 1.8
+  },
+  "frequency_error_budget_hz": 50000,
+  "packet_samples_per_corner_channel": 3584,
+  "corner_channel_combinations": 9,
+  "selected_bits": 12,
+  "passed": true,
+  "summaries": [
+    {
+      "bits": 8,
+      "levels": 256,
+      "lsb_v": 0.007058823529411765,
+      "maximum_quantization_error_hz": 434073.88819026947,
+      "rms_quantization_error_hz": 210124.37037943146,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 454073.88819026947,
+      "meets_error_budget": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": -69284,
+        "ideal_voltage_v": 1.0976870898779907,
+        "dac_code": 156,
+        "quantized_voltage_v": 1.1011764705882354,
+        "error_hz": 434073.88819026947
+      }
+    },
+    {
+      "bits": 9,
+      "levels": 512,
+      "lsb_v": 0.0035225048923679062,
+      "maximum_quantization_error_hz": 212736.26547908783,
+      "rms_quantization_error_hz": 107709.16064115158,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 232736.26547908783,
+      "meets_error_budget": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -147992,
+        "ideal_voltage_v": 1.2100114349330207,
+        "dac_code": 344,
+        "quantized_voltage_v": 1.2117416829745598,
+        "error_hz": 212736.26547908783
+      }
+    },
+    {
+      "bits": 10,
+      "levels": 1024,
+      "lsb_v": 0.0017595307917888563,
+      "maximum_quantization_error_hz": 108456.66050624847,
+      "rms_quantization_error_hz": 51626.72640676825,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 128456.66050624847,
+      "meets_error_budget": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": -147208,
+        "ideal_voltage_v": 1.0970597923566805,
+        "dac_code": 623,
+        "quantized_voltage_v": 1.0961876832844575,
+        "error_hz": -108456.66050624847
+      }
+    },
+    {
+      "bits": 11,
+      "levels": 2048,
+      "lsb_v": 0.0008793356130923302,
+      "maximum_quantization_error_hz": 51566.94268512726,
+      "rms_quantization_error_hz": 23621.436437334793,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 71566.94268512726,
+      "meets_error_budget": false,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -212716,
+        "ideal_voltage_v": 1.2094993130585054,
+        "dac_code": 1375,
+        "quantized_voltage_v": 1.2090864680019542,
+        "error_hz": -51566.94268512726
+      }
+    },
+    {
+      "bits": 12,
+      "levels": 4096,
+      "lsb_v": 0.00043956043956043956,
+      "maximum_quantization_error_hz": 27757.637362480164,
+      "rms_quantization_error_hz": 11418.117107886206,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 47757.63736248016,
+      "meets_error_budget": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -218898,
+        "ideal_voltage_v": 1.2094503986306542,
+        "dac_code": 2751,
+        "quantized_voltage_v": 1.2092307692307693,
+        "error_hz": -27757.637362480164
+      }
+    },
+    {
+      "bits": 13,
+      "levels": 8192,
+      "lsb_v": 0.0002197533878647296,
+      "maximum_quantization_error_hz": 13784.42023897171,
+      "rms_quantization_error_hz": 6540.838022401374,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 33784.42023897171,
+      "meets_error_budget": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 39,
+        "requested_offset_hz": -249216,
+        "ideal_voltage_v": 1.0962386157544295,
+        "dac_code": 4988,
+        "quantized_voltage_v": 1.0961298986692711,
+        "error_hz": -13784.42023897171
+      }
+    },
+    {
+      "bits": 14,
+      "levels": 16384,
+      "lsb_v": 0.00010986998718183483,
+      "maximum_quantization_error_hz": 6865.846841335297,
+      "rms_quantization_error_hz": 3158.3211670530245,
+      "calibration_error_bound_hz": 20000.0,
+      "conservative_combined_error_hz": 26865.846841335297,
+      "meets_error_budget": true,
+      "worst_case": {
+        "corner": "ss",
+        "channel": 37,
+        "requested_offset_hz": -198346,
+        "ideal_voltage_v": 1.2096130141792147,
+        "dac_code": 11009,
+        "quantized_voltage_v": 1.2095586888848195,
+        "error_hz": -6865.846841335297
+      }
+    }
+  ]
+}

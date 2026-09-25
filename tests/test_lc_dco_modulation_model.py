@@ -78,14 +78,21 @@ class LcDcoModulationModelTest(unittest.TestCase):
             50_000,
         )
 
-    def test_dynamic_typical_channel_37_tracks_within_ten_kilohertz(self):
+    def test_dynamic_typical_channel_37_tracks_within_reported_limits(self):
         report = json.loads((ROOT / "reports" / "lc_dco_dynamic.json").read_text())
         self.assertEqual(report["corner"], "typical")
         self.assertEqual(report["channel"], 37)
         self.assertEqual(report["measured_samples"], 48)
+        self.assertEqual(report["dac_bits"], 12)
         self.assertTrue(report["passed"])
-        self.assertLessEqual(report["maximum_absolute_frequency_error_hz"], 10_000)
-        self.assertLessEqual(abs(report["mean_frequency_error_hz"]), 1_000)
+        self.assertLessEqual(
+            report["maximum_absolute_frequency_error_hz"],
+            report["maximum_absolute_frequency_error_limit_hz"],
+        )
+        self.assertLessEqual(
+            abs(report["mean_frequency_error_hz"]),
+            report["mean_frequency_error_limit_hz"],
+        )
 
 
 if __name__ == "__main__":

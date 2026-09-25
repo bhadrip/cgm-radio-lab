@@ -52,6 +52,8 @@ The [GFSK drive mapping](reports/lc-dco-gfsk-drive.md) holds the coarse bank
 fixed for each burst and maps all 3,584 packet samples onto fine-control voltage.
 The [dynamic validation](reports/lc-dco-dynamic-validation.md) measures a short
 nominal-corner sequence and bounds its instantaneous-frequency tracking error.
+The [fine-control DAC analysis](reports/lc-dco-dac-resolution.md) selects the
+minimum full-scale resolution across all packet samples and sampled corners.
 
 ## Reproducible EDA environment
 
@@ -80,8 +82,8 @@ Generated measurements are written to `reports/experiment.json`,
 `reports/lc_vco_sweep.csv`, `reports/lc_dco_bank.json`,
 `reports/lc_dco_sweep.json`, `reports/lc_dco_sweep.csv`,
 `reports/lc_dco_local_calibration.json`, `reports/lc_dco_modulation.json`,
-`reports/lc_dco_dynamic.json`, `reports/yosys-stat.txt`, and the GFSK/DCO
-synthesis reports.
+`reports/lc_dco_dac_resolution.json`, `reports/lc_dco_dynamic.json`,
+`reports/yosys-stat.txt`, and the GFSK/DCO synthesis reports.
 
 ## Individual targets
 
@@ -93,6 +95,7 @@ make lc-dco-local-calibration
 make lc-dco-dynamic-test
 make dco-bank-sizing
 make dco-modulation
+make dco-dac-resolution
 make experiment
 make yosys-stat
 make gfsk-yosys-stat
