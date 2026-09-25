@@ -50,6 +50,8 @@ The [transistor-level tuning validation](reports/lc-dco-tuning-validation.md)
 then verifies overlapping BLE-band coverage at all three sampled PVT corners.
 The [GFSK drive mapping](reports/lc-dco-gfsk-drive.md) holds the coarse bank
 fixed for each burst and maps all 3,584 packet samples onto fine-control voltage.
+The [dynamic validation](reports/lc-dco-dynamic-validation.md) measures a short
+nominal-corner sequence and bounds its instantaneous-frequency tracking error.
 
 ## Reproducible EDA environment
 
@@ -66,12 +68,19 @@ Run the complete loop:
 make container-check
 ```
 
+Reproduce the longer settled LC-DCO calibration and dynamic check:
+
+```bash
+make container-rf-characterization
+```
+
 Generated measurements are written to `reports/experiment.json`,
 `reports/per_curve.csv`, `reports/ring_dco_sweep.json`,
 `reports/ring_dco_sweep.csv`, `reports/lc_vco_sweep.json`,
 `reports/lc_vco_sweep.csv`, `reports/lc_dco_bank.json`,
 `reports/lc_dco_sweep.json`, `reports/lc_dco_sweep.csv`,
-`reports/lc_dco_modulation.json`, `reports/yosys-stat.txt`, and the GFSK/DCO
+`reports/lc_dco_local_calibration.json`, `reports/lc_dco_modulation.json`,
+`reports/lc_dco_dynamic.json`, `reports/yosys-stat.txt`, and the GFSK/DCO
 synthesis reports.
 
 ## Individual targets
@@ -80,6 +89,8 @@ synthesis reports.
 make python-test
 make rtl-test
 make analog-test
+make lc-dco-local-calibration
+make lc-dco-dynamic-test
 make dco-bank-sizing
 make dco-modulation
 make experiment

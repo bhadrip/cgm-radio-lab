@@ -43,4 +43,6 @@ the quantized model.
 The [LC-DCO drive mapping](../reports/lc-dco-gfsk-drive.md) converts the full
 3,584-sample packet waveform into calibrated fine-control voltage for all three
 advertising channels and the sampled PVT corners. It defines the DAC/bias drive
-requirement; dynamic RF response remains a separate circuit gate.
+requirement. A limited [dynamic transistor-level check](../reports/lc-dco-dynamic-validation.md)
+now verifies 48 consecutive samples at nominal channel 37; complete PVT and
+spectral verification remain separate circuit gates.

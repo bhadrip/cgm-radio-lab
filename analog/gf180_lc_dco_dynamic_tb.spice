@@ -1,0 +1,45 @@
+* Dynamic GF180 LC-DCO GFSK drive bench.
+* Typical corner, advertising channel 37, selected coarse code 6.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ typical
+.lib @@MODEL_FILE@@ mimcap_typical
+.lib @@MODEL_FILE@@ moscap_typical
+
+.param VDD_VALUE=1.8
+.param TAIL_CURRENT=1m
+.param TANK_L=3n
+.param TANK_R=4.6
+.temp 25
+
+VDD vdd 0 {VDD_VALUE}
+VCTRL vctrl 0 PWL(@@CONTROL_PWL@@)
+
+L1 vdd lp {TANK_L}
+R1 lp outp {TANK_R}
+L2 vdd ln {TANK_L}
+R2 ln outn {TANK_R}
+
+XBASEP outp 0 cap_mim_1f5_m4m5_noshield c_width=26u c_length=26u
+XBASEN outn 0 cap_mim_1f5_m4m5_noshield c_width=26u c_length=26u
+@@COARSE_CAPS@@
+
+XVARP outp vctrl cap_nmos_03v3 c_width=4u c_length=4u
+XVARN outn vctrl cap_nmos_03v3 c_width=4u c_length=4u
+
+XMN1 outp outn tail 0 nfet_03v3 l=0.28u w=40u nf=10
+XMN2 outn outp tail 0 nfet_03v3 l=0.28u w=40u nf=10
+ITAIL tail 0 {TAIL_CURRENT}
+EDIFF diff 0 outp outn 1
+
+.ic v(outp)=0.91 v(outn)=0.89 v(tail)=0.4
+.option method=gear reltol=1e-4
+.tran 5p @@STOP_TIME@@ uic
+
+@@MEASUREMENTS@@
+
+.measure tran differential_vpp PP v(diff) FROM=4u TO=@@STOP_TIME@@
+.measure tran supply_current_a AVG i(VDD) FROM=4u TO=@@STOP_TIME@@
+.measure tran power_w PARAM='-supply_current_a*VDD_VALUE'
+
+.end

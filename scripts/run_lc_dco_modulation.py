@@ -18,6 +18,7 @@ from model.lc_dco_modulation import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SWEEP = ROOT / "reports" / "lc_dco_sweep.json"
+LOCAL_CALIBRATION = ROOT / "reports" / "lc_dco_local_calibration.json"
 REPORT = ROOT / "reports" / "lc_dco_modulation.json"
 NOMINAL_CSV = ROOT / "reports" / "lc_dco_modulation_nominal_ch37.csv"
 CORNERS = ("typical", "ff", "ss")
@@ -34,7 +35,8 @@ ADDRESS = 0xC0DEC0FFEE01
 
 def main() -> None:
     sweep = json.loads(SWEEP.read_text())
-    points = sweep["points"]
+    local_calibration = json.loads(LOCAL_CALIBRATION.read_text())
+    points = sweep["points"] + local_calibration["points"]
     summaries = []
     nominal_rows = []
     for corner in CORNERS:
@@ -81,13 +83,16 @@ def main() -> None:
                 ]
     report = {
         "schema_version": 1,
-        "source": str(SWEEP.relative_to(ROOT)),
+        "sources": [
+            str(SWEEP.relative_to(ROOT)),
+            str(LOCAL_CALIBRATION.relative_to(ROOT)),
+        ],
         "packet_bits": 224,
         "samples_per_symbol": 16,
         "sample_rate_hz": 16_000_000,
         "modulation_index": 0.5,
         "nominal_deviation_hz": 250_000,
-        "mapping": "piecewise-linear inverse of transistor-level static sweep",
+        "mapping": "piecewise-linear inverse including local transistor calibration",
         "summaries": summaries,
     }
     REPORT.write_text(json.dumps(report, indent=2) + "\n")
