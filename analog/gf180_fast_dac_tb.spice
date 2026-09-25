@@ -1,0 +1,29 @@
+* Nominal GF180 switched-current fast-DAC bench.
+* An ideal slow-bias source and 1 kOhm summing resistor isolate the fast path.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ typical
+
+.param VDD_VALUE=1.8
+.param BASE_VOLTAGE=1.192
+.param UNIT_CURRENT=125.984251968n
+.temp 25
+
+VDD vdd 0 {VDD_VALUE}
+VBASE vbase 0 {BASE_VOLTAGE}
+RLOAD out vbase 1k
+CLOAD out 0 10p
+
+* One diode-connected reference device biases all matched PMOS current cells.
+IREF vbp 0 {UNIT_CURRENT}
+XREF vbp vbp vdd vdd pfet_03v3 l=1u w=1u nf=1
+
+@@CONTROL_SOURCES@@
+@@DAC_CELLS@@
+
+.option method=gear reltol=1e-4 numdgt=12
+.tran @@TIME_STEP@@ @@STOP_TIME@@
+
+@@MEASUREMENTS@@
+
+.end

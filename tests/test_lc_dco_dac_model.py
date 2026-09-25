@@ -107,6 +107,18 @@ class LcDcoDacModelTest(unittest.TestCase):
         self.assertFalse(summaries[4]["meets_error_limit"])
         self.assertTrue(summaries[5]["meets_error_limit"])
 
+    def test_first_transistor_fast_dac_is_rejected_for_glitch(self):
+        report = json.loads(
+            (ROOT / "reports" / "gf180_fast_dac.json").read_text()
+        )
+        self.assertTrue(report["static_linearity_passed"])
+        self.assertFalse(report["transition_passed"])
+        self.assertFalse(report["accepted_for_implementation"])
+        self.assertGreater(
+            report["transition"]["combined_frequency_error_hz"],
+            report["frequency_error_limit_hz"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
