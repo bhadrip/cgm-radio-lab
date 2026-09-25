@@ -37,3 +37,24 @@ class VoltageDac:
 
     def quantize(self, voltage_v: float) -> float:
         return self.voltage_for_code(self.code_for_voltage(voltage_v))
+
+
+@dataclass(frozen=True)
+class SegmentedVoltageDac:
+    bias: VoltageDac
+    modulation: VoltageDac
+
+    def quantize_waveform(
+        self, center_voltage_v: float, requested_voltages_v: list[float]
+    ) -> tuple[int, list[int], list[float]]:
+        bias_code = self.bias.code_for_voltage(center_voltage_v)
+        bias_voltage_v = self.bias.voltage_for_code(bias_code)
+        modulation_codes = [
+            self.modulation.code_for_voltage(voltage_v - bias_voltage_v)
+            for voltage_v in requested_voltages_v
+        ]
+        output_voltages_v = [
+            bias_voltage_v + self.modulation.voltage_for_code(code)
+            for code in modulation_codes
+        ]
+        return bias_code, modulation_codes, output_voltages_v

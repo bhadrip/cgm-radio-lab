@@ -32,3 +32,6 @@ accuracy requirement. Product power and evidence boundaries follow the
 Reproduce the sweep with `make dco-dac-resolution` and the quantized dynamic run
 with `make lc-dco-dynamic-test`. Machine-readable results are in
 `lc_dco_dac_resolution.json` and `lc_dco_dynamic.json`.
+
+The follow-on [segmented architecture](lc-dco-segmented-dac.md) keeps the broad
+range in a slow bias path and reduces the 16 MHz modulation path to six bits.

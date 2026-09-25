@@ -13,15 +13,18 @@
     1
   ],
   "sample_rate_hz": 16000000,
-  "dac_bits": 12,
-  "dac_lsb_v": 0.00043956043956043956,
+  "bias_dac_bits": 7,
+  "bias_dac_code": 42,
+  "bias_dac_voltage_v": 1.0653543307086615,
+  "modulation_dac_bits": 6,
+  "modulation_dac_lsb_v": 0.00025396825396825396,
   "measured_samples": 48,
-  "mean_frequency_error_hz": -1421.1666666666667,
-  "maximum_absolute_frequency_error_hz": 23484.0,
+  "mean_frequency_error_hz": 5245.5,
+  "maximum_absolute_frequency_error_hz": 11612.0,
   "mean_frequency_error_limit_hz": 10000,
-  "maximum_absolute_frequency_error_limit_hz": 50000,
+  "maximum_absolute_frequency_error_limit_hz": 40000,
   "passed": true,
-  "differential_vpp": 1.09588,
+  "differential_vpp": 1.09589,
   "supply_current_a": 0.00100002,
   "power_w": 0.00180003,
   "samples": [
@@ -29,271 +32,271 @@
       "sample": 64,
       "time_s": 4e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 65,
       "time_s": 4.0625e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 66,
       "time_s": 4.1249999999999995e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 67,
       "time_s": 4.1875e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 68,
       "time_s": 4.25e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 69,
       "time_s": 4.3125e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 70,
       "time_s": 4.375e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 71,
       "time_s": 4.4374999999999994e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 72,
       "time_s": 4.5e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 73,
       "time_s": 4.5625e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 74,
       "time_s": 4.625e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 75,
       "time_s": 4.6875e-06,
       "requested_frequency_hz": 2401750000,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": 0.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 10000.0,
       "ideal_control_voltage_v": 1.0646211439156867,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 76,
       "time_s": 4.749999999999999e-06,
       "requested_frequency_hz": 2401750002,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -2.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9998.0,
       "ideal_control_voltage_v": 1.064621165403583,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 77,
       "time_s": 4.8125e-06,
       "requested_frequency_hz": 2401750004,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -4.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9996.0,
       "ideal_control_voltage_v": 1.0646211868914794,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 78,
       "time_s": 4.875e-06,
       "requested_frequency_hz": 2401750008,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -8.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9992.0,
       "ideal_control_voltage_v": 1.0646212298672721,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 79,
       "time_s": 4.9375e-06,
       "requested_frequency_hz": 2401750024,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -24.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9976.0,
       "ideal_control_voltage_v": 1.064621401770443,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 80,
       "time_s": 4.9999999999999996e-06,
       "requested_frequency_hz": 2401750062,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -62.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9938.0,
       "ideal_control_voltage_v": 1.0646218100404736,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 81,
       "time_s": 5.062499999999999e-06,
       "requested_frequency_hz": 2401750152,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -152.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9848.0,
       "ideal_control_voltage_v": 1.0646227769958094,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 82,
       "time_s": 5.125e-06,
       "requested_frequency_hz": 2401750354,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -354.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9646.0,
       "ideal_control_voltage_v": 1.064624947273341,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 83,
       "time_s": 5.1875e-06,
       "requested_frequency_hz": 2401750782,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -782.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 9218.0,
       "ideal_control_voltage_v": 1.0646295456831598,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 84,
       "time_s": 5.25e-06,
       "requested_frequency_hz": 2401751640,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -1640.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 8360.0,
       "ideal_control_voltage_v": 1.0646387639906942,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 85,
       "time_s": 5.3124999999999995e-06,
       "requested_frequency_hz": 2401753266,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -3266.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 6734.0,
       "ideal_control_voltage_v": 1.0646562336504275,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 86,
       "time_s": 5.374999999999999e-06,
       "requested_frequency_hz": 2401756182,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -6182.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": 3818.0,
       "ideal_control_voltage_v": 1.0646875630033068,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 87,
       "time_s": 5.4375e-06,
       "requested_frequency_hz": 2401761126,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -11126.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": -1126.0,
       "ideal_control_voltage_v": 1.0647406810830857,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 88,
       "time_s": 5.5e-06,
       "requested_frequency_hz": 2401769060,
-      "measured_frequency_hz": 2401750000.0,
-      "error_hz": -19060.0,
+      "measured_frequency_hz": 2401760000.0,
+      "error_hz": -9060.0,
       "ideal_control_voltage_v": 1.0648259235679087,
-      "dac_code": 2422,
-      "control_voltage_v": 1.0646153846153845
+      "modulation_code": 29,
+      "control_voltage_v": 1.064719410073741
     },
     {
       "sample": 89,
       "time_s": 5.5625e-06,
       "requested_frequency_hz": 2401781102,
-      "measured_frequency_hz": 2401790000.0,
-      "error_hz": 8898.0,
+      "measured_frequency_hz": 2401780000.0,
+      "error_hz": -1102.0,
       "ideal_control_voltage_v": 1.0649553021918363,
-      "dac_code": 2423,
-      "control_voltage_v": 1.0650549450549451
+      "modulation_code": 30,
+      "control_voltage_v": 1.064973378327709
     },
     {
       "sample": 90,
       "time_s": 5.6249999999999995e-06,
       "requested_frequency_hz": 2401798388,
-      "measured_frequency_hz": 2401790000.0,
-      "error_hz": -8388.0,
+      "measured_frequency_hz": 2401810000.0,
+      "error_hz": 11612.0,
       "ideal_control_voltage_v": 1.0651410220799953,
-      "dac_code": 2423,
-      "control_voltage_v": 1.0650549450549451
+      "modulation_code": 31,
+      "control_voltage_v": 1.0652273465816773
     },
     {
       "sample": 91,
@@ -302,18 +305,18 @@
       "measured_frequency_hz": 2401830000.0,
       "error_hz": 8140.0,
       "ideal_control_voltage_v": 1.065393204031567,
-      "dac_code": 2424,
-      "control_voltage_v": 1.0654945054945055
+      "modulation_code": 32,
+      "control_voltage_v": 1.0654813148356457
     },
     {
       "sample": 92,
       "time_s": 5.75e-06,
       "requested_frequency_hz": 2401852008,
-      "measured_frequency_hz": 2401870000.0,
-      "error_hz": 17992.0,
+      "measured_frequency_hz": 2401860000.0,
+      "error_hz": 7992.0,
       "ideal_control_voltage_v": 1.0657171125811575,
-      "dac_code": 2425,
-      "control_voltage_v": 1.065934065934066
+      "modulation_code": 33,
+      "control_voltage_v": 1.0657352830896138
     },
     {
       "sample": 93,
@@ -322,68 +325,68 @@
       "measured_frequency_hz": 2401880000.0,
       "error_hz": -8632.0,
       "ideal_control_voltage_v": 1.0661105989391313,
-      "dac_code": 2425,
-      "control_voltage_v": 1.065934065934066
+      "modulation_code": 34,
+      "control_voltage_v": 1.065989251343582
     },
     {
       "sample": 94,
       "time_s": 5.875e-06,
       "requested_frequency_hz": 2401930716,
-      "measured_frequency_hz": 2401920000.0,
-      "error_hz": -10716.0,
+      "measured_frequency_hz": 2401930000.0,
+      "error_hz": -716.0,
       "ideal_control_voltage_v": 1.0665454897596525,
-      "dac_code": 2426,
-      "control_voltage_v": 1.0663736263736263
+      "modulation_code": 36,
+      "control_voltage_v": 1.0664971878515186
     },
     {
       "sample": 95,
       "time_s": 5.9374999999999995e-06,
       "requested_frequency_hz": 2401976454,
-      "measured_frequency_hz": 2401960000.0,
-      "error_hz": -16454.0,
+      "measured_frequency_hz": 2401980000.0,
+      "error_hz": 3546.0,
       "ideal_control_voltage_v": 1.0669632380735599,
-      "dac_code": 2427,
-      "control_voltage_v": 1.0668131868131867
+      "modulation_code": 38,
+      "control_voltage_v": 1.0670051243594552
     },
     {
       "sample": 96,
       "time_s": 6e-06,
       "requested_frequency_hz": 2402023460,
-      "measured_frequency_hz": 2402000000.0,
-      "error_hz": -23460.0,
+      "measured_frequency_hz": 2402030000.0,
+      "error_hz": 6540.0,
       "ideal_control_voltage_v": 1.067438008944728,
-      "dac_code": 2428,
-      "control_voltage_v": 1.0672527472527473
+      "modulation_code": 40,
+      "control_voltage_v": 1.0675130608673917
     },
     {
       "sample": 97,
       "time_s": 6.0625e-06,
       "requested_frequency_hz": 2402069124,
-      "measured_frequency_hz": 2402090000.0,
-      "error_hz": 20876.0,
+      "measured_frequency_hz": 2402080000.0,
+      "error_hz": 10876.0,
       "ideal_control_voltage_v": 1.0679254986981452,
-      "dac_code": 2430,
-      "control_voltage_v": 1.0681318681318681
+      "modulation_code": 42,
+      "control_voltage_v": 1.068020997375328
     },
     {
       "sample": 98,
       "time_s": 6.125e-06,
       "requested_frequency_hz": 2402111010,
-      "measured_frequency_hz": 2402130000.0,
-      "error_hz": 18990.0,
+      "measured_frequency_hz": 2402100000.0,
+      "error_hz": -11010.0,
       "ideal_control_voltage_v": 1.068372656104672,
-      "dac_code": 2431,
-      "control_voltage_v": 1.0685714285714285
+      "modulation_code": 43,
+      "control_voltage_v": 1.0682749656292965
     },
     {
       "sample": 99,
       "time_s": 6.1875e-06,
       "requested_frequency_hz": 2402147208,
-      "measured_frequency_hz": 2402130000.0,
-      "error_hz": -17208.0,
+      "measured_frequency_hz": 2402150000.0,
+      "error_hz": 2792.0,
       "ideal_control_voltage_v": 1.0687590908036513,
-      "dac_code": 2431,
-      "control_voltage_v": 1.0685714285714285
+      "modulation_code": 45,
+      "control_voltage_v": 1.0687829021372328
     },
     {
       "sample": 100,
@@ -392,68 +395,68 @@
       "measured_frequency_hz": 2402170000.0,
       "error_hz": -6500.0,
       "ideal_control_voltage_v": 1.0690717999368218,
-      "dac_code": 2432,
-      "control_voltage_v": 1.0690109890109891
+      "modulation_code": 46,
+      "control_voltage_v": 1.0690368703912012
     },
     {
       "sample": 101,
       "time_s": 6.3125e-06,
       "requested_frequency_hz": 2402198346,
-      "measured_frequency_hz": 2402210000.0,
-      "error_hz": 11654.0,
+      "measured_frequency_hz": 2402200000.0,
+      "error_hz": 1654.0,
       "ideal_control_voltage_v": 1.0693050186901758,
-      "dac_code": 2433,
-      "control_voltage_v": 1.0694505494505495
+      "modulation_code": 47,
+      "control_voltage_v": 1.0692908386451694
     },
     {
       "sample": 102,
       "time_s": 6.375e-06,
       "requested_frequency_hz": 2402212716,
-      "measured_frequency_hz": 2402210000.0,
-      "error_hz": -2716.0,
+      "measured_frequency_hz": 2402220000.0,
+      "error_hz": 7284.0,
       "ideal_control_voltage_v": 1.0694584267962681,
-      "dac_code": 2433,
-      "control_voltage_v": 1.0694505494505495
+      "modulation_code": 48,
+      "control_voltage_v": 1.0695448068991378
     },
     {
       "sample": 103,
       "time_s": 6.4375e-06,
       "requested_frequency_hz": 2402219814,
-      "measured_frequency_hz": 2402210000.0,
-      "error_hz": -9814.0,
+      "measured_frequency_hz": 2402220000.0,
+      "error_hz": 186.0,
       "ideal_control_voltage_v": 1.0695342020737244,
-      "dac_code": 2433,
-      "control_voltage_v": 1.0694505494505495
+      "modulation_code": 48,
+      "control_voltage_v": 1.0695448068991378
     },
     {
       "sample": 104,
       "time_s": 6.5e-06,
       "requested_frequency_hz": 2402219814,
-      "measured_frequency_hz": 2402210000.0,
-      "error_hz": -9814.0,
+      "measured_frequency_hz": 2402220000.0,
+      "error_hz": 186.0,
       "ideal_control_voltage_v": 1.0695342020737244,
-      "dac_code": 2433,
-      "control_voltage_v": 1.0694505494505495
+      "modulation_code": 48,
+      "control_voltage_v": 1.0695448068991378
     },
     {
       "sample": 105,
       "time_s": 6.5624999999999994e-06,
       "requested_frequency_hz": 2402212716,
-      "measured_frequency_hz": 2402210000.0,
-      "error_hz": -2716.0,
+      "measured_frequency_hz": 2402220000.0,
+      "error_hz": 7284.0,
       "ideal_control_voltage_v": 1.0694584267962681,
-      "dac_code": 2433,
-      "control_voltage_v": 1.0694505494505495
+      "modulation_code": 48,
+      "control_voltage_v": 1.0695448068991378
     },
     {
       "sample": 106,
       "time_s": 6.625e-06,
       "requested_frequency_hz": 2402198346,
-      "measured_frequency_hz": 2402210000.0,
-      "error_hz": 11654.0,
+      "measured_frequency_hz": 2402200000.0,
+      "error_hz": 1654.0,
       "ideal_control_voltage_v": 1.0693050186901758,
-      "dac_code": 2433,
-      "control_voltage_v": 1.0694505494505495
+      "modulation_code": 47,
+      "control_voltage_v": 1.0692908386451694
     },
     {
       "sample": 107,
@@ -462,48 +465,48 @@
       "measured_frequency_hz": 2402170000.0,
       "error_hz": -6500.0,
       "ideal_control_voltage_v": 1.0690717999368218,
-      "dac_code": 2432,
-      "control_voltage_v": 1.0690109890109891
+      "modulation_code": 46,
+      "control_voltage_v": 1.0690368703912012
     },
     {
       "sample": 108,
       "time_s": 6.75e-06,
       "requested_frequency_hz": 2402147210,
-      "measured_frequency_hz": 2402130000.0,
-      "error_hz": -17210.0,
+      "measured_frequency_hz": 2402150000.0,
+      "error_hz": 2790.0,
       "ideal_control_voltage_v": 1.0687591121548143,
-      "dac_code": 2431,
-      "control_voltage_v": 1.0685714285714285
+      "modulation_code": 45,
+      "control_voltage_v": 1.0687829021372328
     },
     {
       "sample": 109,
       "time_s": 6.8124999999999996e-06,
       "requested_frequency_hz": 2402111014,
-      "measured_frequency_hz": 2402130000.0,
-      "error_hz": 18986.0,
+      "measured_frequency_hz": 2402100000.0,
+      "error_hz": -11014.0,
       "ideal_control_voltage_v": 1.068372698806998,
-      "dac_code": 2431,
-      "control_voltage_v": 1.0685714285714285
+      "modulation_code": 43,
+      "control_voltage_v": 1.0682749656292965
     },
     {
       "sample": 110,
       "time_s": 6.874999999999999e-06,
       "requested_frequency_hz": 2402069132,
-      "measured_frequency_hz": 2402090000.0,
-      "error_hz": 20868.0,
+      "measured_frequency_hz": 2402080000.0,
+      "error_hz": 10868.0,
       "ideal_control_voltage_v": 1.0679255841027973,
-      "dac_code": 2430,
-      "control_voltage_v": 1.0681318681318681
+      "modulation_code": 42,
+      "control_voltage_v": 1.068020997375328
     },
     {
       "sample": 111,
       "time_s": 6.9375e-06,
       "requested_frequency_hz": 2402023484,
-      "measured_frequency_hz": 2402000000.0,
-      "error_hz": -23484.0,
+      "measured_frequency_hz": 2402030000.0,
+      "error_hz": 6516.0,
       "ideal_control_voltage_v": 1.067438265158684,
-      "dac_code": 2428,
-      "control_voltage_v": 1.0672527472527473
+      "modulation_code": 40,
+      "control_voltage_v": 1.0675130608673917
     }
   ]
 }

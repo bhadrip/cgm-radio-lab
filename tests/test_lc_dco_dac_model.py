@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from model.lc_dco_dac import VoltageDac
+from model.lc_dco_dac import SegmentedVoltageDac, VoltageDac
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,6 +35,25 @@ class LcDcoDacModelTest(unittest.TestCase):
         summaries = {summary["bits"]: summary for summary in report["summaries"]}
         self.assertFalse(summaries[11]["meets_error_budget"])
         self.assertTrue(summaries[12]["meets_error_budget"])
+
+    def test_segmented_dac_holds_bias_while_modulation_changes(self):
+        dac = SegmentedVoltageDac(
+            VoltageDac(7, 0.9, 1.4), VoltageDac(6, -0.008, 0.008)
+        )
+        bias_code, modulation_codes, outputs = dac.quantize_waveform(
+            1.067, [1.064, 1.067, 1.070]
+        )
+        self.assertIn(bias_code, range(128))
+        self.assertEqual(len(set(modulation_codes)), 3)
+        self.assertEqual(len(outputs), 3)
+
+    def test_segmented_report_selects_seven_plus_six_bits(self):
+        report = json.loads(
+            (ROOT / "reports" / "lc_dco_segmented_dac.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["selected_bias_bits"], 7)
+        self.assertEqual(report["selected_modulation_bits"], 6)
 
 
 if __name__ == "__main__":
