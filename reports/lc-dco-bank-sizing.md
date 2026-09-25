@@ -39,3 +39,6 @@ before the digital controller can be connected to the oscillator.
 
 Reproduce the sizing with `make dco-bank-sizing`; machine-readable values are
 in `lc_dco_bank.json` in this directory.
+
+The proposed partition is exercised with the nonlinear PDK capacitor models in
+[the tuning-validation result](lc-dco-tuning-validation.md).

@@ -32,3 +32,7 @@ under an explicit lumped-inductor/Q assumption. It is not yet a realizable DCO.
 12-bit linear code cannot map directly to legal MIM units. Preserve the
 frequency-request/error-feedback logic, but split the physical interface into a
 calibrated 4-bit coarse MIM code and analog MOS-varactor fine control.
+
+The [transistor-level tuning validation](../reports/lc-dco-tuning-validation.md)
+confirms that adjacent coarse codes overlap and the sampled envelope covers the
+BLE band at typical, fast, and slow corners under the assumed tank model.
