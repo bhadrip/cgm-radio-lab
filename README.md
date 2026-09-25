@@ -17,6 +17,8 @@ future CGM radio can reuse across process technologies:
 This slice intentionally does **not** implement GFSK, an analog RF front end,
 or direct phone connectivity. It establishes the closed measurement loop that
 later slices will retain while behavioral blocks are replaced with RF circuits.
+The project requirements, unresolved product inputs, and review gates are kept
+in [the engineering basis](docs/engineering-basis.md).
 
 ## Reproducible EDA environment
 
