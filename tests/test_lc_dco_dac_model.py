@@ -139,6 +139,22 @@ class LcDcoDacModelTest(unittest.TestCase):
         self.assertLessEqual(report["worst_absolute_dnl_lsb"], 0.5)
         self.assertLessEqual(report["worst_combined_frequency_error_hz"], 50_000)
 
+    def test_steered_fast_dac_mismatch_requirement_is_bracketed(self):
+        report = json.loads(
+            (ROOT / "reports" / "gf180_fast_dac_mismatch.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["corner_count"], 3)
+        self.assertEqual(
+            report["selected_maximum_unit_current_sigma_fraction"], 0.02
+        )
+        summaries = {
+            summary["unit_current_sigma_fraction"]: summary
+            for summary in report["summaries"]
+        }
+        self.assertTrue(summaries[0.02]["meets_yield_target"])
+        self.assertFalse(summaries[0.0225]["meets_yield_target"])
+
 
 if __name__ == "__main__":
     unittest.main()

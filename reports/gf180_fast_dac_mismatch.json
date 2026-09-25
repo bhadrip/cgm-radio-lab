@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "purpose": "seeded mismatch sensitivity for the 6+1 current-steered fast DAC",
+  "method": "behavioral unit-current perturbation over measured PVT transfers",
+  "trial_count_per_candidate": 50000,
+  "random_seed_base": 50896,
+  "corner_count": 3,
+  "yield_target": 0.999,
+  "yield_confidence_level": 0.95,
+  "inl_limit_lsb": 0.5,
+  "dnl_limit_lsb": 0.5,
+  "selected_maximum_unit_current_sigma_fraction": 0.02,
+  "selected_observed_yield": 0.99968,
+  "selected_yield_one_sided_95_percent_lower_bound": 0.9995186503463284,
+  "first_failing_unit_current_sigma_fraction": 0.0225,
+  "passed": true,
+  "summaries": [
+    {
+      "unit_current_sigma_fraction": 0.01,
+      "passing_trials": 50000,
+      "observed_yield": 1.0,
+      "yield_one_sided_95_percent_lower_bound": 0.9999458920587458,
+      "meets_yield_target": true,
+      "p99_maximum_absolute_inl_lsb": 0.2276007081666762,
+      "p999_maximum_absolute_inl_lsb": 0.2662538932469829,
+      "p99_maximum_absolute_dnl_lsb": 0.11221027623689817,
+      "p999_maximum_absolute_dnl_lsb": 0.12306186151240284
+    },
+    {
+      "unit_current_sigma_fraction": 0.015,
+      "passing_trials": 50000,
+      "observed_yield": 1.0,
+      "yield_one_sided_95_percent_lower_bound": 0.9999458920587458,
+      "meets_yield_target": true,
+      "p99_maximum_absolute_inl_lsb": 0.3129288618493291,
+      "p999_maximum_absolute_inl_lsb": 0.37227056187363416,
+      "p99_maximum_absolute_dnl_lsb": 0.14064792943369486,
+      "p999_maximum_absolute_dnl_lsb": 0.1561064681580504
+    },
+    {
+      "unit_current_sigma_fraction": 0.02,
+      "passing_trials": 49984,
+      "observed_yield": 0.99968,
+      "yield_one_sided_95_percent_lower_bound": 0.9995186503463284,
+      "meets_yield_target": true,
+      "p99_maximum_absolute_inl_lsb": 0.39262454116246204,
+      "p999_maximum_absolute_inl_lsb": 0.46100723943473554,
+      "p99_maximum_absolute_dnl_lsb": 0.17045704127722905,
+      "p999_maximum_absolute_dnl_lsb": 0.1905059412976866
+    },
+    {
+      "unit_current_sigma_fraction": 0.0225,
+      "passing_trials": 49912,
+      "observed_yield": 0.99824,
+      "yield_one_sided_95_percent_lower_bound": 0.99790354304361,
+      "meets_yield_target": false,
+      "p99_maximum_absolute_inl_lsb": 0.4387069621077302,
+      "p999_maximum_absolute_inl_lsb": 0.511720986931735,
+      "p99_maximum_absolute_dnl_lsb": 0.18551211914406784,
+      "p999_maximum_absolute_dnl_lsb": 0.20996437286888003
+    },
+    {
+      "unit_current_sigma_fraction": 0.025,
+      "passing_trials": 49645,
+      "observed_yield": 0.9929,
+      "yield_one_sided_95_percent_lower_bound": 0.9922551473101592,
+      "meets_yield_target": false,
+      "p99_maximum_absolute_inl_lsb": 0.4831919143919805,
+      "p999_maximum_absolute_inl_lsb": 0.5832865031631229,
+      "p99_maximum_absolute_dnl_lsb": 0.20014279203897234,
+      "p999_maximum_absolute_dnl_lsb": 0.22442244838266867
+    }
+  ],
+  "limitations": [
+    "Gaussian independent current errors are assumed; no foundry mismatch parameters are available.",
+    "The same relative mismatch realization is applied at every sampled PVT point.",
+    "Endpoint gain is removed, matching the calibrated INL definition.",
+    "This sensitivity sweep is not device Monte Carlo or production yield signoff."
+  ]
+}
