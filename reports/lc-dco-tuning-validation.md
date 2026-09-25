@@ -35,3 +35,6 @@ post-layout behavior. The inductor still requires an EM-qualified geometry.
 
 Reproduce the sweep with `make lc-dco-test`. Machine-readable results are in
 `lc_dco_sweep.json` and `lc_dco_sweep.csv` in this directory.
+
+The resulting packet-rate control requirement is in
+[the GFSK drive mapping](lc-dco-gfsk-drive.md).
