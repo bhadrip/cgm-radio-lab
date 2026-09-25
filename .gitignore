@@ -6,4 +6,6 @@ tests/results.xml
 *.vcd
 *.fst
 .DS_Store
-
+wafer_space/runs/
+wafer_space/final/
+runs/

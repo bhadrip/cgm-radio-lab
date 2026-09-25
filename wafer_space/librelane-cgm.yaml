@@ -1,0 +1,184 @@
+meta:
+  version: 3
+  flow: Chip
+
+DESIGN_NAME: chip_top
+
+VERILOG_FILES:
+- dir::../third_party/gf180mcu-project-template/src/chip_top.sv
+- dir::../rtl/ble_crc24.sv
+- dir::../rtl/ble_whitener.sv
+- dir::../rtl/ble_phy_loop.sv
+- dir::../rtl/cgm_packet_tx.sv
+- dir::../rtl/cgm_packet_rx.sv
+- dir::../rtl/cgm_packet_loop.sv
+- dir::../rtl/cgm_chip_core.sv
+- dir::chip_core.sv
+
+VERILOG_DEFINES: ["SLOT_0P5X0P5"]
+
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 1936, 2531]
+CORE_AREA: [442, 442, 1494, 2089]
+
+PAD_SOUTH:
+- clk_pad
+- rst_n_pad
+- "dvss_pads\\[0\\].pad"
+- "dvdd_pads\\[0\\].pad"
+- "bidir\\[0\\].pad"
+- "bidir\\[1\\].pad"
+- "bidir\\[2\\].pad"
+- "bidir\\[3\\].pad"
+- "bidir\\[4\\].pad"
+- "bidir\\[5\\].pad"
+- "bidir\\[6\\].pad"
+
+PAD_EAST:
+- "bidir\\[7\\].pad"
+- "bidir\\[8\\].pad"
+- "bidir\\[9\\].pad"
+- "bidir\\[10\\].pad"
+- "bidir\\[11\\].pad"
+- "bidir\\[12\\].pad"
+- "bidir\\[13\\].pad"
+- "bidir\\[14\\].pad"
+- "dvss_pads\\[1\\].pad"
+- "dvdd_pads\\[1\\].pad"
+- "bidir\\[15\\].pad"
+- "bidir\\[16\\].pad"
+- "bidir\\[17\\].pad"
+- "bidir\\[18\\].pad"
+- "bidir\\[19\\].pad"
+- "bidir\\[20\\].pad"
+- "bidir\\[21\\].pad"
+
+PAD_NORTH:
+- "analog\\[3\\].pad"
+- "analog\\[2\\].pad"
+- "dvss_pads\\[2\\].pad"
+- "dvdd_pads\\[2\\].pad"
+- "analog\\[1\\].pad"
+- "analog\\[0\\].pad"
+- "bidir\\[26\\].pad"
+- "bidir\\[25\\].pad"
+- "bidir\\[24\\].pad"
+- "bidir\\[23\\].pad"
+- "bidir\\[22\\].pad"
+
+PAD_WEST:
+- "bidir\\[37\\].pad"
+- "bidir\\[36\\].pad"
+- "bidir\\[35\\].pad"
+- "bidir\\[34\\].pad"
+- "bidir\\[33\\].pad"
+- "bidir\\[32\\].pad"
+- "bidir\\[31\\].pad"
+- "bidir\\[30\\].pad"
+- "bidir\\[29\\].pad"
+- "bidir\\[28\\].pad"
+- "bidir\\[27\\].pad"
+- "inputs\\[3\\].pad"
+- "inputs\\[2\\].pad"
+- "vss_pads\\[0\\].pad"
+- "vdd_pads\\[0\\].pad"
+- "inputs\\[1\\].pad"
+- "inputs\\[0\\].pad"
+
+PNR_SDC_FILE: dir::../third_party/gf180mcu-project-template/librelane/chip_top.sdc
+SIGNOFF_SDC_FILE: dir::../third_party/gf180mcu-project-template/librelane/chip_top.sdc
+FALLBACK_SDC: dir::../third_party/gf180mcu-project-template/librelane/chip_top.sdc
+
+VDD_NETS: [VDD]
+GND_NETS: [VSS]
+CLOCK_PORT: clk_PAD
+CLOCK_NET: clk_pad/Y
+CLOCK_PERIOD: 40
+
+IGNORE_DISCONNECTED_MODULES:
+- gf180mcu_fd_io__bi_24t
+- gf180mcu_ws_ip__qrcode_id
+- gf180mcu_ws_ip__shuttle_id
+- gf180mcu_ws_ip__project_id
+- gf180mcu_ws_ip__logo
+- gf180mcu_ws_ip__marker
+
+PL_TARGET_DENSITY_PCT: 35
+GRT_ALLOW_CONGESTION: true
+PL_MAX_DISPLACEMENT_Y: 200
+
+MACROS:
+  gf180mcu_ws_ip__qrcode_id:
+    gds:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__qrcode_id/gds/gf180mcu_ws_ip__qrcode_id.gds
+    lef:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__qrcode_id/lef/gf180mcu_ws_ip__qrcode_id.lef
+    vh:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__qrcode_id/vh/gf180mcu_ws_ip__qrcode_id.v
+    lib:
+      "*":
+        - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__qrcode_id/lib/gf180mcu_ws_ip__qrcode_id.lib
+    instances:
+      qrcode_id:
+        location: [26, 26]
+        orientation: N
+
+  gf180mcu_ws_ip__shuttle_id:
+    gds:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__shuttle_id/gds/gf180mcu_ws_ip__shuttle_id.gds
+    lef:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__shuttle_id/lef/gf180mcu_ws_ip__shuttle_id.lef
+    vh:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__shuttle_id/vh/gf180mcu_ws_ip__shuttle_id.v
+    lib:
+      "*":
+        - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__shuttle_id/lib/gf180mcu_ws_ip__shuttle_id.lib
+    instances:
+      shuttle_id:
+        location: [26, 175.6]
+        orientation: E
+
+  gf180mcu_ws_ip__project_id:
+    gds:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__project_id/gds/gf180mcu_ws_ip__project_id.gds
+    lef:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__project_id/lef/gf180mcu_ws_ip__project_id.lef
+    vh:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__project_id/vh/gf180mcu_ws_ip__project_id.v
+    lib:
+      "*":
+        - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__project_id/lib/gf180mcu_ws_ip__project_id.lib
+    instances:
+      project_id:
+        location: [175.6, 26]
+        orientation: N
+
+  gf180mcu_ws_ip__marker:
+    gds:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__marker/gds/gf180mcu_ws_ip__marker.gds
+    lef:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__marker/lef/gf180mcu_ws_ip__marker.lef
+    vh:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__marker/vh/gf180mcu_ws_ip__marker.v
+    lib:
+      "*":
+        - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__marker/lib/gf180mcu_ws_ip__marker.lib
+    instances:
+      marker:
+        location: [1655, 2250]
+        orientation: N
+
+  gf180mcu_ws_ip__logo:
+    gds:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__logo/gds/gf180mcu_ws_ip__logo.gds
+    lef:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__logo/lef/gf180mcu_ws_ip__logo.lef
+    vh:
+      - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__logo/vh/gf180mcu_ws_ip__logo.v
+    lib:
+      "*":
+        - dir::../third_party/gf180mcu-project-template/ip/gf180mcu_ws_ip__logo/lib/gf180mcu_ws_ip__logo.lib
+    instances:
+      wafer_space_logo:
+        location: [26, 2361.75]
+        orientation: N

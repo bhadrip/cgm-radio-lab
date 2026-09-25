@@ -24,3 +24,11 @@ which provides 4 input pads, 38 bidirectional pads, and 4 analog pads.
 The wrapper only integrates the verified digital hard-bit path. It does not yet
 contain the GFSK modem, RF front end, electrochemical analog front end, antenna
 match, or a production BLE link layer.
+
+The official template is pinned as a submodule. Run synthesis and floorplanning
+for the smallest slot with:
+
+```bash
+git submodule update --init
+make container-gf180-floorplan
+```

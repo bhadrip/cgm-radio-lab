@@ -1,8 +1,11 @@
 SHELL := /bin/bash
 EDA_IMAGE := docker.io/hpretl/iic-osic-tools:2026.08
 ROOT := $(CURDIR)
+GF180_TEMPLATE := third_party/gf180mcu-project-template
+GF180_PDK_ROOT ?= /foss/pdks
+GF180_CONFIGS := wafer_space/librelane-cgm.yaml
 
-.PHONY: check python-test rtl-test experiment yosys-stat wafer-space-yosys container-check clean
+.PHONY: check python-test rtl-test experiment yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan clean
 
 check: python-test rtl-test experiment yosys-stat wafer-space-yosys
 
@@ -38,6 +41,24 @@ container-check:
 		-w /foss/designs/cgm-radio-lab \
 		$(EDA_IMAGE) \
 		-lc 'make check'
+
+gf180-floorplan:
+	$(MAKE) -C $(GF180_TEMPLATE) SLOT=0p5x0p5 defines
+	librelane $(GF180_CONFIGS) \
+		--manual-pdk --pdk-root $(GF180_PDK_ROOT) --pdk gf180mcuD \
+		--scl gf180mcu_fd_sc_mcu7t5v0 --pad gf180mcu_fd_io \
+		--run-tag cgm-floorplan --overwrite --to OpenROAD.Floorplan \
+		--condensed --hide-progress-bar
+
+container-gf180-floorplan:
+	docker run --rm \
+		--user $$(id -u):$$(id -g) \
+		--entrypoint /bin/bash \
+		-e HOME=/tmp \
+		-v '$(ROOT):/foss/designs/cgm-radio-lab' \
+		-w /foss/designs/cgm-radio-lab \
+		$(EDA_IMAGE) \
+		-lc 'make gf180-floorplan'
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
