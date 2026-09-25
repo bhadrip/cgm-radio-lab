@@ -27,3 +27,8 @@ not change this controller interface.
 The subsequent [LC-oscillator feasibility result](../reports/lc-vco-feasibility.md)
 brackets the BLE band with the PDK transistor and MIM-capacitor models, but only
 under an explicit lumped-inductor/Q assumption. It is not yet a realizable DCO.
+
+[Physical tuning-bank sizing](../reports/lc-dco-bank-sizing.md) shows that the
+12-bit linear code cannot map directly to legal MIM units. Preserve the
+frequency-request/error-feedback logic, but split the physical interface into a
+calibrated 4-bit coarse MIM code and analog MOS-varactor fine control.
