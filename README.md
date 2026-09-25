@@ -31,6 +31,11 @@ The next analog boundary is the calibrated
 frequency requests into a 12-bit oscillator code without claiming an RF circuit
 that has not yet been simulated and measured.
 
+A transistor-level GF180 feasibility sweep now rejects a minimum-length
+three-stage ring as the BLE local oscillator: its unloaded slow-corner ceiling
+is 1.583 GHz. See the [ring-oscillator result](reports/ring-dco-feasibility.md).
+This is a useful architecture result, not an RF sign-off claim.
+
 ## Reproducible EDA environment
 
 The flow is pinned to the ARM64-compatible IIC-OSIC-TOOLS image required by the
@@ -47,14 +52,16 @@ make container-check
 ```
 
 Generated measurements are written to `reports/experiment.json`,
-`reports/per_curve.csv`, `reports/yosys-stat.txt`, and the GFSK/DCO synthesis
-reports.
+`reports/per_curve.csv`, `reports/ring_dco_sweep.json`,
+`reports/ring_dco_sweep.csv`, `reports/yosys-stat.txt`, and the GFSK/DCO
+synthesis reports.
 
 ## Individual targets
 
 ```bash
 make python-test
 make rtl-test
+make analog-test
 make experiment
 make yosys-stat
 make gfsk-yosys-stat

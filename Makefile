@@ -5,9 +5,9 @@ GF180_TEMPLATE := third_party/gf180mcu-project-template
 GF180_PDK_ROOT ?= /foss/pdks
 GF180_CONFIGS := wafer_space/librelane-cgm.yaml
 
-.PHONY: check python-test rtl-test experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
+.PHONY: check python-test rtl-test analog-test experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys container-check gf180-floorplan container-gf180-floorplan gf180-route container-gf180-route gf180-signoff container-gf180-signoff clean
 
-check: python-test rtl-test experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys
+check: python-test rtl-test analog-test experiment yosys-stat gfsk-yosys-stat gfsk-tx-yosys-stat dco-yosys-stat wafer-space-yosys
 
 python-test:
 	python3 -m unittest discover -s tests -p 'test_*model.py' -v
@@ -20,6 +20,9 @@ rtl-test:
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_packet_loop COCOTB_TEST_MODULES=test_cgm_packet_loop SIM_BUILD=sim_build/packet
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=cgm_chip_core COCOTB_TEST_MODULES=test_cgm_chip_core SIM_BUILD=sim_build/chip_core
 	$(MAKE) -C tests -f Makefile.cocotb TOPLEVEL=chip_core COCOTB_TEST_MODULES=test_wafer_space_chip_core SIM_BUILD=sim_build/wafer_space
+
+analog-test:
+	python3 scripts/run_ring_dco_sweep.py
 
 experiment:
 	PYTHONPATH=$(ROOT) EDA_IMAGE=$(EDA_IMAGE) python3 scripts/run_experiment.py
@@ -116,4 +119,4 @@ container-gf180-signoff:
 
 clean:
 	$(MAKE) -C tests -f Makefile.cocotb clean
-	$(RM) reports/experiment.json reports/per_curve.csv reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/wafer-space-yosys-stat.txt
+	$(RM) reports/experiment.json reports/per_curve.csv reports/ring_dco_sweep.json reports/ring_dco_sweep.csv reports/yosys-stat.txt reports/gfsk-yosys-stat.txt reports/gfsk-tx-yosys-stat.txt reports/dco-yosys-stat.txt reports/wafer-space-yosys-stat.txt

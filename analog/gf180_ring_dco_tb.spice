@@ -1,0 +1,36 @@
+* GF180 3-stage ring-oscillator feasibility bench.
+* This is a characterization vehicle, not a BLE-compliant RF oscillator.
+
+.include @@DESIGN_FILE@@
+.lib @@MODEL_FILE@@ @@CORNER@@
+
+.param VDD_VALUE=1.8
+.param CLOAD_VALUE=@@CLOAD@@
+.temp @@TEMP_C@@
+
+VDD vdd 0 {VDD_VALUE}
+
+* Minimum-length 3.3 V devices operated at 1.8 V.
+XMN1 n1 n3 0   0   nfet_03v3 l=0.28u w=1.0u nf=1
+XMP1 n1 n3 vdd vdd pfet_03v3 l=0.28u w=2.0u nf=1
+XMN2 n2 n1 0   0   nfet_03v3 l=0.28u w=1.0u nf=1
+XMP2 n2 n1 vdd vdd pfet_03v3 l=0.28u w=2.0u nf=1
+XMN3 n3 n2 0   0   nfet_03v3 l=0.28u w=1.0u nf=1
+XMP3 n3 n2 vdd vdd pfet_03v3 l=0.28u w=2.0u nf=1
+
+CLOAD1 n1 0 {CLOAD_VALUE}
+CLOAD2 n2 0 {CLOAD_VALUE}
+CLOAD3 n3 0 {CLOAD_VALUE}
+
+.ic v(n1)=0 v(n2)={VDD_VALUE} v(n3)=0
+.option method=gear reltol=1e-4
+.tran 2p 200n uic
+
+.measure tran ten_periods
++ TRIG v(n1) VAL={VDD_VALUE/2} RISE=5
++ TARG v(n1) VAL={VDD_VALUE/2} RISE=15
+.measure tran frequency_hz PARAM='10/ten_periods'
+.measure tran supply_current_a AVG i(VDD) FROM=100n TO=200n
+.measure tran power_w PARAM='-supply_current_a*VDD_VALUE'
+
+.end
