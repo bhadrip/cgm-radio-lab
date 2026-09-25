@@ -129,6 +129,16 @@ class LcDcoDacModelTest(unittest.TestCase):
         self.assertEqual(report["thermometer_msb_bits"], 6)
         self.assertEqual(report["binary_lsb_bits"], 1)
 
+    def test_steered_fast_dac_passes_sampled_pvt(self):
+        report = json.loads(
+            (ROOT / "reports" / "gf180_fast_dac_steered_pvt.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["corner_count"], 3)
+        self.assertLessEqual(report["worst_absolute_inl_lsb"], 0.5)
+        self.assertLessEqual(report["worst_absolute_dnl_lsb"], 0.5)
+        self.assertLessEqual(report["worst_combined_frequency_error_hz"], 50_000)
+
 
 if __name__ == "__main__":
     unittest.main()
