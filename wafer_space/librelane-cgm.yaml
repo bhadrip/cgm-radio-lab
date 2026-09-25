@@ -8,6 +8,7 @@ VERILOG_FILES:
 - dir::../third_party/gf180mcu-project-template/src/chip_top.sv
 - dir::../rtl/ble_crc24.sv
 - dir::../rtl/ble_whitener.sv
+- dir::../rtl/ble_gfsk_modulator.sv
 - dir::../rtl/ble_phy_loop.sv
 - dir::../rtl/cgm_packet_tx.sv
 - dir::../rtl/cgm_packet_rx.sv

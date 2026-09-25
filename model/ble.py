@@ -1,7 +1,7 @@
 """Small, dependency-free BLE LE 1M bit-level reference model.
 
-The model deliberately stops at hard bits. GFSK pulse shaping, RF impairments,
-and clock recovery belong to later slices.
+This module stops at hard bits. The waveform-level GFSK reference lives in
+``model.gfsk``; RF impairments and clock recovery remain later work.
 """
 
 from __future__ import annotations

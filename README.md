@@ -14,11 +14,15 @@ future CGM radio can reuse across process technologies:
 7. sweep raw bit-error rates and save packet-error measurements; and
 8. synthesize the RTL with Yosys and save a structural report.
 
-This slice intentionally does **not** implement GFSK, an analog RF front end,
-or direct phone connectivity. It establishes the closed measurement loop that
-later slices will retain while behavioral blocks are replaced with RF circuits.
+The packet loop intentionally still stops at hard bits; the standalone GFSK
+modulator establishes the next digital-to-radio boundary. Neither block
+implements an analog RF front end or direct phone connectivity.
 The project requirements, unresolved product inputs, and review gates are kept
 in [the engineering basis](docs/engineering-basis.md).
+
+The first waveform-level modem block is a synthesizable 16-sample/symbol
+[BLE LE 1M GFSK modulator](docs/gfsk-modulator.md). It exposes an integer-Hz
+frequency-control stream for a later direct-modulation synthesizer.
 
 ## Reproducible EDA environment
 

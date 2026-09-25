@@ -1,0 +1,29 @@
+
+5. Printing statistics.
+
+=== ble_gfsk_modulator ===
+
+        +----------Local Count, excluding submodules.
+        |
+       96 wires
+     2377 wire bits
+       26 public wires
+      438 public wire bits
+        7 ports
+       25 port bits
+        1 memories
+     2560 memory bits
+       73 cells
+        9   $add
+        1   $eq
+        1   $logic_not
+        1   $logic_or
+        1   $meminit
+        1   $memrd_v2
+       40   $mux
+        2   $ne
+       10   $neg
+        1   $reduce_and
+        1   $reduce_bool
+        2   $sdff
+        3   $sdffe

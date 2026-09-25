@@ -5,6 +5,7 @@ ROOT := $(abspath ..)
 VERILOG_SOURCES := \
     $(ROOT)/rtl/ble_crc24.sv \
     $(ROOT)/rtl/ble_whitener.sv \
+    $(ROOT)/rtl/ble_gfsk_modulator.sv \
     $(ROOT)/rtl/ble_phy_loop.sv \
     $(ROOT)/rtl/cgm_packet_tx.sv \
     $(ROOT)/rtl/cgm_packet_rx.sv \
