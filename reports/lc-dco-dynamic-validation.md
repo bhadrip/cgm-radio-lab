@@ -4,9 +4,9 @@
 
 The settled, locally calibrated LC-DCO follows 48 consecutive 16 MHz Gaussian
 control samples at the nominal corner on advertising channel 37 when driven by
-the segmented 7-bit bias plus 6-bit modulation control through 1 kOhm into a
-10 pF RF bypass. After one negative fast-code trim, mean frequency error is
-2.954 kHz and worst absolute error is 21.010 kHz, below the 10 kHz mean and
+the segmented 7-bit bias plus 7-bit modulation control through 1 kOhm into a
+10 pF RF bypass. After a two-code negative fast trim, mean frequency error is
+-2.671 kHz and worst absolute error is 16.454 kHz, below the 10 kHz mean and
 40 kHz peak test limits. Differential output is 1.096 V peak-to-peak and
 oscillator-core power is 1.800 mW.
 
@@ -27,13 +27,14 @@ settled window before the passing run.
 With ideal voltage resolution, the corrected bench reached -171 Hz mean and
 6.454 kHz worst error. A monolithic 12-bit full-scale quantizer reached
 23.484 kHz worst error. The
-[segmented-DAC analysis](lc-dco-segmented-dac.md) reduces the high-speed path to
-six bits and reaches 11.612 kHz on this sequence; its model covers all packet
-samples, advertising channels, and sampled corners.
+[segmented-DAC analysis](lc-dco-segmented-dac.md) initially reduced the
+high-speed path to six ideal bits. The
+[non-ideality budget](lc-dco-dac-nonidealities.md) raises the implementation
+candidate to seven bits after including INL and control noise.
 
-Adding finite drive and RF bypass raises the calibrated worst error to
-21.010 kHz. The [drive-settling sweep](lc-dco-drive-settling.md) establishes the
-1 kOhm/10 pF implementation target and shows that 5 kOhm fails tracking.
+With the seven-bit fast path, finite drive, and RF bypass, calibrated worst error
+is 16.454 kHz. The [drive-settling sweep](lc-dco-drive-settling.md) establishes
+the 1 kOhm/10 pF implementation target and shows that 5 kOhm fails tracking.
 
 This failure is retained because it shows that a dense lookup table cannot
 repair inconsistent measurement conditions.

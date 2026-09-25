@@ -60,13 +60,25 @@ class LcDcoDacModelTest(unittest.TestCase):
             (ROOT / "reports" / "lc_dco_drive_settling.json").read_text()
         )
         self.assertTrue(report["passed"])
-        self.assertEqual(report["recommended_trim_codes"], -1)
+        self.assertEqual(report["recommended_trim_codes"], -2)
         by_pair = {
             (summary["drive_resistance_ohm"], summary["control_load_f"]): summary
             for summary in report["summaries"]
         }
         self.assertTrue(by_pair[(2_500, 10e-12)]["passed"])
         self.assertFalse(by_pair[(5_000, 10e-12)]["passed"])
+
+    def test_nonideality_budget_requires_seven_fast_bits(self):
+        report = json.loads(
+            (ROOT / "reports" / "lc_dco_dac_nonidealities.json").read_text()
+        )
+        self.assertTrue(report["passed"])
+        self.assertEqual(report["selected_modulation_bits"], 7)
+        summaries = {
+            summary["modulation_bits"]: summary for summary in report["summaries"]
+        }
+        self.assertFalse(summaries[6]["meets_error_limit"])
+        self.assertTrue(summaries[7]["meets_error_limit"])
 
 
 if __name__ == "__main__":

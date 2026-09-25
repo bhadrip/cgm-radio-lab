@@ -25,6 +25,7 @@ TEMPLATE = ROOT / "analog" / "gf180_lc_dco_dynamic_tb.spice"
 STATIC_SWEEP = ROOT / "reports" / "lc_dco_sweep.json"
 LOCAL_CALIBRATION = ROOT / "reports" / "lc_dco_local_calibration.json"
 SEGMENTED_DAC = ROOT / "reports" / "lc_dco_segmented_dac.json"
+NONIDEALITY_BUDGET = ROOT / "reports" / "lc_dco_dac_nonidealities.json"
 REPORT = ROOT / "reports" / "lc_dco_dynamic.json"
 MODEL_FILE = os.environ.get(
     "GF180_MODEL_FILE",
@@ -43,7 +44,7 @@ DEFAULT_DRIVE_RESISTANCE_OHM = float(
     os.environ.get("LC_DCO_DRIVE_RESISTANCE_OHM", "1000")
 )
 DEFAULT_CONTROL_LOAD_F = float(os.environ.get("LC_DCO_CONTROL_LOAD_F", "10e-12"))
-DEFAULT_MODULATION_TRIM_CODES = int(os.environ.get("LC_DCO_MODULATION_TRIM_CODES", "-1"))
+DEFAULT_MODULATION_TRIM_CODES = int(os.environ.get("LC_DCO_MODULATION_TRIM_CODES", "-2"))
 FREQUENCY = re.compile(r"^freq_(\d+)\s*=\s*([-+0-9.eE]+)", re.MULTILINE)
 SCALAR = re.compile(
     r"^(differential_vpp|supply_current_a|power_w)\s*=\s*([-+0-9.eE]+)",
@@ -105,6 +106,7 @@ def run_dynamic(
         static_points, "typical", 37, BITS
     )
     dac_report = json.loads(SEGMENTED_DAC.read_text())
+    nonideality_report = json.loads(NONIDEALITY_BUDGET.read_text())
     dac = SegmentedVoltageDac(
         VoltageDac(
             dac_report["selected_bias_bits"],
@@ -112,7 +114,7 @@ def run_dynamic(
             dac_report["bias_range_v"]["maximum"],
         ),
         VoltageDac(
-            dac_report["selected_modulation_bits"],
+            nonideality_report["selected_modulation_bits"],
             dac_report["modulation_range_v"]["minimum"],
             dac_report["modulation_range_v"]["maximum"],
         ),
