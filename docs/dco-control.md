@@ -23,3 +23,7 @@ The first circuit experiment is documented in the
 [GF180 ring-oscillator feasibility result](../reports/ring-dco-feasibility.md).
 It rules out that topology for the BLE LO across the tested PVT corners; it does
 not change this controller interface.
+
+The subsequent [LC-oscillator feasibility result](../reports/lc-vco-feasibility.md)
+brackets the BLE band with the PDK transistor and MIM-capacitor models, but only
+under an explicit lumped-inductor/Q assumption. It is not yet a realizable DCO.
