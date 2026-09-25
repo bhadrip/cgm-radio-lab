@@ -109,6 +109,9 @@ low-headroom NMOS source-current mirror before it enters the implementation.
 
 ## Reproducible EDA environment
 
+New contributors should follow [the local development guide](development.md)
+for Docker, submodule, Windows/WSL2, Claude Code, and troubleshooting setup.
+
 The flow is pinned to the ARM64-compatible IIC-OSIC-TOOLS image required by the
 IHP AMS template:
 
